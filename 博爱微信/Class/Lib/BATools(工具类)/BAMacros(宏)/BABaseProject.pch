@@ -1,0 +1,158 @@
+
+/*!
+ *  @header BAKit.h
+ *          BABaseProject
+ *
+ *  @brief  BAKit
+ *
+ *  @author 博爱
+ *  @copyright    Copyright © 2016年 博爱. All rights reserved.
+ *  @version    V1.0
+ */
+
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//
+//         .............................................
+//                  佛祖镇楼                  BUG辟易
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+
+/*
+ 
+ *********************************************************************************
+ *
+ * 在使用BAKit的过程中如果出现bug请及时以以下任意一种方式联系我，我会及时修复bug
+ *
+ * QQ     : 可以添加ios开发技术群 479663605 在这里找到我(博爱1616【137361770】)
+ * 微博    : 博爱1616
+ * Email  : 137361770@qq.com
+ * GitHub : https://github.com/boai
+ * 博客园  : http://www.cnblogs.com/boai/
+ * 博客    : http://boai.github.io
+ 
+ *********************************************************************************
+ 
+ */
+
+#ifndef BABaseProject_pch
+#define BABaseProject_pch
+
+
+#ifndef __IPHONE_7_0
+//#warning "This project uses features only available in iOS SDK 7.0 and later."
+#endif
+
+#ifdef __OBJC__
+
+    /*! 系统头文件 */
+    #import <UIKit/UIKit.h> // UI
+    #import <Foundation/Foundation.h> // NS
+
+    /*! 全局宏定义文件 */
+    #import "BADefin.h"
+    #import "BAColorHeader.h"
+    #import "BAFrameHeader.h"
+
+    /*! 正则表达式 */
+    #import "BARegularExpression.h"
+
+    /*! BAKit框架 */
+    #import "BAKit.h"
+
+//    /*! 自定义modal动画 */
+//    #import "BAModal.h"
+//
+//    /*! 本地通知 */
+//    #import "BALocalNotification.h"
+//
+//    /*! 自定义button */
+//    #import <BAButton.h>
+//
+//    /*! 文本宽度/高度自适应 */
+//    #import "BAAutoSizeWithWH.h"
+//
+//    /*! 自定义UINavigationItem */
+//    #import "UINavigationItem+CustomItem.h"
+//
+//    /*! 自动布局三方库 */
+//    #import <Masonry.h>
+//    #import "UIView+SDAutoLayout.h"
+//    #import "UITableView+SDAutoTableViewCellHeight.h"
+//
+//    /*! 缓存三方库 */
+//    #import "UIImageView+WebCache.h"
+//    #import <SDImageCache.h>
+//
+//    /*! 键盘 */
+//    #import "IQKeyboardManager.h"
+//
+//    /*! 加载框提示 */
+//    #import "NSObject+BAProgressHUD.h"
+//
+//    /*! 网络库 */
+//    #import <AFNetworking.h>
+//    #import <UIKit+AFNetworking.h>
+//
+//    /*! block三方库 */
+//    #import <BlocksKit.h>
+//    #import <BlocksKit+UIKit.h>
+//
+//    /*! 上下拉刷新 */
+//    #import <MJRefresh.h>
+//
+//    /*! 友盟分享/登陆 的详细封装 */
+//    #import "BAShareManage.h"
+//
+//    /*! FPS */
+//    #import "BAFPSLabel.h"
+//
+//    /*! YYKit */
+////    #import <YYKit/YYKit.h>
+//
+//    /*! 离屏渲染绘制 layer */
+//    #import "UIView+RoundedCorner.h"
+//
+//    /*! 截屏 */
+////    #import <SDScreenshotCapture.h>
+//
+//    /*! 将Toast通知添加到UIView对象类 */
+//    //#import "UIView+Toast.h"
+//
+//    /*! 网络状态：与AFN可二选一 */
+//    //#import "Reachability.h"
+//
+//    /*! 警告框 */
+//    #import "UIViewController+BAAlertView.h"
+//
+//    /*! 自定义字体 */
+//    #import "AddedFont.h"
+
+
+
+#endif
+
+#endif /* BABaseProject_pch */

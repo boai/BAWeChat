@@ -1,0 +1,1286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		86AABD44C39607F8927513BB /* libPods-博爱微信.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D12FBA01E5C85809C17CE0 /* libPods-博爱微信.a */; };
+		C4442EB81DB8901C00B8CD21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EB71DB8901C00B8CD21 /* main.m */; };
+		C4442EBB1DB8901D00B8CD21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EBA1DB8901D00B8CD21 /* AppDelegate.m */; };
+		C4442EC11DB8901D00B8CD21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4442EBF1DB8901D00B8CD21 /* Main.storyboard */; };
+		C4442EC31DB8901D00B8CD21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4442EC21DB8901D00B8CD21 /* Assets.xcassets */; };
+		C4442EC61DB8901D00B8CD21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4442EC41DB8901D00B8CD21 /* LaunchScreen.storyboard */; };
+		C4442EE11DB891FD00B8CD21 /* BATabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE01DB891FD00B8CD21 /* BATabBarViewController.m */; };
+		C4442EE41DB8942500B8CD21 /* BABaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE31DB8942500B8CD21 /* BABaseViewController.m */; };
+		C4442EE71DB8944800B8CD21 /* BAHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE61DB8944800B8CD21 /* BAHomeViewController.m */; };
+		C4442EEA1DB894A100B8CD21 /* BAContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE91DB894A100B8CD21 /* BAContactViewController.m */; };
+		C4442EED1DB894C000B8CD21 /* BADiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EEC1DB894C000B8CD21 /* BADiscoveryViewController.m */; };
+		C4442EF01DB894D900B8CD21 /* BAProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EEF1DB894D900B8CD21 /* BAProfileViewController.m */; };
+		C4442EF51DB8969100B8CD21 /* BATabBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4442EF31DB8969100B8CD21 /* BATabBundle.bundle */; };
+		C4442EF61DB8969100B8CD21 /* BAWeXinApp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4442EF41DB8969100B8CD21 /* BAWeXinApp.bundle */; };
+		C4442EF91DB8977500B8CD21 /* BABaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EF81DB8977500B8CD21 /* BABaseNavigationController.m */; };
+		C4442FC61DB89A0300B8CD21 /* AppDelegate+BABaiduMap.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EFD1DB89A0300B8CD21 /* AppDelegate+BABaiduMap.m */; };
+		C4442FC71DB89A0300B8CD21 /* AppDelegate+BACategory.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EFF1DB89A0300B8CD21 /* AppDelegate+BACategory.m */; };
+		C4442FC81DB89A0300B8CD21 /* NSObject+BAMJParse.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F011DB89A0300B8CD21 /* NSObject+BAMJParse.m */; };
+		C4442FC91DB89A0300B8CD21 /* NSObject+BANetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F031DB89A0300B8CD21 /* NSObject+BANetwork.m */; };
+		C4442FCA1DB89A0300B8CD21 /* NSObject+BAProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F051DB89A0300B8CD21 /* NSObject+BAProgressHUD.m */; };
+		C4442FCB1DB89A0300B8CD21 /* UIBarButtonItem+Item.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F071DB89A0300B8CD21 /* UIBarButtonItem+Item.m */; };
+		C4442FCC1DB89A0300B8CD21 /* UIViewController+BAAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F091DB89A0300B8CD21 /* UIViewController+BAAlertView.m */; };
+		C4442FCD1DB89A0300B8CD21 /* BAAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F0E1DB89A0300B8CD21 /* BAAlertView.m */; };
+		C4442FCE1DB89A0300B8CD21 /* BAModal.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F101DB89A0300B8CD21 /* BAModal.m */; };
+		C4442FCF1DB89A0300B8CD21 /* BAAutoSizeWithWH.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F131DB89A0300B8CD21 /* BAAutoSizeWithWH.m */; };
+		C4442FD01DB89A0300B8CD21 /* BALocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F161DB89A0300B8CD21 /* BALocalNotification.m */; };
+		C4442FD11DB89A0300B8CD21 /* BACustomBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F191DB89A0300B8CD21 /* BACustomBarItem.m */; };
+		C4442FD21DB89A0300B8CD21 /* UINavigationItem+CustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F1B1DB89A0300B8CD21 /* UINavigationItem+CustomItem.m */; };
+		C4442FD31DB89A0300B8CD21 /* BARegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F1E1DB89A0300B8CD21 /* BARegularExpression.m */; };
+		C4442FD41DB89A0300B8CD21 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F211DB89A0300B8CD21 /* HMSegmentedControl.m */; };
+		C4442FD51DB89A0300B8CD21 /* BAShareAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F241DB89A0300B8CD21 /* BAShareAnimationView.m */; };
+		C4442FD61DB89A0300B8CD21 /* BAShareManage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F261DB89A0300B8CD21 /* BAShareManage.m */; };
+		C4442FD71DB89A0300B8CD21 /* BAShareManageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F281DB89A0300B8CD21 /* BAShareManageView.m */; };
+		C4442FD81DB89A0300B8CD21 /* BASharManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4442F291DB89A0300B8CD21 /* BASharManager.bundle */; };
+		C4442FD91DB89A0300B8CD21 /* BASystermSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F2C1DB89A0300B8CD21 /* BASystermSetting.m */; };
+		C4442FDA1DB89A0300B8CD21 /* BAClearCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F2F1DB89A0300B8CD21 /* BAClearCacheManager.m */; };
+		C4442FDB1DB89A0300B8CD21 /* BACustomMJFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F321DB89A0300B8CD21 /* BACustomMJFooter.m */; };
+		C4442FDC1DB89A0300B8CD21 /* BACustomMJHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F341DB89A0300B8CD21 /* BACustomMJHeader.m */; };
+		C4442FDD1DB89A0300B8CD21 /* BAKitManager+BALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F381DB89A0300B8CD21 /* BAKitManager+BALabel.m */; };
+		C4442FDE1DB89A0300B8CD21 /* BAKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F3A1DB89A0300B8CD21 /* BAKitManager.m */; };
+		C4442FDF1DB89A0300B8CD21 /* NSArray+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F3D1DB89A0300B8CD21 /* NSArray+BAKit.m */; };
+		C4442FE01DB89A0300B8CD21 /* NSData+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F3F1DB89A0300B8CD21 /* NSData+BAKit.m */; };
+		C4442FE11DB89A0300B8CD21 /* NSDate+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F411DB89A0300B8CD21 /* NSDate+BAKit.m */; };
+		C4442FE21DB89A0300B8CD21 /* NSDateFormatter+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F431DB89A0300B8CD21 /* NSDateFormatter+BAKit.m */; };
+		C4442FE31DB89A0300B8CD21 /* NSDictionary+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F451DB89A0300B8CD21 /* NSDictionary+BAKit.m */; };
+		C4442FE41DB89A0300B8CD21 /* NSFileManager+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F471DB89A0300B8CD21 /* NSFileManager+BAKit.m */; };
+		C4442FE51DB89A0300B8CD21 /* NSMutableArray+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F491DB89A0300B8CD21 /* NSMutableArray+BAKit.m */; };
+		C4442FE61DB89A0300B8CD21 /* NSMutableDictionary+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F4B1DB89A0300B8CD21 /* NSMutableDictionary+BAKit.m */; };
+		C4442FE71DB89A0300B8CD21 /* NSNumber+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F4D1DB89A0300B8CD21 /* NSNumber+BAKit.m */; };
+		C4442FE81DB89A0300B8CD21 /* NSObject+BARunTime.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F4F1DB89A0300B8CD21 /* NSObject+BARunTime.m */; };
+		C4442FE91DB89A0300B8CD21 /* NSProcessInfo+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F511DB89A0300B8CD21 /* NSProcessInfo+BAKit.m */; };
+		C4442FEA1DB89A0300B8CD21 /* NSShadow+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F531DB89A0300B8CD21 /* NSShadow+BAKit.m */; };
+		C4442FEB1DB89A0300B8CD21 /* NSMutableAttributedString+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F561DB89A0300B8CD21 /* NSMutableAttributedString+BAKit.m */; };
+		C4442FEC1DB89A0300B8CD21 /* NSString+BAColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F581DB89A0300B8CD21 /* NSString+BAColor.m */; };
+		C4442FED1DB89A0300B8CD21 /* NSString+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F5A1DB89A0300B8CD21 /* NSString+BAKit.m */; };
+		C4442FEE1DB89A0300B8CD21 /* NSString+Trims.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F5C1DB89A0300B8CD21 /* NSString+Trims.m */; };
+		C4442FEF1DB89A0300B8CD21 /* NSThread+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F5E1DB89A0300B8CD21 /* NSThread+BAKit.m */; };
+		C4442FF01DB89A0300B8CD21 /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F621DB89A0300B8CD21 /* GCDGroup.m */; };
+		C4442FF11DB89A0300B8CD21 /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F641DB89A0300B8CD21 /* GCDQueue.m */; };
+		C4442FF21DB89A0300B8CD21 /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F661DB89A0300B8CD21 /* GCDSemaphore.m */; };
+		C4442FF31DB89A0300B8CD21 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F681DB89A0300B8CD21 /* GCDTimer.m */; };
+		C4442FF41DB89A0300B8CD21 /* BAAPP.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F6B1DB89A0300B8CD21 /* BAAPP.m */; };
+		C4442FF51DB89A0300B8CD21 /* BALog.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F6D1DB89A0300B8CD21 /* BALog.m */; };
+		C4442FF61DB89A0300B8CD21 /* BAPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F6F1DB89A0300B8CD21 /* BAPassword.m */; };
+		C4442FF71DB89A0300B8CD21 /* BASystemService.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F711DB89A0300B8CD21 /* BASystemService.m */; };
+		C4442FF81DB89A0300B8CD21 /* BASystemSound.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F731DB89A0300B8CD21 /* BASystemSound.m */; };
+		C4442FF91DB89A0300B8CD21 /* BATouchID.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F751DB89A0300B8CD21 /* BATouchID.m */; };
+		C4442FFA1DB89A0300B8CD21 /* UIApplication+AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F771DB89A0300B8CD21 /* UIApplication+AppInfo.m */; };
+		C4442FFB1DB89A0300B8CD21 /* BACustomModalTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F7A1DB89A0300B8CD21 /* BACustomModalTransition.m */; };
+		C4442FFC1DB89A0300B8CD21 /* BAPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F7C1DB89A0300B8CD21 /* BAPickerView.m */; };
+		C4442FFD1DB89A0300B8CD21 /* BATextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F7E1DB89A0300B8CD21 /* BATextView.m */; };
+		C4442FFE1DB89A0300B8CD21 /* UIBarButtonItem+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F801DB89A0300B8CD21 /* UIBarButtonItem+BAKit.m */; };
+		C4442FFF1DB89A0300B8CD21 /* UIButton+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F821DB89A0300B8CD21 /* UIButton+BAKit.m */; };
+		C44430001DB89A0300B8CD21 /* UICollectionView+ARDynamicCacheHeightLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F841DB89A0300B8CD21 /* UICollectionView+ARDynamicCacheHeightLayoutCell.m */; };
+		C44430011DB89A0300B8CD21 /* UIColor+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F861DB89A0300B8CD21 /* UIColor+BAKit.m */; };
+		C44430021DB89A0300B8CD21 /* UIDevice+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F881DB89A0300B8CD21 /* UIDevice+BAKit.m */; };
+		C44430031DB89A0300B8CD21 /* UIFont+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F8A1DB89A0300B8CD21 /* UIFont+BAKit.m */; };
+		C44430041DB89A0300B8CD21 /* UIImage+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F8C1DB89A0300B8CD21 /* UIImage+BAKit.m */; };
+		C44430051DB89A0300B8CD21 /* UIImageView+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F8E1DB89A0300B8CD21 /* UIImageView+BAKit.m */; };
+		C44430061DB89A0300B8CD21 /* UILabel+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F901DB89A0300B8CD21 /* UILabel+BAKit.m */; };
+		C44430071DB89A0300B8CD21 /* UINavigationBar+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F921DB89A0300B8CD21 /* UINavigationBar+BAKit.m */; };
+		C44430081DB89A0300B8CD21 /* UINavigationController+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F941DB89A0300B8CD21 /* UINavigationController+BAKit.m */; };
+		C44430091DB89A0300B8CD21 /* UIScrollView+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F961DB89A0300B8CD21 /* UIScrollView+BAKit.m */; };
+		C444300A1DB89A0300B8CD21 /* UITableView+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F981DB89A0300B8CD21 /* UITableView+BAKit.m */; };
+		C444300B1DB89A0300B8CD21 /* UITableViewCell+Reuse.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F9A1DB89A0300B8CD21 /* UITableViewCell+Reuse.m */; };
+		C444300C1DB89A0300B8CD21 /* UITextField+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F9C1DB89A0300B8CD21 /* UITextField+BAKit.m */; };
+		C444300D1DB89A0300B8CD21 /* UIView+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F9E1DB89A0300B8CD21 /* UIView+BAKit.m */; };
+		C444300E1DB89A0300B8CD21 /* UIWebView+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FA01DB89A0300B8CD21 /* UIWebView+BAKit.m */; };
+		C444300F1DB89A0300B8CD21 /* UIWindow+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FA21DB89A0300B8CD21 /* UIWindow+BAKit.m */; };
+		C44430101DB89A0300B8CD21 /* BARotateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FA71DB89A0300B8CD21 /* BARotateView.m */; };
+		C44430111DB89A0300B8CD21 /* UIView+BARotateAnimationProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FA91DB89A0300B8CD21 /* UIView+BARotateAnimationProtocol.m */; };
+		C44430121DB89A0300B8CD21 /* BAFadeBlackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FAC1DB89A0300B8CD21 /* BAFadeBlackView.m */; };
+		C44430131DB89A0300B8CD21 /* BASnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FAE1DB89A0300B8CD21 /* BASnowView.m */; };
+		C44430141DB89A0300B8CD21 /* BAUpdatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FB01DB89A0300B8CD21 /* BAUpdatingView.m */; };
+		C44430151DB89A0300B8CD21 /* CALayer+BAMaskLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FB21DB89A0300B8CD21 /* CALayer+BAMaskLayer.m */; };
+		C44430161DB89A0300B8CD21 /* EmitterLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FB41DB89A0300B8CD21 /* EmitterLayerView.m */; };
+		C44430171DB89A0300B8CD21 /* UIView+BAGlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FB61DB89A0300B8CD21 /* UIView+BAGlowView.m */; };
+		C44430181DB89A0300B8CD21 /* BABaseNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FBE1DB89A0300B8CD21 /* BABaseNetManager.m */; };
+		C44430191DB89A0300B8CD21 /* BANetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FC01DB89A0300B8CD21 /* BANetManager.m */; };
+		C444301A1DB89A0300B8CD21 /* BANewsNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FC21DB89A0300B8CD21 /* BANewsNetManager.m */; };
+		C444301B1DB89A0300B8CD21 /* UIImage+CompressImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FC51DB89A0300B8CD21 /* UIImage+CompressImage.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		20D12FBA01E5C85809C17CE0 /* libPods-博爱微信.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-博爱微信.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29F44B6427A24A865E863C0A /* Pods-博爱微信.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-博爱微信.debug.xcconfig"; path = "Pods/Target Support Files/Pods-博爱微信/Pods-博爱微信.debug.xcconfig"; sourceTree = "<group>"; };
+		7FBCDBD7D00F7A14115A723F /* Pods-博爱微信.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-博爱微信.release.xcconfig"; path = "Pods/Target Support Files/Pods-博爱微信/Pods-博爱微信.release.xcconfig"; sourceTree = "<group>"; };
+		C4442EB31DB8901C00B8CD21 /* 博爱微信.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "博爱微信.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4442EB71DB8901C00B8CD21 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C4442EB91DB8901D00B8CD21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C4442EBA1DB8901D00B8CD21 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C4442EC01DB8901D00B8CD21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C4442EC21DB8901D00B8CD21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4442EC51DB8901D00B8CD21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C4442EC71DB8901D00B8CD21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4442EDF1DB891FD00B8CD21 /* BATabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarViewController.h; sourceTree = "<group>"; };
+		C4442EE01DB891FD00B8CD21 /* BATabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarViewController.m; sourceTree = "<group>"; };
+		C4442EE21DB8942500B8CD21 /* BABaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseViewController.h; sourceTree = "<group>"; };
+		C4442EE31DB8942500B8CD21 /* BABaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseViewController.m; sourceTree = "<group>"; };
+		C4442EE51DB8944800B8CD21 /* BAHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHomeViewController.h; sourceTree = "<group>"; };
+		C4442EE61DB8944800B8CD21 /* BAHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHomeViewController.m; sourceTree = "<group>"; };
+		C4442EE81DB894A100B8CD21 /* BAContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAContactViewController.h; sourceTree = "<group>"; };
+		C4442EE91DB894A100B8CD21 /* BAContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAContactViewController.m; sourceTree = "<group>"; };
+		C4442EEB1DB894C000B8CD21 /* BADiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BADiscoveryViewController.h; sourceTree = "<group>"; };
+		C4442EEC1DB894C000B8CD21 /* BADiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BADiscoveryViewController.m; sourceTree = "<group>"; };
+		C4442EEE1DB894D900B8CD21 /* BAProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAProfileViewController.h; sourceTree = "<group>"; };
+		C4442EEF1DB894D900B8CD21 /* BAProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAProfileViewController.m; sourceTree = "<group>"; };
+		C4442EF31DB8969100B8CD21 /* BATabBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BATabBundle.bundle; path = "博爱微信/Class/Resources/Bundle/BATabBundle.bundle"; sourceTree = SOURCE_ROOT; };
+		C4442EF41DB8969100B8CD21 /* BAWeXinApp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BAWeXinApp.bundle; path = "博爱微信/Class/Resources/Bundle/BAWeXinApp.bundle"; sourceTree = SOURCE_ROOT; };
+		C4442EF71DB8977500B8CD21 /* BABaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BABaseNavigationController.h; path = "博爱微信/Class/Base/BABaseNavigationController.h"; sourceTree = SOURCE_ROOT; };
+		C4442EF81DB8977500B8CD21 /* BABaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BABaseNavigationController.m; path = "博爱微信/Class/Base/BABaseNavigationController.m"; sourceTree = SOURCE_ROOT; };
+		C4442EFC1DB89A0300B8CD21 /* AppDelegate+BABaiduMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BABaiduMap.h"; sourceTree = "<group>"; };
+		C4442EFD1DB89A0300B8CD21 /* AppDelegate+BABaiduMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BABaiduMap.m"; sourceTree = "<group>"; };
+		C4442EFE1DB89A0300B8CD21 /* AppDelegate+BACategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+BACategory.h"; sourceTree = "<group>"; };
+		C4442EFF1DB89A0300B8CD21 /* AppDelegate+BACategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+BACategory.m"; sourceTree = "<group>"; };
+		C4442F001DB89A0300B8CD21 /* NSObject+BAMJParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BAMJParse.h"; sourceTree = "<group>"; };
+		C4442F011DB89A0300B8CD21 /* NSObject+BAMJParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BAMJParse.m"; sourceTree = "<group>"; };
+		C4442F021DB89A0300B8CD21 /* NSObject+BANetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BANetwork.h"; sourceTree = "<group>"; };
+		C4442F031DB89A0300B8CD21 /* NSObject+BANetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BANetwork.m"; sourceTree = "<group>"; };
+		C4442F041DB89A0300B8CD21 /* NSObject+BAProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BAProgressHUD.h"; sourceTree = "<group>"; };
+		C4442F051DB89A0300B8CD21 /* NSObject+BAProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BAProgressHUD.m"; sourceTree = "<group>"; };
+		C4442F061DB89A0300B8CD21 /* UIBarButtonItem+Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Item.h"; sourceTree = "<group>"; };
+		C4442F071DB89A0300B8CD21 /* UIBarButtonItem+Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Item.m"; sourceTree = "<group>"; };
+		C4442F081DB89A0300B8CD21 /* UIViewController+BAAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BAAlertView.h"; sourceTree = "<group>"; };
+		C4442F091DB89A0300B8CD21 /* UIViewController+BAAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BAAlertView.m"; sourceTree = "<group>"; };
+		C4442F0D1DB89A0300B8CD21 /* BAAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAlertView.h; sourceTree = "<group>"; };
+		C4442F0E1DB89A0300B8CD21 /* BAAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAlertView.m; sourceTree = "<group>"; };
+		C4442F0F1DB89A0300B8CD21 /* BAModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAModal.h; sourceTree = "<group>"; };
+		C4442F101DB89A0300B8CD21 /* BAModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAModal.m; sourceTree = "<group>"; };
+		C4442F121DB89A0300B8CD21 /* BAAutoSizeWithWH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAutoSizeWithWH.h; sourceTree = "<group>"; };
+		C4442F131DB89A0300B8CD21 /* BAAutoSizeWithWH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAutoSizeWithWH.m; sourceTree = "<group>"; };
+		C4442F151DB89A0300B8CD21 /* BALocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BALocalNotification.h; sourceTree = "<group>"; };
+		C4442F161DB89A0300B8CD21 /* BALocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BALocalNotification.m; sourceTree = "<group>"; };
+		C4442F181DB89A0300B8CD21 /* BACustomBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BACustomBarItem.h; sourceTree = "<group>"; };
+		C4442F191DB89A0300B8CD21 /* BACustomBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACustomBarItem.m; sourceTree = "<group>"; };
+		C4442F1A1DB89A0300B8CD21 /* UINavigationItem+CustomItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomItem.h"; sourceTree = "<group>"; };
+		C4442F1B1DB89A0300B8CD21 /* UINavigationItem+CustomItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomItem.m"; sourceTree = "<group>"; };
+		C4442F1D1DB89A0300B8CD21 /* BARegularExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARegularExpression.h; sourceTree = "<group>"; };
+		C4442F1E1DB89A0300B8CD21 /* BARegularExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARegularExpression.m; sourceTree = "<group>"; };
+		C4442F201DB89A0300B8CD21 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		C4442F211DB89A0300B8CD21 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		C4442F231DB89A0300B8CD21 /* BAShareAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAShareAnimationView.h; sourceTree = "<group>"; };
+		C4442F241DB89A0300B8CD21 /* BAShareAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAShareAnimationView.m; sourceTree = "<group>"; };
+		C4442F251DB89A0300B8CD21 /* BAShareManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAShareManage.h; sourceTree = "<group>"; };
+		C4442F261DB89A0300B8CD21 /* BAShareManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAShareManage.m; sourceTree = "<group>"; };
+		C4442F271DB89A0300B8CD21 /* BAShareManageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAShareManageView.h; sourceTree = "<group>"; };
+		C4442F281DB89A0300B8CD21 /* BAShareManageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAShareManageView.m; sourceTree = "<group>"; };
+		C4442F291DB89A0300B8CD21 /* BASharManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BASharManager.bundle; sourceTree = "<group>"; };
+		C4442F2B1DB89A0300B8CD21 /* BASystermSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASystermSetting.h; sourceTree = "<group>"; };
+		C4442F2C1DB89A0300B8CD21 /* BASystermSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASystermSetting.m; sourceTree = "<group>"; };
+		C4442F2E1DB89A0300B8CD21 /* BAClearCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAClearCacheManager.h; sourceTree = "<group>"; };
+		C4442F2F1DB89A0300B8CD21 /* BAClearCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAClearCacheManager.m; sourceTree = "<group>"; };
+		C4442F311DB89A0300B8CD21 /* BACustomMJFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BACustomMJFooter.h; sourceTree = "<group>"; };
+		C4442F321DB89A0300B8CD21 /* BACustomMJFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACustomMJFooter.m; sourceTree = "<group>"; };
+		C4442F331DB89A0300B8CD21 /* BACustomMJHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BACustomMJHeader.h; sourceTree = "<group>"; };
+		C4442F341DB89A0300B8CD21 /* BACustomMJHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACustomMJHeader.m; sourceTree = "<group>"; };
+		C4442F351DB89A0300B8CD21 /* BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAKit.h; sourceTree = "<group>"; };
+		C4442F371DB89A0300B8CD21 /* BAKitManager+BALabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BAKitManager+BALabel.h"; sourceTree = "<group>"; };
+		C4442F381DB89A0300B8CD21 /* BAKitManager+BALabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BAKitManager+BALabel.m"; sourceTree = "<group>"; };
+		C4442F391DB89A0300B8CD21 /* BAKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAKitManager.h; sourceTree = "<group>"; };
+		C4442F3A1DB89A0300B8CD21 /* BAKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAKitManager.m; sourceTree = "<group>"; };
+		C4442F3C1DB89A0300B8CD21 /* NSArray+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BAKit.h"; sourceTree = "<group>"; };
+		C4442F3D1DB89A0300B8CD21 /* NSArray+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BAKit.m"; sourceTree = "<group>"; };
+		C4442F3E1DB89A0300B8CD21 /* NSData+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+BAKit.h"; sourceTree = "<group>"; };
+		C4442F3F1DB89A0300B8CD21 /* NSData+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+BAKit.m"; sourceTree = "<group>"; };
+		C4442F401DB89A0300B8CD21 /* NSDate+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BAKit.h"; sourceTree = "<group>"; };
+		C4442F411DB89A0300B8CD21 /* NSDate+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BAKit.m"; sourceTree = "<group>"; };
+		C4442F421DB89A0300B8CD21 /* NSDateFormatter+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+BAKit.h"; sourceTree = "<group>"; };
+		C4442F431DB89A0300B8CD21 /* NSDateFormatter+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+BAKit.m"; sourceTree = "<group>"; };
+		C4442F441DB89A0300B8CD21 /* NSDictionary+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BAKit.h"; sourceTree = "<group>"; };
+		C4442F451DB89A0300B8CD21 /* NSDictionary+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BAKit.m"; sourceTree = "<group>"; };
+		C4442F461DB89A0300B8CD21 /* NSFileManager+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+BAKit.h"; sourceTree = "<group>"; };
+		C4442F471DB89A0300B8CD21 /* NSFileManager+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+BAKit.m"; sourceTree = "<group>"; };
+		C4442F481DB89A0300B8CD21 /* NSMutableArray+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+BAKit.h"; sourceTree = "<group>"; };
+		C4442F491DB89A0300B8CD21 /* NSMutableArray+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+BAKit.m"; sourceTree = "<group>"; };
+		C4442F4A1DB89A0300B8CD21 /* NSMutableDictionary+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+BAKit.h"; sourceTree = "<group>"; };
+		C4442F4B1DB89A0300B8CD21 /* NSMutableDictionary+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+BAKit.m"; sourceTree = "<group>"; };
+		C4442F4C1DB89A0300B8CD21 /* NSNumber+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+BAKit.h"; sourceTree = "<group>"; };
+		C4442F4D1DB89A0300B8CD21 /* NSNumber+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+BAKit.m"; sourceTree = "<group>"; };
+		C4442F4E1DB89A0300B8CD21 /* NSObject+BARunTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BARunTime.h"; sourceTree = "<group>"; };
+		C4442F4F1DB89A0300B8CD21 /* NSObject+BARunTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BARunTime.m"; sourceTree = "<group>"; };
+		C4442F501DB89A0300B8CD21 /* NSProcessInfo+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProcessInfo+BAKit.h"; sourceTree = "<group>"; };
+		C4442F511DB89A0300B8CD21 /* NSProcessInfo+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSProcessInfo+BAKit.m"; sourceTree = "<group>"; };
+		C4442F521DB89A0300B8CD21 /* NSShadow+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSShadow+BAKit.h"; sourceTree = "<group>"; };
+		C4442F531DB89A0300B8CD21 /* NSShadow+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSShadow+BAKit.m"; sourceTree = "<group>"; };
+		C4442F551DB89A0300B8CD21 /* NSMutableAttributedString+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+BAKit.h"; sourceTree = "<group>"; };
+		C4442F561DB89A0300B8CD21 /* NSMutableAttributedString+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+BAKit.m"; sourceTree = "<group>"; };
+		C4442F571DB89A0300B8CD21 /* NSString+BAColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BAColor.h"; sourceTree = "<group>"; };
+		C4442F581DB89A0300B8CD21 /* NSString+BAColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BAColor.m"; sourceTree = "<group>"; };
+		C4442F591DB89A0300B8CD21 /* NSString+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BAKit.h"; sourceTree = "<group>"; };
+		C4442F5A1DB89A0300B8CD21 /* NSString+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BAKit.m"; sourceTree = "<group>"; };
+		C4442F5B1DB89A0300B8CD21 /* NSString+Trims.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Trims.h"; sourceTree = "<group>"; };
+		C4442F5C1DB89A0300B8CD21 /* NSString+Trims.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trims.m"; sourceTree = "<group>"; };
+		C4442F5D1DB89A0300B8CD21 /* NSThread+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+BAKit.h"; sourceTree = "<group>"; };
+		C4442F5E1DB89A0300B8CD21 /* NSThread+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSThread+BAKit.m"; sourceTree = "<group>"; };
+		C4442F601DB89A0300B8CD21 /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
+		C4442F611DB89A0300B8CD21 /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
+		C4442F621DB89A0300B8CD21 /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
+		C4442F631DB89A0300B8CD21 /* GCDQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDQueue.h; sourceTree = "<group>"; };
+		C4442F641DB89A0300B8CD21 /* GCDQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDQueue.m; sourceTree = "<group>"; };
+		C4442F651DB89A0300B8CD21 /* GCDSemaphore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDSemaphore.h; sourceTree = "<group>"; };
+		C4442F661DB89A0300B8CD21 /* GCDSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSemaphore.m; sourceTree = "<group>"; };
+		C4442F671DB89A0300B8CD21 /* GCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimer.h; sourceTree = "<group>"; };
+		C4442F681DB89A0300B8CD21 /* GCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer.m; sourceTree = "<group>"; };
+		C4442F6A1DB89A0300B8CD21 /* BAAPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAPP.h; sourceTree = "<group>"; };
+		C4442F6B1DB89A0300B8CD21 /* BAAPP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAPP.m; sourceTree = "<group>"; };
+		C4442F6C1DB89A0300B8CD21 /* BALog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BALog.h; sourceTree = "<group>"; };
+		C4442F6D1DB89A0300B8CD21 /* BALog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BALog.m; sourceTree = "<group>"; };
+		C4442F6E1DB89A0300B8CD21 /* BAPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPassword.h; sourceTree = "<group>"; };
+		C4442F6F1DB89A0300B8CD21 /* BAPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPassword.m; sourceTree = "<group>"; };
+		C4442F701DB89A0300B8CD21 /* BASystemService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASystemService.h; sourceTree = "<group>"; };
+		C4442F711DB89A0300B8CD21 /* BASystemService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASystemService.m; sourceTree = "<group>"; };
+		C4442F721DB89A0300B8CD21 /* BASystemSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASystemSound.h; sourceTree = "<group>"; };
+		C4442F731DB89A0300B8CD21 /* BASystemSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASystemSound.m; sourceTree = "<group>"; };
+		C4442F741DB89A0300B8CD21 /* BATouchID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATouchID.h; sourceTree = "<group>"; };
+		C4442F751DB89A0300B8CD21 /* BATouchID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATouchID.m; sourceTree = "<group>"; };
+		C4442F761DB89A0300B8CD21 /* UIApplication+AppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AppInfo.h"; sourceTree = "<group>"; };
+		C4442F771DB89A0300B8CD21 /* UIApplication+AppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AppInfo.m"; sourceTree = "<group>"; };
+		C4442F791DB89A0300B8CD21 /* BACustomModalTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BACustomModalTransition.h; sourceTree = "<group>"; };
+		C4442F7A1DB89A0300B8CD21 /* BACustomModalTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACustomModalTransition.m; sourceTree = "<group>"; };
+		C4442F7B1DB89A0300B8CD21 /* BAPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPickerView.h; sourceTree = "<group>"; };
+		C4442F7C1DB89A0300B8CD21 /* BAPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPickerView.m; sourceTree = "<group>"; };
+		C4442F7D1DB89A0300B8CD21 /* BATextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATextView.h; sourceTree = "<group>"; };
+		C4442F7E1DB89A0300B8CD21 /* BATextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATextView.m; sourceTree = "<group>"; };
+		C4442F7F1DB89A0300B8CD21 /* UIBarButtonItem+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+BAKit.h"; sourceTree = "<group>"; };
+		C4442F801DB89A0300B8CD21 /* UIBarButtonItem+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+BAKit.m"; sourceTree = "<group>"; };
+		C4442F811DB89A0300B8CD21 /* UIButton+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+BAKit.h"; sourceTree = "<group>"; };
+		C4442F821DB89A0300B8CD21 /* UIButton+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+BAKit.m"; sourceTree = "<group>"; };
+		C4442F831DB89A0300B8CD21 /* UICollectionView+ARDynamicCacheHeightLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+ARDynamicCacheHeightLayoutCell.h"; sourceTree = "<group>"; };
+		C4442F841DB89A0300B8CD21 /* UICollectionView+ARDynamicCacheHeightLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+ARDynamicCacheHeightLayoutCell.m"; sourceTree = "<group>"; };
+		C4442F851DB89A0300B8CD21 /* UIColor+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BAKit.h"; sourceTree = "<group>"; };
+		C4442F861DB89A0300B8CD21 /* UIColor+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BAKit.m"; sourceTree = "<group>"; };
+		C4442F871DB89A0300B8CD21 /* UIDevice+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+BAKit.h"; sourceTree = "<group>"; };
+		C4442F881DB89A0300B8CD21 /* UIDevice+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+BAKit.m"; sourceTree = "<group>"; };
+		C4442F891DB89A0300B8CD21 /* UIFont+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+BAKit.h"; sourceTree = "<group>"; };
+		C4442F8A1DB89A0300B8CD21 /* UIFont+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+BAKit.m"; sourceTree = "<group>"; };
+		C4442F8B1DB89A0300B8CD21 /* UIImage+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BAKit.h"; sourceTree = "<group>"; };
+		C4442F8C1DB89A0300B8CD21 /* UIImage+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BAKit.m"; sourceTree = "<group>"; };
+		C4442F8D1DB89A0300B8CD21 /* UIImageView+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+BAKit.h"; sourceTree = "<group>"; };
+		C4442F8E1DB89A0300B8CD21 /* UIImageView+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+BAKit.m"; sourceTree = "<group>"; };
+		C4442F8F1DB89A0300B8CD21 /* UILabel+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+BAKit.h"; sourceTree = "<group>"; };
+		C4442F901DB89A0300B8CD21 /* UILabel+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+BAKit.m"; sourceTree = "<group>"; };
+		C4442F911DB89A0300B8CD21 /* UINavigationBar+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BAKit.h"; sourceTree = "<group>"; };
+		C4442F921DB89A0300B8CD21 /* UINavigationBar+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+BAKit.m"; sourceTree = "<group>"; };
+		C4442F931DB89A0300B8CD21 /* UINavigationController+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+BAKit.h"; sourceTree = "<group>"; };
+		C4442F941DB89A0300B8CD21 /* UINavigationController+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+BAKit.m"; sourceTree = "<group>"; };
+		C4442F951DB89A0300B8CD21 /* UIScrollView+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+BAKit.h"; sourceTree = "<group>"; };
+		C4442F961DB89A0300B8CD21 /* UIScrollView+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+BAKit.m"; sourceTree = "<group>"; };
+		C4442F971DB89A0300B8CD21 /* UITableView+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+BAKit.h"; sourceTree = "<group>"; };
+		C4442F981DB89A0300B8CD21 /* UITableView+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+BAKit.m"; sourceTree = "<group>"; };
+		C4442F991DB89A0300B8CD21 /* UITableViewCell+Reuse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Reuse.h"; sourceTree = "<group>"; };
+		C4442F9A1DB89A0300B8CD21 /* UITableViewCell+Reuse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Reuse.m"; sourceTree = "<group>"; };
+		C4442F9B1DB89A0300B8CD21 /* UITextField+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+BAKit.h"; sourceTree = "<group>"; };
+		C4442F9C1DB89A0300B8CD21 /* UITextField+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+BAKit.m"; sourceTree = "<group>"; };
+		C4442F9D1DB89A0300B8CD21 /* UIView+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BAKit.h"; sourceTree = "<group>"; };
+		C4442F9E1DB89A0300B8CD21 /* UIView+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BAKit.m"; sourceTree = "<group>"; };
+		C4442F9F1DB89A0300B8CD21 /* UIWebView+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+BAKit.h"; sourceTree = "<group>"; };
+		C4442FA01DB89A0300B8CD21 /* UIWebView+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+BAKit.m"; sourceTree = "<group>"; };
+		C4442FA11DB89A0300B8CD21 /* UIWindow+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+BAKit.h"; sourceTree = "<group>"; };
+		C4442FA21DB89A0300B8CD21 /* UIWindow+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+BAKit.m"; sourceTree = "<group>"; };
+		C4442FA51DB89A0300B8CD21 /* BARotateAnimationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARotateAnimationProtocol.h; sourceTree = "<group>"; };
+		C4442FA61DB89A0300B8CD21 /* BARotateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARotateView.h; sourceTree = "<group>"; };
+		C4442FA71DB89A0300B8CD21 /* BARotateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARotateView.m; sourceTree = "<group>"; };
+		C4442FA81DB89A0300B8CD21 /* UIView+BARotateAnimationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BARotateAnimationProtocol.h"; sourceTree = "<group>"; };
+		C4442FA91DB89A0300B8CD21 /* UIView+BARotateAnimationProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BARotateAnimationProtocol.m"; sourceTree = "<group>"; };
+		C4442FAB1DB89A0300B8CD21 /* BAFadeBlackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAFadeBlackView.h; sourceTree = "<group>"; };
+		C4442FAC1DB89A0300B8CD21 /* BAFadeBlackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAFadeBlackView.m; sourceTree = "<group>"; };
+		C4442FAD1DB89A0300B8CD21 /* BASnowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASnowView.h; sourceTree = "<group>"; };
+		C4442FAE1DB89A0300B8CD21 /* BASnowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASnowView.m; sourceTree = "<group>"; };
+		C4442FAF1DB89A0300B8CD21 /* BAUpdatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAUpdatingView.h; sourceTree = "<group>"; };
+		C4442FB01DB89A0300B8CD21 /* BAUpdatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAUpdatingView.m; sourceTree = "<group>"; };
+		C4442FB11DB89A0300B8CD21 /* CALayer+BAMaskLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+BAMaskLayer.h"; sourceTree = "<group>"; };
+		C4442FB21DB89A0300B8CD21 /* CALayer+BAMaskLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+BAMaskLayer.m"; sourceTree = "<group>"; };
+		C4442FB31DB89A0300B8CD21 /* EmitterLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterLayerView.h; sourceTree = "<group>"; };
+		C4442FB41DB89A0300B8CD21 /* EmitterLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmitterLayerView.m; sourceTree = "<group>"; };
+		C4442FB51DB89A0300B8CD21 /* UIView+BAGlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BAGlowView.h"; sourceTree = "<group>"; };
+		C4442FB61DB89A0300B8CD21 /* UIView+BAGlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BAGlowView.m"; sourceTree = "<group>"; };
+		C4442FB81DB89A0300B8CD21 /* BABaseProject.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseProject.pch; sourceTree = "<group>"; };
+		C4442FB91DB89A0300B8CD21 /* BAColorHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAColorHeader.h; sourceTree = "<group>"; };
+		C4442FBA1DB89A0300B8CD21 /* BADefin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BADefin.h; sourceTree = "<group>"; };
+		C4442FBB1DB89A0300B8CD21 /* BAFrameHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAFrameHeader.h; sourceTree = "<group>"; };
+		C4442FBD1DB89A0300B8CD21 /* BABaseNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseNetManager.h; sourceTree = "<group>"; };
+		C4442FBE1DB89A0300B8CD21 /* BABaseNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseNetManager.m; sourceTree = "<group>"; };
+		C4442FBF1DB89A0300B8CD21 /* BANetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANetManager.h; sourceTree = "<group>"; };
+		C4442FC01DB89A0300B8CD21 /* BANetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANetManager.m; sourceTree = "<group>"; };
+		C4442FC11DB89A0300B8CD21 /* BANewsNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BANewsNetManager.h; sourceTree = "<group>"; };
+		C4442FC21DB89A0300B8CD21 /* BANewsNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BANewsNetManager.m; sourceTree = "<group>"; };
+		C4442FC31DB89A0300B8CD21 /* BAURLsPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAURLsPath.h; sourceTree = "<group>"; };
+		C4442FC41DB89A0300B8CD21 /* UIImage+CompressImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CompressImage.h"; sourceTree = "<group>"; };
+		C4442FC51DB89A0300B8CD21 /* UIImage+CompressImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CompressImage.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4442EB01DB8901C00B8CD21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86AABD44C39607F8927513BB /* libPods-博爱微信.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		668904D17EA3501A8164844B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29F44B6427A24A865E863C0A /* Pods-博爱微信.debug.xcconfig */,
+				7FBCDBD7D00F7A14115A723F /* Pods-博爱微信.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6E2FE8F575D9F0AE37F72CEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20D12FBA01E5C85809C17CE0 /* libPods-博爱微信.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4442EAA1DB8901C00B8CD21 = {
+			isa = PBXGroup;
+			children = (
+				C4442EB51DB8901C00B8CD21 /* 博爱微信 */,
+				C4442EB41DB8901C00B8CD21 /* Products */,
+				668904D17EA3501A8164844B /* Pods */,
+				6E2FE8F575D9F0AE37F72CEC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C4442EB41DB8901C00B8CD21 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EB31DB8901C00B8CD21 /* 博爱微信.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4442EB51DB8901C00B8CD21 /* 博爱微信 */ = {
+			isa = PBXGroup;
+			children = (
+				C4442ECD1DB8912900B8CD21 /* Class */,
+				C4442EB61DB8901C00B8CD21 /* Supporting Files */,
+			);
+			path = "博爱微信";
+			sourceTree = "<group>";
+		};
+		C4442EB61DB8901C00B8CD21 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EB91DB8901D00B8CD21 /* AppDelegate.h */,
+				C4442EBA1DB8901D00B8CD21 /* AppDelegate.m */,
+				C4442EBF1DB8901D00B8CD21 /* Main.storyboard */,
+				C4442EC21DB8901D00B8CD21 /* Assets.xcassets */,
+				C4442EC41DB8901D00B8CD21 /* LaunchScreen.storyboard */,
+				C4442EC71DB8901D00B8CD21 /* Info.plist */,
+				C4442EB71DB8901C00B8CD21 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4442ECD1DB8912900B8CD21 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EDB1DB8917300B8CD21 /* Main */,
+				C4442ED91DB8912900B8CD21 /* 首页 */,
+				C4442ED81DB8912900B8CD21 /* 通讯录 */,
+				C4442ED61DB8912900B8CD21 /* 发现 */,
+				C4442ED71DB8912900B8CD21 /* 我 */,
+				C4442EDA1DB8917300B8CD21 /* Base */,
+				C4442ECE1DB8912900B8CD21 /* Category */,
+				C4442ECF1DB8912900B8CD21 /* Lib */,
+				C4442ED01DB8912900B8CD21 /* Other */,
+				C4442ED11DB8912900B8CD21 /* Resources */,
+			);
+			name = Class;
+			path = class;
+			sourceTree = "<group>";
+		};
+		C4442ECE1DB8912900B8CD21 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		C4442ECF1DB8912900B8CD21 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EFA1DB89A0300B8CD21 /* BATools(工具类) */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		C4442ED01DB8912900B8CD21 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		C4442ED11DB8912900B8CD21 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C4442ED21DB8912900B8CD21 /* Bundle */,
+				C4442ED31DB8912900B8CD21 /* Images */,
+				C4442ED41DB8912900B8CD21 /* Other */,
+				C4442ED51DB8912900B8CD21 /* Plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C4442ED21DB8912900B8CD21 /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EF31DB8969100B8CD21 /* BATabBundle.bundle */,
+				C4442EF41DB8969100B8CD21 /* BAWeXinApp.bundle */,
+			);
+			path = Bundle;
+			sourceTree = "<group>";
+		};
+		C4442ED31DB8912900B8CD21 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C4442ED41DB8912900B8CD21 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		C4442ED51DB8912900B8CD21 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+		C4442ED61DB8912900B8CD21 /* 发现 */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EEB1DB894C000B8CD21 /* BADiscoveryViewController.h */,
+				C4442EEC1DB894C000B8CD21 /* BADiscoveryViewController.m */,
+			);
+			path = "发现";
+			sourceTree = "<group>";
+		};
+		C4442ED71DB8912900B8CD21 /* 我 */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EEE1DB894D900B8CD21 /* BAProfileViewController.h */,
+				C4442EEF1DB894D900B8CD21 /* BAProfileViewController.m */,
+			);
+			path = "我";
+			sourceTree = "<group>";
+		};
+		C4442ED81DB8912900B8CD21 /* 通讯录 */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EE81DB894A100B8CD21 /* BAContactViewController.h */,
+				C4442EE91DB894A100B8CD21 /* BAContactViewController.m */,
+			);
+			path = "通讯录";
+			sourceTree = "<group>";
+		};
+		C4442ED91DB8912900B8CD21 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EE51DB8944800B8CD21 /* BAHomeViewController.h */,
+				C4442EE61DB8944800B8CD21 /* BAHomeViewController.m */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		C4442EDA1DB8917300B8CD21 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EE21DB8942500B8CD21 /* BABaseViewController.h */,
+				C4442EE31DB8942500B8CD21 /* BABaseViewController.m */,
+				C4442EF71DB8977500B8CD21 /* BABaseNavigationController.h */,
+				C4442EF81DB8977500B8CD21 /* BABaseNavigationController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C4442EDB1DB8917300B8CD21 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EDF1DB891FD00B8CD21 /* BATabBarViewController.h */,
+				C4442EE01DB891FD00B8CD21 /* BATabBarViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C4442EFA1DB89A0300B8CD21 /* BATools(工具类) */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EFB1DB89A0300B8CD21 /* BACategory(分类) */,
+				C4442F0A1DB89A0300B8CD21 /* BAKit(工具类) */,
+				C4442FB71DB89A0300B8CD21 /* BAMacros(宏) */,
+				C4442FBC1DB89A0300B8CD21 /* BANetManager(网络类) */,
+			);
+			name = "BATools(工具类)";
+			path = "博爱微信/Class/Lib/BATools(工具类)";
+			sourceTree = SOURCE_ROOT;
+		};
+		C4442EFB1DB89A0300B8CD21 /* BACategory(分类) */ = {
+			isa = PBXGroup;
+			children = (
+				C4442EFC1DB89A0300B8CD21 /* AppDelegate+BABaiduMap.h */,
+				C4442EFD1DB89A0300B8CD21 /* AppDelegate+BABaiduMap.m */,
+				C4442EFE1DB89A0300B8CD21 /* AppDelegate+BACategory.h */,
+				C4442EFF1DB89A0300B8CD21 /* AppDelegate+BACategory.m */,
+				C4442F001DB89A0300B8CD21 /* NSObject+BAMJParse.h */,
+				C4442F011DB89A0300B8CD21 /* NSObject+BAMJParse.m */,
+				C4442F021DB89A0300B8CD21 /* NSObject+BANetwork.h */,
+				C4442F031DB89A0300B8CD21 /* NSObject+BANetwork.m */,
+				C4442F041DB89A0300B8CD21 /* NSObject+BAProgressHUD.h */,
+				C4442F051DB89A0300B8CD21 /* NSObject+BAProgressHUD.m */,
+				C4442F061DB89A0300B8CD21 /* UIBarButtonItem+Item.h */,
+				C4442F071DB89A0300B8CD21 /* UIBarButtonItem+Item.m */,
+				C4442F081DB89A0300B8CD21 /* UIViewController+BAAlertView.h */,
+				C4442F091DB89A0300B8CD21 /* UIViewController+BAAlertView.m */,
+			);
+			path = "BACategory(分类)";
+			sourceTree = "<group>";
+		};
+		C4442F0A1DB89A0300B8CD21 /* BAKit(工具类) */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F0B1DB89A0300B8CD21 /* BACustom */,
+				C4442F351DB89A0300B8CD21 /* BAKit.h */,
+				C4442F361DB89A0300B8CD21 /* BAKitManager */,
+				C4442F391DB89A0300B8CD21 /* BAKitManager.h */,
+				C4442F3A1DB89A0300B8CD21 /* BAKitManager.m */,
+				C4442F3B1DB89A0300B8CD21 /* Foundation */,
+				C4442F5F1DB89A0300B8CD21 /* GCD */,
+				C4442F691DB89A0300B8CD21 /* UIApplication */,
+				C4442F781DB89A0300B8CD21 /* UIKit */,
+				C4442FA31DB89A0300B8CD21 /* 动画 */,
+			);
+			path = "BAKit(工具类)";
+			sourceTree = "<group>";
+		};
+		C4442F0B1DB89A0300B8CD21 /* BACustom */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F0C1DB89A0300B8CD21 /* BAAlert */,
+				C4442F111DB89A0300B8CD21 /* BAAutoSizeWithWH */,
+				C4442F141DB89A0300B8CD21 /* BALocalNotification */,
+				C4442F171DB89A0300B8CD21 /* BANavigationItem */,
+				C4442F1C1DB89A0300B8CD21 /* BARegularExpression */,
+				C4442F1F1DB89A0300B8CD21 /* BASegmentControl */,
+				C4442F221DB89A0300B8CD21 /* BASharManager */,
+				C4442F2A1DB89A0300B8CD21 /* BASystermSetting */,
+				C4442F2D1DB89A0300B8CD21 /* 清理缓存 */,
+				C4442F301DB89A0300B8CD21 /* 自定义下拉刷新动画 */,
+			);
+			path = BACustom;
+			sourceTree = "<group>";
+		};
+		C4442F0C1DB89A0300B8CD21 /* BAAlert */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F0D1DB89A0300B8CD21 /* BAAlertView.h */,
+				C4442F0E1DB89A0300B8CD21 /* BAAlertView.m */,
+				C4442F0F1DB89A0300B8CD21 /* BAModal.h */,
+				C4442F101DB89A0300B8CD21 /* BAModal.m */,
+			);
+			path = BAAlert;
+			sourceTree = "<group>";
+		};
+		C4442F111DB89A0300B8CD21 /* BAAutoSizeWithWH */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F121DB89A0300B8CD21 /* BAAutoSizeWithWH.h */,
+				C4442F131DB89A0300B8CD21 /* BAAutoSizeWithWH.m */,
+			);
+			path = BAAutoSizeWithWH;
+			sourceTree = "<group>";
+		};
+		C4442F141DB89A0300B8CD21 /* BALocalNotification */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F151DB89A0300B8CD21 /* BALocalNotification.h */,
+				C4442F161DB89A0300B8CD21 /* BALocalNotification.m */,
+			);
+			path = BALocalNotification;
+			sourceTree = "<group>";
+		};
+		C4442F171DB89A0300B8CD21 /* BANavigationItem */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F181DB89A0300B8CD21 /* BACustomBarItem.h */,
+				C4442F191DB89A0300B8CD21 /* BACustomBarItem.m */,
+				C4442F1A1DB89A0300B8CD21 /* UINavigationItem+CustomItem.h */,
+				C4442F1B1DB89A0300B8CD21 /* UINavigationItem+CustomItem.m */,
+			);
+			path = BANavigationItem;
+			sourceTree = "<group>";
+		};
+		C4442F1C1DB89A0300B8CD21 /* BARegularExpression */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F1D1DB89A0300B8CD21 /* BARegularExpression.h */,
+				C4442F1E1DB89A0300B8CD21 /* BARegularExpression.m */,
+			);
+			path = BARegularExpression;
+			sourceTree = "<group>";
+		};
+		C4442F1F1DB89A0300B8CD21 /* BASegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F201DB89A0300B8CD21 /* HMSegmentedControl.h */,
+				C4442F211DB89A0300B8CD21 /* HMSegmentedControl.m */,
+			);
+			path = BASegmentControl;
+			sourceTree = "<group>";
+		};
+		C4442F221DB89A0300B8CD21 /* BASharManager */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F231DB89A0300B8CD21 /* BAShareAnimationView.h */,
+				C4442F241DB89A0300B8CD21 /* BAShareAnimationView.m */,
+				C4442F251DB89A0300B8CD21 /* BAShareManage.h */,
+				C4442F261DB89A0300B8CD21 /* BAShareManage.m */,
+				C4442F271DB89A0300B8CD21 /* BAShareManageView.h */,
+				C4442F281DB89A0300B8CD21 /* BAShareManageView.m */,
+				C4442F291DB89A0300B8CD21 /* BASharManager.bundle */,
+			);
+			path = BASharManager;
+			sourceTree = "<group>";
+		};
+		C4442F2A1DB89A0300B8CD21 /* BASystermSetting */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F2B1DB89A0300B8CD21 /* BASystermSetting.h */,
+				C4442F2C1DB89A0300B8CD21 /* BASystermSetting.m */,
+			);
+			path = BASystermSetting;
+			sourceTree = "<group>";
+		};
+		C4442F2D1DB89A0300B8CD21 /* 清理缓存 */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F2E1DB89A0300B8CD21 /* BAClearCacheManager.h */,
+				C4442F2F1DB89A0300B8CD21 /* BAClearCacheManager.m */,
+			);
+			path = "清理缓存";
+			sourceTree = "<group>";
+		};
+		C4442F301DB89A0300B8CD21 /* 自定义下拉刷新动画 */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F311DB89A0300B8CD21 /* BACustomMJFooter.h */,
+				C4442F321DB89A0300B8CD21 /* BACustomMJFooter.m */,
+				C4442F331DB89A0300B8CD21 /* BACustomMJHeader.h */,
+				C4442F341DB89A0300B8CD21 /* BACustomMJHeader.m */,
+			);
+			path = "自定义下拉刷新动画";
+			sourceTree = "<group>";
+		};
+		C4442F361DB89A0300B8CD21 /* BAKitManager */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F371DB89A0300B8CD21 /* BAKitManager+BALabel.h */,
+				C4442F381DB89A0300B8CD21 /* BAKitManager+BALabel.m */,
+			);
+			path = BAKitManager;
+			sourceTree = "<group>";
+		};
+		C4442F3B1DB89A0300B8CD21 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F3C1DB89A0300B8CD21 /* NSArray+BAKit.h */,
+				C4442F3D1DB89A0300B8CD21 /* NSArray+BAKit.m */,
+				C4442F3E1DB89A0300B8CD21 /* NSData+BAKit.h */,
+				C4442F3F1DB89A0300B8CD21 /* NSData+BAKit.m */,
+				C4442F401DB89A0300B8CD21 /* NSDate+BAKit.h */,
+				C4442F411DB89A0300B8CD21 /* NSDate+BAKit.m */,
+				C4442F421DB89A0300B8CD21 /* NSDateFormatter+BAKit.h */,
+				C4442F431DB89A0300B8CD21 /* NSDateFormatter+BAKit.m */,
+				C4442F441DB89A0300B8CD21 /* NSDictionary+BAKit.h */,
+				C4442F451DB89A0300B8CD21 /* NSDictionary+BAKit.m */,
+				C4442F461DB89A0300B8CD21 /* NSFileManager+BAKit.h */,
+				C4442F471DB89A0300B8CD21 /* NSFileManager+BAKit.m */,
+				C4442F481DB89A0300B8CD21 /* NSMutableArray+BAKit.h */,
+				C4442F491DB89A0300B8CD21 /* NSMutableArray+BAKit.m */,
+				C4442F4A1DB89A0300B8CD21 /* NSMutableDictionary+BAKit.h */,
+				C4442F4B1DB89A0300B8CD21 /* NSMutableDictionary+BAKit.m */,
+				C4442F4C1DB89A0300B8CD21 /* NSNumber+BAKit.h */,
+				C4442F4D1DB89A0300B8CD21 /* NSNumber+BAKit.m */,
+				C4442F4E1DB89A0300B8CD21 /* NSObject+BARunTime.h */,
+				C4442F4F1DB89A0300B8CD21 /* NSObject+BARunTime.m */,
+				C4442F501DB89A0300B8CD21 /* NSProcessInfo+BAKit.h */,
+				C4442F511DB89A0300B8CD21 /* NSProcessInfo+BAKit.m */,
+				C4442F521DB89A0300B8CD21 /* NSShadow+BAKit.h */,
+				C4442F531DB89A0300B8CD21 /* NSShadow+BAKit.m */,
+				C4442F541DB89A0300B8CD21 /* NSString */,
+				C4442F5D1DB89A0300B8CD21 /* NSThread+BAKit.h */,
+				C4442F5E1DB89A0300B8CD21 /* NSThread+BAKit.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		C4442F541DB89A0300B8CD21 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F551DB89A0300B8CD21 /* NSMutableAttributedString+BAKit.h */,
+				C4442F561DB89A0300B8CD21 /* NSMutableAttributedString+BAKit.m */,
+				C4442F571DB89A0300B8CD21 /* NSString+BAColor.h */,
+				C4442F581DB89A0300B8CD21 /* NSString+BAColor.m */,
+				C4442F591DB89A0300B8CD21 /* NSString+BAKit.h */,
+				C4442F5A1DB89A0300B8CD21 /* NSString+BAKit.m */,
+				C4442F5B1DB89A0300B8CD21 /* NSString+Trims.h */,
+				C4442F5C1DB89A0300B8CD21 /* NSString+Trims.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		C4442F5F1DB89A0300B8CD21 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F601DB89A0300B8CD21 /* GCD.h */,
+				C4442F611DB89A0300B8CD21 /* GCDGroup.h */,
+				C4442F621DB89A0300B8CD21 /* GCDGroup.m */,
+				C4442F631DB89A0300B8CD21 /* GCDQueue.h */,
+				C4442F641DB89A0300B8CD21 /* GCDQueue.m */,
+				C4442F651DB89A0300B8CD21 /* GCDSemaphore.h */,
+				C4442F661DB89A0300B8CD21 /* GCDSemaphore.m */,
+				C4442F671DB89A0300B8CD21 /* GCDTimer.h */,
+				C4442F681DB89A0300B8CD21 /* GCDTimer.m */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
+		C4442F691DB89A0300B8CD21 /* UIApplication */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F6A1DB89A0300B8CD21 /* BAAPP.h */,
+				C4442F6B1DB89A0300B8CD21 /* BAAPP.m */,
+				C4442F6C1DB89A0300B8CD21 /* BALog.h */,
+				C4442F6D1DB89A0300B8CD21 /* BALog.m */,
+				C4442F6E1DB89A0300B8CD21 /* BAPassword.h */,
+				C4442F6F1DB89A0300B8CD21 /* BAPassword.m */,
+				C4442F701DB89A0300B8CD21 /* BASystemService.h */,
+				C4442F711DB89A0300B8CD21 /* BASystemService.m */,
+				C4442F721DB89A0300B8CD21 /* BASystemSound.h */,
+				C4442F731DB89A0300B8CD21 /* BASystemSound.m */,
+				C4442F741DB89A0300B8CD21 /* BATouchID.h */,
+				C4442F751DB89A0300B8CD21 /* BATouchID.m */,
+				C4442F761DB89A0300B8CD21 /* UIApplication+AppInfo.h */,
+				C4442F771DB89A0300B8CD21 /* UIApplication+AppInfo.m */,
+			);
+			path = UIApplication;
+			sourceTree = "<group>";
+		};
+		C4442F781DB89A0300B8CD21 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				C4442F791DB89A0300B8CD21 /* BACustomModalTransition.h */,
+				C4442F7A1DB89A0300B8CD21 /* BACustomModalTransition.m */,
+				C4442F7B1DB89A0300B8CD21 /* BAPickerView.h */,
+				C4442F7C1DB89A0300B8CD21 /* BAPickerView.m */,
+				C4442F7D1DB89A0300B8CD21 /* BATextView.h */,
+				C4442F7E1DB89A0300B8CD21 /* BATextView.m */,
+				C4442F7F1DB89A0300B8CD21 /* UIBarButtonItem+BAKit.h */,
+				C4442F801DB89A0300B8CD21 /* UIBarButtonItem+BAKit.m */,
+				C4442F811DB89A0300B8CD21 /* UIButton+BAKit.h */,
+				C4442F821DB89A0300B8CD21 /* UIButton+BAKit.m */,
+				C4442F831DB89A0300B8CD21 /* UICollectionView+ARDynamicCacheHeightLayoutCell.h */,
+				C4442F841DB89A0300B8CD21 /* UICollectionView+ARDynamicCacheHeightLayoutCell.m */,
+				C4442F851DB89A0300B8CD21 /* UIColor+BAKit.h */,
+				C4442F861DB89A0300B8CD21 /* UIColor+BAKit.m */,
+				C4442F871DB89A0300B8CD21 /* UIDevice+BAKit.h */,
+				C4442F881DB89A0300B8CD21 /* UIDevice+BAKit.m */,
+				C4442F891DB89A0300B8CD21 /* UIFont+BAKit.h */,
+				C4442F8A1DB89A0300B8CD21 /* UIFont+BAKit.m */,
+				C4442F8B1DB89A0300B8CD21 /* UIImage+BAKit.h */,
+				C4442F8C1DB89A0300B8CD21 /* UIImage+BAKit.m */,
+				C4442F8D1DB89A0300B8CD21 /* UIImageView+BAKit.h */,
+				C4442F8E1DB89A0300B8CD21 /* UIImageView+BAKit.m */,
+				C4442F8F1DB89A0300B8CD21 /* UILabel+BAKit.h */,
+				C4442F901DB89A0300B8CD21 /* UILabel+BAKit.m */,
+				C4442F911DB89A0300B8CD21 /* UINavigationBar+BAKit.h */,
+				C4442F921DB89A0300B8CD21 /* UINavigationBar+BAKit.m */,
+				C4442F931DB89A0300B8CD21 /* UINavigationController+BAKit.h */,
+				C4442F941DB89A0300B8CD21 /* UINavigationController+BAKit.m */,
+				C4442F951DB89A0300B8CD21 /* UIScrollView+BAKit.h */,
+				C4442F961DB89A0300B8CD21 /* UIScrollView+BAKit.m */,
+				C4442F971DB89A0300B8CD21 /* UITableView+BAKit.h */,
+				C4442F981DB89A0300B8CD21 /* UITableView+BAKit.m */,
+				C4442F991DB89A0300B8CD21 /* UITableViewCell+Reuse.h */,
+				C4442F9A1DB89A0300B8CD21 /* UITableViewCell+Reuse.m */,
+				C4442F9B1DB89A0300B8CD21 /* UITextField+BAKit.h */,
+				C4442F9C1DB89A0300B8CD21 /* UITextField+BAKit.m */,
+				C4442F9D1DB89A0300B8CD21 /* UIView+BAKit.h */,
+				C4442F9E1DB89A0300B8CD21 /* UIView+BAKit.m */,
+				C4442F9F1DB89A0300B8CD21 /* UIWebView+BAKit.h */,
+				C4442FA01DB89A0300B8CD21 /* UIWebView+BAKit.m */,
+				C4442FA11DB89A0300B8CD21 /* UIWindow+BAKit.h */,
+				C4442FA21DB89A0300B8CD21 /* UIWindow+BAKit.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		C4442FA31DB89A0300B8CD21 /* 动画 */ = {
+			isa = PBXGroup;
+			children = (
+				C4442FA41DB89A0300B8CD21 /* BARotateView */,
+				C4442FAA1DB89A0300B8CD21 /* 雪花加载动画 */,
+			);
+			path = "动画";
+			sourceTree = "<group>";
+		};
+		C4442FA41DB89A0300B8CD21 /* BARotateView */ = {
+			isa = PBXGroup;
+			children = (
+				C4442FA51DB89A0300B8CD21 /* BARotateAnimationProtocol.h */,
+				C4442FA61DB89A0300B8CD21 /* BARotateView.h */,
+				C4442FA71DB89A0300B8CD21 /* BARotateView.m */,
+				C4442FA81DB89A0300B8CD21 /* UIView+BARotateAnimationProtocol.h */,
+				C4442FA91DB89A0300B8CD21 /* UIView+BARotateAnimationProtocol.m */,
+			);
+			path = BARotateView;
+			sourceTree = "<group>";
+		};
+		C4442FAA1DB89A0300B8CD21 /* 雪花加载动画 */ = {
+			isa = PBXGroup;
+			children = (
+				C4442FAB1DB89A0300B8CD21 /* BAFadeBlackView.h */,
+				C4442FAC1DB89A0300B8CD21 /* BAFadeBlackView.m */,
+				C4442FAD1DB89A0300B8CD21 /* BASnowView.h */,
+				C4442FAE1DB89A0300B8CD21 /* BASnowView.m */,
+				C4442FAF1DB89A0300B8CD21 /* BAUpdatingView.h */,
+				C4442FB01DB89A0300B8CD21 /* BAUpdatingView.m */,
+				C4442FB11DB89A0300B8CD21 /* CALayer+BAMaskLayer.h */,
+				C4442FB21DB89A0300B8CD21 /* CALayer+BAMaskLayer.m */,
+				C4442FB31DB89A0300B8CD21 /* EmitterLayerView.h */,
+				C4442FB41DB89A0300B8CD21 /* EmitterLayerView.m */,
+				C4442FB51DB89A0300B8CD21 /* UIView+BAGlowView.h */,
+				C4442FB61DB89A0300B8CD21 /* UIView+BAGlowView.m */,
+			);
+			path = "雪花加载动画";
+			sourceTree = "<group>";
+		};
+		C4442FB71DB89A0300B8CD21 /* BAMacros(宏) */ = {
+			isa = PBXGroup;
+			children = (
+				C4442FB81DB89A0300B8CD21 /* BABaseProject.pch */,
+				C4442FB91DB89A0300B8CD21 /* BAColorHeader.h */,
+				C4442FBA1DB89A0300B8CD21 /* BADefin.h */,
+				C4442FBB1DB89A0300B8CD21 /* BAFrameHeader.h */,
+			);
+			path = "BAMacros(宏)";
+			sourceTree = "<group>";
+		};
+		C4442FBC1DB89A0300B8CD21 /* BANetManager(网络类) */ = {
+			isa = PBXGroup;
+			children = (
+				C4442FBD1DB89A0300B8CD21 /* BABaseNetManager.h */,
+				C4442FBE1DB89A0300B8CD21 /* BABaseNetManager.m */,
+				C4442FBF1DB89A0300B8CD21 /* BANetManager.h */,
+				C4442FC01DB89A0300B8CD21 /* BANetManager.m */,
+				C4442FC11DB89A0300B8CD21 /* BANewsNetManager.h */,
+				C4442FC21DB89A0300B8CD21 /* BANewsNetManager.m */,
+				C4442FC31DB89A0300B8CD21 /* BAURLsPath.h */,
+				C4442FC41DB89A0300B8CD21 /* UIImage+CompressImage.h */,
+				C4442FC51DB89A0300B8CD21 /* UIImage+CompressImage.m */,
+			);
+			path = "BANetManager(网络类)";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4442EB21DB8901C00B8CD21 /* 博爱微信 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4442ECA1DB8901D00B8CD21 /* Build configuration list for PBXNativeTarget "博爱微信" */;
+			buildPhases = (
+				6DD4CEA9BB1D2EA663182284 /* [CP] Check Pods Manifest.lock */,
+				C4442EAF1DB8901C00B8CD21 /* Sources */,
+				C4442EB01DB8901C00B8CD21 /* Frameworks */,
+				C4442EB11DB8901C00B8CD21 /* Resources */,
+				28E7186B1B0F7B23D5C0CCF2 /* [CP] Embed Pods Frameworks */,
+				2ED9C427E17925FFD1C6BDF4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "博爱微信";
+			productName = "博爱微信";
+			productReference = C4442EB31DB8901C00B8CD21 /* 博爱微信.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4442EAB1DB8901C00B8CD21 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BA;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "博爱之家";
+				TargetAttributes = {
+					C4442EB21DB8901C00B8CD21 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = C4442EAE1DB8901C00B8CD21 /* Build configuration list for PBXProject "博爱微信" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C4442EAA1DB8901C00B8CD21;
+			productRefGroup = C4442EB41DB8901C00B8CD21 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4442EB21DB8901C00B8CD21 /* 博爱微信 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4442EB11DB8901C00B8CD21 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4442EF61DB8969100B8CD21 /* BAWeXinApp.bundle in Resources */,
+				C4442EC61DB8901D00B8CD21 /* LaunchScreen.storyboard in Resources */,
+				C4442EC31DB8901D00B8CD21 /* Assets.xcassets in Resources */,
+				C4442EF51DB8969100B8CD21 /* BATabBundle.bundle in Resources */,
+				C4442FD81DB89A0300B8CD21 /* BASharManager.bundle in Resources */,
+				C4442EC11DB8901D00B8CD21 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28E7186B1B0F7B23D5C0CCF2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-博爱微信/Pods-博爱微信-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2ED9C427E17925FFD1C6BDF4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-博爱微信/Pods-博爱微信-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DD4CEA9BB1D2EA663182284 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4442EAF1DB8901C00B8CD21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4442FF31DB89A0300B8CD21 /* GCDTimer.m in Sources */,
+				C4442FE41DB89A0300B8CD21 /* NSFileManager+BAKit.m in Sources */,
+				C4442FE51DB89A0300B8CD21 /* NSMutableArray+BAKit.m in Sources */,
+				C4442FCD1DB89A0300B8CD21 /* BAAlertView.m in Sources */,
+				C4442FD31DB89A0300B8CD21 /* BARegularExpression.m in Sources */,
+				C44430081DB89A0300B8CD21 /* UINavigationController+BAKit.m in Sources */,
+				C44430191DB89A0300B8CD21 /* BANetManager.m in Sources */,
+				C44430181DB89A0300B8CD21 /* BABaseNetManager.m in Sources */,
+				C4442EE71DB8944800B8CD21 /* BAHomeViewController.m in Sources */,
+				C4442FDB1DB89A0300B8CD21 /* BACustomMJFooter.m in Sources */,
+				C444300D1DB89A0300B8CD21 /* UIView+BAKit.m in Sources */,
+				C444300F1DB89A0300B8CD21 /* UIWindow+BAKit.m in Sources */,
+				C44430001DB89A0300B8CD21 /* UICollectionView+ARDynamicCacheHeightLayoutCell.m in Sources */,
+				C4442FEA1DB89A0300B8CD21 /* NSShadow+BAKit.m in Sources */,
+				C4442FCB1DB89A0300B8CD21 /* UIBarButtonItem+Item.m in Sources */,
+				C4442FDE1DB89A0300B8CD21 /* BAKitManager.m in Sources */,
+				C4442FF41DB89A0300B8CD21 /* BAAPP.m in Sources */,
+				C4442FED1DB89A0300B8CD21 /* NSString+BAKit.m in Sources */,
+				C4442FEE1DB89A0300B8CD21 /* NSString+Trims.m in Sources */,
+				C4442FE11DB89A0300B8CD21 /* NSDate+BAKit.m in Sources */,
+				C4442FDD1DB89A0300B8CD21 /* BAKitManager+BALabel.m in Sources */,
+				C4442FE61DB89A0300B8CD21 /* NSMutableDictionary+BAKit.m in Sources */,
+				C44430131DB89A0300B8CD21 /* BASnowView.m in Sources */,
+				C4442FC71DB89A0300B8CD21 /* AppDelegate+BACategory.m in Sources */,
+				C44430061DB89A0300B8CD21 /* UILabel+BAKit.m in Sources */,
+				C44430031DB89A0300B8CD21 /* UIFont+BAKit.m in Sources */,
+				C4442FDA1DB89A0300B8CD21 /* BAClearCacheManager.m in Sources */,
+				C4442EBB1DB8901D00B8CD21 /* AppDelegate.m in Sources */,
+				C4442FE91DB89A0300B8CD21 /* NSProcessInfo+BAKit.m in Sources */,
+				C4442EF91DB8977500B8CD21 /* BABaseNavigationController.m in Sources */,
+				C444300A1DB89A0300B8CD21 /* UITableView+BAKit.m in Sources */,
+				C4442FE71DB89A0300B8CD21 /* NSNumber+BAKit.m in Sources */,
+				C44430071DB89A0300B8CD21 /* UINavigationBar+BAKit.m in Sources */,
+				C4442FFB1DB89A0300B8CD21 /* BACustomModalTransition.m in Sources */,
+				C44430151DB89A0300B8CD21 /* CALayer+BAMaskLayer.m in Sources */,
+				C4442FCF1DB89A0300B8CD21 /* BAAutoSizeWithWH.m in Sources */,
+				C44430141DB89A0300B8CD21 /* BAUpdatingView.m in Sources */,
+				C44430171DB89A0300B8CD21 /* UIView+BAGlowView.m in Sources */,
+				C4442FF51DB89A0300B8CD21 /* BALog.m in Sources */,
+				C4442EEA1DB894A100B8CD21 /* BAContactViewController.m in Sources */,
+				C4442FD41DB89A0300B8CD21 /* HMSegmentedControl.m in Sources */,
+				C4442FD71DB89A0300B8CD21 /* BAShareManageView.m in Sources */,
+				C4442FF81DB89A0300B8CD21 /* BASystemSound.m in Sources */,
+				C4442FFE1DB89A0300B8CD21 /* UIBarButtonItem+BAKit.m in Sources */,
+				C4442FF71DB89A0300B8CD21 /* BASystemService.m in Sources */,
+				C444301A1DB89A0300B8CD21 /* BANewsNetManager.m in Sources */,
+				C4442FF11DB89A0300B8CD21 /* GCDQueue.m in Sources */,
+				C4442FD51DB89A0300B8CD21 /* BAShareAnimationView.m in Sources */,
+				C44430041DB89A0300B8CD21 /* UIImage+BAKit.m in Sources */,
+				C444301B1DB89A0300B8CD21 /* UIImage+CompressImage.m in Sources */,
+				C4442FDC1DB89A0300B8CD21 /* BACustomMJHeader.m in Sources */,
+				C4442FD11DB89A0300B8CD21 /* BACustomBarItem.m in Sources */,
+				C4442EB81DB8901C00B8CD21 /* main.m in Sources */,
+				C4442FD21DB89A0300B8CD21 /* UINavigationItem+CustomItem.m in Sources */,
+				C444300B1DB89A0300B8CD21 /* UITableViewCell+Reuse.m in Sources */,
+				C4442FE81DB89A0300B8CD21 /* NSObject+BARunTime.m in Sources */,
+				C44430101DB89A0300B8CD21 /* BARotateView.m in Sources */,
+				C4442FE01DB89A0300B8CD21 /* NSData+BAKit.m in Sources */,
+				C4442FCC1DB89A0300B8CD21 /* UIViewController+BAAlertView.m in Sources */,
+				C4442FE21DB89A0300B8CD21 /* NSDateFormatter+BAKit.m in Sources */,
+				C4442EE41DB8942500B8CD21 /* BABaseViewController.m in Sources */,
+				C4442FDF1DB89A0300B8CD21 /* NSArray+BAKit.m in Sources */,
+				C4442FFD1DB89A0300B8CD21 /* BATextView.m in Sources */,
+				C4442FF61DB89A0300B8CD21 /* BAPassword.m in Sources */,
+				C4442FFA1DB89A0300B8CD21 /* UIApplication+AppInfo.m in Sources */,
+				C4442FEC1DB89A0300B8CD21 /* NSString+BAColor.m in Sources */,
+				C44430091DB89A0300B8CD21 /* UIScrollView+BAKit.m in Sources */,
+				C4442FE31DB89A0300B8CD21 /* NSDictionary+BAKit.m in Sources */,
+				C444300E1DB89A0300B8CD21 /* UIWebView+BAKit.m in Sources */,
+				C4442FEB1DB89A0300B8CD21 /* NSMutableAttributedString+BAKit.m in Sources */,
+				C4442FF91DB89A0300B8CD21 /* BATouchID.m in Sources */,
+				C4442FC91DB89A0300B8CD21 /* NSObject+BANetwork.m in Sources */,
+				C444300C1DB89A0300B8CD21 /* UITextField+BAKit.m in Sources */,
+				C44430161DB89A0300B8CD21 /* EmitterLayerView.m in Sources */,
+				C44430111DB89A0300B8CD21 /* UIView+BARotateAnimationProtocol.m in Sources */,
+				C4442FC61DB89A0300B8CD21 /* AppDelegate+BABaiduMap.m in Sources */,
+				C44430121DB89A0300B8CD21 /* BAFadeBlackView.m in Sources */,
+				C4442FF01DB89A0300B8CD21 /* GCDGroup.m in Sources */,
+				C4442FD01DB89A0300B8CD21 /* BALocalNotification.m in Sources */,
+				C4442EED1DB894C000B8CD21 /* BADiscoveryViewController.m in Sources */,
+				C4442FD91DB89A0300B8CD21 /* BASystermSetting.m in Sources */,
+				C4442EE11DB891FD00B8CD21 /* BATabBarViewController.m in Sources */,
+				C4442FEF1DB89A0300B8CD21 /* NSThread+BAKit.m in Sources */,
+				C4442FCE1DB89A0300B8CD21 /* BAModal.m in Sources */,
+				C4442FCA1DB89A0300B8CD21 /* NSObject+BAProgressHUD.m in Sources */,
+				C44430011DB89A0300B8CD21 /* UIColor+BAKit.m in Sources */,
+				C44430051DB89A0300B8CD21 /* UIImageView+BAKit.m in Sources */,
+				C4442FFC1DB89A0300B8CD21 /* BAPickerView.m in Sources */,
+				C4442FD61DB89A0300B8CD21 /* BAShareManage.m in Sources */,
+				C4442EF01DB894D900B8CD21 /* BAProfileViewController.m in Sources */,
+				C4442FFF1DB89A0300B8CD21 /* UIButton+BAKit.m in Sources */,
+				C4442FF21DB89A0300B8CD21 /* GCDSemaphore.m in Sources */,
+				C44430021DB89A0300B8CD21 /* UIDevice+BAKit.m in Sources */,
+				C4442FC81DB89A0300B8CD21 /* NSObject+BAMJParse.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C4442EBF1DB8901D00B8CD21 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4442EC01DB8901D00B8CD21 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C4442EC41DB8901D00B8CD21 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4442EC51DB8901D00B8CD21 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C4442EC81DB8901D00B8CD21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4442EC91DB8901D00B8CD21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C4442ECB1DB8901D00B8CD21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29F44B6427A24A865E863C0A /* Pods-博爱微信.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/Class/Lib/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
+				INFOPLIST_FILE = "博爱微信/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-boai.----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C4442ECC1DB8901D00B8CD21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FBCDBD7D00F7A14115A723F /* Pods-博爱微信.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/Class/Lib/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
+				INFOPLIST_FILE = "博爱微信/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-boai.----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4442EAE1DB8901C00B8CD21 /* Build configuration list for PBXProject "博爱微信" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4442EC81DB8901D00B8CD21 /* Debug */,
+				C4442EC91DB8901D00B8CD21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4442ECA1DB8901D00B8CD21 /* Build configuration list for PBXNativeTarget "博爱微信" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4442ECB1DB8901D00B8CD21 /* Debug */,
+				C4442ECC1DB8901D00B8CD21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C4442EAB1DB8901C00B8CD21 /* Project object */;
+}
