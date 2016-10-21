@@ -12,7 +12,6 @@
 		C4442EBB1DB8901D00B8CD21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EBA1DB8901D00B8CD21 /* AppDelegate.m */; };
 		C4442EC11DB8901D00B8CD21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4442EBF1DB8901D00B8CD21 /* Main.storyboard */; };
 		C4442EC31DB8901D00B8CD21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4442EC21DB8901D00B8CD21 /* Assets.xcassets */; };
-		C4442EC61DB8901D00B8CD21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4442EC41DB8901D00B8CD21 /* LaunchScreen.storyboard */; };
 		C4442EE11DB891FD00B8CD21 /* BATabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE01DB891FD00B8CD21 /* BATabBarViewController.m */; };
 		C4442EE41DB8942500B8CD21 /* BABaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE31DB8942500B8CD21 /* BABaseViewController.m */; };
 		C4442EE71DB8944800B8CD21 /* BAHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE61DB8944800B8CD21 /* BAHomeViewController.m */; };
@@ -108,6 +107,7 @@
 		C44430191DB89A0300B8CD21 /* BANetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FC01DB89A0300B8CD21 /* BANetManager.m */; };
 		C444301A1DB89A0300B8CD21 /* BANewsNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FC21DB89A0300B8CD21 /* BANewsNetManager.m */; };
 		C444301B1DB89A0300B8CD21 /* UIImage+CompressImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FC51DB89A0300B8CD21 /* UIImage+CompressImage.m */; };
+		C444301D1DB8CC7C00B8CD21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C444301C1DB8CC7C00B8CD21 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,7 +120,6 @@
 		C4442EBA1DB8901D00B8CD21 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C4442EC01DB8901D00B8CD21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4442EC21DB8901D00B8CD21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C4442EC51DB8901D00B8CD21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4442EC71DB8901D00B8CD21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4442EDF1DB891FD00B8CD21 /* BATabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarViewController.h; sourceTree = "<group>"; };
 		C4442EE01DB891FD00B8CD21 /* BATabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarViewController.m; sourceTree = "<group>"; };
@@ -317,6 +316,7 @@
 		C4442FC31DB89A0300B8CD21 /* BAURLsPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAURLsPath.h; sourceTree = "<group>"; };
 		C4442FC41DB89A0300B8CD21 /* UIImage+CompressImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CompressImage.h"; sourceTree = "<group>"; };
 		C4442FC51DB89A0300B8CD21 /* UIImage+CompressImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CompressImage.m"; sourceTree = "<group>"; };
+		C444301C1DB8CC7C00B8CD21 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -381,8 +381,8 @@
 				C4442EB91DB8901D00B8CD21 /* AppDelegate.h */,
 				C4442EBA1DB8901D00B8CD21 /* AppDelegate.m */,
 				C4442EBF1DB8901D00B8CD21 /* Main.storyboard */,
+				C444301C1DB8CC7C00B8CD21 /* LaunchScreen.storyboard */,
 				C4442EC21DB8901D00B8CD21 /* Assets.xcassets */,
-				C4442EC41DB8901D00B8CD21 /* LaunchScreen.storyboard */,
 				C4442EC71DB8901D00B8CD21 /* Info.plist */,
 				C4442EB71DB8901C00B8CD21 /* main.m */,
 			);
@@ -967,9 +967,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4442EF61DB8969100B8CD21 /* BAWeXinApp.bundle in Resources */,
-				C4442EC61DB8901D00B8CD21 /* LaunchScreen.storyboard in Resources */,
 				C4442EC31DB8901D00B8CD21 /* Assets.xcassets in Resources */,
 				C4442EF51DB8969100B8CD21 /* BATabBundle.bundle in Resources */,
+				C444301D1DB8CC7C00B8CD21 /* LaunchScreen.storyboard in Resources */,
 				C4442FD81DB89A0300B8CD21 /* BASharManager.bundle in Resources */,
 				C4442EC11DB8901D00B8CD21 /* Main.storyboard in Resources */,
 			);
@@ -1138,14 +1138,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		C4442EC41DB8901D00B8CD21 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4442EC51DB8901D00B8CD21 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1236,6 +1228,7 @@
 			baseConfigurationReference = 29F44B6427A24A865E863C0A /* Pods-博爱微信.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/Class/Lib/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
 				INFOPLIST_FILE = "博爱微信/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1250,6 +1243,7 @@
 			baseConfigurationReference = 7FBCDBD7D00F7A14115A723F /* Pods-博爱微信.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/Class/Lib/BATools(工具类)/BAMacros(宏)/BABaseProject.pch";
 				INFOPLIST_FILE = "博爱微信/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
