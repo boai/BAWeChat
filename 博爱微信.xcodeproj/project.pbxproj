@@ -8,16 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		86AABD44C39607F8927513BB /* libPods-博爱微信.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D12FBA01E5C85809C17CE0 /* libPods-博爱微信.a */; };
+		C42E83E01DBA064C00D65813 /* BADiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42E83CD1DBA064C00D65813 /* BADiscoveryViewController.m */; };
+		C42E83E11DBA064C00D65813 /* BAHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42E83D31DBA064C00D65813 /* BAHomeViewController.m */; };
+		C42E83E21DBA064C00D65813 /* BAContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42E83D91DBA064C00D65813 /* BAContactViewController.m */; };
+		C42E83E31DBA064C00D65813 /* BAProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42E83DF1DBA064C00D65813 /* BAProfileViewController.m */; };
 		C4442EB81DB8901C00B8CD21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EB71DB8901C00B8CD21 /* main.m */; };
 		C4442EBB1DB8901D00B8CD21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EBA1DB8901D00B8CD21 /* AppDelegate.m */; };
 		C4442EC11DB8901D00B8CD21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4442EBF1DB8901D00B8CD21 /* Main.storyboard */; };
 		C4442EC31DB8901D00B8CD21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4442EC21DB8901D00B8CD21 /* Assets.xcassets */; };
 		C4442EE11DB891FD00B8CD21 /* BATabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE01DB891FD00B8CD21 /* BATabBarViewController.m */; };
 		C4442EE41DB8942500B8CD21 /* BABaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE31DB8942500B8CD21 /* BABaseViewController.m */; };
-		C4442EE71DB8944800B8CD21 /* BAHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE61DB8944800B8CD21 /* BAHomeViewController.m */; };
-		C4442EEA1DB894A100B8CD21 /* BAContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE91DB894A100B8CD21 /* BAContactViewController.m */; };
-		C4442EED1DB894C000B8CD21 /* BADiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EEC1DB894C000B8CD21 /* BADiscoveryViewController.m */; };
-		C4442EF01DB894D900B8CD21 /* BAProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EEF1DB894D900B8CD21 /* BAProfileViewController.m */; };
 		C4442EF51DB8969100B8CD21 /* BATabBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4442EF31DB8969100B8CD21 /* BATabBundle.bundle */; };
 		C4442EF61DB8969100B8CD21 /* BAWeXinApp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4442EF41DB8969100B8CD21 /* BAWeXinApp.bundle */; };
 		C4442EF91DB8977500B8CD21 /* BABaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EF81DB8977500B8CD21 /* BABaseNavigationController.m */; };
@@ -114,6 +114,14 @@
 		20D12FBA01E5C85809C17CE0 /* libPods-博爱微信.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-博爱微信.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F44B6427A24A865E863C0A /* Pods-博爱微信.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-博爱微信.debug.xcconfig"; path = "Pods/Target Support Files/Pods-博爱微信/Pods-博爱微信.debug.xcconfig"; sourceTree = "<group>"; };
 		7FBCDBD7D00F7A14115A723F /* Pods-博爱微信.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-博爱微信.release.xcconfig"; path = "Pods/Target Support Files/Pods-博爱微信/Pods-博爱微信.release.xcconfig"; sourceTree = "<group>"; };
+		C42E83CC1DBA064C00D65813 /* BADiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BADiscoveryViewController.h; sourceTree = "<group>"; };
+		C42E83CD1DBA064C00D65813 /* BADiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BADiscoveryViewController.m; sourceTree = "<group>"; };
+		C42E83D21DBA064C00D65813 /* BAHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHomeViewController.h; sourceTree = "<group>"; };
+		C42E83D31DBA064C00D65813 /* BAHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHomeViewController.m; sourceTree = "<group>"; };
+		C42E83D81DBA064C00D65813 /* BAContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAContactViewController.h; sourceTree = "<group>"; };
+		C42E83D91DBA064C00D65813 /* BAContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAContactViewController.m; sourceTree = "<group>"; };
+		C42E83DE1DBA064C00D65813 /* BAProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAProfileViewController.h; sourceTree = "<group>"; };
+		C42E83DF1DBA064C00D65813 /* BAProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAProfileViewController.m; sourceTree = "<group>"; };
 		C4442EB31DB8901C00B8CD21 /* 博爱微信.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "博爱微信.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4442EB71DB8901C00B8CD21 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4442EB91DB8901D00B8CD21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -125,14 +133,6 @@
 		C4442EE01DB891FD00B8CD21 /* BATabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarViewController.m; sourceTree = "<group>"; };
 		C4442EE21DB8942500B8CD21 /* BABaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseViewController.h; sourceTree = "<group>"; };
 		C4442EE31DB8942500B8CD21 /* BABaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseViewController.m; sourceTree = "<group>"; };
-		C4442EE51DB8944800B8CD21 /* BAHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAHomeViewController.h; sourceTree = "<group>"; };
-		C4442EE61DB8944800B8CD21 /* BAHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAHomeViewController.m; sourceTree = "<group>"; };
-		C4442EE81DB894A100B8CD21 /* BAContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAContactViewController.h; sourceTree = "<group>"; };
-		C4442EE91DB894A100B8CD21 /* BAContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAContactViewController.m; sourceTree = "<group>"; };
-		C4442EEB1DB894C000B8CD21 /* BADiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BADiscoveryViewController.h; sourceTree = "<group>"; };
-		C4442EEC1DB894C000B8CD21 /* BADiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BADiscoveryViewController.m; sourceTree = "<group>"; };
-		C4442EEE1DB894D900B8CD21 /* BAProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAProfileViewController.h; sourceTree = "<group>"; };
-		C4442EEF1DB894D900B8CD21 /* BAProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAProfileViewController.m; sourceTree = "<group>"; };
 		C4442EF31DB8969100B8CD21 /* BATabBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BATabBundle.bundle; path = "博爱微信/Class/Resources/Bundle/BATabBundle.bundle"; sourceTree = SOURCE_ROOT; };
 		C4442EF41DB8969100B8CD21 /* BAWeXinApp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BAWeXinApp.bundle; path = "博爱微信/Class/Resources/Bundle/BAWeXinApp.bundle"; sourceTree = SOURCE_ROOT; };
 		C4442EF71DB8977500B8CD21 /* BABaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BABaseNavigationController.h; path = "博爱微信/Class/Base/BABaseNavigationController.h"; sourceTree = SOURCE_ROOT; };
@@ -348,6 +348,142 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C42E83C81DBA064C00D65813 /* 发现 */ = {
+			isa = PBXGroup;
+			children = (
+				C42E83CB1DBA064C00D65813 /* ViewController */,
+				C42E83C91DBA064C00D65813 /* Model */,
+				C42E83CA1DBA064C00D65813 /* View */,
+			);
+			name = "发现";
+			path = "博爱微信/Class/发现";
+			sourceTree = SOURCE_ROOT;
+		};
+		C42E83C91DBA064C00D65813 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C42E83CA1DBA064C00D65813 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C42E83CB1DBA064C00D65813 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C42E83CC1DBA064C00D65813 /* BADiscoveryViewController.h */,
+				C42E83CD1DBA064C00D65813 /* BADiscoveryViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C42E83CE1DBA064C00D65813 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				C42E83D11DBA064C00D65813 /* ViewController */,
+				C42E83CF1DBA064C00D65813 /* Model */,
+				C42E83D01DBA064C00D65813 /* View */,
+			);
+			name = "首页";
+			path = "博爱微信/Class/首页";
+			sourceTree = SOURCE_ROOT;
+		};
+		C42E83CF1DBA064C00D65813 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C42E83D01DBA064C00D65813 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C42E83D11DBA064C00D65813 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C42E83D21DBA064C00D65813 /* BAHomeViewController.h */,
+				C42E83D31DBA064C00D65813 /* BAHomeViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C42E83D41DBA064C00D65813 /* 通讯录 */ = {
+			isa = PBXGroup;
+			children = (
+				C42E83D71DBA064C00D65813 /* ViewController */,
+				C42E83D51DBA064C00D65813 /* Model */,
+				C42E83D61DBA064C00D65813 /* View */,
+			);
+			name = "通讯录";
+			path = "博爱微信/Class/通讯录";
+			sourceTree = SOURCE_ROOT;
+		};
+		C42E83D51DBA064C00D65813 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C42E83D61DBA064C00D65813 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C42E83D71DBA064C00D65813 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C42E83D81DBA064C00D65813 /* BAContactViewController.h */,
+				C42E83D91DBA064C00D65813 /* BAContactViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C42E83DA1DBA064C00D65813 /* 我 */ = {
+			isa = PBXGroup;
+			children = (
+				C42E83DD1DBA064C00D65813 /* ViewController */,
+				C42E83DB1DBA064C00D65813 /* Model */,
+				C42E83DC1DBA064C00D65813 /* View */,
+			);
+			name = "我";
+			path = "博爱微信/Class/我";
+			sourceTree = SOURCE_ROOT;
+		};
+		C42E83DB1DBA064C00D65813 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C42E83DC1DBA064C00D65813 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C42E83DD1DBA064C00D65813 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C42E83DE1DBA064C00D65813 /* BAProfileViewController.h */,
+				C42E83DF1DBA064C00D65813 /* BAProfileViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		C4442EAA1DB8901C00B8CD21 = {
 			isa = PBXGroup;
 			children = (
@@ -393,10 +529,10 @@
 			isa = PBXGroup;
 			children = (
 				C4442EDB1DB8917300B8CD21 /* Main */,
-				C4442ED91DB8912900B8CD21 /* 首页 */,
-				C4442ED81DB8912900B8CD21 /* 通讯录 */,
-				C4442ED61DB8912900B8CD21 /* 发现 */,
-				C4442ED71DB8912900B8CD21 /* 我 */,
+				C42E83C81DBA064C00D65813 /* 发现 */,
+				C42E83CE1DBA064C00D65813 /* 首页 */,
+				C42E83D41DBA064C00D65813 /* 通讯录 */,
+				C42E83DA1DBA064C00D65813 /* 我 */,
 				C4442EDA1DB8917300B8CD21 /* Base */,
 				C4442ECE1DB8912900B8CD21 /* Category */,
 				C4442ECF1DB8912900B8CD21 /* Lib */,
@@ -468,42 +604,6 @@
 			children = (
 			);
 			path = Plist;
-			sourceTree = "<group>";
-		};
-		C4442ED61DB8912900B8CD21 /* 发现 */ = {
-			isa = PBXGroup;
-			children = (
-				C4442EEB1DB894C000B8CD21 /* BADiscoveryViewController.h */,
-				C4442EEC1DB894C000B8CD21 /* BADiscoveryViewController.m */,
-			);
-			path = "发现";
-			sourceTree = "<group>";
-		};
-		C4442ED71DB8912900B8CD21 /* 我 */ = {
-			isa = PBXGroup;
-			children = (
-				C4442EEE1DB894D900B8CD21 /* BAProfileViewController.h */,
-				C4442EEF1DB894D900B8CD21 /* BAProfileViewController.m */,
-			);
-			path = "我";
-			sourceTree = "<group>";
-		};
-		C4442ED81DB8912900B8CD21 /* 通讯录 */ = {
-			isa = PBXGroup;
-			children = (
-				C4442EE81DB894A100B8CD21 /* BAContactViewController.h */,
-				C4442EE91DB894A100B8CD21 /* BAContactViewController.m */,
-			);
-			path = "通讯录";
-			sourceTree = "<group>";
-		};
-		C4442ED91DB8912900B8CD21 /* 首页 */ = {
-			isa = PBXGroup;
-			children = (
-				C4442EE51DB8944800B8CD21 /* BAHomeViewController.h */,
-				C4442EE61DB8944800B8CD21 /* BAHomeViewController.m */,
-			);
-			path = "首页";
 			sourceTree = "<group>";
 		};
 		C4442EDA1DB8917300B8CD21 /* Base */ = {
@@ -1034,11 +1134,12 @@
 				C4442FE41DB89A0300B8CD21 /* NSFileManager+BAKit.m in Sources */,
 				C4442FE51DB89A0300B8CD21 /* NSMutableArray+BAKit.m in Sources */,
 				C4442FCD1DB89A0300B8CD21 /* BAAlertView.m in Sources */,
+				C42E83E11DBA064C00D65813 /* BAHomeViewController.m in Sources */,
 				C4442FD31DB89A0300B8CD21 /* BARegularExpression.m in Sources */,
+				C42E83E01DBA064C00D65813 /* BADiscoveryViewController.m in Sources */,
 				C44430081DB89A0300B8CD21 /* UINavigationController+BAKit.m in Sources */,
 				C44430191DB89A0300B8CD21 /* BANetManager.m in Sources */,
 				C44430181DB89A0300B8CD21 /* BABaseNetManager.m in Sources */,
-				C4442EE71DB8944800B8CD21 /* BAHomeViewController.m in Sources */,
 				C4442FDB1DB89A0300B8CD21 /* BACustomMJFooter.m in Sources */,
 				C444300D1DB89A0300B8CD21 /* UIView+BAKit.m in Sources */,
 				C444300F1DB89A0300B8CD21 /* UIWindow+BAKit.m in Sources */,
@@ -1069,7 +1170,6 @@
 				C44430141DB89A0300B8CD21 /* BAUpdatingView.m in Sources */,
 				C44430171DB89A0300B8CD21 /* UIView+BAGlowView.m in Sources */,
 				C4442FF51DB89A0300B8CD21 /* BALog.m in Sources */,
-				C4442EEA1DB894A100B8CD21 /* BAContactViewController.m in Sources */,
 				C4442FD41DB89A0300B8CD21 /* HMSegmentedControl.m in Sources */,
 				C4442FD71DB89A0300B8CD21 /* BAShareManageView.m in Sources */,
 				C4442FF81DB89A0300B8CD21 /* BASystemSound.m in Sources */,
@@ -1089,6 +1189,7 @@
 				C44430101DB89A0300B8CD21 /* BARotateView.m in Sources */,
 				C4442FE01DB89A0300B8CD21 /* NSData+BAKit.m in Sources */,
 				C4442FCC1DB89A0300B8CD21 /* UIViewController+BAAlertView.m in Sources */,
+				C42E83E21DBA064C00D65813 /* BAContactViewController.m in Sources */,
 				C4442FE21DB89A0300B8CD21 /* NSDateFormatter+BAKit.m in Sources */,
 				C4442EE41DB8942500B8CD21 /* BABaseViewController.m in Sources */,
 				C4442FDF1DB89A0300B8CD21 /* NSArray+BAKit.m in Sources */,
@@ -1104,12 +1205,12 @@
 				C4442FC91DB89A0300B8CD21 /* NSObject+BANetwork.m in Sources */,
 				C444300C1DB89A0300B8CD21 /* UITextField+BAKit.m in Sources */,
 				C44430161DB89A0300B8CD21 /* EmitterLayerView.m in Sources */,
+				C42E83E31DBA064C00D65813 /* BAProfileViewController.m in Sources */,
 				C44430111DB89A0300B8CD21 /* UIView+BARotateAnimationProtocol.m in Sources */,
 				C4442FC61DB89A0300B8CD21 /* AppDelegate+BABaiduMap.m in Sources */,
 				C44430121DB89A0300B8CD21 /* BAFadeBlackView.m in Sources */,
 				C4442FF01DB89A0300B8CD21 /* GCDGroup.m in Sources */,
 				C4442FD01DB89A0300B8CD21 /* BALocalNotification.m in Sources */,
-				C4442EED1DB894C000B8CD21 /* BADiscoveryViewController.m in Sources */,
 				C4442FD91DB89A0300B8CD21 /* BASystermSetting.m in Sources */,
 				C4442EE11DB891FD00B8CD21 /* BATabBarViewController.m in Sources */,
 				C4442FEF1DB89A0300B8CD21 /* NSThread+BAKit.m in Sources */,
@@ -1119,7 +1220,6 @@
 				C44430051DB89A0300B8CD21 /* UIImageView+BAKit.m in Sources */,
 				C4442FFC1DB89A0300B8CD21 /* BAPickerView.m in Sources */,
 				C4442FD61DB89A0300B8CD21 /* BAShareManage.m in Sources */,
-				C4442EF01DB894D900B8CD21 /* BAProfileViewController.m in Sources */,
 				C4442FFF1DB89A0300B8CD21 /* UIButton+BAKit.m in Sources */,
 				C4442FF21DB89A0300B8CD21 /* GCDSemaphore.m in Sources */,
 				C44430021DB89A0300B8CD21 /* UIDevice+BAKit.m in Sources */,
