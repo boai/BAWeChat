@@ -19,7 +19,7 @@ target '博爱微信' do
     pod 'BAButton'
 
     # 一个完全实现自定义的alertView！目前为止，最为精简的alert封装！
-    pod 'BACustomAlertView'
+#    pod 'BACustomAlertView'
 
     # 对系统原生的AutoLayout 的 NSLayoutConstraints类的封装，优雅的链式语法，GitHub 排名第三
     pod 'Masonry'
@@ -33,11 +33,11 @@ target '博爱微信' do
     # 为滚动控件（UIScrollView, UITableView, UICollectionView）添加头部脚部刷新UI
     pod 'MJRefresh'
 
-    # 键盘框架
-    pod 'IQKeyboardManager'
-
     # 专门用于转换 Array/Dictionary -> 对象模型 主要用于JSON解析，基本都用这个框架（必会）
     pod 'MJExtension'
+    
+    # 键盘框架
+    pod 'IQKeyboardManager'
 
     # GitHub 排名第一的网络操作框架，底层使用NSURLSession+NSOperation(多线程)
     pod 'AFNetworking'
@@ -64,7 +64,7 @@ target '博爱微信' do
     pod 'JMRoundedCorner'
 
     # 把系统的target+selector/委托模式 转为 Block语法，让代码结构更加紧凑
-    pod 'BlocksKit'
+#    pod 'BlocksKit'
 
     # Facebook kit 框架
     #    pod 'AsyncDisplayKit'
@@ -74,7 +74,7 @@ target '博爱微信' do
     #    pod 'Toast', '~> 3.0'
 
     # 线性布局MyLinearLayout/相对布局MyRelativeLayout/框架布局MyFrameLayout/表格布局MyTableLayout/流式布局MyFlowLayout/浮动布局MyFloatLayout/SizeClass的支持
-    pod 'MyLayout'
+#    pod 'MyLayout'
 
     # 各种封装的集合！大神的多年积累！
     #    pod 'YYKit'

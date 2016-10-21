@@ -14,16 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>BACustomAlertView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>BlocksKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>DZNEmptyDataSet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -69,11 +59,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MyLayout.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>NullSafe.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,7 +82,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3343813D7D4C008B46934BB464F4B0B1</key>
+		<key>293C47DE37FE47F08659E8FFE7A5F05C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -108,11 +93,6 @@
 			<true/>
 		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>66FA296A598048D1729B51F292777B66</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,27 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9FD489907A600FD285D1D0C2A1A12A6C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A1CA83E959654FBDDE495F0BB01A1CB9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A2647A122EBB27B75708833151D897AB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B58AE9150F017AC1E3E69371EC850776</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B9C5D98D8ADD7148978F671F156051D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BF6DCEB8FA1C0BAC2B93284912661B7A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -177,7 +147,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DA1A7295DF2A99609DA0EEBF5E83233D</key>
+		<key>D25ACDABE34B48D32F21372902A3F0E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
