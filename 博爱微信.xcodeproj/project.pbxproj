@@ -12,6 +12,7 @@
 		C42E83E11DBA064C00D65813 /* BAHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42E83D31DBA064C00D65813 /* BAHomeViewController.m */; };
 		C42E83E21DBA064C00D65813 /* BAContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42E83D91DBA064C00D65813 /* BAContactViewController.m */; };
 		C42E83E31DBA064C00D65813 /* BAProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42E83DF1DBA064C00D65813 /* BAProfileViewController.m */; };
+		C42E83E51DBA10EF00D65813 /* BAProfile.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C42E83E41DBA10EF00D65813 /* BAProfile.bundle */; };
 		C4442EB81DB8901C00B8CD21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EB71DB8901C00B8CD21 /* main.m */; };
 		C4442EBB1DB8901D00B8CD21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EBA1DB8901D00B8CD21 /* AppDelegate.m */; };
 		C4442EC11DB8901D00B8CD21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4442EBF1DB8901D00B8CD21 /* Main.storyboard */; };
@@ -122,6 +123,7 @@
 		C42E83D91DBA064C00D65813 /* BAContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAContactViewController.m; sourceTree = "<group>"; };
 		C42E83DE1DBA064C00D65813 /* BAProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAProfileViewController.h; sourceTree = "<group>"; };
 		C42E83DF1DBA064C00D65813 /* BAProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAProfileViewController.m; sourceTree = "<group>"; };
+		C42E83E41DBA10EF00D65813 /* BAProfile.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BAProfile.bundle; path = "博爱微信/Class/Resources/Bundle/BAProfile.bundle"; sourceTree = SOURCE_ROOT; };
 		C4442EB31DB8901C00B8CD21 /* 博爱微信.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "博爱微信.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4442EB71DB8901C00B8CD21 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4442EB91DB8901D00B8CD21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -579,6 +581,7 @@
 		C4442ED21DB8912900B8CD21 /* Bundle */ = {
 			isa = PBXGroup;
 			children = (
+				C42E83E41DBA10EF00D65813 /* BAProfile.bundle */,
 				C4442EF31DB8969100B8CD21 /* BATabBundle.bundle */,
 				C4442EF41DB8969100B8CD21 /* BAWeXinApp.bundle */,
 			);
@@ -1072,6 +1075,7 @@
 				C444301D1DB8CC7C00B8CD21 /* LaunchScreen.storyboard in Resources */,
 				C4442FD81DB89A0300B8CD21 /* BASharManager.bundle in Resources */,
 				C4442EC11DB8901D00B8CD21 /* Main.storyboard in Resources */,
+				C42E83E51DBA10EF00D65813 /* BAProfile.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,41 +19,9 @@
 
 @interface BATabBarViewController ()
 
-//@property (nonatomic, strong) NSArray *dataArray;
-
 @end
 
 @implementation BATabBarViewController
-
-//- (NSArray *)dataArray
-//{
-//    if (!_dataArray)
-//    {
-//        _dataArray = @[@{BATab_ClassKey     :@"BAHomeViewController",
-//                        BATab_TitleKey      :@"微信",
-//                        BATab_ImaeNormalKey :@"BATabBundle.bundle/tabbar_mainframe",
-//                        BATab_ImaeSelectKey :@"BATabBundle.bundle/tabbar_mainframeHL"
-//                        },
-//                      @{BATab_ClassKey      :@"BAContactViewController",
-//                        BATab_TitleKey      :@"通讯录",
-//                        BATab_ImaeNormalKey :@"BATabBundle.bundle/tabbar_contacts",
-//                        BATab_ImaeSelectKey :@"BATabBundle.bundle/tabbar_contactsHL"
-//                        },
-//                      @{BATab_ClassKey      :@"BADiscoveryViewController",
-//                        BATab_TitleKey      :@"发现",
-//                        BATab_ImaeNormalKey :@"BATabBundle.bundle/tabbar_discover",
-//                        BATab_ImaeSelectKey :@"BATabBundle.bundle/tabbar_discoverHL"
-//                        },
-//                      @{BATab_ClassKey      :@"BAProfileViewController",
-//                        BATab_TitleKey      :@"我",
-//                        BATab_ImaeNormalKey :@"BATabBundle.bundle/tabbar_me",
-//                        BATab_ImaeSelectKey :@"BATabBundle.bundle/tabbar_meHL"
-//                        }
-//                      ];
-//        
-//    }
-//    return _dataArray;
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

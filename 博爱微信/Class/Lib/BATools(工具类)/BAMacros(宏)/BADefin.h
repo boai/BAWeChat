@@ -76,7 +76,8 @@
 /*! 百度地图 AppKey  */
 #define BA_BaiDuMapAppKey   @"qhqlttbTzqPdGilGTVoaH7fYGenIxNK5"
 
-
+/*! 图片 */
+#define BA_ImageName(imageName) [UIImage imageNamed:imageName]
 
 /*! 字体 */
 #define BA_FontSize(fontSize) [UIFont systemFontOfSize:fontSize]
