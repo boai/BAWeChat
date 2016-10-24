@@ -25,7 +25,7 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     UINavigationBar *naviBar = [UINavigationBar appearance];
-    naviBar.barTintColor = BA_RGBAColor(0.1, 0.1, 0.1, 0.9);
+    naviBar.barTintColor = ba_RGBAColor(0.1, 0.1, 0.1, 0.9);
     naviBar.tintColor = [UIColor whiteColor];
     naviBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
 }

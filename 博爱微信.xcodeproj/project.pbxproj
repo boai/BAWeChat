@@ -17,7 +17,6 @@
 		C4442EBB1DB8901D00B8CD21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EBA1DB8901D00B8CD21 /* AppDelegate.m */; };
 		C4442EC11DB8901D00B8CD21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4442EBF1DB8901D00B8CD21 /* Main.storyboard */; };
 		C4442EC31DB8901D00B8CD21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4442EC21DB8901D00B8CD21 /* Assets.xcassets */; };
-		C4442EE11DB891FD00B8CD21 /* BATabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE01DB891FD00B8CD21 /* BATabBarViewController.m */; };
 		C4442EE41DB8942500B8CD21 /* BABaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442EE31DB8942500B8CD21 /* BABaseViewController.m */; };
 		C4442EF51DB8969100B8CD21 /* BATabBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4442EF31DB8969100B8CD21 /* BATabBundle.bundle */; };
 		C4442EF61DB8969100B8CD21 /* BAWeXinApp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C4442EF41DB8969100B8CD21 /* BAWeXinApp.bundle */; };
@@ -109,6 +108,7 @@
 		C444301A1DB89A0300B8CD21 /* BANewsNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FC21DB89A0300B8CD21 /* BANewsNetManager.m */; };
 		C444301B1DB89A0300B8CD21 /* UIImage+CompressImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FC51DB89A0300B8CD21 /* UIImage+CompressImage.m */; };
 		C444301D1DB8CC7C00B8CD21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C444301C1DB8CC7C00B8CD21 /* LaunchScreen.storyboard */; };
+		C48C002E1DBD972100F59578 /* BATabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C002D1DBD972100F59578 /* BATabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,7 +132,6 @@
 		C4442EC21DB8901D00B8CD21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4442EC71DB8901D00B8CD21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4442EDF1DB891FD00B8CD21 /* BATabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarViewController.h; sourceTree = "<group>"; };
-		C4442EE01DB891FD00B8CD21 /* BATabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarViewController.m; sourceTree = "<group>"; };
 		C4442EE21DB8942500B8CD21 /* BABaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseViewController.h; sourceTree = "<group>"; };
 		C4442EE31DB8942500B8CD21 /* BABaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABaseViewController.m; sourceTree = "<group>"; };
 		C4442EF31DB8969100B8CD21 /* BATabBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BATabBundle.bundle; path = "博爱微信/Class/Resources/Bundle/BATabBundle.bundle"; sourceTree = SOURCE_ROOT; };
@@ -306,7 +305,6 @@
 		C4442FB51DB89A0300B8CD21 /* UIView+BAGlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BAGlowView.h"; sourceTree = "<group>"; };
 		C4442FB61DB89A0300B8CD21 /* UIView+BAGlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BAGlowView.m"; sourceTree = "<group>"; };
 		C4442FB81DB89A0300B8CD21 /* BABaseProject.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseProject.pch; sourceTree = "<group>"; };
-		C4442FB91DB89A0300B8CD21 /* BAColorHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAColorHeader.h; sourceTree = "<group>"; };
 		C4442FBA1DB89A0300B8CD21 /* BADefin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BADefin.h; sourceTree = "<group>"; };
 		C4442FBB1DB89A0300B8CD21 /* BAFrameHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAFrameHeader.h; sourceTree = "<group>"; };
 		C4442FBD1DB89A0300B8CD21 /* BABaseNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABaseNetManager.h; sourceTree = "<group>"; };
@@ -319,6 +317,8 @@
 		C4442FC41DB89A0300B8CD21 /* UIImage+CompressImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CompressImage.h"; sourceTree = "<group>"; };
 		C4442FC51DB89A0300B8CD21 /* UIImage+CompressImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CompressImage.m"; sourceTree = "<group>"; };
 		C444301C1DB8CC7C00B8CD21 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C48C002D1DBD972100F59578 /* BATabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarViewController.m; sourceTree = "<group>"; };
+		C48C002F1DBD973C00F59578 /* BAColorHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAColorHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -624,7 +624,7 @@
 			isa = PBXGroup;
 			children = (
 				C4442EDF1DB891FD00B8CD21 /* BATabBarViewController.h */,
-				C4442EE01DB891FD00B8CD21 /* BATabBarViewController.m */,
+				C48C002D1DBD972100F59578 /* BATabBarViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -985,8 +985,8 @@
 			isa = PBXGroup;
 			children = (
 				C4442FB81DB89A0300B8CD21 /* BABaseProject.pch */,
-				C4442FB91DB89A0300B8CD21 /* BAColorHeader.h */,
 				C4442FBA1DB89A0300B8CD21 /* BADefin.h */,
+				C48C002F1DBD973C00F59578 /* BAColorHeader.h */,
 				C4442FBB1DB89A0300B8CD21 /* BAFrameHeader.h */,
 			);
 			path = "BAMacros(宏)";
@@ -1216,8 +1216,8 @@
 				C4442FF01DB89A0300B8CD21 /* GCDGroup.m in Sources */,
 				C4442FD01DB89A0300B8CD21 /* BALocalNotification.m in Sources */,
 				C4442FD91DB89A0300B8CD21 /* BASystermSetting.m in Sources */,
-				C4442EE11DB891FD00B8CD21 /* BATabBarViewController.m in Sources */,
 				C4442FEF1DB89A0300B8CD21 /* NSThread+BAKit.m in Sources */,
+				C48C002E1DBD972100F59578 /* BATabBarViewController.m in Sources */,
 				C4442FCE1DB89A0300B8CD21 /* BAModal.m in Sources */,
 				C4442FCA1DB89A0300B8CD21 /* NSObject+BAProgressHUD.m in Sources */,
 				C44430011DB89A0300B8CD21 /* UIColor+BAKit.m in Sources */,

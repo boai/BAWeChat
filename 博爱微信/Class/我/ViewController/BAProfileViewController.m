@@ -31,7 +31,7 @@
     if (!_tableView)
     {
         _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-        _tableView.backgroundColor = BA_RGBAColor(241, 241, 241, 1.0);
+        _tableView.backgroundColor = ba_RGBAColor(241, 241, 241, 1.0);
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [UIView new];
