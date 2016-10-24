@@ -7,11 +7,14 @@
 //
 
 #import "BAProfileViewController.h"
+#import "BAProfileHeadCell.h"
 
 
-#define BAProfile_Title @"title"
-#define BAProfile_Image @"image"
+#define BAProfile_Title   @"title"
+#define BAProfile_Image   @"image"
 
+#define BAProfile_CellID  @"BAProfileHeadCell"
+#define BAProfile_CellID2 @"BAProfileCell"
 
 @interface BAProfileViewController ()
 <
@@ -37,6 +40,9 @@
         _tableView.tableFooterView = [UIView new];
         
         [self.view addSubview:_tableView];
+        
+//        [_tableView registerNib:[UINib nibWithNibName:@"BAProfileHeadCell" bundle:nil] forCellReuseIdentifier:@"BAProfileHeadCell"];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:BAProfile_CellID2];
     }
     return _tableView;
 }
@@ -92,16 +98,14 @@
 {
     if (0 == indexPath.section)
     {
-        
+//        BAProfileHeadCell *headCell = [tableView dequeueReusableCellWithIdentifier:@"BAProfileHeadCell"];
+        BAProfileHeadCell *headCell = [BAProfileHeadCell dequeueCellFromNibIndex:indexPath.section identify:BAProfile_CellID tableView:tableView];
+
+        return headCell;
     }
     else
     {
-        static NSString *cellID = @"ProfileCellID2";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        if (!cell)
-        {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
-        }
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:BAProfile_CellID2];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         if (1 == indexPath.section)
@@ -143,7 +147,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+
 }
 
 #pragma mark - ***** 解决tableview的分割线短一截

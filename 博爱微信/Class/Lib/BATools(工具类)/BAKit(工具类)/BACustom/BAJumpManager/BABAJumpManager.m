@@ -25,8 +25,7 @@
  method：类的实例方法，
  properties：实例方法调用所需的参数。
  */
-
-+ (void)ba_jumpWtihDict:(NSDictionary *)dict navi:(UINavigationController *)navi
++ (void)ba_jumpVCWtihDict:(NSDictionary *)dict navi:(UINavigationController *)navi
 {
     Class class = NSClassFromString(dict[@"className"]);
     
@@ -38,8 +37,8 @@
         [vc setValue:obj forKey:key];
     }];
     
-    SEL selector = NSSelectorFromString(dict[@"method"]);
-    [vc performSelector:selector];
+//    SEL selector = NSSelectorFromString(dict[@"method"]);
+//    [vc performSelector:selector];
     [navi pushViewController:vc animated:YES];
 }
 

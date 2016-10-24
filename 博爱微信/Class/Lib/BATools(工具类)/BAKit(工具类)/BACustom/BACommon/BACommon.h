@@ -29,6 +29,32 @@
  */
 + (void)ba_showNoReachabileTips;
 
+/*!
+ *  添加系统的加载菊花 Only ActivityView
+ *
+ *  @param viewToLoadData viewToLoadData description
+ *  @param aStyle         aStyle description
+ *  @param color          color description
+ */
++ (void)ba_addLoadingViewInView:(UIView *)viewToLoadData
+     activityIndicatorViewStyle:(UIActivityIndicatorViewStyle)aStyle
+                     usingColor:(UIColor *)color;
 
+/*!
+ *  移除已添加的系统菊花
+ *
+ *  @param viewToLoadData viewToLoadData description
+ */
++ (void)ba_removeLoadingViewInView:(UIView *)viewToLoadData;
+
+/*!
+ *  从 Bundle 读取 plist 文件
+ *
+ *  @param fileName 文件名（如：city.plist）
+ *  @param typeName 类型（前面写了后面可不写）
+ *
+ *  @return return value description
+ */
++ (NSDictionary *)ba_dictFromBundleWithName:(NSString*)fileName withType:(NSString*)typeName;
 
 @end

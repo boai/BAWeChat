@@ -349,7 +349,9 @@
  *
  *  @return creat a circleImage
  */
-+ (instancetype)circleImageWithName:(NSString *)name borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
++ (instancetype)circleImageWithName:(NSString *)name
+                        borderWidth:(CGFloat)borderWidth
+                        borderColor:(UIColor *)borderColor;
 
 /*! 加载最原始的图片，没有渲染 */
 + (instancetype)imageWithOriginalName:(NSString *)imageName;
@@ -374,12 +376,14 @@
  *  borderWith  头像边框的宽度
  *  borderColor 边框的颜色
  */
-+ (instancetype)ba_image:(UIImage *)image borderWith:(CGFloat)borderWith borderColor:(UIColor *)borderColor;
++ (instancetype)ba_image:(UIImage *)image
+              borderWith:(CGFloat)borderWith
+             borderColor:(UIColor *)borderColor;
 
-/*!
- *  缓存图片
- */
-+ (void)ba_writeImageToFileWithImage:(UIImage *)image fileName:(NSString *)fileName;
+///*!
+// *  缓存图片
+// */
+//+ (void)ba_writeImageToFileWithImage:(UIImage *)image fileName:(NSString *)fileName;
 
 /*!
  *  从本地取图片
@@ -387,7 +391,7 @@
 + (UIImage *)ba_getImageFromFileWithFileName:(NSString *)fileName;
 
 /*!
- *  图片缩放
+ *  压缩图片尺寸
  */
 + (UIImage*)ba_imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
 

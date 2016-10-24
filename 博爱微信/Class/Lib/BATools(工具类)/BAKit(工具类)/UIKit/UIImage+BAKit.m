@@ -987,12 +987,12 @@ UIColor *colorForColorString(NSString *colorString)
     return lastImage;
 }
 
-+ (void)ba_writeImageToFileWithImage:(UIImage *)image fileName:(NSString *)fileName
-{
-    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.data", fileName]];
-    NSData *data = UIImagePNGRepresentation(image);
-    [data writeToFile:path atomically:YES];
-}
+//+ (void)ba_writeImageToFileWithImage:(UIImage *)image fileName:(NSString *)fileName
+//{
+//    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.data", fileName]];
+//    NSData *data = UIImagePNGRepresentation(image);
+//    [data writeToFile:path atomically:YES];
+//}
 
 + (UIImage *)ba_getImageFromFileWithFileName:(NSString *)fileName
 {
@@ -1015,7 +1015,10 @@ UIColor *colorForColorString(NSString *colorString)
     return newImage;
 }
 
-+ (UIImage*)ba_imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize
+/*!
+ *  压缩图片尺寸
+ */
++ (UIImage *)ba_imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize
 {
     // Create a graphics image context
     UIGraphicsBeginImageContext(newSize);

@@ -111,6 +111,8 @@
 		C48C00331DBD9C6200F59578 /* BABAJumpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C00321DBD9C6200F59578 /* BABAJumpManager.m */; };
 		C48C00361DBDA66400F59578 /* BAKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C00351DBDA66400F59578 /* BAKitManager.m */; };
 		C48C006B1DBDB28C00F59578 /* BACommon.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C006A1DBDB28C00F59578 /* BACommon.m */; };
+		C48C006F1DBDF03300F59578 /* BAProfileHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C006D1DBDF03300F59578 /* BAProfileHeadCell.m */; };
+		C48C00701DBDF03400F59578 /* BAProfileHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C006E1DBDF03300F59578 /* BAProfileHeadCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -325,6 +327,9 @@
 		C48C00351DBDA66400F59578 /* BAKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAKitManager.m; sourceTree = "<group>"; };
 		C48C00691DBDB28C00F59578 /* BACommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BACommon.h; sourceTree = "<group>"; };
 		C48C006A1DBDB28C00F59578 /* BACommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACommon.m; sourceTree = "<group>"; };
+		C48C006C1DBDF03300F59578 /* BAProfileHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAProfileHeadCell.h; sourceTree = "<group>"; };
+		C48C006D1DBDF03300F59578 /* BAProfileHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAProfileHeadCell.m; sourceTree = "<group>"; };
+		C48C006E1DBDF03300F59578 /* BAProfileHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAProfileHeadCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +484,9 @@
 		C42E83DC1DBA064C00D65813 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C48C006C1DBDF03300F59578 /* BAProfileHeadCell.h */,
+				C48C006D1DBDF03300F59578 /* BAProfileHeadCell.m */,
+				C48C006E1DBDF03300F59578 /* BAProfileHeadCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1099,6 +1107,7 @@
 				C4442EC31DB8901D00B8CD21 /* Assets.xcassets in Resources */,
 				C4442EF51DB8969100B8CD21 /* BATabBundle.bundle in Resources */,
 				C444301D1DB8CC7C00B8CD21 /* LaunchScreen.storyboard in Resources */,
+				C48C00701DBDF03400F59578 /* BAProfileHeadCell.xib in Resources */,
 				C4442FD81DB89A0300B8CD21 /* BASharManager.bundle in Resources */,
 				C4442EC11DB8901D00B8CD21 /* Main.storyboard in Resources */,
 				C42E83E51DBA10EF00D65813 /* BAProfile.bundle in Resources */,
@@ -1207,6 +1216,7 @@
 				C444301A1DB89A0300B8CD21 /* BANewsNetManager.m in Sources */,
 				C4442FF11DB89A0300B8CD21 /* GCDQueue.m in Sources */,
 				C4442FD51DB89A0300B8CD21 /* BAShareAnimationView.m in Sources */,
+				C48C006F1DBDF03300F59578 /* BAProfileHeadCell.m in Sources */,
 				C44430041DB89A0300B8CD21 /* UIImage+BAKit.m in Sources */,
 				C444301B1DB89A0300B8CD21 /* UIImage+CompressImage.m in Sources */,
 				C4442FDC1DB89A0300B8CD21 /* BACustomMJHeader.m in Sources */,

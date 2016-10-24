@@ -750,21 +750,21 @@
     [[[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确 定" otherButtonTitles: nil] show];
 }
 
-- (void)ba_showHudWitTitle:(NSString *)title atView:(UIView *)view
-{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    
-    // Set the label text.
-    hud.label.text = title;
-    // You can also adjust other label properties if needed.
-     hud.label.font = [UIFont italicSystemFontOfSize:15.f];
-    
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [hud hideAnimated:YES];
-        });
-    });
-}
+//- (void)ba_showHudWitTitle:(NSString *)title atView:(UIView *)view
+//{
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+//    
+//    // Set the label text.
+//    hud.label.text = title;
+//    // You can also adjust other label properties if needed.
+//     hud.label.font = [UIFont italicSystemFontOfSize:15.f];
+//    
+//    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [hud hideAnimated:YES];
+//        });
+//    });
+//}
 
 @end
