@@ -113,6 +113,7 @@
 		C48C006B1DBDB28C00F59578 /* BACommon.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C006A1DBDB28C00F59578 /* BACommon.m */; };
 		C48C006F1DBDF03300F59578 /* BAProfileHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C006D1DBDF03300F59578 /* BAProfileHeadCell.m */; };
 		C48C00701DBDF03400F59578 /* BAProfileHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C006E1DBDF03300F59578 /* BAProfileHeadCell.xib */; };
+		C48C00721DBE23C400F59578 /* BADiscovery.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C48C00711DBE23C400F59578 /* BADiscovery.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -330,6 +331,7 @@
 		C48C006C1DBDF03300F59578 /* BAProfileHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAProfileHeadCell.h; sourceTree = "<group>"; };
 		C48C006D1DBDF03300F59578 /* BAProfileHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAProfileHeadCell.m; sourceTree = "<group>"; };
 		C48C006E1DBDF03300F59578 /* BAProfileHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAProfileHeadCell.xib; sourceTree = "<group>"; };
+		C48C00711DBE23C400F59578 /* BADiscovery.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BADiscovery.bundle; path = "博爱微信/Class/Resources/Bundle/BADiscovery.bundle"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -545,9 +547,9 @@
 			isa = PBXGroup;
 			children = (
 				C4442EDB1DB8917300B8CD21 /* Main */,
-				C42E83C81DBA064C00D65813 /* 发现 */,
 				C42E83CE1DBA064C00D65813 /* 首页 */,
 				C42E83D41DBA064C00D65813 /* 通讯录 */,
+				C42E83C81DBA064C00D65813 /* 发现 */,
 				C42E83DA1DBA064C00D65813 /* 我 */,
 				C4442EDA1DB8917300B8CD21 /* Base */,
 				C4442ECE1DB8912900B8CD21 /* Category */,
@@ -595,6 +597,7 @@
 		C4442ED21DB8912900B8CD21 /* Bundle */ = {
 			isa = PBXGroup;
 			children = (
+				C48C00711DBE23C400F59578 /* BADiscovery.bundle */,
 				C42E83E41DBA10EF00D65813 /* BAProfile.bundle */,
 				C4442EF31DB8969100B8CD21 /* BATabBundle.bundle */,
 				C4442EF41DB8969100B8CD21 /* BAWeXinApp.bundle */,
@@ -1109,6 +1112,7 @@
 				C444301D1DB8CC7C00B8CD21 /* LaunchScreen.storyboard in Resources */,
 				C48C00701DBDF03400F59578 /* BAProfileHeadCell.xib in Resources */,
 				C4442FD81DB89A0300B8CD21 /* BASharManager.bundle in Resources */,
+				C48C00721DBE23C400F59578 /* BADiscovery.bundle in Resources */,
 				C4442EC11DB8901D00B8CD21 /* Main.storyboard in Resources */,
 				C42E83E51DBA10EF00D65813 /* BAProfile.bundle in Resources */,
 			);
