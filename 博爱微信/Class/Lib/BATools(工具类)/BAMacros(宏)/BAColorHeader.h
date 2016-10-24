@@ -76,7 +76,7 @@
 static inline UIColor *ba_RGBAColor(float r,float g,float b, float a) { return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a];}
 
 /*! 主题微信绿 */
-#define BA_Them_greenColor      ba_RGBAColor(0, 190, 12, 1)
+#define BA_WeXin_greenColor      ba_RGBAColor(0, 190, 12, 1)
 
 /*! 白色 1.0 white */
 #define BA_White_Color          ba_RGBAColor(255, 255, 255, 1)

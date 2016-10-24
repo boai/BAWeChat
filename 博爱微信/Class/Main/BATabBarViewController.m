@@ -33,32 +33,33 @@
 
 - (void)setupBase
 {
-    NSArray *dataArray = @[@{BATab_ClassKey     :@"BAHomeViewController",
-                     BATab_TitleKey      :@"微信",
-                     BATab_ImaeNormalKey :@"BATabBundle.bundle/tabbar_mainframe",
-                     BATab_ImaeSelectKey :@"BATabBundle.bundle/tabbar_mainframeHL",
-                     BATab_TitleColorKey :[UIColor redColor]
+    NSArray *dataArray = @[
+                   @{BATab_ClassKey      : @"BAHomeViewController",
+                     BATab_TitleKey      : @"微信",
+                     BATab_ImaeNormalKey : @"BATabBundle.bundle/tabbar_mainframe",
+                     BATab_ImaeSelectKey : @"BATabBundle.bundle/tabbar_mainframeHL",
+                     BATab_TitleColorKey : BA_WeXin_greenColor
                      },
-                   @{BATab_ClassKey      :@"BAContactViewController",
-                     BATab_TitleKey      :@"通讯录",
-                     BATab_ImaeNormalKey :@"BATabBundle.bundle/tabbar_contacts",
-                     BATab_ImaeSelectKey :@"BATabBundle.bundle/tabbar_contactsHL",
-                     BATab_TitleColorKey :[UIColor greenColor]
+                   @{BATab_ClassKey      : @"BAContactViewController",
+                     BATab_TitleKey      : @"通讯录",
+                     BATab_ImaeNormalKey : @"BATabBundle.bundle/tabbar_contacts",
+                     BATab_ImaeSelectKey : @"BATabBundle.bundle/tabbar_contactsHL",
+                     BATab_TitleColorKey : BA_WeXin_greenColor
                      },
-                   @{BATab_ClassKey      :@"BADiscoveryViewController",
-                     BATab_TitleKey      :@"发现",
-                     BATab_ImaeNormalKey :@"BATabBundle.bundle/tabbar_discover",
-                     BATab_ImaeSelectKey :@"BATabBundle.bundle/tabbar_discoverHL",
-                     BATab_TitleColorKey :[UIColor yellowColor]
+                   @{BATab_ClassKey      : @"BADiscoveryViewController",
+                     BATab_TitleKey      : @"发现",
+                     BATab_ImaeNormalKey : @"BATabBundle.bundle/tabbar_discover",
+                     BATab_ImaeSelectKey : @"BATabBundle.bundle/tabbar_discoverHL",
+                     BATab_TitleColorKey : BA_WeXin_greenColor
                      },
-                   @{BATab_ClassKey      :@"BAProfileViewController",
-                     BATab_TitleKey      :@"我",
-                     BATab_ImaeNormalKey :@"BATabBundle.bundle/tabbar_me",
-                     BATab_ImaeSelectKey :@"BATabBundle.bundle/tabbar_meHL",
-                     BATab_TitleColorKey :[UIColor blueColor]
+                   @{BATab_ClassKey      : @"BAProfileViewController",
+                     BATab_TitleKey      : @"我",
+                     BATab_ImaeNormalKey : @"BATabBundle.bundle/tabbar_me",
+                     BATab_ImaeSelectKey : @"BATabBundle.bundle/tabbar_meHL",
+                     BATab_TitleColorKey : BA_WeXin_greenColor
                      }
                    ];
-    
+    BA_WEAKSELF;
     [dataArray enumerateObjectsUsingBlock:^(NSDictionary *dict, NSUInteger idx, BOOL * _Nonnull stop) {
         
         UIViewController *vc = [NSClassFromString(dict[BATab_ClassKey]) new];
@@ -71,7 +72,7 @@
         item.selectedImage = [[UIImage imageNamed:dict[BATab_ImaeSelectKey]]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         [item setTitleTextAttributes:@{NSUnderlineColorAttributeName:dict[BATab_TitleColorKey], NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle), NSForegroundColorAttributeName : dict[BATab_TitleColorKey]} forState:UIControlStateSelected];
 
-        [self addChildViewController:navi];
+        [weakSelf addChildViewController:navi];
     }];
     self.selectedIndex = 0;
 }

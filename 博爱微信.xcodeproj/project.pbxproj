@@ -45,7 +45,6 @@
 		C4442FDB1DB89A0300B8CD21 /* BACustomMJFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F321DB89A0300B8CD21 /* BACustomMJFooter.m */; };
 		C4442FDC1DB89A0300B8CD21 /* BACustomMJHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F341DB89A0300B8CD21 /* BACustomMJHeader.m */; };
 		C4442FDD1DB89A0300B8CD21 /* BAKitManager+BALabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F381DB89A0300B8CD21 /* BAKitManager+BALabel.m */; };
-		C4442FDE1DB89A0300B8CD21 /* BAKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F3A1DB89A0300B8CD21 /* BAKitManager.m */; };
 		C4442FDF1DB89A0300B8CD21 /* NSArray+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F3D1DB89A0300B8CD21 /* NSArray+BAKit.m */; };
 		C4442FE01DB89A0300B8CD21 /* NSData+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F3F1DB89A0300B8CD21 /* NSData+BAKit.m */; };
 		C4442FE11DB89A0300B8CD21 /* NSDate+BAKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442F411DB89A0300B8CD21 /* NSDate+BAKit.m */; };
@@ -109,6 +108,9 @@
 		C444301B1DB89A0300B8CD21 /* UIImage+CompressImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C4442FC51DB89A0300B8CD21 /* UIImage+CompressImage.m */; };
 		C444301D1DB8CC7C00B8CD21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C444301C1DB8CC7C00B8CD21 /* LaunchScreen.storyboard */; };
 		C48C002E1DBD972100F59578 /* BATabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C002D1DBD972100F59578 /* BATabBarViewController.m */; };
+		C48C00331DBD9C6200F59578 /* BABAJumpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C00321DBD9C6200F59578 /* BABAJumpManager.m */; };
+		C48C00361DBDA66400F59578 /* BAKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C00351DBDA66400F59578 /* BAKitManager.m */; };
+		C48C006B1DBDB28C00F59578 /* BACommon.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C006A1DBDB28C00F59578 /* BACommon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,8 +188,6 @@
 		C4442F351DB89A0300B8CD21 /* BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAKit.h; sourceTree = "<group>"; };
 		C4442F371DB89A0300B8CD21 /* BAKitManager+BALabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BAKitManager+BALabel.h"; sourceTree = "<group>"; };
 		C4442F381DB89A0300B8CD21 /* BAKitManager+BALabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BAKitManager+BALabel.m"; sourceTree = "<group>"; };
-		C4442F391DB89A0300B8CD21 /* BAKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAKitManager.h; sourceTree = "<group>"; };
-		C4442F3A1DB89A0300B8CD21 /* BAKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAKitManager.m; sourceTree = "<group>"; };
 		C4442F3C1DB89A0300B8CD21 /* NSArray+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BAKit.h"; sourceTree = "<group>"; };
 		C4442F3D1DB89A0300B8CD21 /* NSArray+BAKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BAKit.m"; sourceTree = "<group>"; };
 		C4442F3E1DB89A0300B8CD21 /* NSData+BAKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+BAKit.h"; sourceTree = "<group>"; };
@@ -319,6 +319,12 @@
 		C444301C1DB8CC7C00B8CD21 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C48C002D1DBD972100F59578 /* BATabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATabBarViewController.m; sourceTree = "<group>"; };
 		C48C002F1DBD973C00F59578 /* BAColorHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAColorHeader.h; sourceTree = "<group>"; };
+		C48C00311DBD9C6200F59578 /* BABAJumpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABAJumpManager.h; sourceTree = "<group>"; };
+		C48C00321DBD9C6200F59578 /* BABAJumpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABAJumpManager.m; sourceTree = "<group>"; };
+		C48C00341DBDA66400F59578 /* BAKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAKitManager.h; sourceTree = "<group>"; };
+		C48C00351DBDA66400F59578 /* BAKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAKitManager.m; sourceTree = "<group>"; };
+		C48C00691DBDB28C00F59578 /* BACommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BACommon.h; sourceTree = "<group>"; };
+		C48C006A1DBDB28C00F59578 /* BACommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BACommon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -665,11 +671,9 @@
 		C4442F0A1DB89A0300B8CD21 /* BAKit(工具类) */ = {
 			isa = PBXGroup;
 			children = (
-				C4442F0B1DB89A0300B8CD21 /* BACustom */,
 				C4442F351DB89A0300B8CD21 /* BAKit.h */,
+				C4442F0B1DB89A0300B8CD21 /* BACustom */,
 				C4442F361DB89A0300B8CD21 /* BAKitManager */,
-				C4442F391DB89A0300B8CD21 /* BAKitManager.h */,
-				C4442F3A1DB89A0300B8CD21 /* BAKitManager.m */,
 				C4442F3B1DB89A0300B8CD21 /* Foundation */,
 				C4442F5F1DB89A0300B8CD21 /* GCD */,
 				C4442F691DB89A0300B8CD21 /* UIApplication */,
@@ -682,6 +686,8 @@
 		C4442F0B1DB89A0300B8CD21 /* BACustom */ = {
 			isa = PBXGroup;
 			children = (
+				C48C00681DBDB26700F59578 /* BACommon */,
+				C48C00301DBD9C4500F59578 /* BAJumpManager */,
 				C4442F0C1DB89A0300B8CD21 /* BAAlert */,
 				C4442F111DB89A0300B8CD21 /* BAAutoSizeWithWH */,
 				C4442F141DB89A0300B8CD21 /* BALocalNotification */,
@@ -800,6 +806,8 @@
 		C4442F361DB89A0300B8CD21 /* BAKitManager */ = {
 			isa = PBXGroup;
 			children = (
+				C48C00341DBDA66400F59578 /* BAKitManager.h */,
+				C48C00351DBDA66400F59578 /* BAKitManager.m */,
 				C4442F371DB89A0300B8CD21 /* BAKitManager+BALabel.h */,
 				C4442F381DB89A0300B8CD21 /* BAKitManager+BALabel.m */,
 			);
@@ -809,6 +817,7 @@
 		C4442F3B1DB89A0300B8CD21 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				C4442F541DB89A0300B8CD21 /* NSString */,
 				C4442F3C1DB89A0300B8CD21 /* NSArray+BAKit.h */,
 				C4442F3D1DB89A0300B8CD21 /* NSArray+BAKit.m */,
 				C4442F3E1DB89A0300B8CD21 /* NSData+BAKit.h */,
@@ -833,7 +842,6 @@
 				C4442F511DB89A0300B8CD21 /* NSProcessInfo+BAKit.m */,
 				C4442F521DB89A0300B8CD21 /* NSShadow+BAKit.h */,
 				C4442F531DB89A0300B8CD21 /* NSShadow+BAKit.m */,
-				C4442F541DB89A0300B8CD21 /* NSString */,
 				C4442F5D1DB89A0300B8CD21 /* NSThread+BAKit.h */,
 				C4442F5E1DB89A0300B8CD21 /* NSThread+BAKit.m */,
 			);
@@ -1008,6 +1016,24 @@
 			path = "BANetManager(网络类)";
 			sourceTree = "<group>";
 		};
+		C48C00301DBD9C4500F59578 /* BAJumpManager */ = {
+			isa = PBXGroup;
+			children = (
+				C48C00311DBD9C6200F59578 /* BABAJumpManager.h */,
+				C48C00321DBD9C6200F59578 /* BABAJumpManager.m */,
+			);
+			path = BAJumpManager;
+			sourceTree = "<group>";
+		};
+		C48C00681DBDB26700F59578 /* BACommon */ = {
+			isa = PBXGroup;
+			children = (
+				C48C00691DBDB28C00F59578 /* BACommon.h */,
+				C48C006A1DBDB28C00F59578 /* BACommon.m */,
+			);
+			path = BACommon;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1150,7 +1176,6 @@
 				C44430001DB89A0300B8CD21 /* UICollectionView+ARDynamicCacheHeightLayoutCell.m in Sources */,
 				C4442FEA1DB89A0300B8CD21 /* NSShadow+BAKit.m in Sources */,
 				C4442FCB1DB89A0300B8CD21 /* UIBarButtonItem+Item.m in Sources */,
-				C4442FDE1DB89A0300B8CD21 /* BAKitManager.m in Sources */,
 				C4442FF41DB89A0300B8CD21 /* BAAPP.m in Sources */,
 				C4442FED1DB89A0300B8CD21 /* NSString+BAKit.m in Sources */,
 				C4442FEE1DB89A0300B8CD21 /* NSString+Trims.m in Sources */,
@@ -1203,8 +1228,10 @@
 				C4442FEC1DB89A0300B8CD21 /* NSString+BAColor.m in Sources */,
 				C44430091DB89A0300B8CD21 /* UIScrollView+BAKit.m in Sources */,
 				C4442FE31DB89A0300B8CD21 /* NSDictionary+BAKit.m in Sources */,
+				C48C00361DBDA66400F59578 /* BAKitManager.m in Sources */,
 				C444300E1DB89A0300B8CD21 /* UIWebView+BAKit.m in Sources */,
 				C4442FEB1DB89A0300B8CD21 /* NSMutableAttributedString+BAKit.m in Sources */,
+				C48C00331DBD9C6200F59578 /* BABAJumpManager.m in Sources */,
 				C4442FF91DB89A0300B8CD21 /* BATouchID.m in Sources */,
 				C4442FC91DB89A0300B8CD21 /* NSObject+BANetwork.m in Sources */,
 				C444300C1DB89A0300B8CD21 /* UITextField+BAKit.m in Sources */,
@@ -1214,6 +1241,7 @@
 				C4442FC61DB89A0300B8CD21 /* AppDelegate+BABaiduMap.m in Sources */,
 				C44430121DB89A0300B8CD21 /* BAFadeBlackView.m in Sources */,
 				C4442FF01DB89A0300B8CD21 /* GCDGroup.m in Sources */,
+				C48C006B1DBDB28C00F59578 /* BACommon.m in Sources */,
 				C4442FD01DB89A0300B8CD21 /* BALocalNotification.m in Sources */,
 				C4442FD91DB89A0300B8CD21 /* BASystermSetting.m in Sources */,
 				C4442FEF1DB89A0300B8CD21 /* NSThread+BAKit.m in Sources */,

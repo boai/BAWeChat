@@ -93,7 +93,7 @@
 
 
 /*! 去掉字符串中的html标签的方法 */
-- (NSString *)ba_filterHTML:(NSString *)html;
++ (NSString *)ba_filterHTML:(NSString *)html;
 
 /*!
  *  去除字符串的特殊字符
@@ -102,6 +102,6 @@
  *
  *  @return 去除字符串的特殊字符
  */
-- (nullable NSString *)ba_trimmedString:(nullable NSString *)string;
++ (nullable NSString *)ba_trimmedString:(nullable NSString *)string;
 
 @end

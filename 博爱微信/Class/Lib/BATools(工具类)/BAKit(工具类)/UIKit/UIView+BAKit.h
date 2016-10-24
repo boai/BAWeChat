@@ -299,4 +299,7 @@ typedef NS_ENUM(NSInteger, UIViewLinearGradientDirection)
  */
 + (CGFloat)ba_AutoSizeOfWidthWithText:(NSString *)text font:(UIFont *)font height:(CGFloat)height;
 
+
+- (void)ba_showHudWitTitle:(NSString *)title atView:(UIView *)view;
+
 @end
