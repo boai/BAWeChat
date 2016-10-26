@@ -74,7 +74,7 @@
 
         [weakSelf addChildViewController:navi];
     }];
-    self.selectedIndex = 0;
+    self.selectedIndex = 3;
 }
 
 

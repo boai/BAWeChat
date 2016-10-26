@@ -147,7 +147,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    [self.tableView ba_showAlertView:@"温馨提示：" message:@"正在努力开发中..."];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - ***** 解决tableview的分割线短一截
