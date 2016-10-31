@@ -114,6 +114,7 @@
 		C48C006F1DBDF03300F59578 /* BAProfileHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C48C006D1DBDF03300F59578 /* BAProfileHeadCell.m */; };
 		C48C00701DBDF03400F59578 /* BAProfileHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48C006E1DBDF03300F59578 /* BAProfileHeadCell.xib */; };
 		C48C00721DBE23C400F59578 /* BADiscovery.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C48C00711DBE23C400F59578 /* BADiscovery.bundle */; };
+		C4C741311DC720EE00E747D8 /* BATextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C741301DC720EE00E747D8 /* BATextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -332,6 +333,8 @@
 		C48C006D1DBDF03300F59578 /* BAProfileHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAProfileHeadCell.m; sourceTree = "<group>"; };
 		C48C006E1DBDF03300F59578 /* BAProfileHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAProfileHeadCell.xib; sourceTree = "<group>"; };
 		C48C00711DBE23C400F59578 /* BADiscovery.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = BADiscovery.bundle; path = "博爱微信/Class/Resources/Bundle/BADiscovery.bundle"; sourceTree = SOURCE_ROOT; };
+		C4C7412F1DC720EE00E747D8 /* BATextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATextField.h; sourceTree = "<group>"; };
+		C4C741301DC720EE00E747D8 /* BATextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -918,6 +921,8 @@
 				C4442F7A1DB89A0300B8CD21 /* BACustomModalTransition.m */,
 				C4442F7B1DB89A0300B8CD21 /* BAPickerView.h */,
 				C4442F7C1DB89A0300B8CD21 /* BAPickerView.m */,
+				C4C7412F1DC720EE00E747D8 /* BATextField.h */,
+				C4C741301DC720EE00E747D8 /* BATextField.m */,
 				C4442F7D1DB89A0300B8CD21 /* BATextView.h */,
 				C4442F7E1DB89A0300B8CD21 /* BATextView.m */,
 				C4442F7F1DB89A0300B8CD21 /* UIBarButtonItem+BAKit.h */,
@@ -1193,6 +1198,7 @@
 				C4442FED1DB89A0300B8CD21 /* NSString+BAKit.m in Sources */,
 				C4442FEE1DB89A0300B8CD21 /* NSString+Trims.m in Sources */,
 				C4442FE11DB89A0300B8CD21 /* NSDate+BAKit.m in Sources */,
+				C4C741311DC720EE00E747D8 /* BATextField.m in Sources */,
 				C4442FDD1DB89A0300B8CD21 /* BAKitManager+BALabel.m in Sources */,
 				C4442FE61DB89A0300B8CD21 /* NSMutableDictionary+BAKit.m in Sources */,
 				C44430131DB89A0300B8CD21 /* BASnowView.m in Sources */,
