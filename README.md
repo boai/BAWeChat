@@ -1,5 +1,5 @@
 # BAWeChat
-博爱微信，不知道效果如何，随便写写看！
+博爱微信，使用原生 frame + MVVM + MVC + QMUIKit + BAKit 开源的微信
 
 ## 一、版本介绍
 * 1、全原生基础版，不含朋友圈，单独使用 BAKit 框架
@@ -26,7 +26,13 @@
 * 8、还有很多功能封装，详见源码 BAKit 
 
 ## 三、示例展示
-![alert6.png](https://github.com/boai/BACustomAlertView/blob/master/images/alert0.png)
+![通讯录.png](https://github.com/boai/BAWeChat/blob/master/Images/通讯录.png)
+![搜索.png](https://github.com/boai/BAWeChat/blob/master/Images/搜索.png)
+![发现.png](https://github.com/boai/BAWeChat/blob/master/Images/发现.png)
+![朋友圈.png](https://github.com/boai/BAWeChat/blob/master/Images/朋友圈.png)
+![评论.png](https://github.com/boai/BAWeChat/blob/master/Images/评论.png)
+![图片浏览器.png](https://github.com/boai/BAWeChat/blob/master/Images/图片浏览器.png)
+![我.png](https://github.com/boai/BAWeChat/blob/master/Images/我.png)
 
 
 ## 四、代码规范
