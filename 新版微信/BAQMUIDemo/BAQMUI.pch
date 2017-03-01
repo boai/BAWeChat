@@ -1,0 +1,42 @@
+//
+//  BAQMUI.pch
+//  BAQMUIDemo
+//
+//  Created by 博爱 on 2017/1/6.
+//  Copyright © 2017年 boaihome. All rights reserved.
+//
+
+#ifndef BAQMUI_pch
+#define BAQMUI_pch
+
+#endif /* BAQMUI_pch */
+
+
+#ifdef __OBJC__
+
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+    #import <QMUIKit/QMUIKit.h>
+
+    #import "BAUIHelper.h"
+    #import "BAKit.h"
+    #import "BAUser.h"
+
+    /*! FMDB 封装 */
+    #import "FMDB.h"
+    #import "JKDBHelper.h"
+
+
+    #import <SDWebImage/UIImageView+WebCache.h>
+
+    #import "UIScrollView+EmptyDataSet.h"
+
+    #import "JMRoundedCorner.h"
+
+    #import "YYImage.h"
+    #import "YYWebImage.h"
+    #import "YYCache.h"
+    #import "YYCategories.h"
+
+#endif
