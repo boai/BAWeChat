@@ -1,26 +1,26 @@
 # BAWeChat
-* 1、博爱微信，使用原生 frame + MVVM + MVC + QMUIKit + BAKit 开源的微信<br>
+* 1、博爱微信，使用原生 frame + MVVM + MVC + [『QMUIKit』](https://github.com/QMUI/QMUI_iOS)  + BAKit 开源的微信<br>
 * 2、展示图中的 FPS 是模拟器的数据，真机 iPhone 6上最低50， iPhone 7上最低59，基本上都在 58 以上，代码规范，新手学习可以做个参考 
-* 3、注意：如果运行报错，请先 执行： `pod setup` 更新下本地的pod spec 库，然后再 执行：`pod update --verbose --no-repo-update` 更新pod，然后再运行！
+* 3、注意：如果运行报错，请先 执行： `pod setup` 更新下本地的pod spec 库，更新时间漫长，需要耐心等待，然后再 执行：`pod update --verbose --no-repo-update` 更新pod，然后再运行！
 
 ## 一、版本介绍
 * 1、全原生基础版，不含朋友圈，单独使用 BAKit 框架
-* 2、MVVM 框架版，含通讯录、朋友圈、登陆注册等功能，使用 QMUIKit 和 BAKit 框架
+* 2、MVVM 框架版，含通讯录、朋友圈、登陆注册等功能，使用 [『QMUIKit』](https://github.com/QMUI/QMUI_iOS)  和 BAKit 框架
 
 ## 二、主要功能
 * 1、全局使用 原生 frame 布局，适配横竖屏【朋友圈横屏待frame优化】
-* 2、使用 QMUIKit 框架快速搭建高性能项目框架，含全局配置文件再次封装，小伙伴儿们可以直接使用，无需采坑
+* 2、使用 [『QMUIKit』](https://github.com/QMUI/QMUI_iOS)  框架快速搭建高性能项目框架，含全局配置文件再次封装，小伙伴儿们可以直接使用，无需采坑
 * 3、朋友圈，采用 MVVM 框架布局，流畅的不能再流畅
 	* 3.1 数据全部采用 json 数据
 	* 3.2 model 仿照新浪微博 的数据结构定制
 	* 3.3 图片全部实现网路图片，png、gif动图，九宫格图片完美封装，使用 YYImage
 	* 3.4 图片浏览器使用 MWPhotoBrowser 
-	* 3.5 原文使用 MLLabel ，实现文字内容解析，URL、电话号码等可以单独处理，详见源码
+	* 3.5 原文使用 [『MLLabel』](https://github.com/molon/MLLabel) ，实现文字内容解析，URL、电话号码等可以单独处理，详见源码
 	* 3.6 原文实现微信文字长按复制收藏功能
 	* 3.7 评论功能动态更新布局
 * 4、通讯录，博爱出品，完美封装通讯录中英文混合排序，可以直接使用，代码简洁，一目了然
-* 5、搜索，使用 QMUIKit 框架搜索功能，功能强大
-* 6、系统通讯录获取并重新定制，使用 PPGetAddressBook 源码
+* 5、搜索，使用 [『QMUIKit』](https://github.com/QMUI/QMUI_iOS)  框架搜索功能，功能强大
+* 6、系统通讯录获取并重新定制，使用 [『PPGetAddressBook』](https://github.com/jkpang/PPGetAddressBook) 源码
 * 7、博爱自定义键盘的封装，让你的评论、聊天就是这么简单
 * 8、各种转场动画封装，详见源码
 * 9、各种启动动画封装，详见源码

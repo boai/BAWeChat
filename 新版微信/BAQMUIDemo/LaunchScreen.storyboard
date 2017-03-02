@@ -26,15 +26,23 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BAWeChat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bi-1N-NZX">
+                                <rect key="frame" x="199" y="276" width="203" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="3bi-1N-NZX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0oo-85-6ai"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="rHn-yP-g1c" secondAttribute="bottom" constant="24" id="6E3-ik-49E"/>
                             <constraint firstAttribute="trailing" secondItem="ciz-Ao-3YW" secondAttribute="trailing" id="8iL-vn-2RI"/>
                             <constraint firstItem="rHn-yP-g1c" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HnA-xn-LX6"/>
                             <constraint firstItem="ciz-Ao-3YW" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="JpO-zp-aUw"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ciz-Ao-3YW" secondAttribute="bottom" id="VBw-eD-P3N"/>
                             <constraint firstItem="ciz-Ao-3YW" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="dDa-fx-ryT"/>
+                            <constraint firstItem="3bi-1N-NZX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="yjx-Eh-gGv"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>

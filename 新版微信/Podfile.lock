@@ -30,7 +30,7 @@ PODS:
     - SDWebImage (!= 3.7.2, ~> 3.7)
   - NullSafe (1.2.2)
   - PPGetAddressBook (0.2.8)
-  - QMUIKit (1.3.0)
+  - QMUIKit (1.3.1)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -64,7 +64,7 @@ SPEC CHECKSUMS:
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   NullSafe: cbf1f77a24558e49bc76e2673f31250d3087c792
   PPGetAddressBook: e4b6b0a87e852df5d5b90c44ecd9ded7f6f1ccf6
-  QMUIKit: 40d0929e8c0d5d70b3654340f77c54fc7c842f6a
+  QMUIKit: 5aee552dbaa95c8cd11c9bb135237193330f61e8
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
