@@ -43,6 +43,10 @@
 {
     /*! QMUI 的配置 */
     [self ba_setupQMUI];
+    
+    /*! 网络状态实时监测可以使用 block 回调，也可以使用单独方法判断 */
+    [self ba_netType];
+    
     /*! 界面 */
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -92,6 +96,79 @@
     tabbarController.selectedIndex = 2;
     self.window.rootViewController = tabbarController;
     [self.window makeKeyAndVisible];
+}
+
+#pragma mark - 网络类型判断
+- (void)ba_netType
+{
+    BAKit_WeakSelf
+    [BANetManager ba_startNetWorkMonitoringWithBlock:^(BANetworkStatus status) {
+        //        NSString *netType;
+        //        switch (status) {
+        //            case 0:
+        //                netType = @"未知网络";
+        //                [weakSelf alertWithMsg:netType];
+        //                break;
+        //            case 1:
+        //                netType = @"没有网络";
+        //                [weakSelf alertWithMsg:netType];
+        //                break;
+        //            case 2:
+        //                netType = @"您的网络类型为：手机 3G/4G 网络";
+        //                [weakSelf alertWithMsg:netType];
+        //                break;
+        //            case 3:
+        //                netType = @"您的网络类型为：wifi 网络";
+        //                /*! wifi 网络下请求网络：可以在父类写此方法，具体使用demo，详见：https://github.com/boai/BABaseProject */
+        //                [weakSelf getData:nil];
+        //                break;
+        //
+        //            default:
+        //                break;
+        //        }
+        [weak_self ba_getCurrentNetworkStatusUseDefine:NO];
+        
+    }];
+}
+
+#pragma mark - 一次性网络状态判断
+- (void)ba_getCurrentNetworkStatusUseDefine:(BOOL)useDefine
+{
+    if (useDefine)
+    {
+        if (kIsHaveNetwork)
+        {
+            NSLog(@"有网络");
+            if (kIs3GOr4GNetwork)
+            {
+                BANetManagerShare.netWorkStatu = BANetworkStatusReachableViaWWAN;
+                BAKit_ShowAlertWithMsg(@"手机网络");
+            }
+            else if (kIsWiFiNetwork)
+            {
+                BANetManagerShare.netWorkStatu = BANetworkStatusReachableViaWiFi;
+                BAKit_ShowAlertWithMsg(@"WiFi网络");
+            }
+        }
+    }
+    else
+    {
+        /*! 也可以使用单独方法判断 */
+        if ([BANetManager ba_isHaveNetwork])
+        {
+            NSLog(@"当前有网络");
+            if ([BANetManager ba_isWiFiNetwork])
+            {
+                BANetManagerShare.netWorkStatu = BANetworkStatusReachableViaWiFi;
+                BAKit_ShowAlertWithMsg(@"当前有 wifi 网络");
+            }
+            if ([BANetManager ba_is3GOr4GNetwork])
+            {
+                BANetManagerShare.netWorkStatu = BANetworkStatusReachableViaWWAN;
+                BAKit_ShowAlertWithMsg(@"当前有 3GOr4G 网络");
+            }
+        }
+    }
 }
 
 #pragma mark - 内存处理，当app收到内存警告时

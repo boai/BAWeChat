@@ -36,6 +36,8 @@
 - (void)setupUI
 {
     self.tableView.hidden = NO;
+    
+
 }
 
 - (void)viewWillLayoutSubviews
