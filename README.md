@@ -1,6 +1,7 @@
 # BAWeChat
 * 1、博爱微信，使用原生 frame + MVVM + MVC + QMUIKit + BAKit 开源的微信<br>
 * 2、展示图中的 FPS 是模拟器的数据，真机 iPhone 6上最低50， iPhone 7上最低59，基本上都在 58 以上，代码规范，新手学习可以做个参考 
+* 3、注意：如果运行报错，请先 执行： `pod setup` 更新下本地的pod spec 库，然后再 执行：`pod update --verbose --no-repo-update` 更新pod，然后再运行！
 
 ## 一、版本介绍
 * 1、全原生基础版，不含朋友圈，单独使用 BAKit 框架
