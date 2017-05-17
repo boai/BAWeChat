@@ -48,5 +48,7 @@
 /*! cell的高度 */
 @property (nonatomic, assign) CGFloat cellHeight;
 
+/*! cell的内容Frame */
+- (void)setUpContentFrame;
 
 @end

@@ -8,8 +8,8 @@
 
 #import "BAProfileViewController.h"
 #import "BAProfileHeadCell.h"
-#import "BALoginViewController.h"
-
+//#import "BALoginViewController.h"
+#import "BAUser.h"
 
 #define BAProfile_Title   @"title"
 #define BAProfile_Image   @"image"
@@ -38,6 +38,14 @@
 - (void)setupUI
 {
     self.tableView.hidden = NO;
+    [self addNoti];
+
+}
+
+#pragma mark - 通知
+- (void)addNoti
+{
+    [BAKit_NotiCenter addObserver:self selector:@selector(handleLoginFinishAction:) name:kNotioKey_LoginFinish object:nil];
 }
 
 - (void)viewWillLayoutSubviews
@@ -62,7 +70,13 @@
     if (0 == indexPath.section)
     {
         BAProfileHeadCell *headCell = [BAProfileHeadCell dequeueCellFromNibIndex:indexPath.section identify:BAProfile_CellID tableView:tableView];
-
+//        if (BAKit_JumpManagerShare.isLogin)
+//        {
+//            BAUser *model = [BAUser sharedBAUser];
+//            headCell.userNameLabel.text = model.user_Name;
+//            headCell.accountLabel.text = model.user_PhoneNumber;
+//            headCell.userImgView.image = BAKit_ImageName(@"icon1.jpg");
+//        }
         return headCell;
     }
     else
@@ -111,11 +125,14 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+//    if (!BAKit_JumpManagerShare.isLogin)
+//    {
+//        [BAKit_JumpManager ba_gotoLoginVCWithViewController:self];
+//    }
     
-    if (!BAKit_JumpManagerShare.isLogin)
-    {
-        [BAKit_JumpManager ba_gotoLoginVCWithViewController:self];
-    }
+    BAKit_ShowAlertWithMsg_ios8(@"欢迎使用 iPhone SE，迄今最高性能的 4 英寸 iPhone。在打造这款手机时，我们在深得人心的 4 英寸设计基础上，从里到外重新构想。它所采用的 A9 芯片，正是在 iPhone 6s 上使用的先进芯片。1200 万像素的摄像头能拍出令人叹为观止的精彩照片和 4K 视频，而 Live Photos 则会让你的照片栩栩如生。这一切，成就了一款外形小巧却异常强大的 iPhone。\n对于 MacBook，我们给自己设定了一个几乎不可能实现的目标：在有史以来最为轻盈纤薄的 Mac 笔记本电脑上，打造全尺寸的使用体验。这就要求每个元素都必须重新构想，不仅令其更为纤薄轻巧，还要更加出色。最终我们带来的，不仅是一部新款的笔记本电脑，更是一种对笔记本电脑的前瞻性思考。现在，有了第六代 Intel 处理器、提升的图形处理性能、高速闪存和最长可达 10 小时的电池使用时间*，MacBook 的强大更进一步。\n欢迎使用 iPhone SE，迄今最高性能的 4 英寸 iPhone。在打造这款手机时，我们在深得人心的 4 英寸设计基础上，从里到外重新构想。它所采用的 A9 芯片，正是在 iPhone 6s 上使用的先进芯片。1200 万像素的摄像头能拍出令人叹为观止的精彩照片和 4K 视频，而 Live Photos 则会让你的照片栩栩如生。这一切，成就了一款外形小巧却异常强大的 iPhone。\n对于 MacBook，我们给自己设定了一个几乎不可能实现的目标：在有史以来最为轻盈纤薄的 Mac 笔记本电脑上，打造全尺寸的使用体验。这就要求每个元素都必须重新构想，不仅令其更为纤薄轻巧，还要更加出色。最终我们带来的，不仅是一部新款的笔记本电脑，更是一种对笔记本电脑的前瞻性思考。现在，有了第六代 Intel 处理器、提升的图形处理性能、高速闪存和最长可达 10 小时的电池使用时间*，MacBook 的强大更进一步。")
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -124,6 +141,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - event method
+- (void)handleLoginFinishAction:(NSNotification *)noti
+{
+    NSDictionary *dict = noti.userInfo;
+    if ([dict[@"isLogin"] isEqualToString:@"1"])
+    {
+        [self.tableView reloadData];
+    }
+}
+
+#pragma mark - setter / getter
 - (UITableView *)tableView
 {
     if (!_tableView)

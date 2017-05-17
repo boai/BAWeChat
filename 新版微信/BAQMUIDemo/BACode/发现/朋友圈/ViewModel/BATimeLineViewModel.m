@@ -19,41 +19,41 @@
 {
     _model = model;
     
-    [self setUpContentFrame];
-    [self setUpCommentFrame];
-
-    _cellHeight = CGRectGetMaxY(_commentViewFrame) + kMargin_10;
+//    [self setUpContentFrame];
+//    [self setUpCommentFrame];
+//
+//    _cellHeight = CGRectGetMaxY(_commentViewFrame) + BAKit_Margin_10;
 }
 
 - (void)setUpContentFrame
 {
     /*! 头像 */
-    CGFloat image_x = kMargin_10;
-    CGFloat image_y = kMargin_10;
-    CGFloat image_wh = kUserImage_Size;
+    CGFloat image_x = BAKit_Margin_10;
+    CGFloat image_y = BAKit_Margin_10;
+    CGFloat image_wh = BAKit_Margin_UserImage_Size;
     _iconImageViewFrame = CGRectMake(image_x, image_y, image_wh, image_wh);
     
     /*! 昵称 */
-    CGFloat name_x = CGRectGetMaxX(_iconImageViewFrame) + kMargin_5;
+    CGFloat name_x = CGRectGetMaxX(_iconImageViewFrame) + BAKit_Margin_5;
     CGFloat name_y = image_y;
-    CGSize name_size = BAKit_LabelSizeWithTextAndFont(_model.user.user_Name, kTimeLineNameFont);
+    CGSize name_size = BAKit_LabelSizeWithTextAndFont(_model.user.user_Name, BAKit_FontSystem_15);
     _nameLabelFrame = (CGRect){{name_x, name_y}, name_size};
     
     /*! 来源 */
     CGFloat source_x = name_x;
-    CGFloat source_y = CGRectGetMaxY(_nameLabelFrame) + kMargin_5;
-    CGSize source_size = BAKit_LabelSizeWithTextAndFont(_model.source, kTimeLineSourceFont);
+    CGFloat source_y = CGRectGetMaxY(_nameLabelFrame) + BAKit_Margin_5;
+    CGSize source_size = BAKit_LabelSizeWithTextAndFont(_model.source, BAKit_FontSystem_12);
     _sourceLabelFrame = (CGRect){{source_x, source_y}, source_size};
     
     /*! 发表内容 */
     CGFloat content_x = image_x;
-    CGFloat content_y = CGRectGetMaxY(_iconImageViewFrame) + kMargin_10;
-    CGSize content_size = BAKit_LabelSizeWithTextAndWidthAndFont(_model.content, kContent_width, kTimeLineContentFont);
-    _contentLabelFrame = CGRectMake(content_x, content_y, kContent_width, content_size.height+10);
+    CGFloat content_y = CGRectGetMaxY(_iconImageViewFrame) + BAKit_Margin_10;
+    CGSize content_size = BAKit_LabelSizeWithTextAndWidthAndFont(_model.content, BAKit_Margin_Content_width, BAKit_FontSystem_13);
+    _contentLabelFrame = CGRectMake(content_x, content_y, BAKit_Margin_Content_width, content_size.height+10);
     
     /*! 图片 View 的 frame */
     CGFloat photo_x = image_x;
-    CGFloat photo_y = CGRectGetMaxY(_contentLabelFrame) + kMargin_10;
+    CGFloat photo_y = CGRectGetMaxY(_contentLabelFrame) + BAKit_Margin_10;
     CGFloat photo_w = 0;
     CGFloat item_height = 0;
     
@@ -79,28 +79,36 @@
 
             CGFloat image_w = imageSize.width;
             CGFloat image_h = imageSize.height;
+            CGFloat image_scale_hw = image_h / image_w;
+            CGFloat image_scale_wh = image_w / image_h;
             
-            if (image_w > kContent_width)
+            if (image_w > BAKit_Margin_Content_width)
             {
-                UIImage *image2 = [image ba_imageScaleToWidth:kContent_width];
+                UIImage *image2 = [image ba_imageScaleToWidth:BAKit_Margin_Content_width];
                 imageSize = image2.size;
                 
                 if (!image2)
                 {
-                    image_w = kContent_width * 0.68;
-                    image_h = image_h / image_w * 120;
+                    image_w = BAKit_Margin_Content_width * 0.68;
+                    image_h = image_scale_hw * image_w;
                 }
                 else
                 {
-                    image_w = kContent_width * 0.68;
-                    image_h = imageSize.height;
+                    image_w = BAKit_Margin_Content_width * 0.68;
+                    image_h = imageSize.height / imageSize.width * image_w;
                 }
             }
             
             if (image_h > image_w)
             {
-                image_w = image_w / image_h * kContent_width;
-                image_h = image_h / image_h * kContent_width;
+                image_w = image_scale_wh * BAKit_Margin_Content_width;
+                image_h = image_scale_hw * image_w;
+            }
+            
+            if (image_h > 150)
+            {
+                image_h = 150;
+                image_w = image_scale_wh * image_h;
             }
 
             photo_w = image_w;
@@ -109,9 +117,9 @@
         else
         {
             NSInteger columnCount = [self columnCountWithNum:self.model.pic_urls.count];
-            item_height = kContent_width/3;
-            photo_w = kContent_width;
-            photo_h = columnCount * (item_height + kMargin_5);
+            item_height = BAKit_Margin_Content_width/3;
+            photo_w = BAKit_Margin_Content_width;
+            photo_h = columnCount * (item_height + BAKit_Margin_5);
         }
     }
     else
@@ -122,8 +130,8 @@
     
     /*! 时间 */
     CGFloat time_x = content_x;
-    CGFloat time_y = CGRectGetMaxY(_photoViewFrame) + kMargin_5;
-    CGSize time_size = BAKit_LabelSizeWithTextAndFont(_model.created_time, kTimeLineTimeFont);
+    CGFloat time_y = CGRectGetMaxY(_photoViewFrame) + BAKit_Margin_5;
+    CGSize time_size = BAKit_LabelSizeWithTextAndFont(_model.created_time, BAKit_FontSystem_12);
     _timeLabelFrame = (CGRect){{time_x, time_y}, time_size};
     
     /*! 点赞和评论按钮 */
@@ -139,13 +147,16 @@
     CGFloat origin_h = CGRectGetMaxY(_timeLabelFrame);
     _originalContentViewFrame = CGRectMake(origin_x, origin_y, origin_w, origin_h);
     
+    _cellHeight = CGRectGetMaxY(_originalContentViewFrame) + BAKit_Margin_10;
+    
+    [self setUpCommentFrame];
 }
 
 - (void)setUpCommentFrame
 {
     /*! 评论 View 的 frame */
-    CGFloat commentView_x = kMargin_10;
-    CGFloat commentView_y = CGRectGetMaxY(_originalContentViewFrame) + kMargin_10;
+    CGFloat commentView_x = BAKit_Margin_10;
+    CGFloat commentView_y = CGRectGetMaxY(_originalContentViewFrame) + BAKit_Margin_10;
     
     NSArray *commentArray = self.model.comments;
     CGFloat commentView_h = 0;
@@ -178,13 +189,13 @@
             CGSize commentLabel_size = CGSizeZero;
             if (model.attributedContent)
             {
-                commentLabel_size = BAKit_LabelSizeWithMutableAttributedStringAndWidthAndFont(attributedString, kContent_width, kTimeLineCommentFont);
+                commentLabel_size = BAKit_LabelSizeWithMutableAttributedStringAndWidthAndFont(attributedString, BAKit_Margin_Content_width, BAKit_FontSystem_13);
             }
             else
             {
-                commentLabel_size = BAKit_LabelSizeWithTextAndWidthAndFont(text, kContent_width, kTimeLineCommentFont);
+                commentLabel_size = BAKit_LabelSizeWithTextAndWidthAndFont(text, BAKit_Margin_Content_width, BAKit_FontSystem_13);
             }
-            _commentLabelFrame = CGRectMake(commentLabel_x, commentLabel_y, kContent_width, commentLabel_size.height);
+            _commentLabelFrame = CGRectMake(commentLabel_x, commentLabel_y, BAKit_Margin_Content_width, commentLabel_size.height);
             
             commentView_h += CGRectGetHeight(_commentLabelFrame);
             commentView_h += 5;
@@ -195,14 +206,20 @@
         }
     }
 
-    _commentViewFrame = CGRectMake(commentView_x, commentView_y, kContent_width, commentView_h);
+    _commentViewFrame = CGRectMake(commentView_x, commentView_y, BAKit_Margin_Content_width, commentView_h);
     
+   _cellHeight = CGRectGetMaxY(_commentViewFrame) + BAKit_Margin_10;
+
 }
 
 - (NSInteger)columnCountWithNum:(NSInteger)count
 {
     NSUInteger i = 0;
-    if (count % 3 == 0)
+    if (count == 4)
+    {
+        i = 2;
+    }
+    else if (count % 3 == 0)
     {
         i = count / 3;
     }

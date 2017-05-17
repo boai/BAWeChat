@@ -7,7 +7,7 @@
 //
 
 #import "BAContactViewController.h"
-#import "BAUser.h"
+#import "BAContactsModel.h"
 
 #import <Contacts/Contacts.h>
 #import <ContactsUI/ContactsUI.h>
@@ -22,9 +22,9 @@ static NSString * const cellID = @"BAContactViewCell";
 
 @interface BAContactViewController ()<QMUISearchControllerDelegate>
 
-@property (nonatomic, strong) NSMutableArray <BAUser *>*dataArray;
+@property (nonatomic, strong) NSMutableArray <BAContactsModel *>*dataArray;
 
-@property (nonatomic, strong) NSMutableArray <BAUser *>*searchResultsKeywordsArray;
+@property (nonatomic, strong) NSMutableArray <BAContactsModel *>*searchResultsKeywordsArray;
 
 /*! 索引 */
 @property (nonatomic, strong) NSMutableArray <NSString *>*indexArray;
@@ -82,7 +82,7 @@ static NSString * const cellID = @"BAContactViewCell";
                          @"user_Image_url" : @"add_friend_icon_offical"}];
     for (NSDictionary *dict in dicts)
     {
-        BAUser *model = [BAUser new];
+        BAContactsModel *model = [BAContactsModel new];
         model.user_Name = dict[@"user_Name"];
         model.user_Image_url = dict[@"user_Image_url"];
         [tempModel addObject:model];
@@ -137,7 +137,7 @@ static NSString * const cellID = @"BAContactViewCell";
     
     NSUInteger section = indexPath.section;
     NSUInteger row = indexPath.row;
-    BAUser *model = nil;
+    BAContactsModel *model = nil;
     if (tableView == self.tableView)
     {
         model = self.sectionArray[section][row];
@@ -192,7 +192,7 @@ static NSString * const cellID = @"BAContactViewCell";
     NSUInteger section = indexPath.section;
     NSUInteger row = indexPath.row;
     
-    BAUser *model = nil;
+    BAContactsModel *model = nil;
     if (tableView == self.tableView)
     {
         model = self.sectionArray[section][row];
@@ -228,7 +228,7 @@ static NSString * const cellID = @"BAContactViewCell";
 {
     [self.searchResultsKeywordsArray removeAllObjects];
     
-    for (BAUser *model in self.dataArray)
+    for (BAContactsModel *model in self.dataArray)
     {
         if ([model.user_Name qmui_includesString:searchString])
         {
@@ -309,7 +309,7 @@ static NSString * const cellID = @"BAContactViewCell";
             }
         }
         
-        BAUser *model = [[BAUser alloc] init];
+        BAContactsModel *model = [[BAContactsModel alloc] init];
         model.user_Name = userDic[@"name"];
         model.user_Image = userDic[@"image"];
         model.user_PhoneNumber = userDic[@"phone"];
@@ -331,10 +331,10 @@ static NSString * const cellID = @"BAContactViewCell";
 }
 
 #pragma mark - custom Method
-- (BOOL)ba_isArray:(NSArray <BAUser *>*)array containsObject:(BAUser *)object
+- (BOOL)ba_isArray:(NSArray <BAContactsModel *>*)array containsObject:(BAContactsModel *)object
 {
     __block BOOL isExist = NO;
-    [array enumerateObjectsUsingBlock:^(BAUser * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
+    [array enumerateObjectsUsingBlock:^(BAContactsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
     {
         if ([obj.user_Name isEqualToString:object.user_Name])
         {
@@ -360,7 +360,7 @@ static NSString * const cellID = @"BAContactViewCell";
     [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
 }
 
-- (void)ba_showAlertWithModel:(BAUser *)model
+- (void)ba_showAlertWithModel:(BAContactsModel *)model
 {
     NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:@"博爱温馨提示" attributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}];
     
@@ -392,20 +392,20 @@ static NSString * const cellID = @"BAContactViewCell";
 }
 
 #pragma mark - setter / getter
-- (NSMutableArray <BAUser *> *)searchResultsKeywordsArray
+- (NSMutableArray <BAContactsModel *> *)searchResultsKeywordsArray
 {
     if(_searchResultsKeywordsArray == nil)
     {
-        _searchResultsKeywordsArray = [[NSMutableArray <BAUser *> alloc] init];
+        _searchResultsKeywordsArray = [[NSMutableArray <BAContactsModel *> alloc] init];
     }
     return _searchResultsKeywordsArray;
 }
 
-- (NSMutableArray <BAUser *> *)dataArray
+- (NSMutableArray <BAContactsModel *> *)dataArray
 {
     if(_dataArray == nil)
     {
-        _dataArray = [[NSMutableArray <BAUser *> alloc] init];
+        _dataArray = [[NSMutableArray <BAContactsModel *> alloc] init];
         
         NSArray *iconImageNamesArray = @[@"0.jpg",
                                          @"1.jpg",
@@ -444,7 +444,7 @@ static NSString * const cellID = @"BAContactViewCell";
                     [iconArray addObject:iconImageNamesArray[BAKit_RandomNumber(iconImageNamesArray.count)]];
                 }
             }
-            BAUser *model = [[BAUser alloc] init];
+            BAContactsModel *model = [[BAContactsModel alloc] init];
             model.user_Image_url = iconArray[i];
             model.user_Name = namesArray[i];
             

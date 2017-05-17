@@ -10,10 +10,6 @@
 
 @interface BAProfileHeadCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView  *userImgView;
-@property (weak, nonatomic) IBOutlet UILabel      *userNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel      *accountLabel;
-@property (weak, nonatomic) IBOutlet UIImageView  *QRCodeImgView;
 
 @end
 

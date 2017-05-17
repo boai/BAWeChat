@@ -35,10 +35,10 @@
     }
     
     /*! 发表内容 */
-    CGFloat commentLabel_x = kMargin_10;
-    CGFloat commentLabel_y = kMargin_10;
-    CGSize commentLabel_size = BAKit_LabelSizeWithTextAndWidthAndFont(comment, kContent_width, kTimeLineContentFont);
-    _commentLabelFrame = CGRectMake(commentLabel_x, commentLabel_y, kContent_width, commentLabel_size.height + 10);
+    CGFloat commentLabel_x = BAKit_Margin_10;
+    CGFloat commentLabel_y = BAKit_Margin_10;
+    CGSize commentLabel_size = BAKit_LabelSizeWithTextAndWidthAndFont(comment, BAKit_Margin_Content_width, BAKit_FontSystem_13);
+    _commentLabelFrame = CGRectMake(commentLabel_x, commentLabel_y, BAKit_Margin_Content_width, commentLabel_size.height + 10);
 }
 
 @end

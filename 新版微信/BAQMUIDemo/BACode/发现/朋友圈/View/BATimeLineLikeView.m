@@ -23,7 +23,7 @@
 - (void)setupSubViews
 {
     self.userInteractionEnabled = YES;
-    self.backgroundColor = UIColorGray8;
+    self.backgroundColor = BAKit_Color_Gray_8;
 }
 
 

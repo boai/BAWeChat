@@ -24,6 +24,10 @@
  */
 - (QMUIImagePickerPreviewViewController *)imagePickerPreviewViewControllerForImagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController;
 
+/**
+ *  控制照片的排序，若不实现，默认为 QMUIAlbumSortTypePositive
+ *  @note 注意返回值会决定第一次进来相片列表时列表默认的滚动位置，如果为 QMUIAlbumSortTypePositive，则列表默认滚动到底部，如果为 QMUIAlbumSortTypeReverse，则列表默认滚动到顶部。
+ */
 - (QMUIAlbumSortType)albumSortTypeForImagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController;
 
 /**
@@ -35,7 +39,7 @@
 - (void)imagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController didFinishPickingImageWithImagesAssetArray:(NSMutableArray<QMUIAsset *> *)imagesAssetArray;
 
 /**
- *  image被点击时调用（先调用这个接口，然后才去走预览大图的逻辑）
+ *  cell 被点击时调用（先调用这个接口，然后才去走预览大图的逻辑），注意这并非指选中 checkbox 事件
  *
  *  @param imagePickerViewController        对应的 QMUIImagePickerViewController
  *  @param imageAsset                       被选中的图片的 QMUIAsset 对象
@@ -43,10 +47,16 @@
  */
 - (void)imagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController didSelectImageWithImagesAsset:(QMUIAsset *)imageAsset afterImagePickerPreviewViewControllerUpdate:(QMUIImagePickerPreviewViewController *)imagePickerPreviewViewController;
 
+/// 即将选中 checkbox 时调用
 - (void)imagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController willCheckImageAtIndex:(NSInteger)index;
+
+/// 选中了 checkbox 之后调用
 - (void)imagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController didCheckImageAtIndex:(NSInteger)index;
 
+/// 即将取消选中 checkbox 时调用
 - (void)imagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController willUncheckImageAtIndex:(NSInteger)index;
+
+/// 取消了 checkbox 选中之后调用
 - (void)imagePickerViewController:(QMUIImagePickerViewController *)imagePickerViewController didUncheckImageAtIndex:(NSInteger)index;
 
 /**
@@ -59,7 +69,9 @@
 
 @interface QMUIImagePickerViewController : QMUICommonViewController<UICollectionViewDataSource,UICollectionViewDelegate,QMUIImagePickerPreviewViewControllerDelegate>
 
-/// 图片的最小尺寸，布局时如果有剩余空间，会将空间分配给图片大小，所以最终显示出来的大小不一定等于minimumImageWidth。默认是75
+/**
+ *  图片的最小尺寸，布局时如果有剩余空间，会将空间分配给图片大小，所以最终显示出来的大小不一定等于minimumImageWidth。默认是75。
+ */
 @property(nonatomic, assign) CGFloat minimumImageWidth UI_APPEARANCE_SELECTOR;
 
 @property(nonatomic, weak) id<QMUIImagePickerViewControllerDelegate>imagePickerViewControllerDelegate;

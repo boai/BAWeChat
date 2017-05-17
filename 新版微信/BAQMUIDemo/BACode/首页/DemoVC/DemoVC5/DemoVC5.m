@@ -54,7 +54,7 @@
 	if(_clickButton == nil) {
 		_clickButton = [[UIButton alloc] init];
         _clickButton.frame = CGRectMake(50, 100, 200, 50);
-        _clickButton.backgroundColor = BAKit_ColorGreen;
+        _clickButton.backgroundColor = BAKit_Color_Green;
         _clickButton.selected = NO;
         [_clickButton addTarget:self action:@selector(clickButtonAction:)];
         
@@ -87,7 +87,7 @@
 - (UILabel *)label {
 	if(_label == nil) {
 		_label = [[UILabel alloc] init];
-        _label.backgroundColor = BAKit_ColorYellow;
+        _label.backgroundColor = BAKit_Color_Yellow;
         _label.frame = CGRectMake(20, self.clickButton.bottom + 20, SCREEN_WIDTH - 40, 100);
         _label.numberOfLines = 0;
         

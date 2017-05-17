@@ -85,10 +85,6 @@
     
 }
 
-//- (void)layoutSubviews
-//{
-//    [self setupFrame];
-//}
 
 #pragma mark - custom method
 - (void)setupFrame
@@ -173,9 +169,9 @@
         self.commentView.hidden = YES;
     }
 
-    NSDateFormatter *formatter       = [NSDateFormatter ba_defaultDateFormatter];
+    NSDateFormatter *formatter       = [NSDateFormatter ba_setupDateFormatterWithYMDHMS];
     NSDate *date                     = [formatter dateFromString:model.created_time];
-    self.timeLabel.text              = [date ba_dateFormattedDateDescription];
+    self.timeLabel.text              = [date ba_dateFormattedWithDate];
 }
 
 - (void)handleCopyAction
@@ -274,7 +270,7 @@
 - (YYAnimatedImageView *)iconImageView {
 	if(_iconImageView == nil) {
 		_iconImageView = [[YYAnimatedImageView alloc] init];
-        [_iconImageView ba_setBordersWithColor:BAKit_ColorGreen andCornerRadius:kUserImage_Size/2 andWidth:1.0f];
+        [_iconImageView ba_setBordersWithColor:BAKit_Color_Green andCornerRadius:BAKit_Margin_UserImage_Size/2 andWidth:1.0f];
         [self addSubview:_iconImageView];
 	}
 	return _iconImageView;
@@ -283,8 +279,8 @@
 - (UILabel *)nameLabel {
 	if(_nameLabel == nil) {
 		_nameLabel = [[UILabel alloc] init];
-        _nameLabel.font = kTimeLineNameFont;
-        self.nameLabel.textColor     = kTimeLineNameFontColor;
+        _nameLabel.font = BAKit_FontSystem_15;
+        self.nameLabel.textColor = BAKit_Color_Gray_6;
 //        self.nameLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [self addSubview:_nameLabel];
 	}
@@ -294,8 +290,8 @@
 - (UILabel *)timeLabel {
 	if(_timeLabel == nil) {
 		_timeLabel = [[UILabel alloc] init];
-        _timeLabel.font = kTimeLineTimeFont;
-        self.timeLabel.textColor     = kTimeLineTimeFontColor;
+        _timeLabel.font = BAKit_FontSystem_12;
+        self.timeLabel.textColor     = BAKit_Color_Gray_8;
 //        self.timeLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [self addSubview:_timeLabel];
 	}
@@ -305,14 +301,14 @@
 - (MLLinkLabel *)contentLabel {
 	if(_contentLabel == nil) {
 		_contentLabel = [[MLLinkLabel alloc] init];
-        self.contentLabel.textColor     = kTimeLineContentFontColor;
-        self.contentLabel.backgroundColor = UIColorGray10;
+        self.contentLabel.textColor     = BAKit_Color_Gray_6;
+        self.contentLabel.backgroundColor = BAKit_Color_Gray_10;
         self.contentLabel.userInteractionEnabled = YES;
-        self.contentLabel.font = kTimeLineContentFont;
+        self.contentLabel.font = BAKit_FontSystem_13;
 
 //        self.contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
         self.contentLabel.textAlignment = NSTextAlignmentJustified;
-        self.contentLabel.linkTextAttributes = @{NSForegroundColorAttributeName : kTimeLineCellColorBlue};
+        self.contentLabel.linkTextAttributes = @{NSForegroundColorAttributeName : BAKit_Color_ThemBlue};
         self.contentLabel.dataDetectorTypes = MLDataDetectorTypeAll;
         self.contentLabel.allowLineBreakInsideLinks = YES;
         self.contentLabel.linkTextAttributes = nil;
@@ -357,8 +353,8 @@
 - (UILabel *)sourceLabel {
 	if(_sourceLabel == nil) {
 		_sourceLabel = [[UILabel alloc] init];
-        _sourceLabel.font = kTimeLineSourceFont;
-        self.sourceLabel.textColor = kTimeLineSourceFontColor;
+        _sourceLabel.font = BAKit_FontSystem_12;
+        self.sourceLabel.textColor = BAKit_Color_Gray_8;
 //        self.sourceLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [self addSubview:_sourceLabel];
 	}

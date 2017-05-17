@@ -1,0 +1,13 @@
+//
+//  BANetManagerModel.m
+//  yunlianWIFI
+//
+//  Created by boai on 2017/4/11.
+//  Copyright © 2017年 yunlianhui. All rights reserved.
+//
+
+#import "BANetManagerModel.h"
+
+@implementation BANetManagerModel
+
+@end

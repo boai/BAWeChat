@@ -8,7 +8,11 @@
 
 #import "BADiscoveryViewController.h"
 #import "BATimeLineVC.h"
+#import "BAWebViewController.h"
+#import "BAWebViewModel.h"
 
+#import "BAAlert_OC.h"
+//#import "BALoginViewController.h"
 
 #define BADiscovery_Title   @"title"
 #define BADiscovery_Image   @"image"
@@ -36,8 +40,6 @@
 - (void)setupUI
 {
     self.tableView.hidden = NO;
-    
-
 }
 
 - (void)viewWillLayoutSubviews
@@ -95,10 +97,18 @@
         }
             break;
         case 1:
+        {
+            [self actionSheet1];
+        }
+            break;
         case 2:
+        {
+            [self actionSheet2];
+        }
+            break;
         case 3:
         {
-            BAKit_ShowAlertWithMsg(@"正在努力开发中...");
+            [self gotoWebWithUrl:@"http://m.jd.com/"];
         }
             break;
         
@@ -107,12 +117,67 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
+- (void)actionSheet1
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSMutableArray *dataArray = [NSMutableArray array];
+    NSArray *contentArray = @[@"微信支付", @"支付宝", @"预付款账户"];
+    NSArray *subContentArray = @[@"", @"18588888888", @"余额：￥480.00"];
+    NSArray *imageArray = @[@"icon_tabbar_lab_selected", @"icon_tabbar_lab_selected", @"icon_tabbar_lab_selected"];
+    
+    for (NSInteger i = 0; i < contentArray.count; i++)
+    {
+        BAActionSheetModel *model = [BAActionSheetModel new];
+        model.imageUrl = imageArray[i];
+        model.content = contentArray[i];
+        model.subContent = subContentArray[i];
+        
+        [dataArray addObject:model];
+    }
+    BAKit_WeakSelf
+    [BAActionSheet ba_actionSheetShowWithConfiguration:^(BAActionSheet *tempView) {
+        
+        BAKit_StrongSelf
+        tempView.title = @"支付方式";
+        tempView.dataArray = dataArray;
+        tempView.isTouchEdgeHide = NO;
+        
+//        self.actionSheet = tempView;
+    } actionBlock:^(NSIndexPath *indexPath, BAActionSheetModel *model) {
+        BAKit_ShowAlertWithMsg_ios8(model.content);
+    }];
 }
 
+- (void)actionSheet2
+{
+    NSMutableArray *dataArray = [NSMutableArray array];
+    NSArray *contentArray = @[@"微信支付", @"支付宝", @"预付款账户"];
+    
+    for (NSInteger i = 0; i < contentArray.count; i++)
+    {
+        BAActionSheetModel *model = [BAActionSheetModel new];
+        //        model.imageUrl = imageArray[i];
+        model.content = contentArray[i];
+        //        model.subContent = subContentArray[i];
+        
+        [dataArray addObject:model];
+    }
+    BAKit_WeakSelf
+    [BAActionSheet ba_actionSheetShowWithConfiguration:^(BAActionSheet *tempView) {
+        
+        BAKit_StrongSelf
+        //        tempView.title = @"支付方式";
+        tempView.dataArray = dataArray;
+        tempView.actionSheetType = BAActionSheetTypeCustom;
+        //        tempView.isTouchEdgeHide = NO;
+        
+//        self.actionSheet = tempView;
+    } actionBlock:^(NSIndexPath *indexPath, BAActionSheetModel *model) {
+        BAKit_ShowAlertWithMsg_ios8(model.content);
+    }];
+}
+
+
+#pragma mark - setter / getter
 - (UITableView *)tableView
 {
     if (!_tableView)

@@ -8,7 +8,7 @@
 
 #import "QMUIImagePickerPreviewViewController.h"
 #import "QMUICommonDefines.h"
-#import "QMUIConfiguration.h"
+#import "QMUIConfigurationMacros.h"
 #import "QMUIHelper.h"
 #import "QMUIImagePickerViewController.h"
 #import "QMUIImagePickerHelper.h"
@@ -103,6 +103,7 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
     [self.topToolBarView addSubview:self.checkboxButton];
     
     _progressView = [[QMUIPieProgressView alloc] init];
+    self.progressView.tintColor = self.toolBarTintColor;
     self.progressView.hidden = YES;
     [self.topToolBarView addSubview:self.progressView];
     
@@ -134,18 +135,21 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.topToolBarView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), TopToolBarViewHeight);
-    self.backButton.frame = CGRectSetXY(self.backButton.frame, 8, [self.backButton qmui_minYWhenCenterInSuperview]);
-    if (!_singleCheckMode) {
-        self.checkboxButton.frame = CGRectFlatted(CGRectSetXY(self.checkboxButton.frame, CGRectGetWidth(self.topToolBarView.frame) - 10 - CGRectGetWidth(self.checkboxButton.frame), [self.checkboxButton qmui_minYWhenCenterInSuperview]));
+    
+    CGFloat topToolbarPaddingTop = [[UIApplication sharedApplication] isStatusBarHidden] ? 0 : StatusBarHeight;
+    CGFloat topToolbarContentHeight = CGRectGetHeight(self.topToolBarView.bounds) - topToolbarPaddingTop;
+    self.backButton.frame = CGRectSetXY(self.backButton.frame, 8, topToolbarPaddingTop + CGFloatGetCenter(topToolbarContentHeight, CGRectGetHeight(self.backButton.frame)));
+    if (!self.checkboxButton.hidden) {
+        self.checkboxButton.frame = CGRectSetXY(self.checkboxButton.frame, CGRectGetWidth(self.topToolBarView.frame) - 10 - CGRectGetWidth(self.checkboxButton.frame), topToolbarPaddingTop + CGFloatGetCenter(topToolbarContentHeight, CGRectGetHeight(self.checkboxButton.frame)));
     }
     UIImage *downloadRetryImage = [self.downloadRetryButton imageForState:UIControlStateNormal];
-    self.downloadRetryButton.frame = CGRectFlatted(CGRectSetXY(self.downloadRetryButton.frame, CGRectGetWidth(self.topToolBarView.frame) - 10 - downloadRetryImage.size.width, [self.downloadRetryButton qmui_minYWhenCenterInSuperview]));
+    self.downloadRetryButton.frame = CGRectSetXY(self.downloadRetryButton.frame, CGRectGetWidth(self.topToolBarView.frame) - 10 - downloadRetryImage.size.width, topToolbarPaddingTop + CGFloatGetCenter(topToolbarContentHeight, CGRectGetHeight(self.downloadRetryButton.frame)));
     /* 理论上 progressView 作为进度按钮，应该需要跟错误重试按钮 downloadRetryButton 的 frame 保持一致，但这里并没有直接使用
-     * self.progressView.frame = self.downloadRetryButton.frame，这是因为 self.downloadRetryButton 具有 1pt 的 top 
+     * self.progressView.frame = self.downloadRetryButton.frame，这是因为 self.downloadRetryButton 具有 1pt 的 top
      * contentEdgeInsets，因此最终的 frame 是椭圆型，如果按上面的操作，progressView 内部绘制出的饼状图形就会变成椭圆型，
      * 因此，这里 progressView 直接拿 downloadRetryButton 的 image 图片尺寸作为 frame size
      */
-    self.progressView.frame = CGRectMake(CGRectGetMinX(self.downloadRetryButton.frame), CGRectGetMinY(self.downloadRetryButton.frame) + self.downloadRetryButton.contentEdgeInsets.top, downloadRetryImage.size.width, downloadRetryImage.size.height);
+    self.progressView.frame = CGRectFlatMake(CGRectGetMinX(self.downloadRetryButton.frame), CGRectGetMinY(self.downloadRetryButton.frame) + self.downloadRetryButton.contentEdgeInsets.top, downloadRetryImage.size.width, downloadRetryImage.size.height);
 }
 
 - (void)setToolBarBackgroundColor:(UIColor *)toolBarBackgroundColor {
@@ -328,16 +332,24 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
     };
     
     if (imageAsset.assetType == QMUIAssetTypeLivePhoto) {
+        imageView.tag = -1;
         imageAsset.requestID = [imageAsset requestLivePhotoWithCompletion:^void(PHLivePhoto *result, NSDictionary *info) {
-            // 如果是走 PhotoKit 的逻辑，那么这个 block 会被多次调用，并且第一次调用时返回的图片是一张小图，
-            // 这时需要把图片放大到跟屏幕一样大，避免后面加载大图后图片的显示会有跳动
-            if (_usePhotoKit && [info[PHLivePhotoInfoIsDegradedKey] boolValue]) {
-                imageView.contentMode = UIViewContentModeScaleAspectFit;
-            } else {
-                imageView.contentMode = UIViewContentModeCenter;
+            // 这里可能因为 imageView 复用，导致前面的请求得到的结果显示到别的 imageView 上，
+            // 因此判断如果是新请求（无复用问题）或者是当前的请求才把获得的图片结果展示出来
+            BOOL isNewRequest = (imageView.tag == -1 && imageAsset.requestID == 0);
+            BOOL isCurrentRequest = imageView.tag == imageAsset.requestID;
+            BOOL loadICloudImageFault = !result || info[PHImageErrorKey];
+            BOOL isDegradedImage = [info[PHImageResultIsDegradedKey] boolValue]; // 是否为低清图
+            if (!loadICloudImageFault && (isNewRequest || isCurrentRequest)) {
+                // 如果是走 PhotoKit 的逻辑，那么这个 block 会被多次调用，并且第一次调用时返回的图片是一张小图，
+                // 这时需要把图片放大到跟屏幕一样大，避免后面加载大图后图片的显示会有跳动
+                if (isDegradedImage || loadICloudImageFault) {
+                    imageView.contentMode = UIViewContentModeScaleAspectFit;
+                } else {
+                    imageView.contentMode = UIViewContentModeCenter;
+                }
+                imageView.livePhoto = result;
             }
-            
-            imageView.livePhoto = result;
             
             BOOL downlaodSucceed = (result && !info) || (![[info objectForKey:PHLivePhotoInfoCancelledKey] boolValue] && ![info objectForKey:PHLivePhotoInfoErrorKey] && ![[info objectForKey:PHLivePhotoInfoIsDegradedKey] boolValue]);
             
@@ -353,17 +365,26 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
             }
             
         } withProgressHandler:phProgressHandler];
+        imageView.tag = imageAsset.requestID;
     } else {
+        imageView.tag = -1;
         imageAsset.requestID = [imageAsset requestPreviewImageWithCompletion:^void(UIImage *result, NSDictionary *info) {
-            // 如果是走 PhotoKit 的逻辑，那么这个 block 会被多次调用，并且第一次调用时返回的图片是一张小图，
-            // 这时需要把图片放大到跟屏幕一样大，避免后面加载大图后图片的显示会有跳动
-            if (_usePhotoKit && [info[PHImageResultIsDegradedKey] boolValue]) {
-                imageView.contentMode = UIViewContentModeScaleAspectFit;
-            } else {
-                imageView.contentMode = UIViewContentModeCenter;
+            // 这里可能因为 imageView 复用，导致前面的请求得到的结果显示到别的 imageView 上，
+            // 因此判断如果是新请求（无复用问题）或者是当前的请求才把获得的图片结果展示出来
+            BOOL isNewRequest = (imageView.tag == -1 && imageAsset.requestID == 0);
+            BOOL isCurrentRequest = imageView.tag == imageAsset.requestID;
+            BOOL loadICloudImageFault = !result || info[PHImageErrorKey];
+            BOOL isDegradedImage = [info[PHImageResultIsDegradedKey] boolValue]; // 是否为低清图
+            if (!loadICloudImageFault && (isNewRequest || isCurrentRequest)) {
+                // 如果是走 PhotoKit 的逻辑，那么这个 block 会被多次调用，并且第一次调用时返回的图片是一张小图，
+                // 这时需要把图片放大到跟屏幕一样大，避免后面加载大图后图片的显示会有跳动
+                if (isDegradedImage || loadICloudImageFault) {
+                    imageView.contentMode = UIViewContentModeScaleAspectFit;
+                } else {
+                    imageView.contentMode = UIViewContentModeCenter;
+                }
+                imageView.image = result;
             }
-
-            imageView.image = result;
             
             BOOL downlaodSucceed = (result && !info) || (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey] && ![[info objectForKey:PHImageResultIsDegradedKey] boolValue]);
             
@@ -379,6 +400,7 @@ static QMUIImagePickerPreviewViewController *imagePickerPreviewViewControllerApp
             }
             
         } withProgressHandler:phProgressHandler];
+        imageView.tag = imageAsset.requestID;
     }
 }
 

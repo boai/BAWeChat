@@ -16,7 +16,6 @@
 @property (nonatomic, strong) BATimeLineContentView *originalContentView;
 
 + (instancetype)timeLineCellWithTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
-
 ///*!
 // *  点赞按钮 block
 // */

@@ -42,17 +42,17 @@
     CGFloat userNameLabel_w = 150;
     CGFloat userNameLabel_h = 25;
 
-    CGFloat userSignatureLabel_w = self.width - kMargin_15 * 2;
+    CGFloat userSignatureLabel_w = self.width - BAKit_Margin_15 * 2;
     CGFloat userSignatureLabel_h = 25;
 
-    self.backgroundImageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.height - userSignatureLabel_h - kMargin_15 * 3);
+    self.backgroundImageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.height - userSignatureLabel_h - BAKit_Margin_15 * 3);
     
-    self.userSignatureLabel.frame = CGRectMake(kMargin_15, self.bottom - userSignatureLabel_h - kMargin_15, userSignatureLabel_w, userSignatureLabel_h);
+    self.userSignatureLabel.frame = CGRectMake(BAKit_Margin_15, self.bottom - userSignatureLabel_h - BAKit_Margin_15, userSignatureLabel_w, userSignatureLabel_h);
 
-    self.userImageView.frame = CGRectMake(self.width - userImageView_wh - kMargin_15 , self.userSignatureLabel.y - userImageView_wh - kMargin_5, userImageView_wh, userImageView_wh);
+    self.userImageView.frame = CGRectMake(self.width - userImageView_wh - BAKit_Margin_15 , self.userSignatureLabel.y - userImageView_wh - BAKit_Margin_5, userImageView_wh, userImageView_wh);
     
-    self.userNameLabel.frame = CGRectMake(self.userImageView.left - kMargin_15 - userNameLabel_w, self.bottom - userNameLabel_h - kMargin_35, userNameLabel_w, userNameLabel_h);
-    self.userNameLabel.centerY = self.userImageView.centerY - kMargin_5;
+    self.userNameLabel.frame = CGRectMake(self.userImageView.left - BAKit_Margin_15 - userNameLabel_w, self.bottom - userNameLabel_h - BAKit_Margin_35, userNameLabel_w, userNameLabel_h);
+    self.userNameLabel.centerY = self.userImageView.centerY - BAKit_Margin_5;
     
 }
 
@@ -70,7 +70,7 @@
 	if(_userImageView == nil) {
 		_userImageView = [[UIImageView alloc] init];
         self.userImageView.image = [UIImage imageNamed:@"icon1.jpg"];
-        self.userImageView.layer.borderColor = BAKit_ColorWhite.CGColor;
+        self.userImageView.layer.borderColor = BAKit_Color_White.CGColor;
         self.userImageView.layer.borderWidth = 3;
         [self addSubview:self.userImageView];
 	}
@@ -81,7 +81,7 @@
 	if(_userNameLabel == nil) {
 		_userNameLabel = [[UILabel alloc] init];
         self.userNameLabel.text = @"博爱1616";
-        self.userNameLabel.textColor = BAKit_ColorWhite;
+        self.userNameLabel.textColor = BAKit_Color_White;
         self.userNameLabel.textAlignment = NSTextAlignmentRight;
         self.userNameLabel.font = [UIFont boldSystemFontOfSize:17];
         [self addSubview:self.userNameLabel];
@@ -93,7 +93,7 @@
 	if(_userSignatureLabel == nil) {
 		_userSignatureLabel = [[UILabel alloc] init];
         self.userSignatureLabel.text = @"生命不息，折腾不止...";
-        self.userSignatureLabel.textColor = UIColorGray5;
+        self.userSignatureLabel.textColor = BAKit_Color_Gray_6;
         self.userSignatureLabel.textAlignment = NSTextAlignmentRight;
         self.userSignatureLabel.font = [UIFont boldSystemFontOfSize:14];
         
