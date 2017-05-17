@@ -34,7 +34,7 @@
 {
     self.title = @"注  册";
     
-    _phoneNumTextField.phoneRestrict = YES;
+//    _phoneNumTextField.phoneRestrict = YES;
 //    _phoneNumTextField.textfieldStyle = BAKit_TextFieldStylePhone;
     
 }
@@ -54,7 +54,7 @@
     }
     if (![BAKit_RegularExpression ba_regularIsPasswordQualified:_pwd1TextField.text])
     {
-        BAKit_ShowAlertWithMsg(@"密码必须为6-8位的字母数字混合！");
+        BAKit_ShowAlertWithMsg(@"密码必须为6-18位的字母数字混合！");
         return;
     }
     if (![_pwd1TextField.text isEqualToString:_pwd2TextField.text])
@@ -71,12 +71,12 @@
     BAWeak;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         [userSqlite save];
-        BAKit_ShowAlertWithMsg(@"注册成功！");
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        BAKit_ShowAlertWithMsg(@"注册成功！");
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakSelf.navigationController popViewControllerAnimated:YES];
             });
-        });
+//        });
     });
 }
 @end

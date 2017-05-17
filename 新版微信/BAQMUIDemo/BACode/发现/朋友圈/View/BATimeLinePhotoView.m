@@ -79,10 +79,18 @@
             imageView.tag = idx;
             [weak_self addSubview:imageView];
             
-            long columnIndex = idx % 3;
+            long columnIndex = 0;
+            if (self.photosArray.count == 4)
+            {
+                columnIndex = idx % 2;
+            }
+            else
+            {
+                columnIndex = idx % 3;
+            }
             long rowIndex = idx / perRowItemCount;
             
-            photoViewFrame = CGRectMake(columnIndex * (item_width + kMargin_5), rowIndex * (item_height + kMargin_5), item_width, item_height);
+            photoViewFrame = CGRectMake(columnIndex * (item_width + BAKit_Margin_5), rowIndex * (item_height + BAKit_Margin_5), item_width, item_height);
             imageView.frame = photoViewFrame;
             
             UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:weak_self action:@selector(tapImageView:)];
@@ -110,8 +118,8 @@
 //    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
 //    browser.currentImageIndex = imageView.tag;
 //    browser.sourceImagesContainerView = self;
-//    browser.imageCount = self.timeLineViewModel.self.photosArray.count;
-//    browser.delegate = (id<SDPhotoBrowserDelegate>)weakSelf;
+//    browser.imageCount = self.timeLineViewModel.model.pic_urls.count;
+//    browser.delegate = (id<SDPhotoBrowserDelegate>)self;
 //    [browser show];
     
     // Create browser
@@ -140,6 +148,7 @@
 
 - (CGFloat)itemWidthForPicPathArray:(NSArray *)array
 {
+    
     if (array.count == 1)
     {
         return self.timeLineViewModel.photoViewFrame.size.width;
@@ -153,7 +162,11 @@
 
 - (NSInteger)perRowItemCountForPicPathArray:(NSArray *)array
 {
-    if (array.count <= 3)
+    if(array.count == 4)
+    {
+        return 2;
+    }
+    else if (array.count <= 2)
     {
         return array.count;
     }
@@ -166,7 +179,7 @@
 #pragma mark - SDPhotoBrowserDelegate
 //- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
 //{
-//    NSString *imageName = self.timeLineViewModel.self.photosArray[index];
+//    NSString *imageName = self.timeLineViewModel.model.pic_urls[index];
 //    NSURL *url = [[NSBundle mainBundle] URLForResource:imageName withExtension:nil];
 //    return url;
 //}
@@ -176,7 +189,6 @@
 //    UIImageView *imageView = self.subviews[index];
 //    return imageView.image;
 //}
-
 
 #pragma mark - MWPhotoBrowserDelegate
 - (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
@@ -231,12 +243,12 @@
 //    return [NSString stringWithFormat:@"Photo %lu", (unsigned long)index+1];
      return [NSString stringWithFormat:@"%lu / %lu", (unsigned long)index+1, (unsigned long)self.photosArray.count];
 }
-
+//
 //- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index selectedChanged:(BOOL)selected {
 //    [_selections replaceObjectAtIndex:index withObject:[NSNumber numberWithBool:selected]];
 //    NSLog(@"Photo at index %lu selected %@", (unsigned long)index, selected ? @"YES" : @"NO");
 //}
-
+//
 //- (void)photoBrowserDidFinishModalPresentation:(MWPhotoBrowser *)photoBrowser {
 //    // If we subscribe to this method we must dismiss the view controller ourselves
 //    NSLog(@"Did finish modal presentation");

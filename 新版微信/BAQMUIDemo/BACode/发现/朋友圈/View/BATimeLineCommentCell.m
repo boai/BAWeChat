@@ -75,7 +75,7 @@
 - (UILabel *)commentLabel {
 	if(_commentLabel == nil) {
 		_commentLabel = [[UILabel alloc] init];
-        self.commentLabel.font = kTimeLineCommentFont;
+        self.commentLabel.font = BAKit_FontSystem_13;
         [self.contentView addSubview:self.commentLabel];
 	}
 	return _commentLabel;

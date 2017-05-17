@@ -9,7 +9,7 @@
 #import "BATimeLineCommentView.h"
 #import "BATimeLineModel.h"
 #import "BATimeLineViewModel.h"
-#import "BAUser.h"
+//#import "BAUser.h"
 
 #import "BATimeLineCommentCell.h"
 
@@ -42,10 +42,12 @@
 - (void)setupSubViews
 {
 //    self.userInteractionEnabled = YES;
-    self.backgroundColor = UIColorGray10;
+    self.backgroundColor = BAKit_Color_Gray_11;
 
 }
-
+-(void)layoutSubviews{
+    
+}
 #pragma mark - custom method
 - (void)setupFrame
 {
@@ -68,10 +70,10 @@
         {
             MLLinkLabel *label = [MLLinkLabel new];
             label.userInteractionEnabled = YES;
-            label.font = kTimeLineCommentFont;
-            label.textColor     = kTimeLineContentFontColor;
+            label.font = BAKit_FontSystem_13;
+            label.textColor     = BAKit_Color_Gray_7;
             label.textAlignment = NSTextAlignmentJustified;
-            label.linkTextAttributes = @{NSForegroundColorAttributeName : kTimeLineCellColorBlue};
+            label.linkTextAttributes = @{NSForegroundColorAttributeName : BAKit_Color_ThemBlue};
             label.dataDetectorTypes = MLDataDetectorTypeAll;
             label.allowLineBreakInsideLinks = YES;
             label.linkTextAttributes = nil;
@@ -145,11 +147,11 @@
             CGSize commentLabel_size = CGSizeZero;
             if (model.attributedContent)
             {
-                commentLabel_size = BAKit_LabelSizeWithMutableAttributedStringAndWidthAndFont(attributedString, kContent_width, kTimeLineCommentFont);
+                commentLabel_size = BAKit_LabelSizeWithMutableAttributedStringAndWidthAndFont(attributedString, BAKit_Margin_Content_width, BAKit_FontSystem_13);
             }
             else
             {
-                commentLabel_size = BAKit_LabelSizeWithTextAndWidthAndFont(text, kContent_width, kTimeLineCommentFont);
+                commentLabel_size = BAKit_LabelSizeWithTextAndWidthAndFont(text, BAKit_Margin_Content_width, BAKit_FontSystem_13);
             }
             CGFloat commentLabel_h = commentLabel_size.height;
             if (i != 0)
@@ -157,7 +159,7 @@
                 commentLabel_y += CGRectGetMaxY(lastTopView.frame);
             }
 
-            label.frame = CGRectMake(commentLabel_x, commentLabel_y, kContent_width, commentLabel_h);
+            label.frame = CGRectMake(commentLabel_x, commentLabel_y, BAKit_Margin_Content_width, commentLabel_h);
             
             [self addSubview:label];
             lastTopView = label;
@@ -168,10 +170,19 @@
 - (NSMutableAttributedString *)generateAttributedStringWithCommentItemModel:(BATimeLineCommentModel *)model text:(NSString *)text
 {
     NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:text];
+    
     [attString setAttributes:@{NSLinkAttributeName : model.firstUser.user_Id} range:[text rangeOfString:model.firstUser.user_Name]];
+    
     if (model.secondUser.user_Name)
     {
-        [attString setAttributes:@{NSLinkAttributeName : model.secondUser.user_Id} range:[text rangeOfString:model.secondUser.user_Name]];
+        if ([model.firstUser.user_Name containsString:model.secondUser.user_Name])
+        {
+            [attString setAttributes:@{NSLinkAttributeName : model.secondUser.user_Id} range:[text rangeOfString:model.secondUser.user_Name options:NSBackwardsSearch]];
+        }
+        else
+        {
+            [attString setAttributes:@{NSLinkAttributeName : model.secondUser.user_Id} range:[text rangeOfString:model.secondUser.user_Name]];
+        }
     }
     return attString;
 }

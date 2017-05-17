@@ -51,25 +51,21 @@ BAKit_SingletonM(BALaunchADNet)
 {
     NSString *path = [NSString stringWithFormat:KVideoPath, startIndex];
     
-    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet urlString:path parameters:nil successBlock:^(id response) {
-        
+    return [BANetManager ba_request_GETWithUrlString:path isNeedCache:NO parameters:nil successBlock:^(id response) {
         completionHandle([BAVideoModel yy_modelWithJSON:response], nil);
         
     } failureBlock:^(NSError *error) {
-        
         NSLog(@"error：%@", error);
         completionHandle(nil, error);
         
-    } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
-        
-    }];
+    } progress:nil];
 }
 
 - (id)ba_getThoughtworksWithCompletionHandle:(void (^)(BAThoughtworksModel *data, NSError *))completionHandle
 {
     NSString *path = KthoughtworksPath;
     
-    return [BANetManager ba_requestWithType:BAHttpRequestTypeGet urlString:path parameters:nil successBlock:^(id response) {
+    return [BANetManager ba_request_GETWithUrlString:path isNeedCache:NO parameters:nil successBlock:^(id response) {
         
         completionHandle([BAThoughtworksModel yy_modelWithJSON:response], nil);
         

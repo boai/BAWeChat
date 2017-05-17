@@ -8,7 +8,7 @@
 
 #import "QMUIToastView.h"
 #import "QMUICommonDefines.h"
-#import "QMUIConfiguration.h"
+#import "QMUIConfigurationMacros.h"
 #import "QMUIToastAnimator.h"
 #import "QMUIToastContentView.h"
 #import "QMUIToastBackgroundView.h"
@@ -287,24 +287,17 @@
 
 @implementation QMUIToastView (ToastTool)
 
-+ (BOOL)hideToastInView:(UIView *)view animated:(BOOL)animated {
-    QMUIToastView *toast = [self toastInView:view];
-    if (toast != nil) {
-        toast.removeFromSuperViewWhenHide = YES;
-        [toast hideAnimated:animated];
-        return YES;
-    }
-    return NO;
-}
-
 + (BOOL)hideAllToastInView:(UIView *)view animated:(BOOL)animated {
-    QMUIToastView *toast = [self toastInView:view];
-    if (toast != nil) {
-        toast.removeFromSuperViewWhenHide = YES;
-        [toast hideAnimated:animated];
-        return YES;
+    NSArray *toastViews = [self allToastInView:view];
+    BOOL returnFlag = NO;
+    for (QMUIToastView *toastView in toastViews) {
+        if (toastView) {
+            toastView.removeFromSuperViewWhenHide = YES;
+            [toastView hideAnimated:animated];
+            returnFlag = YES;
+        }
     }
-    return NO;
+    return returnFlag;
 }
 
 + (instancetype)toastInView:(UIView *)view {

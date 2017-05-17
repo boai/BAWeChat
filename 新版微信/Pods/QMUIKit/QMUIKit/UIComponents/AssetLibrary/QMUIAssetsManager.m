@@ -8,11 +8,11 @@
 
 #import "QMUIAssetsManager.h"
 #import "QMUICommonDefines.h"
-#import "QMUIConfiguration.h"
+#import "QMUIConfigurationMacros.h"
 #import "QMUIHelper.h"
 
 void QMUIImageWriteToSavedPhotosAlbumWithAlbumAssetsGroup(UIImage *image, QMUIAssetsGroup *albumAssetsGroup, QMUIWriteAssetCompletionBlock completionBlock) {
-    [[QMUIAssetsManager sharedInstance] saveImageWithImageRef:image.CGImage albumAssetsGroup:albumAssetsGroup orientation:(UIImageOrientation)image.imageOrientation completionBlock:completionBlock];
+    [[QMUIAssetsManager sharedInstance] saveImageWithImageRef:image.CGImage albumAssetsGroup:albumAssetsGroup orientation:image.imageOrientation completionBlock:completionBlock];
 }
 
 void QMUISaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath, QMUIAssetsGroup *albumAssetsGroup, QMUIWriteAssetCompletionBlock completionBlock) {
@@ -163,13 +163,12 @@ void QMUISaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPa
         [[PHPhotoLibrary sharedPhotoLibrary] addImageToAlbum:imageRef
                                         albumAssetCollection:albumPhAssetCollection
                                                  orientation:orientation
-                                           completionHandler:^(BOOL success, NSError *error) {
+                                           completionHandler:^(BOOL success, NSDate *creationDate, NSError *error) {
                                                if (success) {
-                                                   /**
-                                                    *  当图片成功加入到指定的 PHAssetCollection 中后，获取该 PHAssetCollection 中最新的一个资源，即刚刚加入的图片资源，
-                                                    *  从而生成图片对应的 QMUIAsset 并传给 completionBlock
-                                                    */
-                                                   PHAsset *phAsset = [PHPhotoLibrary fetchLatestAssetWithAssetCollection:albumPhAssetCollection];
+                                                   PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];
+                                                   fetchOptions.predicate = [NSPredicate predicateWithFormat:@"creationDate = %@", creationDate];
+                                                   PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:albumPhAssetCollection options:fetchOptions];
+                                                   PHAsset *phAsset = fetchResult.lastObject;
                                                    QMUIAsset *asset = [[QMUIAsset alloc] initWithPHAsset:phAsset];
                                                    completionBlock(asset, error);
                                                } else {
@@ -202,13 +201,12 @@ void QMUISaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPa
         // 把视频加入到指定的相册对应的 PHAssetCollection
         [[PHPhotoLibrary sharedPhotoLibrary] addVideoToAlbum:videoPathURL
                                         albumAssetCollection:albumPhAssetCollection
-                                           completionHandler:^(BOOL success, NSError *error) {
+                                           completionHandler:^(BOOL success, NSDate *creationDate, NSError *error) {
                                                if (success) {
-                                                   /**
-                                                    *  当视频成功加入到指定的 PHAssetCollection 中后，获取该 PHAssetCollection 中最新的一个资源，即刚刚加入的视频资源，
-                                                    *  从而生成视频对应的 QMUIAsset 并传给 completionBlock
-                                                    */
-                                                   PHAsset *phAsset = [PHPhotoLibrary fetchLatestAssetWithAssetCollection:albumPhAssetCollection];
+                                                   PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];
+                                                   fetchOptions.predicate = [NSPredicate predicateWithFormat:@"creationDate = %@", creationDate];
+                                                   PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:albumPhAssetCollection options:fetchOptions];
+                                                   PHAsset *phAsset = fetchResult.lastObject;
                                                    QMUIAsset *asset = [[QMUIAsset alloc] initWithPHAsset:phAsset];
                                                    completionBlock(asset, error);
                                                } else {
@@ -342,19 +340,23 @@ void QMUISaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPa
 
 + (PHAsset *)fetchLatestAssetWithAssetCollection:(PHAssetCollection *)assetCollection {
     PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];
-    // 按时间对 PHAssetCollection 内的资源进行排序，最新的资源排在数组第一位
+    // 按时间的先后对 PHAssetCollection 内的资源进行排序，最新的资源排在数组最后面
     fetchOptions.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
     PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:fetchOptions];
-    // 获取 PHAssetCollection 内第一个资源，即最新的资源
-    PHAsset *latestAsset = fetchResult.firstObject;
+    // 获取 PHAssetCollection 内最后一个资源，即最新的资源
+    PHAsset *latestAsset = fetchResult.lastObject;
     return latestAsset;
 }
 
-- (void)addImageToAlbum:(CGImageRef)imageRef albumAssetCollection:(PHAssetCollection *)albumAssetCollection orientation:(UIImageOrientation)orientation completionHandler:(void(^)(BOOL success, NSError *error))completionHandler {
+- (void)addImageToAlbum:(CGImageRef)imageRef albumAssetCollection:(PHAssetCollection *)albumAssetCollection orientation:(UIImageOrientation)orientation completionHandler:(void(^)(BOOL success, NSDate *creationDate, NSError *error))completionHandler {
     UIImage *targetImage = [UIImage imageWithCGImage:imageRef scale:ScreenScale orientation:orientation];
+    __block NSDate *creationDate = nil;
     [self performChanges:^{
         // 创建一个以图片生成新的 PHAsset，这时图片已经被添加到“相机胶卷”
+        
         PHAssetChangeRequest *assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:targetImage];
+        assetChangeRequest.creationDate = [NSDate date];
+        creationDate = assetChangeRequest.creationDate;
         
         if (albumAssetCollection.assetCollectionType == PHAssetCollectionTypeAlbum) {
             // 如果传入的相册类型为标准的相册（非“智能相册”和“时刻”），则把刚刚创建的 Asset 添加到传入的相册中。
@@ -371,24 +373,27 @@ void QMUISaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPa
     } completionHandler:^(BOOL success, NSError *error) {
         if (!success) {
             QMUILog(@"Creating asset of image error : %@", error);
-        } else {
-            if (completionHandler) {
-                /**
-                 *  performChanges:completionHandler 不在主线程执行，若用户在该 block 中操作 UI 时会产生一些问题，
-                 *  为了避免这种情况，这里该 block 主动放到主线程执行。
-                 */
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completionHandler(success, error);
-                });
-            }
+        }
+        
+        if (completionHandler) {
+            /**
+             *  performChanges:completionHandler 不在主线程执行，若用户在该 block 中操作 UI 时会产生一些问题，
+             *  为了避免这种情况，这里该 block 主动放到主线程执行。
+             */
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(success, creationDate, error);
+            });
         }
     }];
 }
 
-- (void)addVideoToAlbum:(NSURL *)videoPathURL albumAssetCollection:(PHAssetCollection *)albumAssetCollection completionHandler:(void(^)(BOOL success, NSError *error))completionHandler {
+- (void)addVideoToAlbum:(NSURL *)videoPathURL albumAssetCollection:(PHAssetCollection *)albumAssetCollection completionHandler:(void(^)(BOOL success, NSDate *creationDate, NSError *error))completionHandler {
+    __block NSDate *creationDate = nil;
     [self performChanges:^{
         // 创建一个以视频生成新的 PHAsset 的请求
         PHAssetChangeRequest *assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:videoPathURL];
+        assetChangeRequest.creationDate = [NSDate date];
+        creationDate = assetChangeRequest.creationDate;
         
         if (albumAssetCollection.assetCollectionType == PHAssetCollectionTypeAlbum) {
             // 如果传入的相册类型为标准的相册（非“智能相册”和“时刻”），则把刚刚创建的 Asset 添加到传入的相册中。
@@ -405,16 +410,16 @@ void QMUISaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPa
     } completionHandler:^(BOOL success, NSError *error) {
         if (!success) {
             QMUILog(@"Creating asset of video error: %@", error);
-        } else {
-            if (completionHandler) {
-                /**
-                 *  performChanges:completionHandler 不在主线程执行，若用户在该 block 中操作 UI 时会产生一些问题，
-                 *  为了避免这种情况，这里该 block 主动放到主线程执行。
-                 */
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completionHandler(success, error);
-                });
-            }
+        }
+        
+        if (completionHandler) {
+            /**
+             *  performChanges:completionHandler 不在主线程执行，若用户在该 block 中操作 UI 时会产生一些问题，
+             *  为了避免这种情况，这里该 block 主动放到主线程执行。
+             */
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionHandler(success, creationDate, error);
+            });
         }
     }];
 }

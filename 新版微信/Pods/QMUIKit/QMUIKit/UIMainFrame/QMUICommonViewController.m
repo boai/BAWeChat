@@ -8,10 +8,11 @@
 
 #import "QMUICommonViewController.h"
 #import "QMUICommonDefines.h"
-#import "QMUIConfiguration.h"
+#import "QMUIConfigurationMacros.h"
 #import "QMUIHelper.h"
 #import "QMUINavigationTitleView.h"
 #import "QMUIEmptyView.h"
+#import "NSString+QMUI.h"
 
 @interface QMUICommonViewController ()
 
@@ -38,6 +39,7 @@
 
 - (void)didInitialized {
     self.titleView = [[QMUINavigationTitleView alloc] init];
+    self.titleView.title = self.title;// 从 storyboard 初始化的话，可能带有 self.title 的值
     
     self.hidesBottomBarWhenPushed = HidesBottomBarWhenPushedInitially;
     
@@ -98,6 +100,7 @@
 
 - (void)showEmptyViewWithLoading {
     [self showEmptyView];
+    [self.emptyView setImage:nil];
     [self.emptyView setLoadingViewHidden:NO];
     [self.emptyView setTextLabelText:nil];
     [self.emptyView setDetailTextLabelText:nil];
@@ -108,7 +111,7 @@
                    detailText:(NSString *)detailText
                   buttonTitle:(NSString *)buttonTitle
                  buttonAction:(SEL)action {
-    [self showEmptyViewWithImage:nil text:text detailText:detailText buttonTitle:buttonTitle buttonAction:action];
+    [self showEmptyViewWithLoading:NO image:nil text:text detailText:detailText buttonTitle:buttonTitle buttonAction:action];
 }
 
 - (void)showEmptyViewWithImage:(UIImage *)image
@@ -116,8 +119,17 @@
                     detailText:(NSString *)detailText
                    buttonTitle:(NSString *)buttonTitle
                   buttonAction:(SEL)action {
+    [self showEmptyViewWithLoading:NO image:image text:text detailText:detailText buttonTitle:buttonTitle buttonAction:action];
+}
+
+- (void)showEmptyViewWithLoading:(BOOL)showLoading
+                           image:(UIImage *)image
+                            text:(NSString *)text
+                      detailText:(NSString *)detailText
+                     buttonTitle:(NSString *)buttonTitle
+                    buttonAction:(SEL)action {
     [self showEmptyView];
-    [self.emptyView setLoadingViewHidden:YES];
+    [self.emptyView setLoadingViewHidden:!showLoading];
     [self.emptyView setImage:image];
     [self.emptyView setTextLabelText:text];
     [self.emptyView setDetailTextLabelText:detailText];
@@ -183,7 +195,11 @@
 
 - (void)setNavigationItemsIsInEditMode:(BOOL)isInEditMode animated:(BOOL)animated {
     // 子类重写
-    self.navigationItem.titleView = self.titleView;
+    if (IOS_VERSION < 8.0 && [NSStringFromClass(self.navigationItem.class) qmui_includesString:@"UISearchBarNavigationItem"]) {
+        // iOS 7 下，UISearchDisplayController.displaysSearchBarInNavigationBar 为 YES 时，不允许修改 self.navigationItem
+    } else {
+        self.navigationItem.titleView = self.titleView;
+    }
 }
 
 - (void)setToolbarItemsIsInEditMode:(BOOL)isInEditMode animated:(BOOL)animated {

@@ -21,7 +21,4 @@
 /*！用户识别码：唯一【登录后才有】 */
 @property (nonatomic, copy  ) NSString  *userCode;
 
-@property (nonatomic, assign) BOOL       isLogin;
-
-
 @end

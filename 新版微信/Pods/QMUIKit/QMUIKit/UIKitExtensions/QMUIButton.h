@@ -9,49 +9,47 @@
 #import <UIKit/UIKit.h>
 
 /// 控制图片在UIButton里的位置，默认为QMUIButtonImagePositionLeft
-typedef enum {
+typedef NS_ENUM(NSUInteger, QMUIButtonImagePosition) {
     QMUIButtonImagePositionTop,             // imageView在titleLabel上面
     QMUIButtonImagePositionLeft,            // imageView在titleLabel左边
     QMUIButtonImagePositionBottom,          // imageView在titleLabel下面
     QMUIButtonImagePositionRight,           // imageView在titleLabel右边
-} QMUIButtonImagePosition;
+};
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, QMUIGhostButtonColor) {
     QMUIGhostButtonColorBlue,
     QMUIGhostButtonColorRed,
     QMUIGhostButtonColorGreen,
     QMUIGhostButtonColorGray,
     QMUIGhostButtonColorWhite,
-} QMUIGhostButtonColor;
+};
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, QMUIFillButtonColor) {
     QMUIFillButtonColorBlue,
     QMUIFillButtonColorRed,
     QMUIFillButtonColorGreen,
     QMUIFillButtonColorGray,
     QMUIFillButtonColorWhite,
-} QMUIFillButtonColor;
+};
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, QMUINavigationButtonType) {
     QMUINavigationButtonTypeNormal,         // 普通导航栏文字按钮
     QMUINavigationButtonTypeBold,           // 导航栏加粗按钮
     QMUINavigationButtonTypeImage,          // 图标按钮
-    QMUINavigationButtonTypeBack,           // 自定义返回按钮(可以同时带有title)
-    QMUINavigationButtonTypeClose,          // 自定义关闭按钮(只显示icon不带title)
-} QMUINavigationButtonType;
+    QMUINavigationButtonTypeBack            // 自定义返回按钮(可以同时带有title)
+};
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, QMUIToolbarButtonType) {
     QMUIToolbarButtonTypeNormal,            // 普通工具栏按钮
     QMUIToolbarButtonTypeRed,               // 工具栏红色按钮，用于删除等警告性操作
     QMUIToolbarButtonTypeImage,              // 图标类型的按钮
-} QMUIToolbarButtonType;
+};
 
 typedef NS_ENUM(NSInteger, QMUINavigationButtonPosition) {
     QMUINavigationButtonPositionNone = -1,  // 不处于navigationBar最左（右）边的按钮，则使用None。用None则不会在alignmentRectInsets里调整位置
     QMUINavigationButtonPositionLeft,       // 用于leftBarButtonItem，如果用于leftBarButtonItems，则只对最左边的item使用，其他item使用QMUINavigationButtonPositionNone
     QMUINavigationButtonPositionRight,      // 用于rightBarButtonItem，如果用于rightBarButtonItems，则只对最右边的item使用，其他item使用QMUINavigationButtonPositionNone
 };
-
 
 /**
  * 提供以下功能：
@@ -60,8 +58,10 @@ typedef NS_ENUM(NSInteger, QMUINavigationButtonPosition) {
  * <li>支持点击时改变背景色颜色（<i>highlightedBackgroundColor</i>）</li>
  * <li>支持点击时改变边框颜色（<i>highlightedBorderColor</i>）</li>
  * <li>支持设置图片在按钮内的位置，无需自行调整imageEdgeInsets（<i>imagePosition</i>）</li>
+ * <li>支持设置按钮内文本和图片之间的间距，无需自行调整titleEdgeInests、imageEdgeInsets、contentEdgeInsets（<i>spacingBetweenImageAndTitle</i>）</li>
  * </ol>
  */
+
 @interface QMUIButton : UIButton
 
 /**
@@ -108,11 +108,22 @@ typedef NS_ENUM(NSInteger, QMUINavigationButtonPosition) {
  */
 @property(nonatomic, assign) QMUIButtonImagePosition imagePosition;
 
+/**
+ * 设置按钮里图标和文字之间的间隔，会自动响应 imagePosition 的变化而变化，默认为0。<br/>
+ * 系统默认实现需要同时设置 titleEdgeInsets 和 imageEdgeInsets，同时还需考虑 contentEdgeInsets 的增加（否则不会影响布局，可能会让图标或文字溢出或挤压），使用该属性可以避免以上情况。<br/>
+ * @warning 会与 imageEdgeInsets、 imageEdgeInsets、 contentEdgeInsets 共同作用。
+ */
+@property(nonatomic, assign) CGFloat spacingBetweenImageAndTitle;
+
 @end
 
 
 /**
- *  `QMUINavigationButton`是用于UINavigationBar的按钮
+ *  QMUINavigationButton 是用于 UINavigationItem 的按钮，有两种使用方式：
+ *  1. 利用类方法，快速生成所需的 UIBarButtonItem，其中大部分 UIBarButtonItem 均使用系统的 initWithBarButtonSystemItem 或 initWithImage 接口创建，仅有返回按钮利用了 customView 来创建 UIBarButtonItem。
+ *  2. 利用 init 方法生成一个 QMUINavigationButton 实例，再通过类方法 + barButtonItemWithNavigationButton:position:target:action: 来生成一个对应的 UIBarButtonItem，此时 QMUINavigationButton 将作为 UIBarButtonItem 的 customView。
+ *  若能满足需求，建议优先使用第 1 种方式。
+ *  @note 关于 tintColor：UIBarButtonItem 如果使用了 customView，则需要修改 customView.tintColor，如果没使用 customView，则直接修改 UIBarButtonItem.tintColor。
  */
 @interface QMUINavigationButton : UIButton
 
@@ -146,40 +157,97 @@ typedef NS_ENUM(NSInteger, QMUINavigationButtonPosition) {
 - (instancetype)initWithImage:(UIImage *)image;
 
 /** 
- *  创建一个返回按钮的UIBarButtonItem，默认使用没有tintColor的那个接口就好了。如果某些界面需要重新设置navBar的tintColor，则使用有tintColor的那个接口来兼容iOS6。
+ *  创建一个 type 为 QMUINavigationButtonTypeBack 的 button 并作为 customView 用于生成一个 UIBarButtonItem，返回按钮的图片由配置表里的宏 NavBarBackIndicatorImage 决定。
+ *  @param target 按钮点击事件的接收者
+ *  @param selector 按钮点击事件的方法
+ *  @param tintColor 按钮要显示的颜色，如果为 nil，则表示跟随当前 UINavigationBar 的 tintColor
  */
 + (UIBarButtonItem *)backBarButtonItemWithTarget:(id)target action:(SEL)selector tintColor:(UIColor *)tintColor;
+
+/**
+ *  创建一个 type 为 QMUINavigationButtonTypeBack 的 button 并作为 customView 用于生成一个 UIBarButtonItem，返回按钮的图片由配置表里的宏 NavBarBackIndicatorImage 决定，按钮颜色跟随 UINavigationBar 的 tintColor。
+ *  @param target 按钮点击事件的接收者
+ *  @param selector 按钮点击事件的方法
+ */
 + (UIBarButtonItem *)backBarButtonItemWithTarget:(id)target action:(SEL)selector;
 
 /**
- *  创建一个关闭按钮的UIBarButtonItem，默认使用没有tintColor的那个接口就好了。如果某些界面需要重新设置navBar的tintColor，则使用有tintColor的那个接口来兼容iOS6。
+ *  创建一个以 “×” 为图标的关闭按钮，图片由配置表里的宏 NavBarCloseButtonImage 决定。
+ *  @param target 按钮点击事件的接收者
+ *  @param selector 按钮点击事件的方法
+ *  @param tintColor 按钮要显示的颜色，如果为 nil，则表示跟随当前 UINavigationBar 的 tintColor
  */
 + (UIBarButtonItem *)closeBarButtonItemWithTarget:(id)target action:(SEL)selector tintColor:(UIColor *)tintColor;
+
+/**
+ *  创建一个以 “×” 为图标的关闭按钮，图片由配置表里的宏 NavBarCloseButtonImage 决定，图片颜色跟随 UINavigationBar.tintColor。
+ *  @param target 按钮点击事件的接收者
+ *  @param selector 按钮点击事件的方法
+ */
 + (UIBarButtonItem *)closeBarButtonItemWithTarget:(id)target action:(SEL)selector;
 
-/** 
- *  创建一个特定type的UIBarButtonItem，默认使用没有tintColor的那个接口就好了。如果某些界面需要重新设置navBar的tintColor，则使用有tintColor的那个接口来兼容iOS6。
+/**
+ *  创建一个 UIBarButtonItem
+ *  @param type 按钮的类型
+ *  @param title 按钮的标题
+ *  @param tintColor 按钮的颜色，如果为 nil，则表示跟随当前 UINavigationBar 的 tintColor
+ *  @param position 按钮在 UINavigationBar 上的左右位置，如果某一边的按钮有多个，则只有最左边（最右边）的按钮需要设置为 QMUINavigationButtonPositionLeft（QMUINavigationButtonPositionRight），靠里的按钮使用 QMUINavigationButtonPositionNone 即可
+ *  @param target 按钮点击事件的接收者
+ *  @param selector 按钮点击事件的方法
  */
 + (UIBarButtonItem *)barButtonItemWithType:(QMUINavigationButtonType)type title:(NSString *)title tintColor:(UIColor *)tintColor position:(QMUINavigationButtonPosition)position target:(id)target action:(SEL)selector;
+
+/**
+ *  创建一个 UIBarButtonItem
+ *  @param type 按钮的类型
+ *  @param title 按钮的标题
+ *  @param position 按钮在 UINavigationBar 上的左右位置，如果某一边的按钮有多个，则只有最左边（最右边）的按钮需要设置为 QMUINavigationButtonPositionLeft（QMUINavigationButtonPositionRight），靠里的按钮使用 QMUINavigationButtonPositionNone 即可
+ *  @param target 按钮点击事件的接收者
+ *  @param selector 按钮点击事件的方法
+ */
 + (UIBarButtonItem *)barButtonItemWithType:(QMUINavigationButtonType)type title:(NSString *)title position:(QMUINavigationButtonPosition)position target:(id)target action:(SEL)selector;
 
 /**
- *  以customView的方式用`QMUINavigationButton`创建一个UIBarButtonItem。position、target、selector等参数不需要对button设置，通过参数传进来就可以了。
+ *  将参数传进来的 button 作为 customView 用于生成一个 UIBarButtonItem。
+ *  @param button 要作为 customView 的 QMUINavigationButton
+ *  @param tintColor 按钮的颜色，如果为 nil，则表示跟随当前 UINavigationBar 的 tintColor
+ *  @param position 按钮在 UINavigationBar 上的左右位置，如果某一边的按钮有多个，则只有最左边（最右边）的按钮需要设置为 QMUINavigationButtonPositionLeft（QMUINavigationButtonPositionRight），靠里的按钮使用 QMUINavigationButtonPositionNone 即可
+ *  @param target 按钮点击事件的接收者
+ *  @param selector 按钮点击事件的方法
  *
- *  @warning 没有提供highLihgted和disabled的样式，需要在button自定义。
+ *  @note tintColor、position、target、selector 等参数不需要对 QMUINavigationButton 设置，通过参数传进来就可以了，就算设置了也会在这个方法里被覆盖。
+ */
++ (UIBarButtonItem *)barButtonItemWithNavigationButton:(QMUINavigationButton *)button tintColor:(UIColor *)tintColor position:(QMUINavigationButtonPosition)position target:(id)target action:(SEL)selector;
+
+/**
+ *  将参数传进来的 button 作为 customView 用于生成一个 UIBarButtonItem。
+ *  @param button 要作为 customView 的 QMUINavigationButton
+ *  @param position 按钮在 UINavigationBar 上的左右位置，如果某一边的按钮有多个，则只有最左边（最右边）的按钮需要设置为 QMUINavigationButtonPositionLeft（QMUINavigationButtonPositionRight），靠里的按钮使用 QMUINavigationButtonPositionNone 即可
+ *  @param target 按钮点击事件的接收者
+ *  @param selector 按钮点击事件的方法
+ *
+ *  @note position、target、selector 等参数不需要对 QMUINavigationButton 设置，通过参数传进来就可以了，就算设置了也会在这个方法里被覆盖。
  */
 + (UIBarButtonItem *)barButtonItemWithNavigationButton:(QMUINavigationButton *)button position:(QMUINavigationButtonPosition)position target:(id)target action:(SEL)selector;
 
 /**
- *  创建一个图标类型的`UIBarButtonItem`
+ *  创建一个图片类型的 UIBarButtonItem
+ *  @param image 按钮的图标
+ *  @param tintColor 按钮的颜色，如果为 nil，则表示跟随当前 UINavigationBar 的 tintColor
+ *  @param position 按钮在 UINavigationBar 上的左右位置，如果某一边的按钮有多个，则只有最左边（最右边）的按钮需要设置为 QMUINavigationButtonPositionLeft（QMUINavigationButtonPositionRight），靠里的按钮使用 QMUINavigationButtonPositionNone 即可
+ *  @param target 按钮点击事件的接收者
+ *  @param selector 按钮点击事件的方法
  */
 + (UIBarButtonItem *)barButtonItemWithImage:(UIImage *)image tintColor:(UIColor *)tintColor position:(QMUINavigationButtonPosition)position target:(id)target action:(SEL)selector;
-+ (UIBarButtonItem *)barButtonItemWithImage:(UIImage *)image position:(QMUINavigationButtonPosition)position target:(id)target action:(SEL)selector;
 
 /**
- *  对`UINavigationBar`上的`UIBarButton`做统一的样式调整
+ *  创建一个图片类型的 UIBarButtonItem
+ *  @param image 按钮的图标
+ *  @param position 按钮在 UINavigationBar 上的左右位置，如果某一边的按钮有多个，则只有最左边（最右边）的按钮需要设置为 QMUINavigationButtonPositionLeft（QMUINavigationButtonPositionRight），靠里的按钮使用 QMUINavigationButtonPositionNone 即可
+ *  @param target 按钮点击事件的接收者
+ *  @param selector 按钮点击事件的方法
  */
-+ (void)renderNavigationButtonAppearanceStyle;
++ (UIBarButtonItem *)barButtonItemWithImage:(UIImage *)image position:(QMUINavigationButtonPosition)position target:(id)target action:(SEL)selector;
 
 @end
 
@@ -219,9 +287,6 @@ typedef NS_ENUM(NSInteger, QMUINavigationButtonPosition) {
 
 /// 创建一个图标类型的UIBarButtonItem
 + (UIBarButtonItem *)barButtonItemWithImage:(UIImage *)image target:(id)target action:(SEL)selector;
-
-/// 对UIToolbar上的UIBarButtonItem做统一的样式调整
-+ (void)renderToolbarButtonAppearanceStyle;
 
 @end
 

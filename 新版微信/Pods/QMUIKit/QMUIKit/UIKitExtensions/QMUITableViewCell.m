@@ -8,7 +8,7 @@
 
 #import "QMUITableViewCell.h"
 #import "QMUICommonDefines.h"
-#import "QMUIConfiguration.h"
+#import "QMUIConfigurationMacros.h"
 #import "UITableView+QMUI.h"
 
 @interface QMUITableViewCell() <UIScrollViewDelegate>
@@ -27,14 +27,14 @@
     return self;
 }
 
-- (instancetype)initForTableView:(QMUITableView *)tableView withStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+- (instancetype)initForTableView:(UITableView *)tableView withStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [self initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.parentTableView = tableView;
     }
     return self;
 }
 
-- (instancetype)initForTableView:(QMUITableView *)tableView withReuseIdentifier:(NSString *)reuseIdentifier {
+- (instancetype)initForTableView:(UITableView *)tableView withReuseIdentifier:(NSString *)reuseIdentifier {
     return [self initForTableView:tableView withStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
 }
 
@@ -53,18 +53,25 @@
     _accessoryHitTestEdgeInsets = UIEdgeInsetsMake(-12, -12, -12, -12);
     
     self.textLabel.font = UIFontMake(16);
-    self.textLabel.textColor = TableViewCellTitleLabelColor;
     self.textLabel.backgroundColor = UIColorClear;
+    UIColor *titleLabelColor = TableViewCellTitleLabelColor;
+    if (titleLabelColor) {
+        self.textLabel.textColor = titleLabelColor;
+    }
     
     self.detailTextLabel.font = UIFontMake(15);
-    self.detailTextLabel.textColor = TableViewCellDetailLabelColor;
     self.detailTextLabel.backgroundColor = UIColorClear;
+    UIColor *detailLabelColor = TableViewCellDetailLabelColor;
+    if (detailLabelColor) {
+        self.detailTextLabel.textColor = detailLabelColor;
+    }
     
-    // iOS7下背景色默认白色，之前的版本背景色继承tableView，这里统一设置为白色
-    self.backgroundColor = TableViewCellBackgroundColor;
-    UIView *selectedBackgroundView = [[UIView alloc] init];
-    selectedBackgroundView.backgroundColor = TableViewCellSelectedBackgroundColor;
-    self.selectedBackgroundView = selectedBackgroundView;
+    UIColor *selectedBackgroundColor = TableViewCellSelectedBackgroundColor;
+    if (selectedBackgroundColor) {
+        UIView *selectedBackgroundView = [[UIView alloc] init];
+        selectedBackgroundView.backgroundColor = selectedBackgroundColor;
+        self.selectedBackgroundView = selectedBackgroundView;
+    }
     
     // 因为在hitTest里扩大了accessoryView的响应范围，因此提高了系统一个与此相关的bug的出现几率，所以又在scrollView.delegate里做一些补丁性质的东西来修复
     if ([self.subviews.firstObject isKindOfClass:[UIScrollView class]]) {
@@ -163,12 +170,21 @@
     if (_enabled != enabled) {
         if (enabled) {
             self.userInteractionEnabled = YES;
-            self.textLabel.textColor = TableViewCellTitleLabelColor;
-            self.detailTextLabel.textColor = TableViewCellDetailLabelColor;
+            UIColor *titleLabelColor = TableViewCellTitleLabelColor;
+            if (titleLabelColor) {
+                self.textLabel.textColor = titleLabelColor;
+            }
+            UIColor *detailLabelColor = TableViewCellDetailLabelColor;
+            if (detailLabelColor) {
+                self.detailTextLabel.textColor = detailLabelColor;
+            }
         } else {
             self.userInteractionEnabled = NO;
-            self.textLabel.textColor = UIColorDisabled;
-            self.detailTextLabel.textColor = UIColorDisabled;
+            UIColor *disabledColor = UIColorDisabled;
+            if (disabledColor) {
+                self.textLabel.textColor = disabledColor;
+                self.detailTextLabel.textColor = disabledColor;
+            }
         }
         _enabled = enabled;
     }
@@ -184,19 +200,30 @@
 // 重写accessoryType，如果是UITableViewCellAccessoryDisclosureIndicator类型的，则使用 QMUIConfigurationTemplate.m 配置表里的图片
 - (void)setAccessoryType:(UITableViewCellAccessoryType)accessoryType {
     [super setAccessoryType:accessoryType];
+    
     if (accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
-        [self initDefaultAccessoryImageViewIfNeeded];
-        self.defaultAccessoryImageView.image = TableViewCellDisclosureIndicatorImage;
-        [self.defaultAccessoryImageView sizeToFit];
-        self.accessoryView = self.defaultAccessoryImageView;
-    } else if (accessoryType == UITableViewCellAccessoryCheckmark) {
-        [self initDefaultAccessoryImageViewIfNeeded];
-        self.defaultAccessoryImageView.image = TableViewCellCheckmarkImage;
-        [self.defaultAccessoryImageView sizeToFit];
-        self.accessoryView = self.defaultAccessoryImageView;
-    } else {
-        self.accessoryView = nil;
+        UIImage *indicatorImage = TableViewCellDisclosureIndicatorImage;
+        if (indicatorImage) {
+            [self initDefaultAccessoryImageViewIfNeeded];
+            self.defaultAccessoryImageView.image = TableViewCellDisclosureIndicatorImage;
+            [self.defaultAccessoryImageView sizeToFit];
+            self.accessoryView = self.defaultAccessoryImageView;
+            return;
+        }
     }
+    
+    if (accessoryType == UITableViewCellAccessoryCheckmark) {
+        UIImage *checkmarkImage = TableViewCellCheckmarkImage;
+        if (checkmarkImage) {
+            [self initDefaultAccessoryImageViewIfNeeded];
+            self.defaultAccessoryImageView.image = TableViewCellCheckmarkImage;
+            [self.defaultAccessoryImageView sizeToFit];
+            self.accessoryView = self.defaultAccessoryImageView;
+            return;
+        }
+    }
+    
+    self.accessoryView = nil;
 }
 
 #pragma mark - <UIScrollViewDelegate>

@@ -8,7 +8,7 @@
 
 #import "QMUIGridView.h"
 #import "QMUICommonDefines.h"
-#import "QMUIConfiguration.h"
+#import "QMUIConfigurationMacros.h"
 #import "CALayer+QMUI.h"
 
 @interface QMUIGridView ()
@@ -43,12 +43,12 @@
 }
 
 - (void)didInitialized {
-    self.separatorColor = UIColorSeparator;
-    
     self.separatorLayer = [CAShapeLayer layer];
     [self.separatorLayer qmui_removeDefaultAnimations];
     self.separatorLayer.hidden = YES;
     [self.layer addSublayer:self.separatorLayer];
+    
+    self.separatorColor = UIColorSeparator;
 }
 
 - (void)setSeparatorWidth:(CGFloat)separatorWidth {

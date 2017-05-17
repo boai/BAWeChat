@@ -10,9 +10,7 @@
 #import "AppDelegate+BAQMUI.h"
 #import "AppDelegate+BALaunch.h"
 #import "AppDelegate+BAAuthorization.h"
-
-//#import "BAHomeVC.h"
-//#import "BAMeVC.h"
+#import "AppDelegate+BANIMSDK.h"
 
 #import "BAHomeViewController.h"
 #import "BAContactViewController.h"
@@ -24,8 +22,12 @@
 #import "BATabBarViewController.h"
 
 
-@interface AppDelegate ()
 
+
+@interface AppDelegate ()
+{
+
+}
 @end
 
 @implementation AppDelegate
@@ -47,6 +49,9 @@
     /*! 网络状态实时监测可以使用 block 回调，也可以使用单独方法判断 */
     [self ba_netType];
     
+    /*! 网易云信 SDK 配置 */
+    [self ba_NIMSDK_register];
+    
     /*! 界面 */
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
@@ -58,7 +63,16 @@
     
     /*! 自定义授权 */
     [self ba_authorizationAll];
+    
+    [self setupFBMemory];
+
 }
+
+- (void)setupFBMemory
+{
+
+}
+
 
 - (void)ba_creatTabbarController
 {
@@ -103,82 +117,49 @@
 {
     BAKit_WeakSelf
     [BANetManager ba_startNetWorkMonitoringWithBlock:^(BANetworkStatus status) {
-        //        NSString *netType;
-        //        switch (status) {
-        //            case 0:
-        //                netType = @"未知网络";
-        //                [weakSelf alertWithMsg:netType];
-        //                break;
-        //            case 1:
-        //                netType = @"没有网络";
-        //                [weakSelf alertWithMsg:netType];
-        //                break;
-        //            case 2:
-        //                netType = @"您的网络类型为：手机 3G/4G 网络";
-        //                [weakSelf alertWithMsg:netType];
-        //                break;
-        //            case 3:
-        //                netType = @"您的网络类型为：wifi 网络";
-        //                /*! wifi 网络下请求网络：可以在父类写此方法，具体使用demo，详见：https://github.com/boai/BABaseProject */
-        //                [weakSelf getData:nil];
-        //                break;
-        //
-        //            default:
-        //                break;
-        //        }
-        [weak_self ba_getCurrentNetworkStatusUseDefine:NO];
-        
+        BAKit_StrongSelf
+        NSString *msg;
+        switch (status) {
+                case 0:
+            {
+                msg = @"未知网络";
+                BAKit_ShowAlertWithMsg(msg);
+            }
+                break;
+                case 1:
+            {
+                msg = @"没有网络";
+                BAKit_ShowAlertWithMsg(msg);
+            }
+                break;
+                case 2:
+            {
+                msg = @"您的网络类型为：手机 3G/4G 网络";
+                BAKit_ShowAlertWithMsg(msg);
+            }
+                break;
+                case 3:
+            {
+                msg = @"您的网络类型为：wifi 网络";
+                /*! wifi 网络下请求网络：可以在父类写此方法，具体使用demo，详见：https://github.com/boai/BABaseProject */
+                BAKit_ShowAlertWithMsg(msg);
+            }
+                break;
+                
+            default:
+                break;
+        }
     }];
-}
-
-#pragma mark - 一次性网络状态判断
-- (void)ba_getCurrentNetworkStatusUseDefine:(BOOL)useDefine
-{
-    if (useDefine)
-    {
-        if (kIsHaveNetwork)
-        {
-            NSLog(@"有网络");
-            if (kIs3GOr4GNetwork)
-            {
-                BANetManagerShare.netWorkStatu = BANetworkStatusReachableViaWWAN;
-                BAKit_ShowAlertWithMsg(@"手机网络");
-            }
-            else if (kIsWiFiNetwork)
-            {
-                BANetManagerShare.netWorkStatu = BANetworkStatusReachableViaWiFi;
-                BAKit_ShowAlertWithMsg(@"WiFi网络");
-            }
-        }
-    }
-    else
-    {
-        /*! 也可以使用单独方法判断 */
-        if ([BANetManager ba_isHaveNetwork])
-        {
-            NSLog(@"当前有网络");
-            if ([BANetManager ba_isWiFiNetwork])
-            {
-                BANetManagerShare.netWorkStatu = BANetworkStatusReachableViaWiFi;
-                BAKit_ShowAlertWithMsg(@"当前有 wifi 网络");
-            }
-            if ([BANetManager ba_is3GOr4GNetwork])
-            {
-                BANetManagerShare.netWorkStatu = BANetworkStatusReachableViaWWAN;
-                BAKit_ShowAlertWithMsg(@"当前有 3GOr4G 网络");
-            }
-        }
-    }
 }
 
 #pragma mark - 内存处理，当app收到内存警告时
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
-    SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    // 1.取消正在下载的操作
-    [manager cancelAll];
-    // 2.清除内存缓存
-    [manager.imageCache clearMemory];
+//    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+//    // 1.取消正在下载的操作
+//    [manager cancelAll];
+//    // 2.清除内存缓存
+//    [manager.imageCache clearMemory];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

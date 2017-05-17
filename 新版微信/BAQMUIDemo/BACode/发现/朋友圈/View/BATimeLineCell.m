@@ -65,12 +65,13 @@
     _timeLineViewModel = timeLineViewModel;
     
     self.originalContentView.frame = _timeLineViewModel.originalContentViewFrame;
+    self.originalContentView.height = _timeLineViewModel.cellHeight;
     self.originalContentView.timeLineViewModel = _timeLineViewModel;
 }
 
 //- (void)layoutSubviews
 //{
-//    self.originalContentView.frame = _timeLineViewModel.originalContentViewFrame;
+////    self.originalContentView.frame = _timeLineViewModel.originalContentViewFrame;
 //}
 
 - (BATimeLineContentView *)originalContentView {

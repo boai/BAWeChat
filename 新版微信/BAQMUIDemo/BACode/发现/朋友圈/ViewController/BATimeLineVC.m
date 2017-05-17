@@ -21,6 +21,7 @@
 #import <YYModel.h>
 #import "YYFPSLabel.h"
 
+//#import "BATimeLineRefreshHeader.h"
 
 @interface BATimeLineVC () <UITableViewDelegate, UITableViewDataSource>
 {
@@ -154,6 +155,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BATimeLineViewModel *viewModel = self.viewModelArray[indexPath.row];
+    [viewModel setUpContentFrame];
+    
     return viewModel.cellHeight;
 }
 
@@ -210,7 +213,11 @@
     [super viewDidLayoutSubviews];
     
     self.tableView.frame = CGRectMake(0, -100, SCREEN_WIDTH, SCREEN_HEIGHT+100);
-    BAKit_UITableViewSetSeparatorInset(self.tableView, BAKit_ColorCyan, UIEdgeInsetsMake(0, 0, 0, 0));
+    BAKit_UITableViewSetSeparatorInset(self.tableView, BAKit_Color_Cyan, UIEdgeInsetsMake(0, 0, 0, 0));
+    
+    [self.tableView reloadData];
+    
+    
     
 //    CGFloat lodingViewSizeWidth  = SCREEN_WIDTH * 0.55;
 //    CGFloat lodingViewSizeHeight = lodingViewSizeWidth * 0.68;
@@ -219,13 +226,27 @@
 //    self.loadingView.center = self.view.center;
     
     self.keyboardBar.frame = CGRectMake(0, SCREEN_HEIGHT - 44, SCREEN_WIDTH, 44);
-
+    
 }
 
 #pragma mark 清理缓存
 - (void)handleClearCacheItemEvent
 {
-    [self ba_clearCache];
+    BAKit_WeakSelf
+    [self ba_clearCacheWithBlock:^(NSInteger buttonIndex, BAKit_ClearCacheManager *clearCacheManager, CGFloat cacheSize) {
+        BAKit_StrongSelf
+        if (buttonIndex == 0)
+        {
+            return ;
+        }
+        if (buttonIndex == 1)
+        {
+            [clearCacheManager ba_myClearCacheAction];
+            NSString *msg = [NSString stringWithFormat:@"成功清除缓存：%.2fM",  cacheSize];
+            BAKit_ShowAlertWithMsg_ios8(msg);
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 #pragma mark - ***** 添加上下拉刷新
@@ -238,6 +259,14 @@
     }];
     // 马上进入刷新状态
     [self.tableView.mj_header beginRefreshing];
+    
+//    BATimeLineRefreshHeader *header = [BATimeLineRefreshHeader ba_headerWithRefreshingBlock:^{
+//        [weak_self loadNewData];
+//    }];
+//    self.tableView.refreshHeader = header;
+//    [self.tableView.refreshHeader beginRefreshing];
+
+
 
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
     [self.tableView ba_addFooterRefresh:^{
@@ -321,7 +350,6 @@
                                      @"http://www.kkeju.com/data/attachment/image/20130720/9c96e4bb50d6d058a82316e5605c9162.jpg",
                                      @"http://imgsrc.baidu.com/forum/w%3D580/sign=0877b1ad71cf3bc7e800cde4e101babd/7b899e510fb30f242dd9a1a3c995d143ac4b03ca.jpg",
                                      @"http://imgsrc.baidu.com/forum/pic/item/e61190ef76c6a7ef64f37f8afdfaaf51f2de6641.jpg",
-                                     @"http://img3.fengniao.com/forum/attachpics/697/198/27879556_600.jpg",
                                      @"http://imgsrc.baidu.com/forum/pic/item/9f2f070828381f30cb964001a9014c086f06f08f.jpg",
                                      @"http://wx4.sinaimg.cn/mw690/722ed599ly1fconzatfwtj206406474e.jpg",
                                      @"http://wx3.sinaimg.cn/mw690/722ed599ly1fconzh115oj206406474d.jpg"
@@ -383,8 +411,6 @@
                                     @"https://d13yacurqjgara.cloudfront.net/users/345826/screenshots/1819006/dots11.0.gif",
                                     @"https://d13yacurqjgara.cloudfront.net/users/345826/screenshots/1799885/dots21.gif",
                                     @"http://img4.duitang.com/uploads/item/201312/21/20131221161708_z2mKE.jpeg",
-                                    @"http://img3.fengniao.com/forum/attachpics/840/60/33571903_1024.jpg",
-                                    @"http://image92.360doc.com/DownloadImg/2015/12/3122/63804170_1.jpg",
                                     @"http://img2.3lian.com/2014/f4/102/d/91.jpg",
                                     @"http://img5.duitang.com/uploads/item/201504/19/20150419H0914_rf5xj.thumb.700_0.jpeg",
                                     @"http://images.sx.dagongnet.com/2013/1010/20131010103819706.jpg",

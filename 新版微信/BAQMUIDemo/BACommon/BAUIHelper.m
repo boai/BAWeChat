@@ -12,11 +12,6 @@
 
 + (void)ba_setupConfigurationTemplate
 {
-    // === 初始化默认值 === //
-    
-    [QMUICMI initDefaultConfiguration];
-    
-    
     // === 修改配置值 === //
     
 #pragma mark - Global Color
@@ -39,7 +34,7 @@
     //- QMUICMI.maskLightColor = UIColorMakeWithRGBA(255, 255, 255, .5f);           // UIColorMaskWhite : 浅色的mask遮罩
     QMUICMI.separatorColor = UIColorMake(222, 224, 226);                        // UIColorSeparator : 全局分割线的颜色
     //- QMUICMI.separatorDashedColor = UIColorMake(17, 17, 17);                     // UIColorSeparatorDashed : 虚线的颜色
-    QMUICMI.placeholderColor = UIColorGray8;                      // UIColorPlaceholder，全局的输入框的placeholder颜色
+    QMUICMI.placeholderColor = BAKit_Color_Gray_8;                      // UIColorPlaceholder，全局的输入框的placeholder颜色
     
     // UIColorTestRed/UIColorTestGreen/UIColorTestBlue  =  测试用的颜色
     //- QMUICMI.testColorRed = UIColorMakeWithRGBA(255, 0, 0, .3);
@@ -52,7 +47,6 @@
     //- QMUICMI.controlDisabledAlpha = 0.5f;                                                    // UIControlHighlightedAlpha : 全局的highlighted alpha值
     //- QMUICMI.controlDisabledAlpha = 0.5f;                                                    // UIControlDisabledAlpha : 全局的disabled alpha值
     
-    QMUICMI.segmentTextTintColor = UIColorBlue;                                             // SegmentTextTintColor : segment的tintColor
     //- QMUICMI.segmentTextSelectedTintColor = UIColorWhite;                                    // SegmentTextSelectedTintColor : segment选中态的tintColor
     //- QMUICMI.segmentFontSize = UIFontMake(13);                                               // SegmentFontSize : segment的字体大小
     
@@ -79,7 +73,6 @@
     //- QMUICMI.textFieldTextInsets = UIEdgeInsetsMake(0, 7, 0, 7);                             // TextFieldTextInsets : QMUITextField的内边距
     
 #pragma mark - ActionSheet
-    QMUICMI.actionSheetButtonTintColor = UIColorBlue;                                       // ActionSheetButtonTintColor
     //- QMUICMI.actionSheetButtonBackgroundColor = UIColorMake(255, 255, 255);                  // ActionSheetButtonBackgroundColor
     //- QMUICMI.actionSheetButtonBackgroundColorHighlighted = UIColorMake(235, 235, 235);       // ActionSheetButtonBackgroundColorHighlighted
     //- QMUICMI.actionSheetButtonFont = UIFontMake(21);                                         // ActionSheetButtonFont
@@ -114,7 +107,7 @@
     //- QMUICMI.tabBarBarTintColor = nil;    // TabBarBarTintColor
     QMUICMI.tabBarShadowImageColor = UIColorSeparator;                                    // TabBarShadowImageColor
     QMUICMI.tabBarTintColor = UIColorMake(4, 189, 231);                                            // TabBarTintColor
-    QMUICMI.tabBarItemTitleColor = UIColorGray6;                                      // TabBarItemTitleColor
+    QMUICMI.tabBarItemTitleColor = BAKit_Color_Gray_6;                                      // TabBarItemTitleColor
     QMUICMI.tabBarItemTitleColorSelected = TabBarTintColor;                                         // TabBarItemTitleColorSelected
     
 #pragma mark - Toolbar
@@ -177,8 +170,8 @@
     QMUICMI.tableViewGroupedSectionHeaderContentInset = UIEdgeInsetsMake(16, PreferredVarForDevices(20, 15, 15, 15), 8, PreferredVarForDevices(20, 15, 15, 15));                // TableViewGroupedSectionHeaderContentInset
     //- QMUICMI.tableViewGroupedSectionFooterContentInset = UIEdgeInsetsMake(8, 15, 2, 15);                 // TableViewGroupedSectionFooterContentInset
     
-    QMUICMI.tableViewCellTitleLabelColor = UIColorGray3;                                                // TableViewCellTitleLabelColor
-    QMUICMI.tableViewCellDetailLabelColor = UIColorGray5;                                                // TableViewCellDetailLabelColor
+    QMUICMI.tableViewCellTitleLabelColor = BAKit_Color_Gray_3;                                                // TableViewCellTitleLabelColor
+    QMUICMI.tableViewCellDetailLabelColor = BAKit_Color_Gray_5;                                                // TableViewCellDetailLabelColor
     //- QMUICMI.tableViewCellContentDefaultPaddingLeft = 15;                                                // TableViewCellContentDefaultPaddingLeft
     //- QMUICMI.tableViewCellContentDefaultPaddingRight = 10;                                               // TableViewCellContentDefaultPaddingRight
     
