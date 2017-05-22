@@ -42,6 +42,8 @@
 @property (nonatomic, strong) BAKit_KeyboardView *keyboardBar;
 
 @property (nonatomic, strong) BATimeLineTableHeaderView *headerView;
+/*! 操作 View */
+@property (nonatomic, strong) BATimeLineOperationMenuView *operationMenuView;
 
 @end
 
@@ -105,17 +107,23 @@
     cell2.timeLineViewModel = viewModel;
     
     BAKit_WeakSelf
+    [cell2.originalContentView setHandleOperationMenuViewButtonActionBlock:^(BATimeLineOperationMenuView *tempView){
+        BAKit_StrongSelf
+        self.operationMenuView = tempView;
+    }];
     [cell2.originalContentView.operationMenuView setLikedButtonActionBlock:^{
         
     }];
     [cell2.originalContentView.operationMenuView setCommentButtonActionBlock:^{
         
-        weak_self.keyboardBar.hidden = NO;
-//        weak_self.keyboardBar.showEmotionButton = YES;
-        [weak_self.keyboardBar ba_showKeyboardView];
+        BAKit_StrongSelf
+        self.keyboardBar.hidden = NO;
+//        self.keyboardBar.showEmotionButton = YES;
+        [self.keyboardBar ba_showKeyboardView];
         
-        [weak_self.keyboardBar setBATimeLineKeyboardViewReturnBlock:^(id contentString) {
+        [self.keyboardBar setBATimeLineKeyboardViewReturnBlock:^(id contentString) {
             NSString *msg = [NSString stringWithFormat:@"成功发送文字：%@",contentString];
+            BAKit_StrongSelf
             NSLog(@"%@", msg);
             BATimeLineModel *tempModel = viewModel.model;
             NSMutableArray *temp = [NSMutableArray new];
@@ -139,9 +147,9 @@
             
             tempModel.comments = [temp copy];
             viewModel.model = tempModel;
-            [weak_self.tableView reloadData];
-            [weak_self.keyboardBar ba_hideKeyboardView];
-            weak_self.keyboardBar.hidden = YES;
+            [self.tableView reloadData];
+            [self.keyboardBar ba_hideKeyboardView];
+            self.keyboardBar.hidden = YES;
         }];
     }];
 
@@ -178,6 +186,7 @@
     }
     [self.keyboardBar ba_hideKeyboardView];
     self.keyboardBar.hidden = YES;
+    self.operationMenuView.showOperationMenuView = NO;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -255,13 +264,14 @@
     BAKit_WeakSelf
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
     [self.tableView ba_addHeaderRefresh:^{
-        [weak_self loadNewData];
+        BAKit_StrongSelf
+        [self loadNewData];
     }];
     // 马上进入刷新状态
     [self.tableView.mj_header beginRefreshing];
     
 //    BATimeLineRefreshHeader *header = [BATimeLineRefreshHeader ba_headerWithRefreshingBlock:^{
-//        [weak_self loadNewData];
+//        [self loadNewData];
 //    }];
 //    self.tableView.refreshHeader = header;
 //    [self.tableView.refreshHeader beginRefreshing];
@@ -270,7 +280,8 @@
 
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
     [self.tableView ba_addFooterRefresh:^{
-        [weak_self loadMoreData];
+        BAKit_StrongSelf
+        [self loadMoreData];
     }];
     
 }
@@ -296,21 +307,21 @@
     }
     BAKit_WeakSelf;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
+        BAKit_StrongSelf
         if (isHead)
         {
-            [weak_self.tableView.mj_header endRefreshing];
-            [weak_self.viewModelArray removeAllObjects];
-//            weak_self.loadingView.hidden = YES;
+            [self.tableView.mj_header endRefreshing];
+            [self.viewModelArray removeAllObjects];
+//            self.loadingView.hidden = YES;
         }
         else
         {
-            [weak_self.tableView.mj_footer endRefreshing];
+            [self.tableView.mj_footer endRefreshing];
         }
 //        sleep(1.0f);
 //        [QMUITips showSucceed:@"加载成功！" inView:self.navigationController.view hideAfterDelay:2.0f];
-        [weak_self creatDataWithCount:10];
-        [weak_self.tableView reloadData];
+        [self creatDataWithCount:10];
+        [self.tableView reloadData];
     });
 }
 

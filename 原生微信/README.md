@@ -158,6 +158,11 @@
  欢迎使用 [【BAHome】](https://github.com/BAHome) 系列开源代码 ！
  如有更多需求，请前往：[【https://github.com/BAHome】](https://github.com/BAHome) 
  
+ 最新更新时间：2017-05-22 【倒叙】
+ 最新Version：【Version：1.1.1】<br>
+ 更新内容：<br>
+ 1.1.1.1、修复朋友圈点赞评论按钮展开后，滑动不隐藏问题（感谢 群里@武汉-老痒 的 bug 反馈！）<br>
+ 
  最新更新时间：2017-05-17 【倒叙】
  最新Version：【Version：1.1.0】<br>
  更新内容：<br>

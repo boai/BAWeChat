@@ -37,7 +37,6 @@
 
 + (instancetype)timeLineCellWithTableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
 {
-//    NSString *cellID = [NSString stringWithFormat:@"%ld%ldcell", indexPath.section, indexPath.row];
     static NSString *cellID = @"BATimeLineCell";
     BATimeLineCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
 

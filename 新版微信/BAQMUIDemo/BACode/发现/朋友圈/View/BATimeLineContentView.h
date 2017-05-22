@@ -16,14 +16,9 @@
 /*! 操作 View */
 @property (nonatomic, strong) BATimeLineOperationMenuView *operationMenuView;
 
-///*!
-// *  点赞按钮 block
-// */
-//@property (nonatomic, copy) void (^likedButtonActionBlock)();
-//
-///*!
-// *  评论按钮 block
-// */
-//@property (nonatomic, copy) void (^commentButtonActionBlock)();
+/*!
+ *  操作 View block
+ */
+@property (nonatomic, copy) void (^handleOperationMenuViewButtonActionBlock)(BATimeLineOperationMenuView *tempView);
 
 @end

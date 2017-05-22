@@ -228,8 +228,11 @@
 
 - (void)handleOperationButtonAction:(UIButton *)sender
 {
-//    NSLog(@"你点击了评论按钮！");
     [self postOperationButtonClickedNotification];
+    if (self.handleOperationMenuViewButtonActionBlock)
+    {
+        self.handleOperationMenuViewButtonActionBlock(self.operationMenuView);
+    }
     self.operationMenuView.showOperationMenuView = !self.operationMenuView.isShowOperationMenuView;
 }
 
