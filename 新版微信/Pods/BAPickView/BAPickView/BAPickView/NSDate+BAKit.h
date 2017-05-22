@@ -75,6 +75,8 @@
 @property (nonatomic, readonly) NSInteger second;
 @property (nonatomic, readonly) NSInteger nanosecond;
 @property (nonatomic, readonly) NSInteger weekday;
+//PRC 中国
+@property (nonatomic, readonly) NSInteger weekdayPRC;
 @property (nonatomic, readonly) NSInteger weekdayOrdinal;
 @property (nonatomic, readonly) NSInteger weekOfMonth;
 @property (nonatomic, readonly) NSInteger weekOfYear;
@@ -190,6 +192,12 @@
  */
 + (NSString *)ba_dateFormattedTimeFromTimeInterval:(long long)time;
 
+#pragma mark UTC
+//UTC世界统一时间
+- (NSNumber *)ba_dateGetUtcTimeIntervalSince1970;
+- (NSNumber *)ba_dateGetUtcTimeIntervalIntSince1970;
+- (NSString *)ba_dateTimeIntervalStringSince1970;
+
 #pragma mark - 距离当前日期最近的日期
 + (NSDate *)ba_dateTomorrow;
 + (NSDate *)ba_dateYesterday;
@@ -226,6 +234,43 @@
 - (NSInteger)ba_dateDaysAfterDate:(NSDate *)aDate;
 - (NSInteger)ba_dateDaysBeforeDate:(NSDate *)aDate;
 - (NSInteger)ba_dateDistanceInDaysToDate:(NSDate *)anotherDate;
+/**
+ 多少天之后
+ */
+- (NSDate *)ba_dateGetAfterYear:(int)year OrMonth:(int)month OrDay:(int)day;
 
+#pragma mark - 一年有多少周
++ (NSString *)ba_dateGetWeekInyearOrMouth:(BOOL)inYear WithDate:(NSDate *)date;
+// 2015、2009、004、1998 这四年是 53 周（目前已知），其余均是52周
++ (NSInteger)ba_dateGetWeekNumbersOfYear:(NSInteger)year;
+
+@end
+
+/**
+ *  中国农历
+ */
+
+@interface NSDate (LunarCalendar)
+
+/**
+ * 例如 : 2016丙申年四月初一
+ */
+
+- (NSInteger)lunarShortYear;  // 农历年份,数字表示  2016
+
+- (NSString *)lunarLongYear;  // 农历年份,干支表示  丙申年
+
+- (NSInteger)lunarShortMonth; // 农历月份,数字表示  4
+
+- (NSString *)lunarLongMonth; // 农历月份,汉字表示  四月
+
+- (NSInteger)lunarShortDay;   // 农历日期,数字表示  1
+
+- (NSString *)lunarLongDay;   // 农历日期,汉字表示  初一
+
+- (NSString *)lunarSolarTerms;// 农历节气 (立春 雨水 惊蛰 春分...)
+
+/** 传入阳历的年月日返回当天的农历节气 */
++ (NSString *)getLunarSolarTermsWithYear:(int)iYear Month:(int)iMonth Day:(int)iDay;
 
 @end

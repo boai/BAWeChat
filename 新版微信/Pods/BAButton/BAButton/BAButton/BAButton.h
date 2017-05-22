@@ -58,63 +58,28 @@
  */
 
 
-#import <Foundation/Foundation.h>
+#ifndef BAButton_h
+#define BAButton_h
 
-@interface NSDateFormatter (BAKit)
+#import "UIButton+BAKit.h"
 
-+ (id)ba_dateFormatter;
-
-+ (id)ba_dateFormatterWithFormatString:(NSString *)dateFormatString;
-
-+ (id)ba_dateFormatterWithFormatString:(NSString *)fmtString timezoneName:(NSString *)timezoneName;
-+ (id)ba_dateFormatterWithFormatString:(NSString *)dateFormatString dateStyle:(NSDateFormatterStyle)dateStyle;
-/**
- 格式化：yyyy-MM-dd HH:mm:ss
-
- @return NSDateFormatter
- */
-+ (id)ba_setupDateFormatterWithYMDHMS;
-
-/**
- 格式化：yyyy-MM-dd, EEE, HH:mm:ss
+/*!
+ *********************************************************************************
+ ************************************ 更新说明 ************************************
+ *********************************************************************************
  
- @return NSDateFormatter
- */
-+ (id)ba_setupDateFormatterWithYMDEHMS;
-
-/**
- 格式化：yyyy-MM-dd
+ 欢迎使用 BAHome 系列开源代码 ！
+ 如有更多需求，请前往：https://github.com/BAHome
  
- @return NSDateFormatter
- */
-+ (id)ba_setupDateFormatterWithYMD;
+ 最新更新时间：2017-05-20 【倒叙】
+ 最新Version：【Version：2.3.0】
+ 更新内容：
+ 2.3.0.1、用分类全新重构 BAButton，代码配置更灵活
+ 2.3.0.2、可以自由设置 button 的文字和图片的布局、间距、每个角的切圆角
+ 2.3.0.3、全面适配 纯代码、xib、storyboard
+ 2.3.0.4、版本改动较大，希望大家谅解，如果用老版本的 BAButton，可以参考demo 更换新版本，后期改动不大
 
-/**
- 格式化：yyyy-MM
- 
- @return NSDateFormatter
- */
-+ (id)ba_setupDateFormatterWithYM;
+*/
 
-/**
- 格式化：yyyy
- 
- @return NSDateFormatter
- */
-+ (id)ba_setupDateFormatterWithYY;
 
-/**
- 格式化：HM
- 
- @return NSDateFormatter
- */
-+ (id)ba_setupDateFormatterWithHM;
-
-/**
- 格式化：HMS
- 
- @return NSDateFormatter
- */
-+ (id)ba_setupDateFormatterWithHMS;
-
-@end
+#endif /* BAButton_h */
