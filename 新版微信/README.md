@@ -7,7 +7,7 @@
 * 1、博爱微信，使用原生 frame + MVVM + MVC + [『QMUIKit』](https://github.com/QMUI/QMUI_iOS)  + BAKit 开源的微信<br>
 * 2、展示图中的 FPS 是模拟器的数据，真机 iPhone 6上最低50， iPhone 7上最低59，基本上都在 58 以上，代码规范，新手学习可以做个参考 
 * 3、注意：如果运行报错，请先 执行： `pod setup` 更新下本地的pod spec 库，更新时间漫长，需要耐心等待，然后再 执行：`pod update --verbose --no-repo-update` 更新pod，然后再运行！
-* 4、全局使用 原生 frame 布局，适配横竖屏【朋友圈横屏待frame优化】
+* 4、全局使用 原生 frame 布局，完美适配横竖屏
 * 5、使用 [『QMUIKit』](https://github.com/QMUI/QMUI_iOS)  框架快速搭建高性能项目框架，含全局配置文件再次封装，小伙伴儿们可以直接使用，无需采坑
 * 6、朋友圈，采用 MVVM 框架布局，流畅的不能再流畅
 	* 数据全部采用 json 数据
