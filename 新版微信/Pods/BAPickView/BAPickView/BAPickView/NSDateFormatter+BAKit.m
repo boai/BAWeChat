@@ -57,6 +57,27 @@
  
  */
 
+//iOS-NSDateFormatter格式说明：
+//G: 公元时代，例如AD公元
+//yy: 年的后2位
+//yyyy: 完整年
+//MM: 月，显示为1-12
+//MMM: 月，显示为英文月份简写,如 Jan
+//MMMM: 月，显示为英文月份全称，如 Janualy
+//dd: 日，2位数表示，如02
+//d: 日，1-2位显示，如 2
+//EEE: 简写星期几，如Sun
+//EEEE: 全写星期几，如Sunday
+//aa: 上下午，AM/PM
+//H: 时，24小时制，0-23
+//K：时，12小时制，0-11
+//m: 分，1-2位
+//mm: 分，2位
+//s: 秒，1-2位
+//ss: 秒，2位
+//S: 毫秒
+//Z：GMT
+
 
 #import "NSDateFormatter+BAKit.h"
 
@@ -67,50 +88,73 @@
     return [[self alloc] init];
 }
 
-+ (id)ba_dateFormatterWithFormat:(NSString *)dateFormat
++ (id)ba_dateFormatterWithFormatString:(NSString *)dateFormatString
 {
-//    NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
-//    timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
-    NSDateFormatter *dateFormatter = [self ba_dateFormatter];
-    dateFormatter.dateFormat = dateFormat;
-//    [dateFormatter setTimeZone:timeZone];
+    if (dateFormatString == nil || ![dateFormatString isKindOfClass:[NSString class]] || [dateFormatString isEqualToString:@""])
+    {
+        return nil;
+    }
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = dateFormatString;
+    
+    return dateFormatter;
+}
+
++ (id)ba_dateFormatterWithFormatString:(NSString *)dateFormatString timezoneName:(NSString *)timezoneName
+{
+    NSDateFormatter *dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:dateFormatString];
+    
+    if (timezoneName != nil && [timezoneName isKindOfClass:[NSString class]] && ![timezoneName isEqualToString:@""]) {
+        dateFormatter.timeZone = [NSTimeZone timeZoneWithName:timezoneName];
+    }
+    return dateFormatter;
+}
+
++ (id)ba_dateFormatterWithFormatString:(NSString *)dateFormatString dateStyle:(NSDateFormatterStyle)dateStyle
+{
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:dateFormatString];
+
+    dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
+    dateFormatter.dateStyle = dateStyle;
     
     return dateFormatter;
 }
 
 + (id)ba_setupDateFormatterWithYMDHMS
 {
-    return [self ba_dateFormatterWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return [self ba_dateFormatterWithFormatString:@"yyyy-MM-dd HH:mm:ss"];
 }
 
 + (id)ba_setupDateFormatterWithYMDEHMS
 {
-    return [self ba_dateFormatterWithFormat:@"yyyy-MM-dd, EEE, HH:mm:ss"];
+    return [self ba_dateFormatterWithFormatString:@"yyyy-MM-dd, EEE, HH:mm:ss"];
 }
 
 + (id)ba_setupDateFormatterWithYMD
 {
-    return [self ba_dateFormatterWithFormat:@"yyyy-MM-dd"];
+    return [self ba_dateFormatterWithFormatString:@"yyyy-MM-dd"];
 }
 
 + (id)ba_setupDateFormatterWithYM
 {
-    return [self ba_dateFormatterWithFormat:@"yyyy-MM"];
+    return [self ba_dateFormatterWithFormatString:@"yyyy-MM"];
 }
 
 + (id)ba_setupDateFormatterWithYY
 {
-    return [self ba_dateFormatterWithFormat:@"yyyy"];
+    return [self ba_dateFormatterWithFormatString:@"yyyy"];
 }
 
 + (id)ba_setupDateFormatterWithHM
 {
-    return [self ba_dateFormatterWithFormat:@"HH:mm"];
+    return [self ba_dateFormatterWithFormatString:@"HH:mm"];
 }
 
 + (id)ba_setupDateFormatterWithHMS
 {
-    return [self ba_dateFormatterWithFormat:@"HH:mm:ss"];
+    return [self ba_dateFormatterWithFormatString:@"HH:mm:ss"];
 }
 
 

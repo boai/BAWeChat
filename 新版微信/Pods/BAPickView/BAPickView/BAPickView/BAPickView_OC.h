@@ -58,10 +58,22 @@
  */
 
 
+#ifndef BAPickView_OC_h
+#define BAPickView_OC_h
+
+#import "BAKit_PickerView.h"
+#import "BAPickView_Config.h"
+#import "NSDate+BAKit.h"
+
 /*!
  *********************************************************************************
  ************************************ 更新说明 ************************************
  *********************************************************************************
+ 
+ 最新更新时间：2017-05-22 【倒叙】 <br>
+ 最新Version：【Version：1.0.1】 <br>
+ 更新内容： <br>
+ 1.0.1.1、新增年周选择器，如：2017年，第21周  <br>
  
  最新更新时间：2017-05-16 【倒叙】 <br>
  最新Version：【Version：1.0.0】 <br>
@@ -75,12 +87,6 @@
  1.0.0.7、理论完全兼容现有所有 iOS 系统版本  <br>
 
 */
-
-#ifndef BAPickView_OC_h
-#define BAPickView_OC_h
-
-#import "BAKit_PickerView.h"
-#import "BAPickView_Config.h"
 
 
 #endif /* BAPickView_OC_h */

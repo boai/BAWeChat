@@ -70,13 +70,15 @@
  - BAKit_PickerViewTypeArray: 普通数组自定义数据
  - BAKit_PickerViewTypeDate: 日期选择器：年月日，可以完全自定义 NSDateFormatter
  - BAKit_PickerViewTypeDateYM: 日期选择器：年月，可以完全自定义 NSDateFormatter
+ - BAKit_PickerViewTypeDateWeek: 日期选择器：年周，如：2017年，第21周
 
  */
 typedef NS_ENUM(NSUInteger, BAKit_PickerViewType) {
     BAKit_PickerViewTypeCity = 0,
     BAKit_PickerViewTypeArray,
     BAKit_PickerViewTypeDate,
-    BAKit_PickerViewTypeDateYM
+    BAKit_PickerViewTypeDateYM,
+    BAKit_PickerViewTypeDateWeek
 };
 
 /**
@@ -136,6 +138,9 @@ typedef void (^BAKit_PickerViewResultBlock)(NSString *resultString);
 #pragma mark - 自定义样式
 @property (nonatomic, copy) BAKit_PickerViewBlock block;
 @property (nonatomic, copy) BAKit_PickerViewResultBlock resultBlock;
+
+/*! 是否开启边缘触摸隐藏 默认：NO */
+@property (nonatomic, assign) BOOL isTouchEdgeHide;
 
 /**
  选择器样式，默认为城市选择器

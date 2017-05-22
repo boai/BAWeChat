@@ -119,6 +119,13 @@
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekday fromDate:self] weekday];
 }
 
+- (NSInteger)weekdayPRC
+{
+    return (int)[[[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierRepublicOfChina]
+                  components:NSCalendarUnitWeekday fromDate:self]
+                 weekday];
+}
+
 - (NSInteger)weekdayOrdinal
 {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitWeekdayOrdinal fromDate:self] weekdayOrdinal];
@@ -404,7 +411,7 @@
     } else if (timeInterval < 2592000) {//30天内
         return [NSString stringWithFormat:NSLocalizedString(@"NSDateCategory.text4", @""), timeInterval / 86400];
     } else if (timeInterval < 31536000) {//30天至1年内
-        NSDateFormatter *dateFormatter = [NSDateFormatter ba_dateFormatterWithFormat:NSLocalizedString(@"NSDateCategory.text5", @"")];
+        NSDateFormatter *dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:NSLocalizedString(@"NSDateCategory.text5", @"")];
         return [dateFormatter stringFromDate:self];
     } else {
         return [NSString stringWithFormat:NSLocalizedString(@"NSDateCategory.text6", @""), timeInterval / 31536000];
@@ -418,7 +425,7 @@
  */
 - (NSString *)ba_dateMinuteDescription
 {
-    NSDateFormatter *dateFormatter = [NSDateFormatter ba_dateFormatterWithFormat:@"yyyy-MM-dd"];
+    NSDateFormatter *dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:@"yyyy-MM-dd"];
     
     NSString *theDay = [dateFormatter stringFromDate:self];//日期的年月日
     NSString *currentDay = [dateFormatter stringFromDate:BAKit_Current_Date];//当前年月日
@@ -465,25 +472,25 @@
     
     if (!hasAMPM) { //24小时制
         if (hour <= 24 && hour >= 0) {
-            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormat:@"HH:mm"];
+            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:@"HH:mm"];
         }else if (hour < 0 && hour >= -24) {
-            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormat:NSLocalizedString(@"NSDateCategory.text8", @"")];
+            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:NSLocalizedString(@"NSDateCategory.text8", @"")];
         }else {
-            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormat:@"yyyy-MM-dd HH:mm"];
+            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:@"yyyy-MM-dd HH:mm"];
         }
     }else {
         if (hour >= 0 && hour <= 6) {
-            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormat:NSLocalizedString(@"NSDateCategory.text9", @"")];
+            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:NSLocalizedString(@"NSDateCategory.text9", @"")];
         }else if (hour > 6 && hour <=11 ) {
-            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormat:NSLocalizedString(@"NSDateCategory.text10", @"")];
+            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:NSLocalizedString(@"NSDateCategory.text10", @"")];
         }else if (hour > 11 && hour <= 17) {
-            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormat:NSLocalizedString(@"NSDateCategory.text11", @"")];
+            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:NSLocalizedString(@"NSDateCategory.text11", @"")];
         }else if (hour > 17 && hour <= 24) {
-            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormat:NSLocalizedString(@"NSDateCategory.text12", @"")];
+            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:NSLocalizedString(@"NSDateCategory.text12", @"")];
         }else if (hour < 0 && hour >= -24){
-            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormat:NSLocalizedString(@"NSDateCategory.text13", @"")];
+            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:NSLocalizedString(@"NSDateCategory.text13", @"")];
         }else  {
-            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormat:@"yyyy-MM-dd HH:mm"];
+            dateFormatter = [NSDateFormatter ba_dateFormatterWithFormatString:@"yyyy-MM-dd HH:mm"];
         }
     }
     
@@ -533,6 +540,20 @@
 + (NSString *)ba_dateFormattedTimeFromTimeInterval:(long long)time
 {
     return [[NSDate ba_dateWithTimeIntervalInMilliSecondSince1970:time] ba_dateFormattedTime];
+}
+
+#pragma mark UTC
+//UTC世界统一时间
+- (NSNumber *)ba_dateGetUtcTimeIntervalSince1970 {
+    return [NSNumber numberWithDouble:[self timeIntervalSince1970]];
+}
+
+- (NSNumber *)ba_dateGetUtcTimeIntervalIntSince1970 {
+    return [NSNumber numberWithInt:(int)[self timeIntervalSince1970]];
+}
+
+- (NSString *)ba_dateTimeIntervalStringSince1970 {
+    return [NSString stringWithFormat:@"%f", [self timeIntervalSince1970]];
 }
 
 #pragma mark - 距离当前日期最近的日期
@@ -737,7 +758,301 @@
     return components.day;
 }
 
+- (NSDate *)ba_dateGetAfterYear:(int)year OrMonth:(int)month OrDay:(int)day{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = nil;
+    comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[NSDate date]];
+    
+    NSDateComponents *adcomps = [[NSDateComponents alloc] init];
+    
+    [adcomps setYear:year];
+    [adcomps setMonth:month];
+    [adcomps setDay:day];
+    
+    NSDate *newdate = [calendar dateByAddingComponents:adcomps toDate:self options:0];
+    return newdate;
+}
 
+
+#pragma mark - 一年有多少周
+//#pragma mark WEEKDAY
+//- (int)ba_dateGetWeekdayNumber
+//{
+//    return (int)[[[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian]
+//                  components:NSCalendarUnitWeekday fromDate:self]
+//                 weekday];
+//}
+//
+//- (int)ba_dateGetWeekdayNumberPRC
+//{
+//    return (int)[[[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierRepublicOfChina]
+//                  components:NSCalendarUnitWeekday fromDate:self]
+//                 weekday];
+//}
+//
+//- (int)ba_dateGetWeekdayNumberWithCalendarIdentifier:(NSString *)identifier
+//{
+//    return (int)[[[[NSCalendar alloc] initWithCalendarIdentifier:identifier]
+//                  components:NSCalendarUnitWeekday fromDate:self]
+//                 weekday];
+//}
+
++ (NSString *)ba_dateGetWeekInyearOrMouth:(BOOL)inYear WithDate:(NSDate *)date
+{
+    NSCalendar *greCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    //  通过已定义的日历对象，获取某个时间点的NSDateComponents表示，并设置需要表示哪些信息（NSYearCalendarUnit, NSMonthCalendarUnit, NSDayCalendarUnit等）
+    
+    //设置每年及每月第一周必须包含的最少天数，比如：设定第一周最少包括3天，则value传入3 周四在哪一年 本周算那一年的
+    [greCalendar setMinimumDaysInFirstWeek:3];
+    
+    NSDateComponents *dateComponents = [greCalendar components:NSCalendarUnitWeekOfYear | NSCalendarUnitWeekOfMonth fromDate:date];
+    
+    if (inYear) {
+        return [NSString stringWithFormat:@"第%li周",(long)dateComponents.weekOfYear];
+    }else{
+        return [NSString stringWithFormat:@"第%li周",(long)dateComponents.weekOfMonth];
+    }
+}
+
++ (NSInteger)ba_dateGetWeekNumbersOfYear:(NSInteger)year
+{
+    NSString *dateString = [NSString stringWithFormat:@"%ld-12-31",(long)year];
+    NSDateFormatter *format = [NSDateFormatter ba_dateFormatterWithFormatString:@"yyyy-MM-dd" timezoneName:@"Asia/Shanghai"];
+    NSDate *lastDay = [format dateFromString:dateString];//本年最后一天
+
+    NSString *lastDayWeek = [NSDate ba_dateGetWeekInyearOrMouth:YES WithDate:lastDay];//本年最后一天是第几周
+
+    NSInteger maxNum;
+    if ([lastDayWeek rangeOfString:@"1"].location != NSNotFound) {//如果是下一年第一周 看上一周是多少周
+        NSString *beforeWeek = [NSDate ba_dateGetWeekInyearOrMouth:YES WithDate:[lastDay ba_dateGetAfterYear:0 OrMonth:0 OrDay:-7]];
+        NSString *sub = [beforeWeek substringFromIndex:1];
+        sub = [sub substringToIndex:sub.length - 1];
+        maxNum = [sub floatValue];
+    }else{
+        NSString *sub = [lastDayWeek substringFromIndex:1];
+        sub = [sub substringToIndex:sub.length - 1];
+        maxNum = [sub floatValue];
+    }
+    return maxNum;
+}
+
+@end
+
+typedef NS_ENUM(NSUInteger, LunarCalendarDateComponent) {
+    LunarCalendarDateComponentShortYear,
+    LunarCalendarDateComponentLongYear,
+    LunarCalendarDateComponentShortMonth,
+    LunarCalendarDateComponentLongMonth,
+    LunarCalendarDateComponentShortDay,
+    LunarCalendarDateComponentLongDay,
+};
+
+@implementation NSDate (LunarCalendar)
+
+/**
+ *  农历年份,数字表示  2016
+ */
+- (NSInteger)lunarShortYear
+{
+    return [self shortLunarCalendarWithComponentType:LunarCalendarDateComponentShortYear];
+}
+
+/**
+ *  农历月份,数字表示  4
+ */
+- (NSInteger)lunarShortMonth
+{
+    return [self shortLunarCalendarWithComponentType:LunarCalendarDateComponentShortMonth];
+}
+
+/**
+ *  农历日期,数字表示  1
+ */
+- (NSInteger)lunarShortDay
+{
+    return [self shortLunarCalendarWithComponentType:LunarCalendarDateComponentShortDay];
+}
+
+
+/**
+ *  农历年份,干支表示  丙申年
+ */
+- (NSString *)lunarLongYear
+{
+    return [self longLunarCalendarWithComponentType:LunarCalendarDateComponentLongYear];
+}
+/**
+ *  农历月份,汉字表示  四月
+ */
+
+- (NSString *)lunarLongMonth
+{
+    return [self longLunarCalendarWithComponentType:LunarCalendarDateComponentLongMonth];
+}
+/**
+ *  农历日期,汉字表示  初一
+ */
+- (NSString *)lunarLongDay
+{
+    return [self longLunarCalendarWithComponentType:LunarCalendarDateComponentLongDay];
+}
+
+- (NSInteger)shortLunarCalendarWithComponentType:(LunarCalendarDateComponent)component
+{
+    
+    
+    static  NSCalendar *lunarCalendar = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        lunarCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
+        
+    });
+    
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+    
+    NSDateComponents *localeComp = [lunarCalendar components:unitFlags fromDate:self];
+    
+    switch (component) {
+        case LunarCalendarDateComponentShortYear:
+            return localeComp.year;
+        case LunarCalendarDateComponentShortMonth:
+            return localeComp.month;
+        case LunarCalendarDateComponentShortDay:
+            return localeComp.day;
+        default:
+            break;
+    }
+    return 0;
+}
+
+- (NSString *)longLunarCalendarWithComponentType:(LunarCalendarDateComponent)component{
+    
+    NSArray *lunarYears = [NSArray arrayWithObjects:
+                           @"甲子",   @"乙丑",  @"丙寅",  @"丁卯",  @"戊辰",  @"己巳",  @"庚午",  @"辛未",  @"壬申",  @"癸酉",
+                           @"甲戌",   @"乙亥",  @"丙子",  @"丁丑",  @"戊寅",  @"己卯",  @"庚辰",  @"辛己",  @"壬午",  @"癸未",
+                           @"甲申",   @"乙酉",  @"丙戌",  @"丁亥",  @"戊子",  @"己丑",  @"庚寅",  @"辛卯",  @"壬辰",  @"癸巳",
+                           @"甲午",   @"乙未",  @"丙申",  @"丁酉",  @"戊戌",  @"己亥",  @"庚子",  @"辛丑",  @"壬寅",  @"癸丑",
+                           @"甲辰",   @"乙巳",  @"丙午",  @"丁未",  @"戊申",  @"己酉",  @"庚戌",  @"辛亥",  @"壬子",  @"癸丑",
+                           @"甲寅",   @"乙卯",  @"丙辰",  @"丁巳",  @"戊午",  @"己未",  @"庚申",  @"辛酉",  @"壬戌",  @"癸亥", nil];
+    
+    NSArray *lunarMonths=[NSArray arrayWithObjects:
+                          @"正月", @"二月", @"三月", @"四月", @"五月", @"六月",
+                          @"七月", @"八月", @"九月", @"十月", @"冬月", @"腊月", nil];
+    
+    
+    NSArray *lunarDays=[NSArray arrayWithObjects:
+                        @"初一", @"初二", @"初三", @"初四", @"初五", @"初六", @"初七", @"初八", @"初九", @"初十",
+                        @"十一", @"十二", @"十三", @"十四", @"十五", @"十六", @"十七", @"十八", @"十九", @"二十",
+                        @"廿一", @"廿二", @"廿三", @"廿四", @"廿五", @"廿六", @"廿七", @"廿八", @"廿九", @"三十",  nil];
+    
+    switch (component) {
+        case LunarCalendarDateComponentLongYear:
+            return [lunarYears objectAtIndex:(self.lunarShortYear-1)%lunarYears.count];
+        case LunarCalendarDateComponentLongMonth:
+            return [lunarMonths objectAtIndex:(self.lunarShortMonth-1)%lunarMonths.count];
+        case LunarCalendarDateComponentLongDay:
+            return [lunarDays objectAtIndex:(self.lunarShortDay-1)%lunarDays.count];
+        default:
+            break;
+    }
+    
+    return nil;
+}
+
+/**
+ *  农历节气 (立春 雨水 惊蛰 春分...)
+ */
+- (NSString *)lunarSolarTerms {
+    
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+    
+    NSDateComponents *localeComp = [[NSCalendar currentCalendar] components:unitFlags fromDate:self];
+    
+    return [NSDate getLunarSolarTermsWithYear:(int)localeComp.year Month:(int)localeComp.month Day:(int)localeComp.day];
+}
+
++ (NSString *)getLunarSolarTermsWithYear:(int)iYear Month:(int)iMonth Day:(int)iDay {
+    
+    NSArray *lunarDays=[NSArray arrayWithObjects:
+                        @"小寒", @"大寒", @"立春", @"雨水", @"惊蛰", @"春分",
+                        @"清明", @"谷雨", @"立夏", @"小满", @"芒种", @"夏至",
+                        @"小暑", @"大暑", @"立秋", @"处暑", @"白露", @"秋分",
+                        @"寒露", @"霜降", @"立冬", @"小雪", @"大雪", @"冬至", nil];
+    
+    int array_index = (iYear - StartYear)*12+iMonth -1 ;
+    int64_t flag = gLunarHolDay[array_index];
+    int64_t day;
+    if(iDay <15)
+        day= 15 - ((flag>>4)&0x0f);
+    else
+        day = ((flag)&0x0f)+15;
+    int index = -1;
+    if(iDay == day){
+        index = (iMonth-1) *2 + (iDay>15? 1: 0);
+    }
+    if ( index >= 0 && index < [lunarDays count] ) {
+        return [lunarDays objectAtIndex:index];
+    } else {
+        return @"";
+    }
+}
+
+static int const StartYear = 2001;
+static int const EndYear = 2050;
+static int64_t gLunarHolDay[]=
+{
+    
+    0XA5, 0XB3, 0XA5, 0XA5, 0XA6, 0XA6, 0X88, 0X88, 0X88, 0X78, 0X87, 0X87, //2001
+    0XA5, 0XB4, 0X96, 0XA5, 0X96, 0X96, 0X88, 0X78, 0X78, 0X78, 0X87, 0X87, //2002
+    0X95, 0XB4, 0X96, 0XA5, 0X96, 0X97, 0X88, 0X78, 0X78, 0X69, 0X78, 0X87, //2003
+    0X96, 0XB4, 0XA5, 0XB5, 0XA6, 0XA6, 0X87, 0X88, 0X88, 0X78, 0X87, 0X86, //2004
+    0XA5, 0XB3, 0XA5, 0XA5, 0XA6, 0XA6, 0X88, 0X88, 0X88, 0X78, 0X87, 0X87, //2005
+    0XA5, 0XB4, 0X96, 0XA5, 0XA6, 0X96, 0X88, 0X88, 0X78, 0X78, 0X87, 0X87, //2006
+    0X95, 0XB4, 0X96, 0XA5, 0X96, 0X97, 0X88, 0X78, 0X78, 0X69, 0X78, 0X87, //2007
+    0X96, 0XB4, 0XA5, 0XB5, 0XA6, 0XA6, 0X87, 0X88, 0X87, 0X78, 0X87, 0X86, //2008
+    0XA5, 0XB3, 0XA5, 0XB5, 0XA6, 0XA6, 0X88, 0X88, 0X88, 0X78, 0X87, 0X87, //2009
+    0XA5, 0XB4, 0X96, 0XA5, 0XA6, 0X96, 0X88, 0X88, 0X78, 0X78, 0X87, 0X87, //2010
+    0X95, 0XB4, 0X96, 0XA5, 0X96, 0X97, 0X88, 0X78, 0X78, 0X79, 0X78, 0X87, //2011
+    0X96, 0XB4, 0XA5, 0XB5, 0XA5, 0XA6, 0X87, 0X88, 0X87, 0X78, 0X87, 0X86, //2012
+    0XA5, 0XB3, 0XA5, 0XB5, 0XA6, 0XA6, 0X87, 0X88, 0X88, 0X78, 0X87, 0X87, //2013
+    0XA5, 0XB4, 0X96, 0XA5, 0XA6, 0X96, 0X88, 0X88, 0X78, 0X78, 0X87, 0X87, //2014
+    0X95, 0XB4, 0X96, 0XA5, 0X96, 0X97, 0X88, 0X78, 0X78, 0X79, 0X77, 0X87, //2015
+    0X95, 0XB4, 0XA5, 0XB4, 0XA5, 0XA6, 0X87, 0X88, 0X87, 0X78, 0X87, 0X86, //2016
+    0XA5, 0XC3, 0XA5, 0XB5, 0XA6, 0XA6, 0X87, 0X88, 0X88, 0X78, 0X87, 0X87, //2017
+    0XA5, 0XB4, 0XA6, 0XA5, 0XA6, 0X96, 0X88, 0X88, 0X78, 0X78, 0X87, 0X87, //2018
+    0XA5, 0XB4, 0X96, 0XA5, 0X96, 0X96, 0X88, 0X78, 0X78, 0X79, 0X77, 0X87, //2019
+    0X95, 0XB4, 0XA5, 0XB4, 0XA5, 0XA6, 0X97, 0X87, 0X87, 0X78, 0X87, 0X86, //2020
+    0XA5, 0XC3, 0XA5, 0XB5, 0XA6, 0XA6, 0X87, 0X88, 0X88, 0X78, 0X87, 0X86, //2021
+    0XA5, 0XB4, 0XA5, 0XA5, 0XA6, 0X96, 0X88, 0X88, 0X88, 0X78, 0X87, 0X87, //2022
+    0XA5, 0XB4, 0X96, 0XA5, 0X96, 0X96, 0X88, 0X78, 0X78, 0X79, 0X77, 0X87, //2023
+    0X95, 0XB4, 0XA5, 0XB4, 0XA5, 0XA6, 0X97, 0X87, 0X87, 0X78, 0X87, 0X96, //2024
+    0XA5, 0XC3, 0XA5, 0XB5, 0XA6, 0XA6, 0X87, 0X88, 0X88, 0X78, 0X87, 0X86, //2025
+    0XA5, 0XB3, 0XA5, 0XA5, 0XA6, 0XA6, 0X88, 0X88, 0X88, 0X78, 0X87, 0X87, //2026
+    0XA5, 0XB4, 0X96, 0XA5, 0X96, 0X96, 0X88, 0X78, 0X78, 0X78, 0X87, 0X87, //2027
+    0X95, 0XB4, 0XA5, 0XB4, 0XA5, 0XA6, 0X97, 0X87, 0X87, 0X78, 0X87, 0X96, //2028
+    0XA5, 0XC3, 0XA5, 0XB5, 0XA6, 0XA6, 0X87, 0X88, 0X88, 0X78, 0X87, 0X86, //2029
+    0XA5, 0XB3, 0XA5, 0XA5, 0XA6, 0XA6, 0X88, 0X88, 0X88, 0X78, 0X87, 0X87, //2030
+    0XA5, 0XB4, 0X96, 0XA5, 0X96, 0X96, 0X88, 0X78, 0X78, 0X78, 0X87, 0X87, //2031
+    0X95, 0XB4, 0XA5, 0XB4, 0XA5, 0XA6, 0X97, 0X87, 0X87, 0X78, 0X87, 0X96, //2032
+    0XA5, 0XC3, 0XA5, 0XB5, 0XA6, 0XA6, 0X88, 0X88, 0X88, 0X78, 0X87, 0X86, //2033
+    0XA5, 0XB3, 0XA5, 0XA5, 0XA6, 0XA6, 0X88, 0X78, 0X88, 0X78, 0X87, 0X87, //2034
+    0XA5, 0XB4, 0X96, 0XA5, 0XA6, 0X96, 0X88, 0X88, 0X78, 0X78, 0X87, 0X87, //2035
+    0X95, 0XB4, 0XA5, 0XB4, 0XA5, 0XA6, 0X97, 0X87, 0X87, 0X78, 0X87, 0X96, //2036
+    0XA5, 0XC3, 0XA5, 0XB5, 0XA6, 0XA6, 0X87, 0X88, 0X88, 0X78, 0X87, 0X86, //2037
+    0XA5, 0XB3, 0XA5, 0XA5, 0XA6, 0XA6, 0X88, 0X88, 0X88, 0X78, 0X87, 0X87, //2038
+    0XA5, 0XB4, 0X96, 0XA5, 0XA6, 0X96, 0X88, 0X88, 0X78, 0X78, 0X87, 0X87, //2039
+    0X95, 0XB4, 0XA5, 0XB4, 0XA5, 0XA6, 0X97, 0X87, 0X87, 0X78, 0X87, 0X96, //2040
+    0XA5, 0XC3, 0XA5, 0XB5, 0XA5, 0XA6, 0X87, 0X88, 0X87, 0X78, 0X87, 0X86, //2041
+    0XA5, 0XB3, 0XA5, 0XB5, 0XA6, 0XA6, 0X88, 0X88, 0X88, 0X78, 0X87, 0X87, //2042
+    0XA5, 0XB4, 0X96, 0XA5, 0XA6, 0X96, 0X88, 0X88, 0X78, 0X78, 0X87, 0X87, //2043
+    0X95, 0XB4, 0XA5, 0XB4, 0XA5, 0XA6, 0X97, 0X87, 0X87, 0X88, 0X87, 0X96, //2044
+    0XA5, 0XC3, 0XA5, 0XB4, 0XA5, 0XA6, 0X87, 0X88, 0X87, 0X78, 0X87, 0X86, //2045
+    0XA5, 0XB3, 0XA5, 0XB5, 0XA6, 0XA6, 0X87, 0X88, 0X88, 0X78, 0X87, 0X87, //2046
+    0XA5, 0XB4, 0X96, 0XA5, 0XA6, 0X96, 0X88, 0X88, 0X78, 0X78, 0X87, 0X87, //2047
+    0X95, 0XB4, 0XA5, 0XB4, 0XA5, 0XA5, 0X97, 0X87, 0X87, 0X88, 0X86, 0X96, //2048
+    0XA4, 0XC3, 0XA5, 0XA5, 0XA5, 0XA6, 0X97, 0X87, 0X87, 0X78, 0X87, 0X86, //2049
+    0XA5, 0XC3, 0XA5, 0XB5, 0XA6, 0XA6, 0X87, 0X88, 0X78, 0X78, 0X87, 0X87  //2050
+};
 
 
 

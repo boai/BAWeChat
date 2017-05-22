@@ -285,6 +285,7 @@ typedef NS_ENUM(NSUInteger, BAAlertType) {
 
 @property (nonatomic, assign) BAAlertBlurEffectStyle current_blurEffectStyle;
 @property (nonatomic, copy) BAAlert_ButtonActionBlock actionBlock;
+@property(nonatomic, assign) BOOL isAnimating;
 
 @end
 
@@ -621,19 +622,27 @@ typedef NS_ENUM(NSUInteger, BAAlertType) {
 #pragma mark - 进场动画
 - (void )showAnimationWithView:(UIView *)animationView
 {
+    self.isAnimating = YES;
+    BAKit_WeakSelf
     if (self.animatingStyle == BAAlertAnimatingStyleScale)
     {
         [animationView scaleAnimationShowFinishAnimation:^{
+            BAKit_StrongSelf
+            self.isAnimating = NO;
         }];
     }
     else if (self.animatingStyle == BAAlertAnimatingStyleShake)
     {
         [animationView.layer shakeAnimationWithDuration:1.0 shakeRadius:16.0 repeat:1 finishAnimation:^{
+            BAKit_StrongSelf
+            self.isAnimating = NO;
         }];
     }
     else if (self.animatingStyle == BAAlertAnimatingStyleFall)
     {
         [animationView.layer fallAnimationWithDuration:0.35 finishAnimation:^{
+            BAKit_StrongSelf
+            self.isAnimating = NO;
         }];
     }
 }
@@ -641,11 +650,13 @@ typedef NS_ENUM(NSUInteger, BAAlertType) {
 #pragma mark - 出场动画
 - (void )dismissAnimationView:(UIView *)animationView
 {
+    self.isAnimating = YES;
     BAKit_WeakSelf
     if (self.animatingStyle == BAAlertAnimatingStyleScale)
     {
         [animationView scaleAnimationDismissFinishAnimation:^{
             BAKit_StrongSelf
+            self.isAnimating = NO;
             [self ba_removeSelf];
         }];
     }
@@ -653,6 +664,7 @@ typedef NS_ENUM(NSUInteger, BAAlertType) {
     {
         [animationView.layer floatAnimationWithDuration:0.35f finishAnimation:^{
             BAKit_StrongSelf
+            self.isAnimating = NO;
             [self ba_removeSelf];
         }];
     }
@@ -660,10 +672,10 @@ typedef NS_ENUM(NSUInteger, BAAlertType) {
     {
         [animationView.layer floatAnimationWithDuration:0.35f finishAnimation:^{
             BAKit_StrongSelf
+            self.isAnimating = NO;
             [self ba_removeSelf];
         }];
     }
-    
 }
 
 #pragma mark - 清除所有视图
@@ -739,11 +751,17 @@ typedef NS_ENUM(NSUInteger, BAAlertType) {
     NSLog(@"触摸了边缘隐藏View！");
     UITouch *touch = [touches anyObject];
     UIView *view = [touch view];
+    
+    if (self.isAnimating)
+    {
+        NSLog(@"请在动画结束时点击！");
+        return;
+    }
     if (!self.isTouchEdgeHide)
     {
         NSLog(@"触摸了View边缘，但您未开启触摸边缘隐藏方法，请设置 isTouchEdgeHide 属性为 YES 后再使用！");
-        return;
     }
+    
     if ([view isKindOfClass:[self class]])
     {
         [self ba_alertHidden];
@@ -996,6 +1014,11 @@ typedef NS_ENUM(NSUInteger, BAAlertType) {
 - (void)setAnimatingStyle:(BAAlertAnimatingStyle)animatingStyle
 {
     _animatingStyle = animatingStyle;
+}
+
+- (void)setIsAnimating:(BOOL)isAnimating
+{
+    _isAnimating = isAnimating;
 }
 
 - (void)setBgImageName:(NSString *)bgImageName
