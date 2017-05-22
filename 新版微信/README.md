@@ -40,7 +40,7 @@
  OC 版 ：[https://github.com/BAHome/BAWeChat](https://github.com/BAHome/BAWeChat)<br>
 
 ## 4、BAWeChat 的类结构及 demo 示例
-![发现-类结构.png](https://github.com/BAHome/BAButton/blob/master/Images/发现-类结构.png)
+![发现-类结构.png](https://github.com/BAHome/BAWeChat/blob/master/Images/发现-类结构.png)
 
 ### BATimeLineViewModel.h
 ```
