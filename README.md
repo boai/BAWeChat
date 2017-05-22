@@ -30,7 +30,7 @@
 ![通讯录.png](https://github.com/boai/BAWeChat/blob/master/Images/通讯录.png)
 ![搜索.png](https://github.com/boai/BAWeChat/blob/master/Images/搜索.png)
 ![发现.png](https://github.com/boai/BAWeChat/blob/master/Images/发现.png)
-![朋友圈.gif](https://github.com/boai/BAWeChat/blob/master/Images/朋友圈.gif)
+![朋友圈.gif](https://github.com/BAHome/BAWeChat/blob/master/Images/朋友圈.gif)
 ![评论.png](https://github.com/boai/BAWeChat/blob/master/Images/评论.png)
 ![图片浏览器.png](https://github.com/boai/BAWeChat/blob/master/Images/图片浏览器.png)
 ![我.png](https://github.com/boai/BAWeChat/blob/master/Images/我.png)
@@ -40,7 +40,7 @@
  OC 版 ：[https://github.com/BAHome/BAWeChat](https://github.com/BAHome/BAWeChat)<br>
 
 ## 4、BAWeChat 的类结构及 demo 示例
-![发现-类结构.png](https://github.com/BAHome/BAButton/blob/master/Images/发现-类结构.png)
+![发现-类结构.png](https://github.com/BAHome/BAWeChat/blob/master/Images/发现-类结构.png)
 
 ### BATimeLineViewModel.h
 ```
