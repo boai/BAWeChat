@@ -19,10 +19,7 @@
 /*! 评论 View 的 frame */
 @property (nonatomic, assign) CGRect commentViewFrame;
 
-
-
 // cell的高度
 @property (nonatomic, assign) CGFloat cellHeight;
-
 
 @end
