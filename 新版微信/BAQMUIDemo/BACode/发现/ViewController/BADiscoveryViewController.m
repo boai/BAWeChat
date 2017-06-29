@@ -9,7 +9,6 @@
 #import "BADiscoveryViewController.h"
 #import "BATimeLineVC.h"
 #import "BAWebViewController.h"
-#import "BAWebViewModel.h"
 
 #import "BAAlert_OC.h"
 //#import "BALoginViewController.h"
@@ -183,7 +182,7 @@
     if (!_tableView)
     {
         _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-        _tableView.backgroundColor = TableViewBackgroundColor;
+        _tableView.backgroundColor = BAKit_Color_Gray_11;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [UIView new];

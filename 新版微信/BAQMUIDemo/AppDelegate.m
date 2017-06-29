@@ -107,7 +107,7 @@
     meVC.title = meNavi.tabBarItem.title;
 
     tabbarController.viewControllers = @[homeNavi, contactNavi, discoveryNavi, meNavi];
-    tabbarController.selectedIndex = 2;
+    tabbarController.selectedIndex = 0;
     self.window.rootViewController = tabbarController;
     [self.window makeKeyAndVisible];
 }
@@ -115,9 +115,9 @@
 #pragma mark - 网络类型判断
 - (void)ba_netType
 {
-    BAKit_WeakSelf
+//    BAKit_WeakSelf
     [BANetManager ba_startNetWorkMonitoringWithBlock:^(BANetworkStatus status) {
-        BAKit_StrongSelf
+//        BAKit_StrongSelf
         NSString *msg;
         switch (status) {
                 case 0:

@@ -13,7 +13,8 @@
 #import <float.h>
 //#import "UIView+BAAnimation.h"
 #import "CALayer+Animation.h"
-#import "BAAlert_OC.h"
+#import "BAKit_ConfigurationDefine.h"
+
 
 @interface UIImage (BAAlertImageEffects)
 
@@ -209,18 +210,6 @@
 
 @end
 
-
-#define BAKit_BaseScreenWidth   320.0f
-#define BAKit_BaseScreenHeight  568.0f
-
-
-/*! 屏幕适配（5S标准屏幕：320 * 568） */
-// iPhone 7 屏幕：375 * 667
-//376/320 =
-//667/568 =
-#define BAKit_ScaleXAndWidth    SCREENWIDTH/BAKit_BaseScreenWidth
-#define BAKit_ScaleYAndHeight   SCREENHEIGHT/BAKit_BaseScreenHeight
-
 #define kBAAlert_Padding           10
 #define kBAAlert_Radius            10
 #define kBAAlert_ButtonHeight      40
@@ -374,7 +363,7 @@ typedef NS_ENUM(NSUInteger, BAAlertType) {
 
 - (void)setupCommonUI
 {
-    self.bgColor = BAAlert_Color_Translucent;
+    self.bgColor = BAKit_Color_Translucent_pod;
     self.blurImageView.hidden = NO;
     
     if (self.alertType == BAAlertTypeCustom)
@@ -466,7 +455,7 @@ typedef NS_ENUM(NSUInteger, BAAlertType) {
     {
         [button setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
     }
-    [button setBackgroundImage:[self imageWithColor:BAAlert_Color_RGBA(135, 140, 145, 0.45)] forState:UIControlStateHighlighted];
+    [button setBackgroundImage:[self imageWithColor:BAKit_Color_RGBA_pod(135, 140, 145, 0.45)] forState:UIControlStateHighlighted];
 
     [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.containerView addSubview:button];
@@ -477,7 +466,7 @@ typedef NS_ENUM(NSUInteger, BAAlertType) {
 - (void)addLine:(CGRect)frame toView:(UIView *)view
 {
     UIView *line = [[UIView alloc] initWithFrame:frame];
-    line.backgroundColor = BAAlert_Color_RGBA(160, 170, 160, 0.5);
+    line.backgroundColor = BAKit_Color_Gray_9_pod;
     [view addSubview:line];
     [_lineArray addObject:line];
 }
@@ -926,7 +915,7 @@ typedef NS_ENUM(NSUInteger, BAAlertType) {
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"windowLevel == %ld AND hidden == 0 " , UIWindowLevelNormal];
             self.alertWindow = [[UIApplication sharedApplication].windows filteredArrayUsingPredicate:predicate].firstObject;
         }
-        self.alertWindow.backgroundColor = BAAlert_Color_Translucent;
+        self.alertWindow.backgroundColor = BAKit_Color_Translucent_pod;
     }
     return _alertWindow;
 }

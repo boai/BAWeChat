@@ -142,11 +142,11 @@
 
 - (void)creatDatas
 {
-    //    [self addCell:@"1、朋友圈" content:@"微信朋友圈" class:@"DemoVC1"];
-    [self addCell:@"1、QMUITips 用法" content:@"各种加载提示" class:@"DemoVC2"];
+    [self addCell:@"1、textView placeholder" content:@"textView placeholder" class:@"DemoVC1"];
+    [self addCell:@"2、QMUITips 用法" content:@"各种加载提示" class:@"DemoVC2"];
     //    [self addCell:@"3、微信通讯录" content:@"一个微信通讯录，并按A~Z顺序排列，实现搜索功能" class:@"DemoVC3"];
-    [self addCell:@"2、定制系统通讯录" content:@"获取本机通讯录列表，并按A~Z顺序排列" class:@"DemoVC4"];
-    [self addCell:@"3、定制键盘" content:@"定制键盘" class:@"DemoVC5"];
+    [self addCell:@"3、定制系统通讯录" content:@"获取本机通讯录列表，并按A~Z顺序排列" class:@"DemoVC4"];
+    [self addCell:@"4、定制键盘" content:@"定制键盘" class:@"DemoVC5"];
     
 }
 

@@ -7,12 +7,11 @@
 //
 
 #import "QMUICommonViewController.h"
-#import "QMUICommonDefines.h"
-#import "QMUIConfigurationMacros.h"
-#import "QMUIHelper.h"
+#import "QMUICore.h"
 #import "QMUINavigationTitleView.h"
 #import "QMUIEmptyView.h"
 #import "NSString+QMUI.h"
+#import "UIViewController+QMUI.h"
 
 @interface QMUICommonViewController ()
 
@@ -49,9 +48,7 @@
     self.supportedOrientationMask = SupportedOrientationMask;
     
     // 动态字体notification
-    if (IS_RESPOND_DYNAMICTYPE) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contentSizeCategoryDidChanged:) name:UIContentSizeCategoryDidChangeNotification object:nil];
-    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contentSizeCategoryDidChanged:) name:UIContentSizeCategoryDidChangeNotification object:nil];
 }
 
 - (void)setTitle:(NSString *)title {
@@ -61,7 +58,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColorForBackground;
+    if (!self.view.backgroundColor) {
+        UIColor *backgroundColor = UIColorForBackground;
+        if (backgroundColor) {
+            self.view.backgroundColor = backgroundColor;
+        }
+    }
     [self initSubviews];
 }
 
@@ -165,27 +167,27 @@
     return self.supportedOrientationMask;
 }
 
-@end
-
-
-@implementation QMUICommonViewController (QMUINavigationController)
-
-- (void)willPopViewController {
-    // 子类按需实现
-}
-
-- (void)didPopViewController {
-    // 子类按需实现
-}
-
 #pragma mark - <QMUINavigationControllerDelegate>
 
 - (BOOL)shouldSetStatusBarStyleLight {
     return StatusbarStyleLightInitially;
 }
 
-@end
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return StatusbarStyleLightInitially ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
+}
 
+- (QMUINavigationBarHiddenState)preferredNavigationBarHiddenState {
+    return NavigationBarHiddenStateInitially;
+}
+
+- (void)viewControllerKeepingAppearWhenSetViewControllersWithAnimated:(BOOL)animated {
+    // 通常和 viewWillAppear: 里做的事情保持一致
+    [self setNavigationItemsIsInEditMode:NO animated:NO];
+    [self setToolbarItemsIsInEditMode:NO animated:NO];
+}
+
+@end
 
 @implementation QMUICommonViewController (QMUISubclassingHooks)
 
@@ -207,11 +209,6 @@
 }
 
 - (void)contentSizeCategoryDidChanged:(NSNotification *)notification {
-    // 子类重写
-    [self setUIAfterContentSizeCategoryChanged];
-}
-
-- (void)setUIAfterContentSizeCategoryChanged {
     // 子类重写
 }
 

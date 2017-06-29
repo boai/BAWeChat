@@ -393,7 +393,7 @@
 
 - (void)textView:(QMUITextView *)textView didPreventTextChangeInRange:(NSRange)range replacementText:(NSString *)replacementText
 {
-    [QMUITips showWithText:[NSString stringWithFormat:@"文字不能超过 %@ 个字符", @(textView.maximumTextLength)] inView:[self getCurrentViewController].view hideAfterDelay:2.0];
+    [QMUITips showWithText:[NSString stringWithFormat:@"文字不能超过 %@ 个字符", @(textView.maximumTextLength)] inView:[self ba_viewGetCurrentViewController].view hideAfterDelay:2.0];
     [self.commentTextView resignFirstResponder];
     self.emotionButton.selected = NO;
     self.moreButton.selected = NO;
@@ -449,7 +449,7 @@
         
         self.commentTextView.font = UIFontMake(15);
         self.commentTextView.textColor = BAKit_Color_Black;
-        [self.commentTextView ba_setBordersWithColor:BAKit_Color_Gray_9 andCornerRadius:5.0f andWidth:0.5f];
+        [self.commentTextView ba_viewSetBorderWithColor:BAKit_Color_Gray_9 cornerRadius:5.0f width:0.5f];
         self.commentTextView.returnKeyType = UIReturnKeySend;
         self.commentTextView.scrollEnabled = YES;
         self.commentTextView.delegate = self;
@@ -497,11 +497,11 @@
         self.emotionView.backgroundColor = BAKit_Color_White;
         self.qqEmotionManager.boundTextView = self.commentTextView;
         self.qqEmotionManager.emotionView.qmui_borderPosition = QMUIBorderViewPositionTop;
-        [self.qqEmotionManager.emotionView.sendButton addTarget:self action:@selector(handleEmotionViewSendButtonAction:)];
+        [self.qqEmotionManager.emotionView.sendButton addTarget:self action:@selector(handleEmotionViewSendButtonAction:) forControlEvents:UIControlEventTouchUpInside];
 
         [self.emotionView addSubview:self.qqEmotionManager.emotionView];
         
-        [[self getCurrentViewController].view addSubview:self.emotionView];
+        [[self ba_viewGetCurrentViewController].view addSubview:self.emotionView];
     }
     return _emotionView;
 }
@@ -526,9 +526,9 @@
         self.locationButton.tag = BATimeLineKeyboardMoreViewTypeLocationButton;
         self.videoButton.tag = BATimeLineKeyboardMoreViewTypeVideoButton;
 
-        [self.moreView ba_addSubViewsWithArray:@[self.photoButton, self.cameraButton, self.locationButton, self.videoButton]];
+        [self.moreView ba_viewAddSubViewsWithArray:@[self.photoButton, self.cameraButton, self.locationButton, self.videoButton]];
 
-        [[self getCurrentViewController].view addSubview:self.moreView];
+        [[self ba_viewGetCurrentViewController].view addSubview:self.moreView];
     }
     return _moreView;
 }

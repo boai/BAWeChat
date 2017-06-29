@@ -7,9 +7,7 @@
 //
 
 #import "UISearchBar+QMUI.h"
-#import "QMUICommonDefines.h"
-#import "QMUIConfigurationMacros.h"
-#import "QMUIHelper.h"
+#import "QMUICore.h"
 #import "UIImage+QMUI.h"
 
 @implementation UISearchBar (QMUI)
@@ -93,7 +91,7 @@ static char kAssociatedObjectKey_TextColor;
 }
 
 - (UITextField *)textField {
-    UITextField *textField = [self valueForKey:@"_searchField"];
+    UITextField *textField = [self valueForKey:@"searchField"];
     return textField;
 }
 

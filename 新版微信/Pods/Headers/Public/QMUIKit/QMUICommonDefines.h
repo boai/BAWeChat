@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UICommon/QMUICommonDefines.h
+../../../QMUIKit/QMUIKit/UICore/QMUICommonDefines.h

@@ -51,9 +51,18 @@
         [self.tableView reloadData];
     } authorizationFailure:^{
         [tips removeFromSuperview];
-        [UIAlertController ba_alertControllerShowAlertInViewController:self withTitle:@"博爱温馨提示" mutableAttributedTitle:nil message:@"请在iPhone的“设置-隐私-通讯录”选项中，允许PPAddressBook访问您的通讯录" mutableAttributedMessage:nil buttonTitlesArray:@[@"取 消", @"确 定"] buttonTitleColorArray:@[UIColorGreen, UIColorRed] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-            
-        }];
+
+        NSArray *buttonTitleColorArray = @[BAKit_Color_Red_pod, BAKit_Color_Green_pod] ;
+        
+        [UIAlertController ba_alertShowInViewController:self
+                                                  title:@"博爱温馨提示"
+                                                message:@"请在iPhone的“设置-隐私-通讯录”选项中，允许PPAddressBook访问您的通讯录"
+                                       buttonTitleArray:@[@"取 消", @"确 定"]
+                                  buttonTitleColorArray:buttonTitleColorArray
+                                                  block:^(UIAlertController * _Nonnull alertController, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+                                                      NSString *msg = [NSString stringWithFormat:@"你点击了第 %ld 个按钮！", (long)buttonIndex];
+                                                      BAKit_ShowAlertWithMsg_ios8(msg);
+                                                  }];
         return ;
     }];
     
@@ -129,18 +138,18 @@
     NSString *userName = self.namesArray[indexPath.section];
     PPPersonModel *model = self.contactPeopleDict[userName][indexPath.row];
     NSString *msg = [NSString stringWithFormat:@"姓名：%@，电话：%@", model.name, model.mobileArray];
-    [UIAlertController ba_alertControllerShowAlertInViewController:self withTitle:@"博爱温馨提示" mutableAttributedTitle:nil message:msg mutableAttributedMessage:nil buttonTitlesArray:@[@"取 消", @"确 定"] buttonTitleColorArray:@[UIColorGreen, UIColorRed] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-        if (buttonIndex == 0)
-        {
-            NSLog(@"你点击了取消按钮！");
-        }
-        else if (buttonIndex == 1)
-        {
-            NSLog(@"你点击了确定按钮！");
-        }
-        return;
-    }];
 
+    NSArray *buttonTitleColorArray = @[BAKit_Color_Red_pod, BAKit_Color_Green_pod] ;
+
+    [UIAlertController ba_alertShowInViewController:self
+                                              title:@"博爱温馨提示"
+                                            message:msg
+                                   buttonTitleArray:@[@"取 消", @"确 定"]
+                              buttonTitleColorArray:buttonTitleColorArray
+                                              block:^(UIAlertController * _Nonnull alertController, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+      NSString *msg = [NSString stringWithFormat:@"你点击了第 %ld 个按钮！", (long)buttonIndex];
+      BAKit_ShowAlertWithMsg_ios8(msg);
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

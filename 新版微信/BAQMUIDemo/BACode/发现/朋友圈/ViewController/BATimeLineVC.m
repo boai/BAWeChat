@@ -29,6 +29,7 @@
     CABasicAnimation *_rotateAnimation;
 }
 @property (nonatomic, strong) UITableView *tableView;
+
 @property (nonatomic, strong) NSMutableArray <BATimeLineModel *>*dataArray;
 
 @property (nonatomic, strong) NSMutableArray *viewModelArray;
@@ -59,7 +60,8 @@
 - (void)setupUI
 {
     self.title = @"朋友圈";
-    self.view.backgroundColor = UIColorBlue;
+    self.view.backgroundColor = BAKit_Color_White;
+    
     self.tableView.hidden = NO;
     self.headerView.hidden = NO;
     self.keyboardBar.hidden = YES;
@@ -75,7 +77,8 @@
     _fpsLabel.alpha = 0;
     [self.view addSubview:_fpsLabel];
     
-    if (kSystemVersion < 7) {
+    if (kSystemVersion < 7)
+    {
         _fpsLabel.top -= 44;
         _tableView.top -= 64;
         _tableView.height += 20;
@@ -501,7 +504,7 @@
     {
         _tableView = [[UITableView alloc] init];
         
-        _tableView.backgroundColor = TableViewBackgroundColor;
+        _tableView.backgroundColor = BAKit_Color_Gray_11;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         

@@ -65,6 +65,6 @@
 #import "BAKit_Foundation.h"
 #import "BAKit_Custom.h"
 #import "BAKit_Define.h"
-
+#import "BAKit_BaseVC.h"
 
 #endif /* BAKit_h */

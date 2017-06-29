@@ -62,12 +62,17 @@
 
 
 #pragma mark - UIView 封装
-#import "UIView+BAKit.h"
-// 添加多种样式的提示小圆点
-#import "UIView+BAAlertDot.h"
+#import "BAKit_UIView.h"
+
+#pragma mark - UINavigationBar 封装
+#import "UINavigationBar+BAKit.h"
+
+#pragma mark 手势 封装
+#import "UIView+BAGesture.h"
+#import "UIGestureRecognizer+BAOpertation.h"
 
 #import "UIScrollView+BAKit.h"
-#import "UIScrollView+Frame.h"
+#import "UIScrollView+BAFrame.h"
 
 #pragma mark - UITableViewCell 封装
 #import "UITableViewCell+BAReuse.h"
@@ -76,29 +81,51 @@
 #pragma mark - UIViewController 封装
 #import "UIViewController+BABottomLine.h"
 
+#pragma mark - UIColor 封装
+#import "UIColor+BAKit.h"
+
+#pragma mark - UIAlertController 封装
+#import "UIAlertController+BAKit.h"
 
 #pragma mark - UILabel 封装
 #import "BAKit_FPSLabel.h"
 
 #pragma mark - UITextField 封装
-#import "BAKit_TextField.h"
+#import "BATextField.h"
+
+#pragma mark - UITextView 封装
+#import "UITextView+BAKit.h"
+
+#pragma mark - WKWebView 封装
+#import "BAKit_WebView.h"
 
 #pragma mark - UIImage 封装
 #import "UIImageEffects.h"
-#import "UIImage+Render.h"
+#import "UIImage+BARender.h"
+#import "UIImage+BAColor.h"
 
-#pragma mark - AlertController 封装
-#import "UIAlertController+Blocks.h"
+#pragma mark - UIAlertController 封装
+#import "BAAlertController.h"
 
-#pragma mark - 手势 封装
-#import "UIView+Gesture.h"
-#import "UIGestureRecognizer+Opertation.h"
+#pragma mark - UIButton 封装
+#import "BAButton.h"
 
 #pragma mark - UIDevice 封装
 #import "UIDevice+BAKit.h"
 
+#pragma mark - UITabBarController
+#import "UITabBarController+BAKit.h"
+#import "UITabBarItem+BAKit.h"
+
 #pragma mark - UIBarButtonItem 封装
 #import "UIBarButtonItem+BABadge.h"
+#import "UIBarButtonItem+BAKit.h"
+
+#pragma mark - CALayer 动画
+#import "CALayer+BAAnimation.h"
+
+
+#import "UILabel+BAAttributeTextTapAction.h"
 
 
 #endif /* BAKit_UIKit_h */

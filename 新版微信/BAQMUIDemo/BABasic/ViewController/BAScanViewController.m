@@ -12,8 +12,8 @@
 #import "LBXScanWrapper.h"
 #import "LBXScanVideoZoomView.h"
 
-#import "BAWebViewController.h"
-#import "BAWebViewModel.h"
+//#import "BAWebViewController.h"
+//#import "BAWebViewModel.h"
 
 @interface BAScanViewController ()
 

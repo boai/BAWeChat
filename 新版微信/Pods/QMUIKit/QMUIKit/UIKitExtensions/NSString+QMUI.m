@@ -80,6 +80,45 @@ result[12], result[13], result[14], result[15]]                         \
     return letter;
 }
 
++ (NSString *)qmui_hexStringWithInteger:(NSInteger)integer {
+    NSString *hexString = @"";
+    NSInteger remainder = 0;
+    for (NSInteger i = 0; i < 9; i++) {
+        remainder = integer % 16;
+        integer = integer / 16;
+        NSString *letter = [self hexLetterStringWithInteger:remainder];
+        hexString = [letter stringByAppendingString:hexString];
+        if (integer == 0) {
+            break;
+        }
+        
+    }
+    return hexString;
+}
+
++ (NSString *)qmui_stringByConcat:(id)firstArgv, ... {
+    if (firstArgv) {
+        NSMutableString *result = [[NSMutableString alloc] initWithFormat:@"%@", firstArgv];
+        
+        va_list argumentList;
+        va_start(argumentList, firstArgv);
+        id argument;
+        while ((argument = va_arg(argumentList, id))) {
+            [result appendFormat:@"%@", argument];
+        }
+        va_end(argumentList);
+        
+        return [result copy];
+    }
+    return nil;
+}
+
++ (NSString *)qmui_timeStringWithMinsAndSecsFromSecs:(double)seconds {
+    NSUInteger min = floor(seconds / 60);
+    NSUInteger sec = floor(seconds - min * 60);
+    return [NSString stringWithFormat:@"%02ld:%02ld", (long)min, (long)sec];
+}
+
 - (NSString *)qmui_removeMagicalChar {
     if (self.length == 0) {
         return self;
@@ -194,22 +233,6 @@ result[12], result[13], result[14], result[15]]                         \
 
 - (NSString *)qmui_stringByRemoveLastCharacter {
     return [self qmui_stringByRemoveCharacterAtIndex:self.length - 1];
-}
-
-+ (NSString *)qmui_hexStringWithInteger:(NSInteger)integer {
-    NSString *hexString = @"";
-    NSInteger remainder = 0;
-    for (NSInteger i = 0; i < 9; i++) {
-        remainder = integer % 16;
-        integer = integer / 16;
-        NSString *letter = [self hexLetterStringWithInteger:remainder];
-        hexString = [letter stringByAppendingString:hexString];
-        if (integer == 0) {
-            break;
-        }  
-        
-    }
-    return hexString;
 }
 
 @end

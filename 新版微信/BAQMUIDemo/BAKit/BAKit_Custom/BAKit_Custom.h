@@ -55,59 +55,59 @@
  
  *********************************************************************************
  
- */ //  博爱自定义封装
+ */ //  BAKit 自定义封装
 
 #ifndef BAKit_Custom_h
 #define BAKit_Custom_h
 
+#pragma mark - 简单工具类 封装
 #import "BAKit_Helper.h"
+
+#pragma mark - 动画类 封装
 #import "BAKit_Animation.h"
-#import "BANetManager.h"
+
+#pragma mark - 按首字母或者汉字拼音首字母分组排序索引工具类
 #import "BAKit_ChineseString.h"
 #import "BAKit_localizedIndexedCollation.h"
+
+#pragma mark - 正则表达式 封装
 #import "BAKit_RegularExpression.h"
 
-/*! 全局跳转类 */
-//#import "BAKit_JumpManager.h"
+#pragma mark - 七彩渐变进度条 类封装
+#import "BAGradualProgressView.h"
 
-/*! 宫格类封装 */
-#import "BAGridView.h"
+#pragma mark - 宫格 类封装
+#import "BAKit_BAGridView.h"
 
-/*! 自定义 webView 封装 */
-#import "BAWebView.h"
-#import "BAWebViewController.h"
+#pragma mark - Color 类封装
+#import "BAKit_Color.h"
 
-/*! 自定义 PickView */
-#import "BAKit_PickerView.h"
+#pragma mark - PickerView 类封装
+#import "BAPickView_OC.h"
 
-/*! 自定义键盘 */
-#import "BAKit_KeyboardView.h"
-#import "BAKit_EmotionTextAttachment.h"
-#import "BAKit_EmotionString.h"
+#pragma mark - PhotoKit 简单封装
+#import "BAKit_PhotoKitManager.h"
 
-/*! 上下拉刷新 */
-#import "BAKit_CustomMJHeader.h"
-#import "BAKit_CustomMJFooter.h"
-#import "BAKit_Refresh.h"
-
-/*! 清理缓存 */
+#pragma mark - 清理缓存 类封装
 #import "BAKit_ClearCacheManager.h"
 
 /*! model 解析类 */
-#import "BAKit_Model.h"
-#import "BAKit_ModelCodingCopying.h"
+//#import "BAKit_Model.h"
+//#import "BAKit_ModelCodingCopying.h"
 
-/*! 获取当前定位信息 */
+#pragma mark - 获取当前定位信息 封装
 #import "BAKit_Location.h"
 
 /*! 自定义提示框 */
-#import "BAKit_HudManager.h"
-#import "NSObject+BAProgressHUD.h"
-#import "MBProgressHUD+ADD.h"
+//#import "BAKit_HudManager.h"
+//#import "NSObject+BAProgressHUD.h"
+//#import "MBProgressHUD+ADD.h"
 
-/*! GCD 封装 */
+#pragma mark - GCD 封装
 #import "GCD.h"
 
-
+#import "BAKit_KeyboardView.h"
+#import "BAKit_EmotionTextAttachment.h"
+#import "BAKit_EmotionString.h"
 
 #endif /* BAKit_Custom_h */

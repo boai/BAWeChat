@@ -70,7 +70,7 @@
         {
             MLLinkLabel *label = [MLLinkLabel new];
             label.userInteractionEnabled = YES;
-            label.font = BAKit_FontSystem_13;
+            label.font = BAKit_Font_systemFontOfSize_13;
             label.textColor     = BAKit_Color_Gray_7;
             label.textAlignment = NSTextAlignmentJustified;
             label.linkTextAttributes = @{NSForegroundColorAttributeName : BAKit_Color_ThemBlue};
@@ -90,7 +90,7 @@
                 {
                     if ([BAKit_RegularExpression ba_regularIsUrl:link.linkValue])
                     {
-                        [BAKit_Helper ba_ba_helperGotoSafariBrowserWithURL:link.linkValue];
+                        [BAKit_Helper ba_helperGotoSafariBrowserWithURL:link.linkValue];
                         return;
                     }
                 }
@@ -147,11 +147,11 @@
             CGSize commentLabel_size = CGSizeZero;
             if (model.attributedContent)
             {
-                commentLabel_size = BAKit_LabelSizeWithMutableAttributedStringAndWidthAndFont(attributedString, BAKit_Margin_Content_width, BAKit_FontSystem_13);
+                commentLabel_size = BAKit_LabelSizeWithMutableAttributedStringAndWidthAndFont(attributedString, BAKit_Margin_Content_width, BAKit_Font_systemFontOfSize_13);
             }
             else
             {
-                commentLabel_size = BAKit_LabelSizeWithTextAndWidthAndFont(text, BAKit_Margin_Content_width, BAKit_FontSystem_13);
+                commentLabel_size = BAKit_LabelSizeWithTextAndWidthAndFont(text, BAKit_Margin_Content_width, BAKit_Font_systemFontOfSize_13);
             }
             CGFloat commentLabel_h = commentLabel_size.height;
             if (i != 0)

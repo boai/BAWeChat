@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIKitExtensions/QMUIStaticTableViewCellData.h
+../../../QMUIKit/QMUIKit/UIComponents/StaticTableView/QMUIStaticTableViewCellData.h
