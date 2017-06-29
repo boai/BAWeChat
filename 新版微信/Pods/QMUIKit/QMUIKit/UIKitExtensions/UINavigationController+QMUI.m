@@ -7,9 +7,7 @@
 //
 
 #import "UINavigationController+QMUI.h"
-#import "QMUICommonDefines.h"
-#import "QMUIConfigurationMacros.h"
-#import "QMUIHelper.h"
+#import "QMUICore.h"
 
 @implementation UINavigationController (QMUI)
 
@@ -29,7 +27,6 @@ static char originGestureDelegateKey;
 - (void)qmui_viewDidLoad {
     [self qmui_viewDidLoad];
     objc_setAssociatedObject(self, &originGestureDelegateKey, self.interactivePopGestureRecognizer.delegate, OBJC_ASSOCIATION_ASSIGN);
-    QMUILog(@"%@", self.interactivePopGestureRecognizer.delegate);
     self.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
 }
 

@@ -7,84 +7,101 @@
 //
 
 #import "UIView+BARectCorner.h"
-#import <objc/runtime.h>
-
-static void *viewRectCornerTypeKey = @"viewRectCornerTypeKey";
-static void *viewCornerRadiusKey = @"viewCornerRadiusKey";
+#import "BAKit_ConfigurationDefine.h"
 
 @implementation UIView (BARectCorner)
 
-- (void)ba_view_setBAViewRectCornerType:(BAViewRectCornerType)type viewCornerRadius:(CGFloat)viewCornerRadius
+- (void)ba_view_setViewRectCornerType:(BAKit_ViewRectCornerType)type
+                     viewCornerRadius:(CGFloat)viewCornerRadius
 {
-    self.viewCornerRadius = viewCornerRadius;
-    self.viewRectCornerType = type;
+    self.ba_viewCornerRadius = viewCornerRadius;
+    self.ba_viewRectCornerType = type;
+}
+
+/**
+ 快速切圆角，带边框、边框颜色
+ 
+ @param type 圆角样式
+ @param viewCornerRadius 圆角角度
+ @param borderWidth 边线宽度
+ @param borderColor 边线颜色
+ */
+- (void)ba_view_setViewRectCornerType:(BAKit_ViewRectCornerType)type
+                     viewCornerRadius:(CGFloat)viewCornerRadius
+                          borderWidth:(CGFloat)borderWidth
+                          borderColor:(UIColor *)borderColor
+{
+    self.ba_viewCornerRadius = viewCornerRadius;
+    self.ba_viewRectCornerType = type;
+    self.ba_viewBorderWidth = borderWidth;
+    self.ba_viewBorderColor = borderColor;
 }
 
 #pragma mark - view 的 角半径，默认 CGSizeMake(0, 0)
-- (void)setupButtonCornerType
+- (void)setupViewCornerType
 {
     UIRectCorner corners;
     CGSize cornerRadii;
     
-    cornerRadii = CGSizeMake(self.viewCornerRadius, self.viewCornerRadius);
-    if (self.viewCornerRadius == 0)
+    cornerRadii = CGSizeMake(self.ba_viewCornerRadius, self.ba_viewCornerRadius);
+    if (self.ba_viewCornerRadius == 0)
     {
         cornerRadii = CGSizeMake(0, 0);
     }
     
-    switch (self.viewRectCornerType)
+    switch (self.ba_viewRectCornerType)
     {
-        case BAViewRectCornerTypeBottomLeft:
+        case BAKit_ViewRectCornerTypeBottomLeft:
         {
             corners = UIRectCornerBottomLeft;
         }
             break;
-        case BAViewRectCornerTypeBottomRight:
+        case BAKit_ViewRectCornerTypeBottomRight:
         {
             corners = UIRectCornerBottomRight;
         }
             break;
-        case BAViewRectCornerTypeTopLeft:
+        case BAKit_ViewRectCornerTypeTopLeft:
         {
             corners = UIRectCornerTopLeft;
         }
             break;
-        case BAViewRectCornerTypeTopRight:
+        case BAKit_ViewRectCornerTypeTopRight:
         {
             corners = UIRectCornerTopRight;
         }
             break;
-        case BAViewRectCornerTypeBottomLeftAndBottomRight:
+        case BAKit_ViewRectCornerTypeBottomLeftAndBottomRight:
         {
             corners = UIRectCornerBottomLeft | UIRectCornerBottomRight;
         }
             break;
-        case BAViewRectCornerTypeTopLeftAndTopRight:
+        case BAKit_ViewRectCornerTypeTopLeftAndTopRight:
         {
             corners = UIRectCornerTopLeft | UIRectCornerTopRight;
         }
             break;
-        case BAViewRectCornerTypeBottomLeftAndTopLeft:
+        case BAKit_ViewRectCornerTypeBottomLeftAndTopLeft:
         {
             corners = UIRectCornerBottomLeft | UIRectCornerTopLeft;
         }
             break;
-        case BAViewRectCornerTypeBottomRightAndTopRight:
+        case BAKit_ViewRectCornerTypeBottomRightAndTopRight:
         {
             corners = UIRectCornerBottomRight | UIRectCornerTopRight;
         }
             break;
-        case BAViewRectCornerTypeBottomRightAndTopRightAndTopLeft:
+        case BAKit_ViewRectCornerTypeBottomRightAndTopRightAndTopLeft:
         {
             corners = UIRectCornerBottomRight | UIRectCornerTopRight | UIRectCornerTopLeft;
         }
             break;
-        case BAViewRectCornerTypeBottomRightAndTopRightAndBottomLeft:
+        case BAKit_ViewRectCornerTypeBottomRightAndTopRightAndBottomLeft:
         {
             corners = UIRectCornerBottomRight | UIRectCornerTopRight | UIRectCornerBottomLeft;
         }
             break;
-        case BAViewRectCornerTypeAllCorners:
+        case BAKit_ViewRectCornerTypeAllCorners:
         {
             corners = UIRectCornerAllCorners;
         }
@@ -94,36 +111,68 @@ static void *viewCornerRadiusKey = @"viewCornerRadiusKey";
             break;
     }
     
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
-                                                   byRoundingCorners:corners
-                                                         cornerRadii:cornerRadii];
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame         = self.bounds;
-    maskLayer.path          = maskPath.CGPath;
-    self.layer.mask         = maskLayer;
+    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                                     byRoundingCorners:corners
+                                                           cornerRadii:cornerRadii];
+
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    shapeLayer.path = bezierPath.CGPath;
+    shapeLayer.frame = self.bounds;
+    
+    CAShapeLayer *borderLayer = [CAShapeLayer layer];
+    borderLayer.path = bezierPath.CGPath;
+    borderLayer.fillColor = [UIColor clearColor].CGColor;
+    borderLayer.strokeColor = self.ba_viewBorderColor.CGColor;
+    borderLayer.lineWidth = self.ba_viewBorderWidth;
+    borderLayer.frame = self.bounds;
+    
+    self.layer.mask = shapeLayer;
+    [self.layer addSublayer:borderLayer];
+//    self.clipsToBounds = YES;
 }
 
 #pragma mark - setter / getter
-
-- (void)setViewRectCornerType:(BAViewRectCornerType)viewRectCornerType
+- (void)setBa_viewRectCornerType:(BAKit_ViewRectCornerType)ba_viewRectCornerType
 {
-    objc_setAssociatedObject(self, viewRectCornerTypeKey, @(viewRectCornerType), OBJC_ASSOCIATION_ASSIGN);
-    [self setupButtonCornerType];
+    BAKit_Objc_setObj(@selector(ba_viewRectCornerType), @(ba_viewRectCornerType));
+    [self setupViewCornerType];
 }
 
-- (BAViewRectCornerType)viewRectCornerType
+- (BAKit_ViewRectCornerType)ba_viewRectCornerType
 {
-    return [objc_getAssociatedObject(self, viewRectCornerTypeKey) integerValue];
+    return [BAKit_Objc_getObj integerValue];
 }
 
-- (void)setViewCornerRadius:(CGFloat)viewCornerRadius
+- (void)setBa_viewCornerRadius:(CGFloat)ba_viewCornerRadius
 {
-    objc_setAssociatedObject(self, viewCornerRadiusKey, @(viewCornerRadius), OBJC_ASSOCIATION_ASSIGN);
+    BAKit_Objc_setObj(@selector(ba_viewCornerRadius), @(ba_viewCornerRadius));
 }
 
-- (CGFloat)viewCornerRadius
+- (CGFloat)ba_viewCornerRadius
 {
-    return [objc_getAssociatedObject(self, viewCornerRadiusKey) floatValue];
+    return [BAKit_Objc_getObj integerValue];
+}
+
+- (void)setBa_viewBorderWidth:(CGFloat)ba_viewBorderWidth
+{
+    BAKit_Objc_setObj(@selector(ba_viewBorderWidth), @(ba_viewBorderWidth));
+    [self setupViewCornerType];
+}
+
+- (CGFloat)ba_viewBorderWidth
+{
+    return [BAKit_Objc_getObj floatValue];
+}
+
+- (void)setBa_viewBorderColor:(UIColor *)ba_viewBorderColor
+{
+    BAKit_Objc_setObj(@selector(ba_viewBorderColor), ba_viewBorderColor);
+    [self setupViewCornerType];
+}
+
+- (UIColor *)ba_viewBorderColor
+{
+    return BAKit_Objc_getObj;
 }
 
 @end

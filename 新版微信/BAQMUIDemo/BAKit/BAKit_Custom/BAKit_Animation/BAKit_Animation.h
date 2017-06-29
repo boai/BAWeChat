@@ -60,12 +60,6 @@
 #ifndef BAKit_BAAnimation_h
 #define BAKit_BAAnimation_h
 
-#pragma mark - UIView 动画
-#import "UIView+BAAnimation.h"
-
-#pragma mark - Transition 动画
-#import "UIView+BATransition.h"
-
 #pragma mark - 加载动画
 #import "BAKit_LoadingView.h"
 #import "BAKit_LoadingWaveView.h"

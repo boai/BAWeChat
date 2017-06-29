@@ -7,10 +7,10 @@
 //
 
 #import "BABaseViewController.h"
+//#import "SDCycleScrollView.h"
 
-//#import <SDCycleScrollView.h>
-#import "BAWebViewController.h"
-#import "BAWebViewModel.h"
+//#import "BAWebViewController.h"
+//#import "BAWebViewModel.h"
 
 #import "LBXScanView.h"
 #import "BAScanViewController.h"
@@ -121,36 +121,36 @@
 
 - (void)gotoWebWithUrl:(NSString *)url
 {
-    BAWebViewModel *model = [[BAWebViewModel alloc] initWithParams:@{RequestURLkey:url}];
-    BAWebViewController *webVC = [[BAWebViewController alloc] init];
-    webVC.viewModel = model;
-    
-    [self.navigationController pushViewController:webVC animated:YES];
+//    BAWebViewModel *model = [[BAWebViewModel alloc] initWithParams:@{RequestURLkey:url}];
+//    BAWebViewController *webVC = [[BAWebViewController alloc] init];
+//    webVC.viewModel = model;
+//    
+//    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 - (void)gotoWebWithHtmlString:(NSString *)htmlString title:(NSString *)title
 {
-    BAWebViewModel *model = [[BAWebViewModel alloc] initWithParams:@{RequestHtmlStringkey: htmlString, WebTitlekey: title}];
-    BAWebViewController *webVC = [[BAWebViewController alloc] init];
-    webVC.viewModel = model;
-    
-    [self.navigationController pushViewController:webVC animated:YES];
+//    BAWebViewModel *model = [[BAWebViewModel alloc] initWithParams:@{RequestHtmlStringkey: htmlString, WebTitlekey: title}];
+//    BAWebViewController *webVC = [[BAWebViewController alloc] init];
+//    webVC.viewModel = model;
+//    
+//    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 - (void)gotoWebWithRequest:(NSURLRequest *)request
 {
-    BAWebViewController *webVC = [[BAWebViewController alloc] init];
-    webVC.request = request;
-    
-    [self.navigationController pushViewController:webVC animated:YES];
+//    BAWebViewController *webVC = [[BAWebViewController alloc] init];
+//    webVC.request = request;
+//    
+//    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 - (void)gotoWebWithHtmlFileName:(NSString *)htmlFileName
 {
-    BAWebViewController *webVC = [[BAWebViewController alloc] init];
-    webVC.htmlFileName = htmlFileName;
-    
-    [self.navigationController pushViewController:webVC animated:YES];
+//    BAWebViewController *webVC = [[BAWebViewController alloc] init];
+//    webVC.htmlFileName = htmlFileName;
+//    
+//    [self.navigationController pushViewController:webVC animated:YES];
 }
 
 //- (SDCycleScrollView *)setupBannerViewWithFrame:(CGRect)frame
@@ -184,7 +184,7 @@
 //    
 //    return self.cycleScrollView;
 //}
-//
+
 //- (SDCycleScrollView *)setupUploadViewWithFrame:(CGRect)frame
 //                                 imageUrlsArray:(NSArray *)imageUrlsArray
 //                                      withBlock:(BannerBlock)block
@@ -220,56 +220,56 @@
  @param type 动画样式
  @param animationView 需要动画的 View
  */
-- (void)ba_animationWithBATransitionType:(BATransitionType)type
+- (void)ba_animationWithBATransitionType:(BAKit_ViewTransitionType)type
                            animationView:(UIView *)animationView
 {
     switch (type) {
         case 0:
-            [self ba_transitonWithType:BATransitionTypeFade view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypeFade view:animationView];
             break;
             
         case 1:
-            [self ba_transitonWithType:BATransitionTypePush view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypePush view:animationView];
             break;
             
         case 2:
-            [self ba_transitonWithType:BATransitionTypeReveal view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypeReveal view:animationView];
             break;
             
         case 3:
-            [self ba_transitonWithType:BATransitionTypeMoveIn view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypeMoveIn view:animationView];
             break;
             
         case 4:
-            [self ba_transitonWithType:BATransitionTypeCube view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypeCube view:animationView];
             break;
             
         case 5:
-            [self ba_transitonWithType:BATransitionTypeSuckEffect view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypeSuckEffect view:animationView];
             break;
             
         case 6:
-            [self ba_transitonWithType:BATransitionTypeOglFlip view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypeOglFlip view:animationView];
             break;
             
         case 7:
-            [self ba_transitonWithType:BATransitionTypeRippleEffect view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypeRippleEffect view:animationView];
             break;
             
         case 8:
-            [self ba_transitonWithType:BATransitionTypePageCurl view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypePageCurl view:animationView];
             break;
             
         case 9:
-            [self ba_transitonWithType:BATransitionTypePageUnCurl view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypePageUnCurl view:animationView];
             break;
             
         case 10:
-            [self ba_transitonWithType:BATransitionTypeCameraIrisHollowOpen view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypeCameraIrisHollowOpen view:animationView];
             break;
             
         case 11:
-            [self ba_transitonWithType:BATransitionTypeCameraIrisHollowClose view:animationView];
+            [self ba_transitonWithType:BAKit_ViewTransitionTypeCameraIrisHollowClose view:animationView];
             break;
             
         case 12:
@@ -302,12 +302,12 @@
     
 }
 
-- (void)ba_transitonWithType:(BATransitionType)type view:(UIView *)animationView
+- (void)ba_transitonWithType:(BAKit_ViewTransitionType)type view:(UIView *)animationView
 {
     [animationView ba_transitionWithType:type
-                              subType:BATransitionSubtypeFromLeft
+                              subType:BAKit_ViewTransitionSubtypeFromLeft
                              duration:0.8f
-                       timingFunction:BATransitionTimingFunctionTypeEaseInEaseOut
+                       timingFunction:BAKit_ViewTransitionTimingFunctionTypeEaseInEaseOut
                   removedOnCompletion:YES
                               forView:animationView];
 }
@@ -320,16 +320,14 @@
     
     NSString *clearMessage = [NSString stringWithFormat:@"缓存大小为：%.2fM，确定要清理吗?", cacheSize];
     
-    [UIAlertController ba_alertControllerShowAlertInViewController:self withTitle:@"温馨提示：" mutableAttributedTitle:nil message:clearMessage mutableAttributedMessage:nil buttonTitlesArray:@[@"取 消", @"确 定"] buttonTitleColorArray:@[UIColorGreen, UIColorRed] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
-        
+    NSArray *buttonTitleArray = @[@"取消", @"确定"];
+    NSArray *buttonTitleColorArray = @[BAKit_Color_Green, BAKit_Color_Red];
+    [UIAlertController ba_alertShowInViewController:self title:@"温馨提示" message:clearMessage buttonTitleArray:buttonTitleArray buttonTitleColorArray:buttonTitleColorArray block:^(UIAlertController * _Nonnull alertController, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
         if (block)
         {
             block(buttonIndex, clearCacheManager, cacheSize);
         }
-        
-        return;
     }];
-
 
 }
 

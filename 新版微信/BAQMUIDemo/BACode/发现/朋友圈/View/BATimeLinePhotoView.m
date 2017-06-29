@@ -142,8 +142,8 @@
     [browser setCurrentPhotoIndex:imageView.tag];
     
     /*! 转场动画 */
-    [(BABaseViewController *)[self getCurrentViewController] ba_animationWithBATransitionType:BAKit_RandomNumber(12) animationView:[self getCurrentViewController].navigationController.view];
-    [[self getCurrentViewController].navigationController pushViewController:browser animated:YES];
+    [(BABaseViewController *)[self ba_viewGetCurrentViewController] ba_animationWithBATransitionType:BAKit_RandomNumber(12) animationView:[self ba_viewGetCurrentViewController].navigationController.view];
+    [[self ba_viewGetCurrentViewController].navigationController pushViewController:browser animated:YES];
 }
 
 - (CGFloat)itemWidthForPicPathArray:(NSArray *)array

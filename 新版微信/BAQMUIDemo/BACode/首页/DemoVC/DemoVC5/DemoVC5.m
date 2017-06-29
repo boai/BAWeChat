@@ -24,9 +24,10 @@
     [super viewDidLoad];    
     
     self.clickButton.hidden = NO;
-    self.keyboardBar.hidden = NO;
+//    self.keyboardBar.hidden = NO;
     self.label.hidden = NO;
 
+    
 }
 
 - (void)viewWillLayoutSubviews
@@ -44,8 +45,15 @@
 - (void)clickButtonAction:(UIButton *)sender
 {
     NSLog(@"你点击了按钮，弹出键盘！");
-
+    
     [self.keyboardBar ba_showKeyboardView];
+    
+//    [self.label ba_animation_showFromPositionType:BAKit_RandomNumber(3) duration:1.0f finishBlock:^{
+//        
+//    }];
+    
+    [self.label.layer ba_layer_animationShakeWithValue:5.0f repeatCount:2.0f];
+//    [self.label ba_shakeView];
 }
 
 #pragma mark - setter / getter
@@ -56,7 +64,8 @@
         _clickButton.frame = CGRectMake(50, 100, 200, 50);
         _clickButton.backgroundColor = BAKit_Color_Green;
         _clickButton.selected = NO;
-        [_clickButton addTarget:self action:@selector(clickButtonAction:)];
+        [_clickButton setTitle:@"点我" forState:UIControlStateNormal];
+        [_clickButton addTarget:self action:@selector(clickButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.view addSubview:_clickButton];
 	}
@@ -87,7 +96,7 @@
 - (UILabel *)label {
 	if(_label == nil) {
 		_label = [[UILabel alloc] init];
-        _label.backgroundColor = BAKit_Color_Yellow;
+        _label.backgroundColor = BAKit_Color_Hex(@"#AEEEEE");
         _label.frame = CGRectMake(20, self.clickButton.bottom + 20, SCREEN_WIDTH - 40, 100);
         _label.numberOfLines = 0;
         

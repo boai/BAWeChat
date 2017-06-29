@@ -61,7 +61,13 @@
 #ifndef BAButton_h
 #define BAButton_h
 
+
 #import "UIButton+BAKit.h"
+#import "UIButton+BAState.h"
+#import "UIButton+BACountDown.h"
+#import "UIView+BARectCorner.h"
+#import "BAKit_ConfigurationDefine.h"
+
 
 /*!
  *********************************************************************************
@@ -70,6 +76,68 @@
  
  欢迎使用 BAHome 系列开源代码 ！
  如有更多需求，请前往：https://github.com/BAHome
+ 
+ 项目源码地址：
+ OC 版 ：https://github.com/BAHome/BAButton
+ 
+ 最新更新时间：2017-06-27 【倒叙】<br>
+ 最新Version：【Version：2.5.4】<br>
+ 更新内容：<br>
+ 2.5.4.1、新增 大图片 button 的 layout 布局，如果你的图片宽高大于 自身的宽高，怎需要压缩后再配置布局，具体看 demo test2<br>
+ 
+ 最新更新时间：2017-06-23 【倒叙】
+ 最新Version：【Version：2.5.3】
+ 更新内容：
+ 2.5.3.1、优化部分宏定义
+ 
+ 最新更新时间：2017-06-23 【倒叙】
+ 最新Version：【Version：2.5.2】
+ 更新内容：
+ 2.5.2.1、优化部分宏定义
+ 
+ 最新更新时间：2017-06-20 【倒叙】<br>
+ 最新Version：【Version：2.5.1】<br>
+ 更新内容：<br>
+ 2.5.1.1、新增 view 的 border 的创建，可以自定义圆角、边框、边框颜色等(感谢群里 [@北京-大腿](http://www.jianshu.com/u/69939e049851) 同学提出的 需求！)<br>
+ 2.5.1.2、修复 xib 下圆角右边无效的bug，注意：如果是 xib，需要要有固定 宽高，要不然 iOS 10 设置无效(感谢群里 [@北京-小黑](https://github.com/baishitong) 同学提出的 bug！)<br>
+ 
+ 最新更新时间：2017-06-19 【倒叙】<br>
+ 最新Version：【Version：2.5.0】<br>
+ 更新内容：<br>
+ 2.5.0.1、优化命名规范，更换了全局统一属性命名和方法命名，如果更新有报错的地方，大家别急，看 .h 文件更换过来即可，后期推出的 BAKit 系列产品，命名都将统一规范，在此给大家带来的不便之处，向大家道歉！希望大家谅解！多谢体谅！<br>
+ 
+ 最新更新时间：2017-06-01 【倒叙】<br>
+ 最新Version：【Version：2.4.3】<br>
+ 更新内容：<br>
+ 2.4.3.1、快速创建 button 方法改为类方法，可直接调用！<br>
+ 
+ 最新更新时间：2017-06-01 【倒叙】
+ 最新Version：【Version：2.4.2】
+ 更新内容：
+ 2.4.2.1、优化注释
+ 
+ 最新更新时间：2017-06-01 【倒叙】
+ 最新Version：【Version：2.4.1】
+ 更新内容：
+ 2.4.1.1、优化注释，注意：文字、字体大小、图片等设置一定要在设置 ba_button_setBAButtonLayoutType 之前设置，要不然计算会以默认字体大小计算，导致位置偏移
+ 
+ 最新更新时间：2017-05-27 【倒叙】
+ 最新Version：【Version：2.4.0】
+ 更新内容：
+ 2.4.0.1、此版本由 [子丰大神](https://github.com/renzifeng) 亲自改版，再次感谢 [子丰大神](https://github.com/renzifeng)
+ 2.4.0.2、新增 UIButton 各种状态下背景颜色、字体、border、font、动画等的监测及改变
+ 2.4.0.3、新增 UIButton 倒计时的封装，两行代码搞定倒计时！
+ 2.4.0.4、优化整体代码结构，代码规范！
+ 
+ 最新更新时间：2017-05-26 【倒叙】
+ 最新Version：【Version：2.3.2】
+ 更新内容：
+ 2.3.2.1、优化代码结构，修复 frame 改变后 padding 无法更改的问题！
+ 
+ 最新更新时间：2017-05-24 【倒叙】
+ 最新Version：【Version：2.3.1】
+ 更新内容：
+ 2.3.1.1、新增：padding_inset，文字或图片距离 button 左右边界的最小距离，默认为：5
  
  最新更新时间：2017-05-20 【倒叙】
  最新Version：【Version：2.3.0】
@@ -80,6 +148,5 @@
  2.3.0.4、版本改动较大，希望大家谅解，如果用老版本的 BAButton，可以参考demo 更换新版本，后期改动不大
 
 */
-
 
 #endif /* BAButton_h */

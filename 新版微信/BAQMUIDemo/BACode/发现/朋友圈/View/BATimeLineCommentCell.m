@@ -43,7 +43,7 @@
 {
     NSString *comment = @"";
     BATimeLineCommentModel *model = _commentViewModel.model;
-    if ([BAKit_Helper ba_helperIsNSStringNULL:model.secondUser.user_Name])
+    if (BAKit_stringIsBlank(model.secondUser.user_Name))
     {
         comment = [NSString stringWithFormat:@"%@：%@", model.firstUser.user_Name, model.commentContent];
     }
@@ -75,7 +75,7 @@
 - (UILabel *)commentLabel {
 	if(_commentLabel == nil) {
 		_commentLabel = [[UILabel alloc] init];
-        self.commentLabel.font = BAKit_FontSystem_13;
+        self.commentLabel.font = BAKit_Font_systemFontOfSize_13;
         [self.contentView addSubview:self.commentLabel];
 	}
 	return _commentLabel;

@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UICommon/QMUIConfigurationMacros.h
+../../../QMUIKit/QMUIKit/UICore/QMUIConfigurationMacros.h

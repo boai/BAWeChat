@@ -64,20 +64,25 @@
 #import "NSDateFormatter+BAKit.h"
 
 #pragma mark - NSString 类封装
-#import "NSString+Time.h"
-#import "NSMutableAttributedString+BAKit.h"
-#import "NSString+Regular.h"
-#import "NSString+BAColor.h"
-#import "NSString+BAKit.h"
-#import "NSString+NSNumber.h"
-#import "NSString+Trims.h"
+#import "BAKit_NSString.h"
 
-#pragma mark NSMutableAttributedString 封装
-#import "NSMutableAttributedString+BAKit.h"
+#pragma mark - NSNumber 类封装
+#import "NSNumber+BARandom.h"
 
+#import "NSDictionary+BAKit.h"
+
+
+#pragma mark - runtime 类封装
 #import "NSObject+BARunTime.h"
 /*! 交换两个方法 */
-#import "NSObject+ExchangeMethod.h"
+#import "NSObject+BAExchangeMethod.h"
+
+#pragma mark - 信息存储 类
+#import "BAKit_UserDefaults.h"
+#import "NSString+BAFileManager.h"
+#import "NSFileManager+BAKit.h"
+
+#import "NSShadow+BAKit.h"
 
 
 #endif /* BAKit_Foundation_h */

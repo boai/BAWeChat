@@ -26,7 +26,7 @@
  *  @param ClassName 类名
  *  @param animated  是否动画
  */
--(BOOL)popToAppointViewController:(NSString *)ClassName animated:(BOOL)animated
+- (BOOL)popToAppointViewController:(NSString *)ClassName animated:(BOOL)animated
 {
     id vc = [self getCurrentViewControllerClass:ClassName];
     if(vc != nil && [vc isKindOfClass:[UIViewController class]])
@@ -47,7 +47,7 @@
  *
  *  @return 类，没找到返回空
  */
--(instancetype)backToAppointViewController:(NSString *)ClassName animated:(BOOL)animated
+- (instancetype)backToAppointViewController:(NSString *)ClassName animated:(BOOL)animated
 {
     id vc = [self getCurrentViewControllerClass:ClassName];
     if(vc != nil && [vc isKindOfClass:[UIViewController class]])
@@ -66,7 +66,7 @@
  *
  *  @return 成功返回对应的对象，失败返回nil;
  */
--(instancetype)getCurrentViewControllerClass:(NSString *)ClassName
+- (instancetype)getCurrentViewControllerClass:(NSString *)ClassName
 {
     Class classObj = NSClassFromString(ClassName);
     

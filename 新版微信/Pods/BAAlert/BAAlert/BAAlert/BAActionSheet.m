@@ -74,7 +74,7 @@ static NSString * const kCellID = @"BAActionSheetCell";
 
 - (void)setupCommonUI
 {
-    self.backgroundColor = BAAlert_Color_Translucent;
+    self.backgroundColor = BAKit_Color_Translucent_pod;
     self.actionSheetType = BAActionSheetTypeNormal;
     self.isExpand = NO;
     self.isTouchEdgeHide = YES;
@@ -159,7 +159,7 @@ static NSString * const kCellID = @"BAActionSheetCell";
         cell.textLabel.text = model.content;
         cell.detailTextLabel.text = model.subContent;
         cell.imageView.image = [UIImage imageNamed:model.imageUrl];
-        cell.detailTextLabel.textColor = BAAlert_Color_gray7;
+        cell.detailTextLabel.textColor = BAKit_Color_Gray_7_pod;
         
         if (indexPath.row == 0)
         {
@@ -185,9 +185,9 @@ static NSString * const kCellID = @"BAActionSheetCell";
             {
                 BAActionSheetSubContentModel *subContentModel = model.subContentArray[indexPath.row];
                 cell.textLabel.text = subContentModel.subContent;
-                cell.textLabel.textColor = BAAlert_Color_gray7;
+                cell.textLabel.textColor = BAKit_Color_Gray_7_pod;
                 
-                cell.backgroundColor = BAAlert_Color_gray11;
+                cell.backgroundColor = BAKit_Color_Gray_11_pod;
                 
                 return cell;
             }
@@ -309,11 +309,11 @@ static NSString * const kCellID = @"BAActionSheetCell";
 
         UIButton *expandButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [expandButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-        expandButton.frame = CGRectMake(SCREENWIDTH - 50, 0, 30, 30);
+        expandButton.frame = CGRectMake(BAKit_SCREEN_WIDTH - 50, 0, 30, 30);
         expandButton.userInteractionEnabled = NO;
         
         UILabel *titleLabel = [UILabel new];
-        titleLabel.frame = CGRectMake(15, 0, SCREENWIDTH - 15 * 2, 43);
+        titleLabel.frame = CGRectMake(15, 0, BAKit_SCREEN_WIDTH - 15 * 2, 43);
         titleLabel.text = model.content;
         
         [header addSubview:titleLabel];
@@ -369,7 +369,7 @@ static NSString * const kCellID = @"BAActionSheetCell";
     
     self.frame = [UIScreen mainScreen].bounds;
     
-    min_w = SCREENWIDTH;
+    min_w = BAKit_SCREEN_WIDTH;
     min_h = (self.title.length > 0) ? 44 : 0;
     self.headerView.frame = CGRectMake(min_x, min_y, min_w, min_h);
     _titleLabel.frame = self.headerView.bounds;
@@ -396,12 +396,12 @@ static NSString * const kCellID = @"BAActionSheetCell";
             min_h = (self.dataArray.count) * 44;
         }
     }
-    min_y = SCREENHEIGHT - min_h;
+    min_y = BAKit_SCREEN_HEIGHT - min_h;
     min_y -= header_h;
     min_y = MAX(min_y, 0);
     min_h += header_h;
-    min_h = MIN(min_h, SCREENHEIGHT);
-    if (min_h == SCREENHEIGHT)
+    min_h = MIN(min_h, BAKit_SCREEN_HEIGHT);
+    if (min_h == BAKit_SCREEN_HEIGHT)
     {
         _tableView.scrollEnabled = YES;
     }
@@ -562,7 +562,7 @@ static NSString * const kCellID = @"BAActionSheetCell";
         _tableView.delegate        = self;
         _tableView.dataSource      = self;
         _tableView.scrollEnabled   = NO;
-        _tableView.backgroundColor = BAAlert_Color_gray11;
+        _tableView.backgroundColor = BAKit_Color_Gray_11_pod;
         
         [self addSubview:_tableView];
     }
@@ -595,7 +595,7 @@ static NSString * const kCellID = @"BAActionSheetCell";
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"windowLevel == %ld AND hidden == 0 " , UIWindowLevelNormal];
             self.actionSheetWindow = [[UIApplication sharedApplication].windows filteredArrayUsingPredicate:predicate].firstObject;
         }
-        self.actionSheetWindow.backgroundColor = BAAlert_Color_Translucent;
+        self.actionSheetWindow.backgroundColor = BAKit_Color_Translucent_pod;
     }
 
     return _actionSheetWindow;

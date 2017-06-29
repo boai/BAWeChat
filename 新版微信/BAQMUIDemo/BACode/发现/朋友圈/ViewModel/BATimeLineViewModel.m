@@ -36,19 +36,19 @@
     /*! 昵称 */
     CGFloat name_x = CGRectGetMaxX(_iconImageViewFrame) + BAKit_Margin_5;
     CGFloat name_y = image_y;
-    CGSize name_size = BAKit_LabelSizeWithTextAndFont(_model.user.user_Name, BAKit_FontSystem_15);
+    CGSize name_size = BAKit_LabelSizeWithTextAndFont(_model.user.user_Name, BAKit_Font_systemFontOfSize_15);
     _nameLabelFrame = (CGRect){{name_x, name_y}, name_size};
     
     /*! 来源 */
     CGFloat source_x = name_x;
     CGFloat source_y = CGRectGetMaxY(_nameLabelFrame) + BAKit_Margin_5;
-    CGSize source_size = BAKit_LabelSizeWithTextAndFont(_model.source, BAKit_FontSystem_12);
+    CGSize source_size = BAKit_LabelSizeWithTextAndFont(_model.source, BAKit_Font_systemFontOfSize_12);
     _sourceLabelFrame = (CGRect){{source_x, source_y}, source_size};
     
     /*! 发表内容 */
     CGFloat content_x = image_x;
     CGFloat content_y = CGRectGetMaxY(_iconImageViewFrame) + BAKit_Margin_10;
-    CGSize content_size = BAKit_LabelSizeWithTextAndWidthAndFont(_model.content, BAKit_Margin_Content_width, BAKit_FontSystem_13);
+    CGSize content_size = BAKit_LabelSizeWithTextAndWidthAndFont(_model.content, BAKit_Margin_Content_width, BAKit_Font_systemFontOfSize_13);
     _contentLabelFrame = CGRectMake(content_x, content_y, BAKit_Margin_Content_width, content_size.height+10);
     
     /*! 图片 View 的 frame */
@@ -131,7 +131,7 @@
     /*! 时间 */
     CGFloat time_x = content_x;
     CGFloat time_y = CGRectGetMaxY(_photoViewFrame) + BAKit_Margin_5;
-    CGSize time_size = BAKit_LabelSizeWithTextAndFont(_model.created_time, BAKit_FontSystem_12);
+    CGSize time_size = BAKit_LabelSizeWithTextAndFont(_model.created_time, BAKit_Font_systemFontOfSize_12);
     _timeLabelFrame = (CGRect){{time_x, time_y}, time_size};
     
     /*! 点赞和评论按钮 */
@@ -189,11 +189,11 @@
             CGSize commentLabel_size = CGSizeZero;
             if (model.attributedContent)
             {
-                commentLabel_size = BAKit_LabelSizeWithMutableAttributedStringAndWidthAndFont(attributedString, BAKit_Margin_Content_width, BAKit_FontSystem_13);
+                commentLabel_size = BAKit_LabelSizeWithMutableAttributedStringAndWidthAndFont(attributedString, BAKit_Margin_Content_width, BAKit_Font_systemFontOfSize_13);
             }
             else
             {
-                commentLabel_size = BAKit_LabelSizeWithTextAndWidthAndFont(text, BAKit_Margin_Content_width, BAKit_FontSystem_13);
+                commentLabel_size = BAKit_LabelSizeWithTextAndWidthAndFont(text, BAKit_Margin_Content_width, BAKit_Font_systemFontOfSize_13);
             }
             _commentLabelFrame = CGRectMake(commentLabel_x, commentLabel_y, BAKit_Margin_Content_width, commentLabel_size.height);
             

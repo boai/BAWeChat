@@ -8,7 +8,6 @@
 
 #import "BAKit_HudManager.h"
 #import <MBProgressHUD.h>
-#import <SVProgressHUD.h>
 #import "UIView+HUD.h"
 
 static BAKit_HudManager *hudManager = nil;
@@ -139,14 +138,8 @@ static BAKit_HudManager *hudManager = nil;
         
         SEL originalSEL = @selector(viewDidDisappear:);
         SEL swizzledSEL = @selector(hud_viewDidDisappear:);
-        [class exchangeMethod:originalSEL method:swizzledSEL];
+        [class ba_exchangeMethod:originalSEL method:swizzledSEL];
         
-        //设置HUD样式
-        if (IOS9_SDK_ALLOWED)
-        {
-            [SVProgressHUD setMinimumDismissTimeInterval:1.618];
-            [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-        }
     });
 }
 

@@ -65,54 +65,74 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  button 的样式，以图片为基准
 
- - BAButtonLayoutTypeNormal: button 默认样式：内容居中-图左文右
- - BAButtonLayoutTypeCenterImageRight: 内容居中-图右文左
- - BAButtonLayoutTypeCenterImageTop: 内容居中-图上文下
- - BAButtonLayoutTypeCenterImageBottom: 内容居中-图下文上
- - BAButtonLayoutTypeLeftImageLeft: 内容居左-图左文右
- - BAButtonLayoutTypeLeftImageRight: 内容居左-图右文左
- - BAButtonLayoutTypeRightImageLeft: 内容居右-图左文右
- - BAButtonLayoutTypeRightImageRight: 内容居右-图右文左
+ - BAKit_ButtonLayoutTypeNormal: button 默认样式：内容居中-图左文右
+ - BAKit_ButtonLayoutTypeCenterImageRight: 内容居中-图右文左
+ - BAKit_ButtonLayoutTypeCenterImageTop: 内容居中-图上文下
+ - BAKit_ButtonLayoutTypeCenterImageBottom: 内容居中-图下文上
+ - BAKit_ButtonLayoutTypeLeftImageLeft: 内容居左-图左文右
+ - BAKit_ButtonLayoutTypeLeftImageRight: 内容居左-图右文左
+ - BAKit_ButtonLayoutTypeRightImageLeft: 内容居右-图左文右
+ - BAKit_ButtonLayoutTypeRightImageRight: 内容居右-图右文左
  */
-typedef NS_ENUM(NSInteger, BAButtonLayoutType) {
-    BAButtonLayoutTypeNormal = 0,
-    BAButtonLayoutTypeCenterImageRight,
-    BAButtonLayoutTypeCenterImageTop,
-    BAButtonLayoutTypeCenterImageBottom,
-    BAButtonLayoutTypeLeftImageLeft,
-    BAButtonLayoutTypeLeftImageRight,
-    BAButtonLayoutTypeRightImageLeft,
-    BAButtonLayoutTypeRightImageRight,
+typedef NS_ENUM(NSInteger, BAKit_ButtonLayoutType) {
+    BAKit_ButtonLayoutTypeNormal = 0,
+    BAKit_ButtonLayoutTypeCenterImageRight,
+    BAKit_ButtonLayoutTypeCenterImageTop,
+    BAKit_ButtonLayoutTypeCenterImageBottom,
+    BAKit_ButtonLayoutTypeLeftImageLeft,
+    BAKit_ButtonLayoutTypeLeftImageRight,
+    BAKit_ButtonLayoutTypeRightImageLeft,
+    BAKit_ButtonLayoutTypeRightImageRight,
 };
 
 @interface UIButton (BAKit)
 
 /**
- button 的布局样式，默认为：BAButtonLayoutTypeNormal，注意：此设置只能在 [self.view addSubview:button] 之后添加样式
+ button 的布局样式，默认为：BAKit_ButtonLayoutTypeNormal，注意：文字、字体大小、图片等设置一定要在设置 ba_button_setBAKit_ButtonLayoutType 之前设置，要不然计算会以默认字体大小计算，导致位置偏移
  */
-@property(nonatomic, assign) BAButtonLayoutType buttonLayoutType;
+@property(nonatomic, assign) BAKit_ButtonLayoutType ba_buttonLayoutType;
 
 /*!
  *  文字与图片之间的间距，默认为：0
  */
-@property (nonatomic, assign) CGFloat padding;
+@property (nonatomic, assign) CGFloat ba_padding;
 
+/*!
+ *  文字或图片距离 button 左右边界的最小距离，默认为：5
+ */
+@property (nonatomic, assign) CGFloat ba_padding_inset;
 
 /**
- 快速设置 button 的布局样式 和 间距
+ 快速设置 button 的布局样式 和 间距，注意：文字、字体大小、图片等设置一定要在设置 ba_button_setButtonLayoutType 之前设置，要不然计算会以默认字体大小计算，导致位置偏移
 
  @param type button 的布局样式
  @param padding 文字与图片之间的间距
  */
-- (void)ba_button_setBAButtonLayoutType:(BAButtonLayoutType)type padding:(CGFloat)padding;
+- (void)ba_button_setButtonLayoutType:(BAKit_ButtonLayoutType)type
+                              padding:(CGFloat)padding;
 
 /**
- 快速切圆角
+ 快速切圆角，注意：文字、字体大小、图片等设置一定要在设置 ba_button_setButtonLayoutType 之前设置，要不然计算会以默认字体大小计算，导致位置偏移，如果是 xib，需要要有固定 宽高，要不然 iOS 10 设置无效
 
  @param type 圆角样式
  @param viewCornerRadius 圆角角度
  */
-- (void)ba_button_setBAViewRectCornerType:(BAViewRectCornerType)type viewCornerRadius:(CGFloat)viewCornerRadius;
+- (void)ba_button_setViewRectCornerType:(BAKit_ViewRectCornerType)type
+                       viewCornerRadius:(CGFloat)viewCornerRadius;
+
+/**
+ 快速切圆角，带边框、边框颜色，如果是 xib，需要要有固定 宽高，要不然 iOS 10 设置无效
+ 
+ @param type 圆角样式
+ @param viewCornerRadius 圆角角度
+ @param borderWidth 边线宽度
+ @param borderColor 边线颜色
+ */
+- (void)ba_button_setViewRectCornerType:(BAKit_ViewRectCornerType)type
+                       viewCornerRadius:(CGFloat)viewCornerRadius
+                            borderWidth:(CGFloat)borderWidth
+                            borderColor:(UIColor *)borderColor;
+
 
 /**
  *  给定框架创建一个UIButton对象
@@ -211,19 +231,34 @@ highlightedBackgroundImage:(UIImage *)highlightedBackgroundImage;
  @param sel sel
  @return button
  */
-- (instancetype __nonnull)creatButtonWithFrame:(CGRect)frame
-                                         title:(NSString * __nullable)title
-                                      selTitle:(NSString * __nullable)selTitle
-                                    titleColor:(UIColor * __nullable)titleColor
-                                     titleFont:(UIFont * __nullable)titleFont
-                                         image:(UIImage * __nullable)image
-                                      selImage:(UIImage * __nullable)selImage
-                                       padding:(CGFloat)padding
-                           buttonPositionStyle:(BAButtonLayoutType)buttonLayoutType
-                            viewRectCornerType:(BAViewRectCornerType)viewRectCornerType
-                              viewCornerRadius:(CGFloat)viewCornerRadius
-                                        target:(id __nullable)target
-                                      selector:(SEL __nullable)sel;
++ (instancetype __nonnull)ba_creatButtonWithFrame:(CGRect)frame
+                                            title:(NSString * __nullable)title
+                                         selTitle:(NSString * __nullable)selTitle
+                                       titleColor:(UIColor * __nullable)titleColor
+                                        titleFont:(UIFont * __nullable)titleFont
+                                            image:(UIImage * __nullable)image
+                                         selImage:(UIImage * __nullable)selImage
+                                          padding:(CGFloat)padding
+                              buttonPositionStyle:(BAKit_ButtonLayoutType)buttonLayoutType
+                               viewRectCornerType:(BAKit_ViewRectCornerType)viewRectCornerType
+                                 viewCornerRadius:(CGFloat)viewCornerRadius
+                                           target:(id __nullable)target
+                                         selector:(SEL __nullable)sel;
+
+@end
+
+@interface UIImage (BAKit)
+
++ (UIImage *)imageWithColor:(UIColor *)color;
+
+/*!
+ *  根据宽比例去缩放图片，注意：如果button 的图片 太宽，需要调用此方法去等比压缩图片，具体看示例demo
+ *
+ *  @param width width description
+ *
+ *  @return return value description
+ */
+- (UIImage *)ba_imageScaleToWidth:(CGFloat)width;
 
 @end
 NS_ASSUME_NONNULL_END

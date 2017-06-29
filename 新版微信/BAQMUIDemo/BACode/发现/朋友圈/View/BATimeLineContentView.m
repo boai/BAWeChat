@@ -273,7 +273,7 @@
 - (YYAnimatedImageView *)iconImageView {
 	if(_iconImageView == nil) {
 		_iconImageView = [[YYAnimatedImageView alloc] init];
-        [_iconImageView ba_setBordersWithColor:BAKit_Color_Green andCornerRadius:BAKit_Margin_UserImage_Size/2 andWidth:1.0f];
+        [_iconImageView ba_viewSetBorderWithColor:BAKit_Color_Green cornerRadius:BAKit_Margin_UserImage_Size/2 width:1.0f];
         [self addSubview:_iconImageView];
 	}
 	return _iconImageView;
@@ -282,7 +282,7 @@
 - (UILabel *)nameLabel {
 	if(_nameLabel == nil) {
 		_nameLabel = [[UILabel alloc] init];
-        _nameLabel.font = BAKit_FontSystem_15;
+        _nameLabel.font = BAKit_Font_systemFontOfSize_15;
         self.nameLabel.textColor = BAKit_Color_Gray_6;
 //        self.nameLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [self addSubview:_nameLabel];
@@ -293,7 +293,7 @@
 - (UILabel *)timeLabel {
 	if(_timeLabel == nil) {
 		_timeLabel = [[UILabel alloc] init];
-        _timeLabel.font = BAKit_FontSystem_12;
+        _timeLabel.font = BAKit_Font_systemFontOfSize_12;
         self.timeLabel.textColor     = BAKit_Color_Gray_8;
 //        self.timeLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [self addSubview:_timeLabel];
@@ -307,7 +307,7 @@
         self.contentLabel.textColor     = BAKit_Color_Gray_6;
         self.contentLabel.backgroundColor = BAKit_Color_Gray_10;
         self.contentLabel.userInteractionEnabled = YES;
-        self.contentLabel.font = BAKit_FontSystem_13;
+        self.contentLabel.font = BAKit_Font_systemFontOfSize_13;
 
 //        self.contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
         self.contentLabel.textAlignment = NSTextAlignmentJustified;
@@ -328,7 +328,7 @@
             {
                 if ([BAKit_RegularExpression ba_regularIsUrl:link.linkValue])
                 {
-                    [BAKit_Helper ba_ba_helperGotoSafariBrowserWithURL:link.linkValue];
+                    [BAKit_Helper ba_helperGotoSafariBrowserWithURL:link.linkValue];
                     return;
                 }
             }
@@ -356,7 +356,7 @@
 - (UILabel *)sourceLabel {
 	if(_sourceLabel == nil) {
 		_sourceLabel = [[UILabel alloc] init];
-        _sourceLabel.font = BAKit_FontSystem_12;
+        _sourceLabel.font = BAKit_Font_systemFontOfSize_12;
         self.sourceLabel.textColor = BAKit_Color_Gray_8;
 //        self.sourceLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [self addSubview:_sourceLabel];

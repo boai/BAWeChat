@@ -314,7 +314,7 @@ static NSString * const cellID = @"BAContactViewCell";
         model.user_Image = userDic[@"image"];
         model.user_PhoneNumber = userDic[@"phone"];
         
-        if (![BAKit_Helper ba_helperIsNSStringNULL:model.user_Name])
+        if (!BAKit_stringIsBlank(model.user_Name))
         {
             if ([self ba_isArray:self.dataArray containsObject:model])
             {
@@ -378,7 +378,9 @@ static NSString * const cellID = @"BAContactViewCell";
     /*! 设置关键字属性 */
     [attributedMessage ba_changeAttributeDict:dic range:range];
     
-    [UIAlertController ba_alertControllerShowAlertInViewController:self withTitle:@"博爱温馨提示" mutableAttributedTitle:attributedTitle message:@"" mutableAttributedMessage:attributedMessage buttonTitlesArray:@[@"取 消", @"确 定"] buttonTitleColorArray:@[UIColorGreen, UIColorRed] tapBlock:^(UIAlertController * _Nonnull controller, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
+    NSArray *buttonTitleColorArray = @[BAKit_Color_Green, BAKit_Color_Red];
+
+    [UIAlertController ba_alertAttributedShowInViewController:self attributedTitle:attributedTitle attributedMessage:attributedMessage buttonTitleArray:@[@"取 消", @"确 定"]  buttonTitleColorArray:buttonTitleColorArray block:^(UIAlertController * _Nonnull alertController, UIAlertAction * _Nonnull action, NSInteger buttonIndex) {
         if (buttonIndex == 0)
         {
             NSLog(@"你点击了取消按钮！");
@@ -387,7 +389,6 @@ static NSString * const cellID = @"BAContactViewCell";
         {
             NSLog(@"你点击了确定按钮！");
         }
-        return;
     }];
 }
 

@@ -91,11 +91,9 @@ typedef void (^BALocation_locateFailureBlock)(NSString *message);
 
 @interface BAKit_Location : NSObject
 
-
 @property(nonatomic, copy) BALocation_locatingBlock locatingBlock;
 @property(nonatomic, copy) BALocation_getCurrentLocationBlock getCurrentLocationBlock;
 @property(nonatomic, copy) BALocation_refuseToUsePositioningSystemBlock refuseToUsePositioningSystemBlock;
 @property(nonatomic, copy) BALocation_locateFailureBlock locateFailureBlock;
-
 
 @end

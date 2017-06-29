@@ -23,7 +23,7 @@
  *
  *  @return 计算单个文件大小
  */
-- (CGFloat)ba_fileSizeAtPath:(NSString *)path;
+- (CGFloat)ba_fileManagerGetSizeWithFilePath:(NSString *)path;
 
 /*!
  *  计算目录大小

@@ -23,6 +23,8 @@
     #import "BAKit.h"
     #import "BAUser.h"
     #import <BAButton.h>
+    #import <BAKit_BAGridView.h>
+    #import <BANetManager.h>
 
     /*! FMDB 封装 */
     #import "FMDB.h"

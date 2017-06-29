@@ -11,6 +11,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "BAKit_RegularExpression.h"
 
+#import <AssetsLibrary/AssetsLibrary.h>
+
 @implementation BAKit_Helper
 
 /*!
@@ -70,7 +72,7 @@
 /*!
  *  跳转Safari浏览器
  */
-+ (void)ba_ba_helperGotoSafariBrowserWithURL:(NSString *)url
++ (void)ba_helperGotoSafariBrowserWithURL:(NSString *)url
 {
     if ([BAKit_RegularExpression ba_regularIsUrl:url])
     {
@@ -81,38 +83,13 @@
     {
         NSLog(@"url错误，请重新输入！");
     }
-    
 }
+
+
 
 @end
 
 @implementation BAKit_Helper (NSNULL)
-
-#pragma mark - ***** 判断字典是否为空
-+ (BOOL)ba_helperIsNSDictionaryNULL:(id)obj
-{
-    if(obj == nil) return YES;
-    
-    if(![obj isKindOfClass:[NSDictionary class]])
-        return YES;
-    
-    //if([obj count] <= 0) return YES;
-    return NO;
-}
-
-#pragma mark - ***** 判断字符串是否为空
-+ (BOOL)ba_helperIsNSStringNULL:(NSString *)stirng
-{
-    if([stirng isKindOfClass:[NSNull class]]) return YES;
-    if(![stirng isKindOfClass:[NSString class]]) return YES;
-    
-    if(stirng == nil) return YES;
-    
-    NSString * string1 = [stirng stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSUInteger len=[string1 length];
-    if (len <= 0) return YES;
-    return NO;
-}
 
 #pragma mark - ***** 判断字符串为空和只为空格
 + (BOOL)ba_helperIsBlankString:(NSString *)string
@@ -211,3 +188,5 @@
 }
 
 @end
+
+

@@ -23,6 +23,7 @@ typedef void (^BannerBlock)(NSInteger index);
 - (void)setupUI;
 - (void)setupNavi;
 
+
 - (void)gotoScanVC;
 
 - (void)gotoWebWithUrl:(NSString *)url;
@@ -38,14 +39,13 @@ typedef void (^BannerBlock)(NSInteger index);
 //- (SDCycleScrollView *)setupUploadViewWithFrame:(CGRect)frame
 //                                 imageUrlsArray:(NSArray *)imageUrlsArray
 //                                      withBlock:(BannerBlock)block;
-
 /*！
  自定义动画样式
 
  @param type 动画样式
  @param animationView 需要动画的 View
  */
-- (void)ba_animationWithBATransitionType:(BATransitionType)type
+- (void)ba_animationWithBATransitionType:(BAKit_ViewTransitionType)type
                            animationView:(UIView *)animationView;
 
 #pragma mark - 清理缓存

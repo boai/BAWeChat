@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-/// QMUIBase
-#import "QMUIHelper.h"
-#import "QMUICommonDefines.h"
-#import "QMUIConfigurationMacros.h"
+/// QMUICore
+#import "QMUICore.h"
 
 /// QMUIKit
 #import "QMUIVisualEffectView.h"
@@ -67,7 +65,6 @@
 #import "QMUITips.h"
 #import "QMUIEmptyView.h"
 #import "QMUINavigationTitleView.h"
-#import "QMUIStaticTableViewCellData.h"
 #import "QMUIGridView.h"
 #import "QMUIFloatLayoutView.h"
 #import "QMUIZoomImageView.h"
@@ -91,6 +88,11 @@
 #import "QMUIMoreOperationController.h"
 #import "QMUIDialogViewController.h"
 #import "QMUIOrderedDictionary.h"
+#import "QMUIMarqueeLabel.h"
+#import "QMUISlider.h"
+#import "QMUIStaticTableViewCellData.h"
+#import "QMUIStaticTableViewCellDataSource.h"
+#import "UITableView+QMUIStaticCell.h"
 
 /// UIMainFrame
 #import "QMUISearchController.h"

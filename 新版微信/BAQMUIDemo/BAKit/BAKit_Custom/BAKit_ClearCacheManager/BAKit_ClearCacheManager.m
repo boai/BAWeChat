@@ -22,15 +22,9 @@
 }
 
 #pragma mark - 计算单个文件大小
-- (CGFloat)ba_fileSizeAtPath:(NSString *)path
+- (CGFloat)ba_fileManagerGetSizeWithFilePath:(NSString *)path
 {
-    NSFileManager *fileManager=[NSFileManager defaultManager];
-    if([fileManager fileExistsAtPath:path])
-    {
-        long long size=[fileManager attributesOfItemAtPath:path error:nil].fileSize;
-        return size/1024.0/1024.0;
-    }
-    return 0;
+    return [NSFileManager ba_fileManagerGetSizeWithFilePath:path];
 }
 
 - (CGFloat)ba_loadCacheSize
@@ -41,7 +35,7 @@
     for (NSString *f in files)
     {
         NSString *path = [cachPath stringByAppendingPathComponent:f];
-        self.cacheSize += [self ba_fileSizeAtPath:path];
+        self.cacheSize += [self ba_fileManagerGetSizeWithFilePath:path];
     }
     NSLog(@"cacheSize == %f",self.cacheSize);
     
@@ -53,14 +47,14 @@
 - (CGFloat)ba_folderSizeAtPath:(NSString *)path
 {
     NSFileManager *fileManager=[NSFileManager defaultManager];
-    float folderSize;
+    float folderSize = 0.0;
     if ([fileManager fileExistsAtPath:path])
     {
         NSArray *childerFiles=[fileManager subpathsAtPath:path];
         for (NSString *fileName in childerFiles)
         {
             NSString *absolutePath=[path stringByAppendingPathComponent:fileName];
-            folderSize += [self ba_fileSizeAtPath:absolutePath];
+            folderSize += [self ba_fileManagerGetSizeWithFilePath:absolutePath];
         }
         //SDWebImage框架自身计算缓存的实现
         //        folderSize+=[[SDImageCache sharedImageCache] getSize]/1024.0/1024.0;
