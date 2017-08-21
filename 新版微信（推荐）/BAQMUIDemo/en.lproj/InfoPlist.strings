@@ -5,4 +5,5 @@
   Created by 博爱 on 2017/2/23.
   Copyright © 2017年 boaihome. All rights reserved.
 */
-CFBundleDisplayName = "博爱微信";
+
+CFBundleDisplayName = "BAWeChat";
