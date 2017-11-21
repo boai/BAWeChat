@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIEmotionView.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIEmotionView.h

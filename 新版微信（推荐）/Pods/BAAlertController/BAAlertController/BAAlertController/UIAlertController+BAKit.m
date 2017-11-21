@@ -13,9 +13,25 @@
 
 #import "BAAlertController.h"
 
-@interface UIViewController (BAKit)
+@interface UIViewController (BAAlertController)
 
 - (UIViewController *)ba_currentViewController;
+
+@end
+
+@implementation UIViewController (BAAlertController)
+
+- (UIViewController *)ba_currentViewController
+{
+    UIViewController *topVC = self;
+    
+    UIViewController *above;
+    while ((above = topVC.presentedViewController)) {
+        topVC = above;
+    }
+    
+    return topVC;
+}
 
 @end
 
@@ -358,18 +374,3 @@
 
 @end
 
-@implementation UIViewController (BAKit)
-
-- (UIViewController *)ba_currentViewController
-{
-    UIViewController *topVC = self;
-    
-    UIViewController *above;
-    while ((above = topVC.presentedViewController)) {
-        topVC = above;
-    }
-    
-    return topVC;
-}
-
-@end

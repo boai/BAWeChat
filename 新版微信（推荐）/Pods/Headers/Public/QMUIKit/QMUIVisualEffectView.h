@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIVisualEffectView.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIVisualEffectView.h

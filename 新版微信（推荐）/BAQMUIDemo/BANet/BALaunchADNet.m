@@ -13,70 +13,84 @@
 BAKit_SingletonM(BALaunchADNet)
 
 #pragma mark - 此处模拟广告数据请求,实际项目中请做真实请求
-- (void)ba_launchADNet_getImageDataCompletionHandle:(void (^)(id data, NSError *))completionHandle
+- (void)ba_launchADNet_getImageDataWithBlock:(BABaseNetManagerBlock)block
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         NSData *jsonData = BAKit_GetDataWithContentsOfFile(@"LaunchImageAd", @"json");
         NSDictionary *dict = BAKit_GetDictionaryWithData(jsonData);
-        if (completionHandle)
+        if (block)
         {
-            completionHandle(dict, nil);
+            block(dict, nil);
         }
     });
 }
 
 #pragma mark - 此处模拟广告数据请求,实际项目中请做真实请求
-- (void)ba_launchADNet_getVideoDataCompletionHandle:(void (^)(id data, NSError *))completionHandle
+- (void)ba_launchADNet_getVideoDataWithBlock:(BABaseNetManagerBlock)block
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSData *jsonData = BAKit_GetDataWithContentsOfFile(@"LaunchVideoAd", @"json");
         NSDictionary *dict = BAKit_GetDictionaryWithData(jsonData);
-        if (completionHandle)
+        if (block)
         {
-            completionHandle(dict, nil);
+            block(dict, nil);
         }
     });
     
 }
 
 /*!
- *  示例1：DemoVC1中的网络获取示例
+ *  示例1：DemoVC1 中的网络获取示例
  *
  *  @param startIndex index
- *
- *  @return DemoVC1中的网络获取示例
+ *  @param block block
  */
-- (id)ba_getVideosWithStartIndex:(NSInteger)startIndex completionHandle:(void (^)(BAVideoModel *data, NSError *))completionHandle
+- (void)ba_getVideosWithStartIndex:(NSInteger)startIndex block:(BABaseNetManagerBlock)block
 {
-    NSString *path = [NSString stringWithFormat:KVideoPath, startIndex];
+    //  version 2.3.8 的写法
+    BABaseNet *net = [BABaseNet new];
     
-    return [BANetManager ba_request_GETWithUrlString:path isNeedCache:NO parameters:nil successBlock:^(id response) {
-        completionHandle([BAVideoModel yy_modelWithJSON:response], nil);
-        
-    } failureBlock:^(NSError *error) {
-        NSLog(@"error：%@", error);
-        completionHandle(nil, error);
-        
-    } progress:nil];
+    BADataEntity *entity = [BADataEntity new];
+    entity.urlString = [NSString stringWithFormat:KVideoPath, startIndex];
+    entity.needCache = NO;
+    
+    [net ba_net_postWithEntity:entity completionHandle:^(id data, NSError *error) {
+        if (block)
+        {
+            block([BAVideoModel yy_modelWithJSON:data], error);
+        }
+    }];
 }
 
-- (id)ba_getThoughtworksWithCompletionHandle:(void (^)(BAThoughtworksModel *data, NSError *))completionHandle
+- (void)ba_getThoughtworksWithBlock:(BABaseNetManagerBlock)block
 {
-    NSString *path = KthoughtworksPath;
+    //  version 2.3.8 的写法
+    BABaseNet *net = [BABaseNet new];
     
-    return [BANetManager ba_request_GETWithUrlString:path isNeedCache:NO parameters:nil successBlock:^(id response) {
-        
-        completionHandle([BAThoughtworksModel yy_modelWithJSON:response], nil);
-        
-    } failureBlock:^(NSError *error) {
-        
-        NSLog(@"error：%@", error);
-        completionHandle(nil, error);
-        
-    } progress:^(int64_t bytesProgress, int64_t totalBytesProgress) {
-        
+    BADataEntity *entity = [BADataEntity new];
+    entity.urlString = KthoughtworksPath;
+    entity.needCache = NO;
+    
+    [net ba_net_getWithEntity:entity completionHandle:^(id data, NSError *error) {
+        if (block)
+        {
+            block([BAVideoModel yy_modelWithJSON:data], error);
+        }
     }];
+//  version 2.3.6 的写法
+//    return [BANetManager ba_request_GETWithUrlString:path isNeedCache:NO parameters:nil successBlock:^(id response) {
+//
+//        completionHandle([BAThoughtworksModel yy_modelWithJSON:response], nil);
+//
+//    } failureBlock:^(NSError *error) {
+//
+//        NSLog(@"error：%@", error);
+//        completionHandle(nil, error);
+//
+//    } progressBlock:^(int64_t bytesProgress, int64_t totalBytesProgress) {
+//
+//    }];
 }
 
 @end

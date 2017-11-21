@@ -9,7 +9,7 @@
 
 #import "BAActionSheet.h"
 #import "BAActionSheetCell.h"
-#import "CALayer+Animation.h"
+#import "UIView+BAAnimation.h"
 #import "BAAlert_OC.h"
 
 static NSString * const kCellID = @"BAActionSheetCell";
@@ -338,9 +338,11 @@ static NSString * const kCellID = @"BAActionSheetCell";
         NSLog(@"请在动画结束时点击！");
         return;
     }
+    
     if (!self.isTouchEdgeHide)
     {
-        NSLog(@"触摸了View边缘，但您未开启触摸边缘隐藏方法，请设置 isTouchEdgeHide 属性为 YES 后再使用！");
+        NSLog(@"触摸了 View 边缘，但您未开启触摸边缘隐藏方法，请设置 isTouchEdgeHide 属性为 YES 后再使用！");
+        return;
     }
     
     if ([view isKindOfClass:[self class]])
@@ -464,21 +466,23 @@ static NSString * const kCellID = @"BAActionSheetCell";
     BAKit_WeakSelf
     if (self.animatingStyle == BAAlertAnimatingStyleScale)
     {
-        [animationView scaleAnimationShowFinishAnimation:^{
+        [animationView ba_animation_scaleShowWithDuration:0.5 ratio:1.1 finishBlock:^{
             BAKit_StrongSelf
             self.isAnimating = NO;
         }];
+        
     }
     else if (self.animatingStyle == BAAlertAnimatingStyleShake)
     {
-        [animationView.layer shakeAnimationWithDuration:1.0 shakeRadius:16.0 repeat:1 finishAnimation:^{
+        [animationView ba_animation_showFromPositionType:BAKit_ViewAnimationEnterDirectionTypeTop duration:0.5 finishBlock:^{
             BAKit_StrongSelf
             self.isAnimating = NO;
         }];
+        
     }
     else if (self.animatingStyle == BAAlertAnimatingStyleFall)
     {
-        [animationView.layer fallAnimationWithDuration:0.35 finishAnimation:^{
+        [animationView ba_animation_showFromPositionType:BAKit_ViewAnimationEnterDirectionTypeBottom duration:0.5 finishBlock:^{
             BAKit_StrongSelf
             self.isAnimating = NO;
         }];
@@ -492,23 +496,24 @@ static NSString * const kCellID = @"BAActionSheetCell";
     BAKit_WeakSelf;
     if (self.animatingStyle == BAAlertAnimatingStyleScale)
     {
-        [animationView scaleAnimationDismissFinishAnimation:^{
+        [animationView ba_animation_scaleDismissWithDuration:0.5 ratio:1.1 finishBlock:^{
             BAKit_StrongSelf
             self.isAnimating = NO;
             [self performSelector:@selector(ba_removeSelf)];
         }];
+        
     }
     else if (self.animatingStyle == BAAlertAnimatingStyleShake)
     {
-        [animationView.layer floatAnimationWithDuration:0.35f finishAnimation:^{
+        [animationView ba_animation_dismissFromPositionType:BAKit_ViewAnimationEnterDirectionTypeLeft duration:0.5 finishBlock:^{
             BAKit_StrongSelf
             self.isAnimating = NO;
             [self performSelector:@selector(ba_removeSelf)];
         }];
-    }
+            }
     else if (self.animatingStyle == BAAlertAnimatingStyleFall)
     {
-        [animationView.layer floatAnimationWithDuration:0.35f finishAnimation:^{
+        [animationView ba_animation_dismissFromPositionType:BAKit_ViewAnimationEnterDirectionTypeBottom duration:0.5 finishBlock:^{
             BAKit_StrongSelf
             self.isAnimating = NO;
             [self performSelector:@selector(ba_removeSelf)];

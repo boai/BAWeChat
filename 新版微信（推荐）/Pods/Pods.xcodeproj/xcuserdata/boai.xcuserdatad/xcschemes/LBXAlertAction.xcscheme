@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '84A60870D2C219C73F0409646E6208BE'
+               BlueprintIdentifier = '88E21EE4F7979F77935D804D491FB5DA'
                BlueprintName = 'LBXAlertAction'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libLBXAlertAction.a'>

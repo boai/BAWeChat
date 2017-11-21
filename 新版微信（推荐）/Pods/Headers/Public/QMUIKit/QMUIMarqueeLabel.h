@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIMarqueeLabel.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIMarqueeLabel.h

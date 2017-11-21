@@ -158,6 +158,11 @@
  欢迎使用 [【BAHome】](https://github.com/BAHome) 系列开源代码 ！
  如有更多需求，请前往：[【https://github.com/BAHome】](https://github.com/BAHome) 
  
+ 最新更新时间：2017-11-21 【倒叙】
+ 最新Version：【Version：1.1.3】<br>
+ 更新内容：<br>
+ 1.1.3.1、更新 BANetManager 的 二次封装示范，小伙伴可以直接拖出去使用了！记得是最新版的 2.3.8 的封装哦！<br>
+ 
  最新更新时间：2017-06-29 【倒叙】
  最新Version：【Version：1.1.2】<br>
  更新内容：<br>

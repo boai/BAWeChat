@@ -25,9 +25,14 @@
  OC 版 ：https://github.com/BAHome/BAAlertController
  
  最新更新时间：2017-06-24 【倒叙】<br>
+ 最新Version：【Version：1.0.2】<br>
+ 更新内容：<br>
+ 1.0.2.1、优化内部细节命名，不影响外部使用<br>
+ 
+ 最新更新时间：2017-06-24 【倒叙】<br>
  最新Version：【Version：1.0.1】<br>
  更新内容：<br>
- 1.0.0.1、更换方法名，原：ba_alert2ShowInViewController 替换为：ba_alertTextFieldShowInViewController<br>
+ 1.0.1.1、更换方法名，原：ba_alert2ShowInViewController 替换为：ba_alertTextFieldShowInViewController<br>
  
  最新更新时间：2017-06-05 【倒叙】
  最新Version：【Version：1.0.0】

@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/AssetLibrary/QMUIAssetsManager.h
+../../../QMUIKit/QMUIKit/QMUIComponents/AssetLibrary/QMUIAssetsManager.h

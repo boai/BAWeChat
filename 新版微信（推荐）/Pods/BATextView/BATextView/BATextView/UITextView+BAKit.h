@@ -60,6 +60,10 @@
 
 #import <UIKit/UIKit.h>
 
+/*! 过期属性或方法名提醒 */
+#define BAKit_TextView_Deprecated(instead) __deprecated_msg(instead)
+
+
 /**
  实时监测 TextView 输入文字，并返回当前文字最大高度，以便做自适应高度
 
@@ -68,16 +72,31 @@
 typedef void (^BAKit_TextView_HeightDidChangedBlock)(CGFloat current_textViewHeight);
 
 /**
- 实时监测 TextView 输入文字，并返回当前文字字符个数
+ 实时监测 TextView 输入文字，并返回当前文字字符
 
- @param current_wordNumber 当前文字的字符个数
+ @param current_text 当前文字的字符
  */
-typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber);
-
-@interface UITextView (BAKit)
+typedef void (^BAKit_TextView_WordDidChangedBlock)(NSString *current_text);
 
 /**
- placeholder：文字
+ 实时监测 TextView 输入文字，来自系统代理：shouldChangeTextInRange
+
+ @param textView textView description
+ @param range range description
+ @param replacementText replacementText description
+ */
+typedef void (^BAKit_TextView_ShouldChangeTextInRangeBlock)(UITextView *textView, NSRange range, NSString *replacementText);
+
+
+@interface UITextView (BAKit)<UITextViewDelegate>
+
+/**
+ TextView 默认 text，注意：一定要用 ba_text 设置，用系统的 self.text 设置无效，此外，如果有默认 text，一定要在 ba_placeholder 赋值之前赋值 ba_text，要不然会出现文字颜色错乱！
+ */
+@property(nonatomic, strong) NSString *ba_text;
+
+/**
+ placeholder：placeholder文字
  */
 @property(nonatomic, strong) NSString *ba_placeholder;
 
@@ -112,7 +131,7 @@ typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber)
 @property (nonatomic, assign) CGFloat ba_minHeight;
 
 /**
- 实时监测 TextView 输入文字，并返回当前文字最大高度，以便做自适应高度
+ 实时监测 TextView 输入文字，并返回当前文字，以便做自适应高度
  */
 @property(nonatomic, copy) BAKit_TextView_HeightDidChangedBlock ba_textView_HeightDidChangedBlock;
 
@@ -122,10 +141,22 @@ typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber)
 @property (nonatomic, assign) NSInteger ba_maxWordLimitNumber;
 
 /**
- 实时监测 TextView 输入文字，并返回当前文字字符个数
+ 实时监测 TextView 输入文字，并返回当前文字
  */
-@property(nonatomic, copy) BAKit_TextView_WordDidChangedBlock ba_textView_WordDidChangedBlock;
+@property(nonatomic, copy) BAKit_TextView_WordDidChangedBlock ba_textView_WordDidChangedBlock; BAKit_TextView_Deprecated("该方法已过期,请使用最新方法：typedef void (^BAKit_TextView_WordDidChangedBlock)(NSString *current_text)");
 
+/**
+ 实时监测 TextView 输入文字，来自系统代理：shouldChangeTextInRange
+ */
+@property(nonatomic, copy) BAKit_TextView_ShouldChangeTextInRangeBlock ba_textView_ShouldChangeTextInRangeBlock;
+
+#pragma mark - public method
+/**
+ 设置代理监测，如果需要监测自动高度，请务必添加这个代理，具体使用请看 demo！
+
+ @param delegate UITextViewDelegate
+ */
+- (void)ba_textViewWithDelegate:(id <UITextViewDelegate>)delegate;
 
 /**
  是否为空
@@ -153,5 +184,8 @@ typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber)
  */
 - (void)ba_textView_wordLimitWithMaxWordLimitNumber:(NSInteger)limitNumber
                                               block:(BAKit_TextView_WordDidChangedBlock)block;
+
+#pragma mark - 各版本过期方法名
+#pragma mark version 1.0.2 过期方法名
 
 @end

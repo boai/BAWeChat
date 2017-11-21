@@ -32,7 +32,7 @@
 - (void)setupUI
 {
     self.tableView.hidden = NO;
-    
+//    BAKit_AdjustsScrollViewInsetNever(self, self.tableView)
     [self creatDatas];
     
     [self testAFNWithYYModel];
@@ -126,7 +126,8 @@
 - (void)testAFNWithYYModel
 {
     QMUITips *tips = [QMUITips showLoading:@"加载中..." inView:self.view];
-    [[BALaunchADNet sharedBALaunchADNet] ba_getVideosWithStartIndex:1 completionHandle:^(BAVideoModel *data, NSError *error) {
+    
+    [[BALaunchADNet sharedBALaunchADNet] ba_getVideosWithStartIndex:1 block:^(id data, NSError *error) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [tips removeFromSuperview];
         });
@@ -137,7 +138,6 @@
         }
         
     }];
-    
 }
 
 - (void)creatDatas

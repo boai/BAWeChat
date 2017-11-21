@@ -7,11 +7,14 @@
 //
 
 #import "UIViewController+QMUI.h"
-#import "QMUINavigationController.h"
 #import "UINavigationController+QMUI.h"
-#import <objc/runtime.h>
 #import "QMUICore.h"
 #import "NSObject+QMUI.h"
+
+@interface UIViewController ()
+
+@property(nonatomic, assign) BOOL qmui_isViewDidAppear;
+@end
 
 @implementation UIViewController (QMUI)
 
@@ -205,12 +208,113 @@ void qmui_loadViewIfNeeded (id current_self, SEL current_cmd) {
     }
 }
 
-- (BOOL)qmui_respondQMUINavigationControllerDelegate {
-    return [[self class] conformsToProtocol:@protocol(QMUINavigationControllerDelegate)];
-}
-
 - (BOOL)qmui_isViewLoadedAndVisible {
     return self.isViewLoaded && self.view.window;
+}
+
+- (CGFloat)qmui_navigationBarMaxYInViewCoordinator {
+    if (!self.isViewLoaded) {
+        return 0;
+    }
+    if (!self.navigationController.navigationBar || self.navigationController.navigationBarHidden) {
+        return 0;
+    }
+    CGRect navigationBarFrameInView = [self.view convertRect:self.navigationController.navigationBar.frame fromView:self.navigationController.navigationBar.superview];
+    if (IOS_VERSION < 9.0) {
+        // iOS 8 用上面的方法转换得到的 x = 1408（iPad 横屏下），不知道为什么，暂时认为是系统的 bug，所以这时候先改为转换到 window 坐标系里
+        navigationBarFrameInView = [self.view convertRect:self.navigationController.navigationBar.frame fromView:nil];
+    }
+    CGRect navigationBarFrame = CGRectIntersection(self.view.bounds, navigationBarFrameInView);
+    
+    // 两个 rect 如果不存在交集，CGRectIntersection 计算结果可能为非法的 rect，所以这里做个保护
+    if (!CGRectIsValidated(navigationBarFrame)) {
+        return 0;
+    }
+    
+    CGFloat result = CGRectGetMaxY(navigationBarFrame);
+    return result;
+}
+
+
+- (CGFloat)qmui_toolbarSpacingInViewCoordinator {
+    if (!self.isViewLoaded) {
+        return 0;
+    }
+    if (!self.navigationController.toolbar || self.navigationController.toolbarHidden) {
+        return 0;
+    }
+    CGRect toolbarFrame = CGRectIntersection(self.view.bounds, [self.view convertRect:self.navigationController.toolbar.frame fromView:self.navigationController.toolbar.superview]);
+    
+    // 两个 rect 如果不存在交集，CGRectIntersection 计算结果可能为非法的 rect，所以这里做个保护
+    if (!CGRectIsValidated(toolbarFrame)) {
+        return 0;
+    }
+    
+    CGFloat result = CGRectGetHeight(self.view.bounds) - CGRectGetMinY(toolbarFrame);
+    return result;
+}
+
+- (CGFloat)qmui_tabBarSpacingInViewCoordinator {
+    if (!self.isViewLoaded) {
+        return 0;
+    }
+    if (!self.tabBarController.tabBar || self.tabBarController.tabBar.hidden) {
+        return 0;
+    }
+    CGRect tabBarFrame = CGRectIntersection(self.view.bounds, [self.view convertRect:self.tabBarController.tabBar.frame fromView:nil]);
+    CGFloat result = CGRectGetHeight(self.view.bounds) - CGRectGetMinY(tabBarFrame);
+    return result;
+}
+
+@end
+
+@implementation UIViewController (Data)
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        ReplaceMethod(self.class, @selector(viewDidAppear:), @selector(qmui_viewDidAppear:));
+    });
+}
+
+- (void)qmui_viewDidAppear:(BOOL)animated {
+    [self qmui_viewDidAppear:animated];
+    self.qmui_isViewDidAppear = YES;
+    if (self.qmui_didAppearAndLoadDataBlock && self.qmui_isViewDidAppear && self.qmui_dataLoaded) {
+        self.qmui_didAppearAndLoadDataBlock();
+        self.qmui_didAppearAndLoadDataBlock = nil;
+    }
+}
+
+static char kAssociatedObjectKey_isViewDidAppear;
+- (void)setQmui_isViewDidAppear:(BOOL)qmui_isViewDidAppear {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_isViewDidAppear, @(qmui_isViewDidAppear), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)qmui_isViewDidAppear {
+    return [((NSNumber *)objc_getAssociatedObject(self, &kAssociatedObjectKey_isViewDidAppear)) boolValue];
+}
+
+static char kAssociatedObjectKey_didAppearAndLoadDataBlock;
+- (void)setQmui_didAppearAndLoadDataBlock:(void (^)(void))qmui_didAppearAndLoadDataBlock {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_didAppearAndLoadDataBlock, qmui_didAppearAndLoadDataBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (void (^)(void))qmui_didAppearAndLoadDataBlock {
+    return (void (^)(void))objc_getAssociatedObject(self, &kAssociatedObjectKey_didAppearAndLoadDataBlock);
+}
+
+static char kAssociatedObjectKey_dataLoaded;
+- (void)setQmui_dataLoaded:(BOOL)qmui_dataLoaded {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_dataLoaded, @(qmui_dataLoaded), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (self.qmui_didAppearAndLoadDataBlock && qmui_dataLoaded && self.qmui_isViewDidAppear) {
+        self.qmui_didAppearAndLoadDataBlock();
+        self.qmui_didAppearAndLoadDataBlock = nil;
+    }
+}
+
+- (BOOL)isQmui_dataLoaded {
+    return [((NSNumber *)objc_getAssociatedObject(self, &kAssociatedObjectKey_dataLoaded)) boolValue];
 }
 
 @end
@@ -243,6 +347,16 @@ void qmui_loadViewIfNeeded (id current_self, SEL current_cmd) {
         }
     }
     return NO;
+}
+
+@end
+
+@implementation QMUIHelper (ViewController)
+
++ (nullable UIViewController *)visibleViewController {
+    UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+    UIViewController *visibleViewController = [rootViewController qmui_visibleViewControllerIfExist];
+    return visibleViewController;
 }
 
 @end

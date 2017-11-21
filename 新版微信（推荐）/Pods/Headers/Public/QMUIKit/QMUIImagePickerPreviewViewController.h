@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/ImagePickerLibrary/QMUIImagePickerPreviewViewController.h
+../../../QMUIKit/QMUIKit/QMUIComponents/ImagePickerLibrary/QMUIImagePickerPreviewViewController.h

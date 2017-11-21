@@ -80,10 +80,66 @@
  项目源码地址：
  OC 版 ：https://github.com/BAHome/BAButton
  
+ 
+ 最新更新时间：2017-09-15【倒叙】<br>
+ 最新 Version：【Version：2.6.5】<br>
+ 更新内容：<br>
+ 2.6.5.1、优化内部代码，修复隐形崩溃 bug！ <br>
+ 
+ 最新更新时间：2017-09-12 【倒叙】<br>
+ 最新 Version：【Version：2.6.4】<br>
+ 更新内容：<br>
+ 2.6.4.1、新增 button 点击事件 blcok，具体使用详见 demo！ <br>
+ 2.6.4.2、新增 button 不同状态下的阴影设置，具体使用详见 demo！ <br>
+ 2.6.4.3、原 方法 【ba_viewPlaySoundEffectWithFileName】替换为：【ba_buttonPlaySoundEffectWithFileName】，具体使用详见 demo！ <br>
+ 
+ 最新更新时间：2017-08-17 【倒叙】<br>
+ 最新 Version：【Version：2.6.3】<br>
+ 更新内容：<br>
+ 2.6.3.1、优化细节处理，新增 连续点击按钮时停止播放上一音乐 <br>
+ 
+ 最新更新时间：2017-08-15 【倒叙】<br>
+ 最新 Version：【Version：2.6.2】<br>
+ 更新内容：<br>
+ 2.6.2.1、优化倒计时封装，线程处理优化 <br>
+ 
+ 最新更新时间：2017-08-14 【倒叙】<br>
+ 最新 Version：【Version：2.6.1】<br>
+ 更新内容：<br>
+ 2.6.1.1、新增 倒计时按钮纯图片更换，详情请看 倒计时 demo <br>
+ 
+ 最新更新时间：2017-08-12 【倒叙】<br>
+ 最新 Version：【Version：2.6.0】<br>
+ 更新内容：<br>
+ 2.6.0.1、新增 按钮点击音效和震动效果封装 <br>
+ 
+ 最新更新时间：2017-08-03 【倒叙】<br>
+ 最新Version：【Version：2.5.9】<br>
+ 更新内容：<br>
+ 2.5.9.1、修复 UIButton：快速创建 button4：frame、title、backgroundImage 方法死循环bug(感谢群里 [@杭州-秦小强  11:52:23](https://github.com/wqforeverhell) 同学提出的 bug！) <br>
+ 
+ 最新更新时间：2017-07-19 【倒叙】<br>
+ 最新Version：【Version：2.5.8】<br>
+ 更新内容：<br>
+ 2.5.8.1、新增 两种快速创建 button 的方法：1、快速创建纯文字 button，2、快速创建纯图片 button <br>
+ 2.5.8.2、新增 单独配置文字位置的封装 <br>
+ 2.5.8.3、新增 字体颜色、背景颜色、image 等的 disabled 状态下的配置 <br>
+
+ 最新更新时间：2017-07-08 【倒叙】<br>
+ 最新Version：【Version：2.5.6】<br>
+ 更新内容：<br>
+ 2.5.6.1、删除 高亮、选中 背景颜色，以免默认情况下回自动加高亮颜色 <br>
+ 
+ 最新更新时间：2017-07-07 【倒叙】<br>
+ 最新Version：【Version：2.5.5】<br>
+ 更新内容：<br>
+ 2.5.5.1、重构 <UIButton+BAKit.h>类，新增多种快速创建 button 的方法 <br>
+ 2.5.5.2、新增多种快速创建 自定义 button 的方法 <br>
+ 
  最新更新时间：2017-06-27 【倒叙】<br>
  最新Version：【Version：2.5.4】<br>
  更新内容：<br>
- 2.5.4.1、新增 大图片 button 的 layout 布局，如果你的图片宽高大于 自身的宽高，怎需要压缩后再配置布局，具体看 demo test2<br>
+ 2.5.4.1、新增 大图片 button 的 layout 布局，如果你的图片宽高大于 自身的宽高，则需要压缩后再配置布局，具体看 demo test2<br>
  
  最新更新时间：2017-06-23 【倒叙】
  最新Version：【Version：2.5.3】

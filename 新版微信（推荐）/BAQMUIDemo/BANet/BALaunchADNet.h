@@ -13,12 +13,20 @@
 @interface BALaunchADNet : BABaseNet
 BAKit_SingletonH(BALaunchADNet)
 
-- (void)ba_launchADNet_getImageDataCompletionHandle:(void (^)(id data, NSError *))completionHandle;
+#pragma mark - 此处模拟广告数据请求,实际项目中请做真实请求
+- (void)ba_launchADNet_getImageDataWithBlock:(BABaseNetManagerBlock)block;
 
-- (void)ba_launchADNet_getVideoDataCompletionHandle:(void (^)(id data, NSError *))completionHandle;
+#pragma mark - 此处模拟广告数据请求,实际项目中请做真实请求
+- (void)ba_launchADNet_getVideoDataWithBlock:(BABaseNetManagerBlock)block;
 
-- (id)ba_getVideosWithStartIndex:(NSInteger)startIndex completionHandle:(void (^)(BAVideoModel *data, NSError *))completionHandle;
+/*!
+ *  示例1：DemoVC1 中的网络获取示例
+ *
+ *  @param startIndex index
+ *  @param block block
+ */
+- (void)ba_getVideosWithStartIndex:(NSInteger)startIndex block:(BABaseNetManagerBlock)block;
 
-- (id)ba_getThoughtworksWithCompletionHandle:(void (^)(BAThoughtworksModel *data, NSError *))completionHandle;
+- (void)ba_getThoughtworksWithBlock:(BABaseNetManagerBlock)block;
 
 @end

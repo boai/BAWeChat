@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIZoomImageView.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIZoomImageView.h

@@ -49,6 +49,13 @@
 
 #define BAKit_ScreenScale ([[UIScreen mainScreen] scale])
 
+// iOS 11.0 的 view.safeAreaInsets
+#define BAKit_ViewSafeAreaInsets(view) ({UIEdgeInsets i; if(@available(iOS 11.0, *)) {i = view.safeAreaInsets;} else {i = UIEdgeInsetsZero;} i;})
+
+// iOS 11 一下的 scrollview 的适配
+#define BAKit_AdjustsScrollViewInsetNever(controller,view) if(@available(iOS 11.0, *)) {view.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;} else if([controller isKindOfClass:[UIViewController class]]) {controller.automaticallyAdjustsScrollViewInsets = false;}
+
+
 #define BAKit_BaseScreenWidth   320.0f
 #define BAKit_BaseScreenHeight  568.0f
 

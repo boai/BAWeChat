@@ -182,7 +182,7 @@
 
 - (void)showError:(NSString*)str
 {
-    [LBXAlertAction showAlertWithTitle:@"提示" msg:str chooseBlock:nil buttonsStatement:@"知道了",nil];
+    [LBXAlertAction showAlertWithTitle:@"提示" msg:str buttonsStatement:@[@"知道了"] chooseBlock:nil];
 }
 
 
@@ -233,11 +233,10 @@
     }
     
     __weak __typeof(self) weakSelf = self;
-    [LBXAlertAction showAlertWithTitle:@"扫码内容" msg:strResult chooseBlock:^(NSInteger buttonIdx) {
-        
+    [LBXAlertAction showAlertWithTitle:@"扫码内容" msg:strResult buttonsStatement:@[@"知道了"] chooseBlock:^(NSInteger buttonIdx) {
         //点击完，继续扫码
         [weakSelf reStartDevice];
-    } buttonsStatement:@"知道了",nil];
+    } ];
 }
 
 - (void)showNextVCWithScanResult:(LBXScanResult*)strResult

@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIKitExtensions/QMUIAlertController.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIAlertController.h

@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UICore/QMUIHelper.h
+../../../QMUIKit/QMUIKit/QMUICore/QMUIHelper.h

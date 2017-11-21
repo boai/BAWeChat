@@ -78,7 +78,7 @@
 }
 
 #pragma mark 设置字体所在区域背景颜色，取值为 UIColor对象，默认值为nil, 透明色
-#warning NSForegroundColorAttributeName 和 NSBackgroundColorAttributeName 的低位是相等的，跟前面介绍的 textColor 一样，哪个属性最后一次赋值，就会冲掉前面的效果
+//#warning NSForegroundColorAttributeName 和 NSBackgroundColorAttributeName 的低位是相等的，跟前面介绍的 textColor 一样，哪个属性最后一次赋值，就会冲掉前面的效果
 - (void)ba_changeBackgroundColor:(UIColor *)color range:(NSRange)range
 {
     [self addAttribute:NSBackgroundColorAttributeName value:color range:range];

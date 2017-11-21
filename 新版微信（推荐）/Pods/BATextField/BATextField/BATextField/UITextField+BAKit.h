@@ -61,45 +61,72 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface UITextField (BAKit)
+@interface UITextField (BAKit)<UITextViewDelegate>
 
 /**
- placeholder：文字颜色，默认：黑色
+ UITextField：placeholder：文字颜色，默认：黑色
  */
 @property(nonatomic, strong) UIColor *ba_placeholderColor;
 
 /**
- placeholder：文字字体
+ UITextField：placeholder：文字字体
  */
 @property(nonatomic, strong) UIFont *ba_placeholderFont;
 
 /**
- 限制最大输入长度
+ UITextField：限制最大输入长度
  */
-@property (assign, nonatomic)  NSInteger ba_maxLength;
+@property(nonatomic, assign) NSInteger ba_maxLength;
+
+/**
+ UITextField：小数点后的最大位数，默认：无，
+ 注意：如果需要使用此方法，键盘默认为 UIKeyboardTypeDecimalPad，请务必遵循两步：
+ // 先设置 _textField2 的代理
+ [_textField2 ba_textField_setDelegate:_textField2];
+ // 再设置小数点后的位数，如果不使用 ba_maxDecimalPointNumber ，请务必删除 上面的代理，以免出现其他异常
+ _textField2.ba_maxDecimalPointNumber = 2;
+ */
+@property(nonatomic, assign) NSInteger ba_maxDecimalPointNumber;
+
+/**
+ UITextField：是否包含小数点，默认：NO
+ */
+@property(nonatomic, assign) BOOL ba_isHaveDecimalPoint;
+
+/**
+ UITextField：首位数是否可以为 0，默认：NO
+ */
+@property(nonatomic, assign) BOOL ba_isFirstNumberZero;
 
 
 /**
- 判断 UITextField 输入的内容是否为空
+ UITextField：首先设置代理
+
+ @param delegate delegate description
+ */
+- (void)ba_textField_setDelegate:(id<UITextViewDelegate>)delegate;
+
+/**
+ UITextField：判断 UITextField 输入的内容是否为空
  
  @return YES，NO
  */
 - (BOOL)ba_textField_isEmpty;
 
 /**
- 选中所有文字
+ UITextField：选中所有文字
  */
 - (void)ba_textField_selectAllText;
 
 /**
- 当前选中的字符串范围
+ UITextField：当前选中的字符串范围
 
  @return NSRange
  */
 - (NSRange)ba_textField_selectedRange;
 
 /**
- 选中指定范围的文字
+ UITextField：选中指定范围的文字
 
  @param range NSRange 范围
  */

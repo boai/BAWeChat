@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIImagePreviewView.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIImagePreviewView.h

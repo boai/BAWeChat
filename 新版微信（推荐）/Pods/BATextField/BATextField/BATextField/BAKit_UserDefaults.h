@@ -119,6 +119,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (BOOL)ba_archive_getBoolForKey:(NSString *)defaultName;
 
+/**
+ 一次性移除掉 NSUserDefaults 中保存的所有的数据
+ */
++ (void)ba_archive_removeAllObjects;
+
 #pragma mark - 文件归档
 /**
  归档

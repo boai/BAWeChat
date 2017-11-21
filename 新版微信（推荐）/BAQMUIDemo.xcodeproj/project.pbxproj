@@ -3679,9 +3679,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BAQMUIDemo/Pods-BAQMUIDemo-resources.sh",
 				"${PODS_ROOT}/BAAlert/BAAlert/BAAlert/BAAlert.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle,
-				"${PODS_ROOT}/QMUIKit/QMUIKit/UIResources/QMUIResources.bundle",
-				"${PODS_ROOT}/QMUIKit/QMUIKit/UIResources/QMUI_QQEmotion.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
+				"${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/QMUIResources.bundle",
+				"${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/QMUI_QQEmotion.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -4253,7 +4253,7 @@
 				DEVELOPMENT_TEAM = 8JQ2PK6XN8;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAQMUI.pch";
 				INFOPLIST_FILE = BAQMUIDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boaihome.BAWeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4271,7 +4271,7 @@
 				DEVELOPMENT_TEAM = 8JQ2PK6XN8;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAQMUI.pch";
 				INFOPLIST_FILE = BAQMUIDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boaihome.BAWeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0C26DF3C4A7B81F517436CE80F07F368'
+               BlueprintIdentifier = 'EB63AD7A4D42898103C90C62E7C482BB'
                BlueprintName = 'BANetManager'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libBANetManager.a'>

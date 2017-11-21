@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIKeyboardManager.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIKeyboardManager.h

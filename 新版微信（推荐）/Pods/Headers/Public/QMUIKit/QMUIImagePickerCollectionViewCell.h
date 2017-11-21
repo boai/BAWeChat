@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/ImagePickerLibrary/QMUIImagePickerCollectionViewCell.h
+../../../QMUIKit/QMUIKit/QMUIComponents/ImagePickerLibrary/QMUIImagePickerCollectionViewCell.h

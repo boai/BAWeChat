@@ -10,6 +10,9 @@
 #import "BAGridItemModel.h"
 #import "BAKit_ConfigurationDefine.h"
 
+#import "NSString+BAGridView.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 @interface BAGridCollectionCell ()
 
 @property(nonatomic, strong) UIImageView *imageView;
@@ -128,7 +131,14 @@
 {
     _model = model;
     
-    self.imageView.image = BAKit_ImageName(model.imageName);
+    if ([NSString ba_regularIsUrl:model.imageName])
+    {
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.imageName] placeholderImage:BAKit_ImageName(model.placdholderImageName)];
+    }
+    else
+    {
+        self.imageView.image = BAKit_ImageName(model.imageName);
+    }
     self.titleLabel.text = model.titleString;
     
 }
