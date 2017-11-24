@@ -14,7 +14,8 @@
 * 6、新增 支持 自定义 图片文字间距功能（感谢群里 [@武汉-马阿飞](http://www.jianshu.com/u/7f8b1720f857) 同学提出的 需求！）<br>
 * 7、新增 自定义 所有文字字体（感谢群里 [@武汉-马阿飞](http://www.jianshu.com/u/7f8b1720f857) 同学提出的 需求！）<br>
 * 8、新增 支持 自定义 item 背景颜色 和 选中背景颜色（感谢群里 [@武汉-马阿飞](http://www.jianshu.com/u/7f8b1720f857) 同学提出的 需求！）<br>
-
+* 9、新增网络图片、placdholderImage功能，感谢群里 [@武汉-马阿飞](http://www.jianshu.com/u/7f8b1720f857) 同学提出的 需求！）<br>
+ 
 ## 2、图片示例
 ![BAGridView1](https://github.com/BAHome/BAGridView/blob/master/Images/BAGridView1.png)
 ![BAGridView2](https://github.com/BAHome/BAGridView/blob/master/Images/BAGridView2.png)
@@ -56,6 +57,11 @@
  
  项目源码地址：
  OC 版 ：https://github.com/BAHome/BAGridView
+ 
+ 最新更新时间：2017-07-07 【倒叙】<br>
+ 最新Version：【Version：1.0.6】<br>
+ 更新内容：<br>
+ 1.0.6.1、新增网络图片、placdholderImage功能，感谢群里 [@武汉-马阿飞](http://www.jianshu.com/u/7f8b1720f857) 同学提出的 需求！）<br>
  
  最新更新时间：2017-06-23 【倒叙】
  最新Version：【Version：1.0.5】
@@ -265,13 +271,16 @@ typedef void (^BAGridView_configurationBlock)(BAGridView *tempView);
     {
         _gridDataArray = @[].mutableCopy;
         
-        NSArray *imageNameArray = @[@"tabbar_mainframeHL", @"tabbar_mainframeHL", @"tabbar_mainframeHL", @"tabbar_mainframeHL", @"tabbar_mainframeHL"];
-        NSArray *titleArray = @[@"扫一扫", @"付钱", @"卡包", @"收银", @"卡包"];
+//        NSArray *imageNameArray = @[@"tabbar_mainframeHL", @"tabbar_mainframeHL", @"tabbar_mainframeHL", @"tabbar_mainframeHL", @"tabbar_mainframeHL"];
+        NSArray *imageNameArray = @[@"http://120.24.177.96:1525/images/20170706/b2acbae9-020c-4eaa-87b4-f7286ae69ba1.png", @"http://120.24.177.96:1525/images/20170706/ae3a4188-f01a-442e-aaf0-94739e30b698.png", @"http://120.24.177.96:1525/images/20170706/d4c88154-eaed-441a-8c8a-89d9a6d4755e.png", @"http://120.24.177.96:1525/images/20170706/91c9e2ba-9493-4009-8f3d-e613350b7c17.png", @"http://120.24.177.96:1525/images/20170706/d36ab2cb-36e3-4492-89c8-5712848dadb8.png"];
+
+        NSArray *titleArray = @[@"小区", @"商圈", @"社交", @"出行", @"武术"];
         
         for (NSInteger i = 0; i < titleArray.count; i++)
         {
             BAGridItemModel *model = [BAGridItemModel new];
             model.imageName = imageNameArray[i];
+            model.placdholderImageName = @"tabbar_mainframeHL";
             model.titleString = titleArray[i];
             
             [self.gridDataArray addObject:model];
@@ -344,15 +353,20 @@ typedef void (^BAGridView_configurationBlock)(BAGridView *tempView);
  欢迎使用 [【BAHome】](https://github.com/BAHome) 系列开源代码 ！
  如有更多需求，请前往：[【https://github.com/BAHome】](https://github.com/BAHome) 
  
- 最新更新时间：2017-06-23 【倒叙】
- 最新Version：【Version：1.0.5】
- 更新内容：
- 1.0.5.1、优化部分宏定义
+ 最新更新时间：2017-07-07 【倒叙】<br>
+ 最新Version：【Version：1.0.6】<br>
+ 更新内容：<br>
+ 1.0.6.1、新增网络图片、placdholderImage功能，感谢群里 [@武汉-马阿飞](http://www.jianshu.com/u/7f8b1720f857) 同学提出的 需求！）<br>
  
- 最新更新时间：2017-06-23 【倒叙】
- 最新Version：【Version：1.0.4】
- 更新内容：
- 1.0.4.1、优化部分宏定义
+ 最新更新时间：2017-06-23 【倒叙】<br>
+ 最新Version：【Version：1.0.5】<br>
+ 更新内容：<br>
+ 1.0.5.1、优化部分宏定义<br>
+ 
+ 最新更新时间：2017-06-23 【倒叙】<br>
+ 最新Version：【Version：1.0.4】<br>
+ 更新内容：<br>
+ 1.0.4.1、优化部分宏定义<br>
  
  最新更新时间：2017-06-23 【倒叙】<br>
  最新Version：【Version：1.0.3】<br>
@@ -374,20 +388,51 @@ typedef void (^BAGridView_configurationBlock)(BAGridView *tempView);
  1.0.0.4、自定义分割线：显示/隐藏<br>
  1.0.0.5、自定义分割线：颜色<br>
 
-## 6、bug 反馈 和 联系方式
+## 6、bug 反馈
 > 1、开发中遇到 bug，希望小伙伴儿们能够及时反馈与我们 BAHome 团队，我们必定会认真对待每一个问题！ <br>
 
 > 2、以后提需求和 bug 的同学，记得把 git 或者博客链接给我们，我直接超链到你们那里！希望大家积极参与测试！<br> 
 
-> 3、联系方式 <br> 
-QQ群：479663605  【注意：此群为 2 元 付费群，介意的小伙伴儿勿扰！】<br> 
-博爱QQ：137361770 <br> 
-博爱微博：[![](https://img.shields.io/badge/微博-博爱1616-red.svg)](http://weibo.com/538298123) <br> 
+## 7、BAHome 团队成员
+> 1、QQ 群 
+479663605 <br> 
+【注意：此群为 2 元 付费群，介意的小伙伴儿勿扰！】<br> 
 
-## 7、开发环境 和 支持版本
-> 开发使用 Xcode Version 8.3.2 (8E2002) ，理论上支持所有 iOS 版本，如有版本适配问题，请及时反馈！多谢合作！
+> 孙博岩 <br> 
+QQ：137361770 <br> 
+git：[https://github.com/boai](https://github.com/boai) <br>
+简书：[http://www.jianshu.com/u/95c9800fdf47](http://www.jianshu.com/u/95c9800fdf47) <br>
+微博：[![](https://img.shields.io/badge/微博-博爱1616-red.svg)](http://weibo.com/538298123) <br>
 
-## 8、感谢
+> 马景丽 <br> 
+QQ：1253540493 <br> 
+git：[https://github.com/MaJingli](https://github.com/MaJingli) <br>
+
+> 陆晓峰 <br> 
+QQ：442171865 <br> 
+git：[https://github.com/zeR0Lu](https://github.com/zeR0Lu) <br>
+
+> 陈集 <br> 
+QQ：3161182978 <br> 
+git：[https://github.com/chenjipdc](https://github.com/chenjipdc) <br>
+简书：[http://www.jianshu.com/u/90ae559fc21d](http://www.jianshu.com/u/90ae559fc21d)
+
+> 任子丰 <br> 
+QQ：459643690 <br> 
+git：[https://github.com/renzifeng](https://github.com/renzifeng) <br>
+
+> 吴丰收 <br> 
+QQ：498121294 <br> 
+
+> 石少庸 <br> 
+QQ：363605775 <br> 
+git：[https://github.com/CrazyCoderShi](https://github.com/CrazyCoderShi) <br>
+简书：[http://www.jianshu.com/u/0726f4d689a3](http://www.jianshu.com/u/0726f4d689a3)
+
+## 8、开发环境 和 支持版本
+> 开发使用 最新版本 Xcode，理论上支持 iOS 8 及以上版本，如有版本适配问题，请及时反馈！多谢合作！
+
+## 9、感谢
 > 感谢 BAHome 团队成员倾力合作，后期会推出一系列 常用 UI 控件的封装，大家有需求得也可以在 issue 提出，如果合理，我们会尽快推出新版本！<br>
 
 > BAHome 的发展离不开小伙伴儿的信任与推广，再次感谢各位小伙伴儿的支持！

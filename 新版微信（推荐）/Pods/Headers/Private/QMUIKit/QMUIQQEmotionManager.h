@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIQQEmotionManager.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIQQEmotionManager.h

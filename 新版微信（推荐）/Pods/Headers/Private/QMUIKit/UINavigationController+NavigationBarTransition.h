@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIKitExtensions/UINavigationController+NavigationBarTransition.h
+../../../QMUIKit/QMUIKit/QMUIComponents/NavigationBarTransition/UINavigationController+NavigationBarTransition.h

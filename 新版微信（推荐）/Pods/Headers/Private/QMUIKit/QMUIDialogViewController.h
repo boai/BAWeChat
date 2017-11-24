@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIDialogViewController.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIDialogViewController.h

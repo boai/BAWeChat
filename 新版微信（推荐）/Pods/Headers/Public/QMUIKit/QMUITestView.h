@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUITestView.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUITestView.h

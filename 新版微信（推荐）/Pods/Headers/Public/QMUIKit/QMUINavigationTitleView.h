@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUINavigationTitleView.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUINavigationTitleView.h

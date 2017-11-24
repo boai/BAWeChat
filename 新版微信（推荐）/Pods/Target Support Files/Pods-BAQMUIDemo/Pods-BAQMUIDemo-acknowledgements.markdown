@@ -554,8 +554,6 @@ THE SOFTWARE.
 
 NullSafe
 
-Version 1.2.2, May 23rd, 2016
-
 Copyright (C) 2012 Charcoal Design
 
 This software is provided 'as-is', without any express or implied

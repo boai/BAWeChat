@@ -8,7 +8,6 @@
 
 #import "BAKit_UserDefaults.h"
 
-
 @implementation BAKit_UserDefaults
 
 #pragma mark - 保存对象
@@ -167,7 +166,18 @@
     return [BAKit_NSUserDefaults boolForKey:defaultName];
 }
 
-
+/**
+ 一次性移除掉 NSUserDefaults 中保存的所有的数据
+ */
++ (void)ba_archive_removeAllObjects
+{
+    NSDictionary *dictionary = [BAKit_NSUserDefaults dictionaryRepresentation];
+    for (NSString *key in [dictionary allKeys])
+    {
+        [BAKit_NSUserDefaults removeObjectForKey:key];
+        [BAKit_NSUserDefaults synchronize];
+    }
+}
 
 #pragma mark - 文件归档
 /**

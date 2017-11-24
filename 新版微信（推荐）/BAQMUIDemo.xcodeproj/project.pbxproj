@@ -3562,7 +3562,7 @@
 				TargetAttributes = {
 					C4D4721A1E1F472400438D98 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8JQ2PK6XN8;
+						DevelopmentTeam = JB3QR65942;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -3679,9 +3679,9 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BAQMUIDemo/Pods-BAQMUIDemo-resources.sh",
 				"${PODS_ROOT}/BAAlert/BAAlert/BAAlert/BAAlert.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle,
-				"${PODS_ROOT}/QMUIKit/QMUIKit/UIResources/QMUIResources.bundle",
-				"${PODS_ROOT}/QMUIKit/QMUIKit/UIResources/QMUI_QQEmotion.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
+				"${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/QMUIResources.bundle",
+				"${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/QMUI_QQEmotion.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -4250,10 +4250,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "博爱微信(debug)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				DEVELOPMENT_TEAM = 8JQ2PK6XN8;
+				DEVELOPMENT_TEAM = JB3QR65942;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAQMUI.pch";
 				INFOPLIST_FILE = BAQMUIDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boaihome.BAWeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4268,10 +4268,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "博爱微信";
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				DEVELOPMENT_TEAM = 8JQ2PK6XN8;
+				DEVELOPMENT_TEAM = JB3QR65942;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/BAQMUI.pch";
 				INFOPLIST_FILE = BAQMUIDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boaihome.BAWeChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";

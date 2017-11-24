@@ -207,10 +207,10 @@
          @param limitNumber 最大字数限制
          @param block BAKit_TextView_WordDidChangedBlock
          */
-        [_textView ba_textView_wordLimitWithMaxWordLimitNumber:60 block:^(NSInteger current_wordNumber) {
+        [_textView ba_textView_wordLimitWithMaxWordLimitNumber:60 block:^(NSString *current_text) {
             BAKit_StrongSelf
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.label3.text = [NSString stringWithFormat:@"%ld/%ld", (long)current_wordNumber, (long)self.textView.ba_maxWordLimitNumber];
+                self.label3.text = [NSString stringWithFormat:@"%ld/%ld", (long)current_text.length, (long)self.textView.ba_maxWordLimitNumber];
                 [self.view setNeedsLayout];
             });
         }];

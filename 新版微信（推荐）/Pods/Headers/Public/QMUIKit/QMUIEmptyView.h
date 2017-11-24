@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIEmptyView.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIEmptyView.h

@@ -12,6 +12,16 @@
 @implementation UITextField (BAKit)
 
 /**
+ UITextField：首先设置代理
+ 
+ @param delegate delegate description
+ */
+- (void)ba_textField_setDelegate:(id<UITextViewDelegate>)delegate
+{
+    self.delegate = delegate;
+}
+
+/**
  判断 UITextField 输入的是否为空
 
  @return YES，NO
@@ -97,6 +107,103 @@
     }
 }
 
+#pragma mark - UITextField delegate
+// textField.text 输入之前的值 string 输入的字符
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    textField.keyboardType = UIKeyboardTypeDecimalPad;
+
+    if ([textField.text rangeOfString:@"."].location == NSNotFound)
+    {
+        self.ba_isHaveDecimalPoint = NO;
+    }
+    
+//    NSInteger number2 = self.ba_maxDecimalPointNumber;
+    BOOL isHaveDecimalPoint = self.ba_isHaveDecimalPoint;
+
+    if ([string length] > 0)
+    {
+        // 当前输入的字符
+        unichar single = [string characterAtIndex:0];
+        
+        if ((single >= '0' && single <= '9') || single == '.')
+        {
+            // 数据格式正确
+            // 首字母不能为 0 和 小数点
+            if([textField.text length] == 0)
+            {
+                if(single == '.')
+                {
+                    NSLog(@"亲，第一个数字不能为小数点");
+                    [textField.text stringByReplacingCharactersInRange:range withString:@""];
+                    return NO;
+                }
+                
+                if (!self.ba_isFirstNumberZero)
+                {
+                    if (single == '0')
+                    {
+                        NSLog(@"亲，第一个数字不能为0");
+                        [textField.text stringByReplacingCharactersInRange:range withString:@""];
+                        return NO;
+                    }
+                }
+                
+            }
+            
+            // 输入的字符是否是小数点
+            if (single == '.')
+            {
+                // text 中还没有小数点
+                if(!isHaveDecimalPoint)
+                {
+                    self.ba_isHaveDecimalPoint = YES;
+                    return YES;
+                }
+                else
+                {
+                    NSLog(@"亲，您已经输入过小数点了");
+                    [textField.text stringByReplacingCharactersInRange:range withString:@""];
+                    return NO;
+                }
+            }
+            else
+            {
+                if (isHaveDecimalPoint)
+                {
+                    //存在小数点
+                    //判断小数点的位数
+                    NSRange ran = [textField.text rangeOfString:@"."];
+                    if (range.location - ran.location <= self.ba_maxDecimalPointNumber)
+                    {
+                        return YES;
+                    }
+                    else
+                    {
+                        NSLog(@"亲，您最多输入两位小数");
+                        return NO;
+                    }
+                }
+                else
+                {
+                    return YES;
+                }
+            }
+        }
+        else
+        {
+            // 输入的数据格式不正确
+            NSLog(@"亲，您输入的格式不正确");
+            [textField.text stringByReplacingCharactersInRange:range withString:@""];
+            return NO;
+        }
+    }
+    else
+    {
+        return YES;
+    }
+}
+
 #pragma mark - setter / getter
 - (void)setBa_placeholderColor:(UIColor *)ba_placeholderColor
 {
@@ -130,5 +237,38 @@
 {
   return [BAKit_Objc_getObj integerValue];
 }
+
+- (void)setBa_maxDecimalPointNumber:(NSInteger)ba_maxDecimalPointNumber
+{
+    self.keyboardType = UIKeyboardTypeDecimalPad;
+    BAKit_Objc_setObj(@selector(ba_maxDecimalPointNumber), @(ba_maxDecimalPointNumber));
+}
+
+- (NSInteger)ba_maxDecimalPointNumber
+{
+    return [BAKit_Objc_getObj integerValue];
+}
+
+- (void)setBa_isHaveDecimalPoint:(BOOL)ba_isHaveDecimalPoint
+{
+    BAKit_Objc_setObj(@selector(ba_isHaveDecimalPoint), @(ba_isHaveDecimalPoint));
+}
+
+- (BOOL)ba_isHaveDecimalPoint
+{
+    return [BAKit_Objc_getObj boolValue];
+}
+
+- (void)setBa_isFirstNumberZero:(BOOL)ba_isFirstNumberZero
+{
+    BAKit_Objc_setObj(@selector(ba_isFirstNumberZero), @(ba_isFirstNumberZero));
+}
+
+- (BOOL)ba_isFirstNumberZero
+{
+    return [BAKit_Objc_getObj boolValue];
+}
+
+
 
 @end

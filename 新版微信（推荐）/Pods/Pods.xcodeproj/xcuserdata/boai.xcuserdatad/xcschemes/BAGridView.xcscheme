@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '56352F4657E31FD517087EFF01FC8366'
+               BlueprintIdentifier = 'B114722AC8A3DA19F86DBEC865156646'
                BlueprintName = 'BAGridView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libBAGridView.a'>

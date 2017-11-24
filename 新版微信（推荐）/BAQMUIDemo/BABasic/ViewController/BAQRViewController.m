@@ -92,7 +92,7 @@
 - (void)newCodeChooose
 {
     __weak __typeof(self) weakSelf = self;
-    [LBXAlertAction showActionSheetWithTitle:@"" message:nil chooseBlock:^(NSInteger buttonIdx) {
+    [LBXAlertAction showActionSheetWithTitle:@"" message:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitle:@[@"二维码+logo",@"二维码上色",@"二维码前景颜色+背景颜色",@"商品条形码",@"code93(支付宝付款条形码)"] chooseBlock:^(NSInteger buttonIdx) {
         
         if (buttonIdx==1) {
             [weakSelf createQR1];
@@ -113,8 +113,7 @@
         {
             [weakSelf createCode93];
         }
-        
-    } cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitle:@"二维码+logo",@"二维码上色",@"二维码前景颜色+背景颜色",@"商品条形码",@"code93(支付宝付款条形码)",nil];
+    }];
 }
 
 

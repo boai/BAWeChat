@@ -61,6 +61,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (UIFont *)ba_buttonTitleLabelFontForState:(UIControlState)state;
 
+/**
+ BAButton：创建圆角半径阴影，带半径、阴影颜色
+ 
+ @param cornerRadius 半径
+ @param shadowColor 阴影颜色
+ @param offset 偏移量
+ @param opacity 透明度
+ @param shadowRadius 模糊程度
+ @param state 状态
+ */
+- (void)ba_buttonSetRoundShadowWithCornerRadius:(CGFloat)cornerRadius
+                                    shadowColor:(UIColor *)shadowColor
+                                         offset:(CGSize)offset
+                                        opacity:(CGFloat)opacity
+                                   shadowRadius:(CGFloat)shadowRadius
+                                       forState:(UIControlState)state;
+
 #pragma mark - 使用key-value方式设置
 
 /** 

@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIOrderedDictionary.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIOrderedDictionary.h

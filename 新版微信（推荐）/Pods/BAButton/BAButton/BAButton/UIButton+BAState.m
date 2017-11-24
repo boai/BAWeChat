@@ -36,6 +36,67 @@
 
 @end
 
+@interface UIView (BAButton)
+
+/**
+ UIView：创建圆角半径阴影，带半径、阴影颜色
+ 
+ @param cornerRadius 半径
+ @param shadowColor 阴影颜色
+ @param offset 偏移量
+ @param opacity 透明度
+ @param shadowRadius 模糊程度
+ */
+- (void)ba_viewSetRoundShadowWithCornerRadius:(CGFloat)cornerRadius
+                                  shadowColor:(UIColor *)shadowColor
+                                       offset:(CGSize)offset
+                                      opacity:(CGFloat)opacity
+                                 shadowRadius:(CGFloat)shadowRadius;
+
+@end
+
+@implementation UIView (BAButton)
+
+/**
+ UIView：创建圆角半径阴影，带半径、阴影颜色
+ 
+ @param cornerRadius 半径
+ @param shadowColor 阴影颜色
+ @param offset 偏移量
+ @param opacity 透明度
+ @param shadowRadius 模糊程度
+ */
+- (void)ba_viewSetRoundShadowWithCornerRadius:(CGFloat)cornerRadius
+                                  shadowColor:(UIColor *)shadowColor
+                                       offset:(CGSize)offset
+                                      opacity:(CGFloat)opacity
+                                 shadowRadius:(CGFloat)shadowRadius
+{
+    if (!shadowColor)
+    {
+        shadowColor = [UIColor blackColor];
+    }
+    // 设置阴影的颜色
+    self.layer.shadowColor = shadowColor.CGColor;
+    // 设置阴影的透明度
+    self.layer.shadowOpacity = opacity;
+    // 设置阴影的偏移量
+    self.layer.shadowOffset = offset;
+    // 设置阴影的模糊程度
+    self.layer.shadowRadius = shadowRadius;
+    // 设置是否栅格化
+    self.layer.shouldRasterize = YES;
+    // 设置圆角半径
+    self.layer.cornerRadius = cornerRadius;
+    // 设置阴影的路径
+    //    self.layer.shadowPath = [[UIBezierPath bezierPathWithRoundedRect:[self bounds]
+    //                                                        cornerRadius:cornerRadius] CGPath];
+    // 设置边界是否遮盖
+    self.layer.masksToBounds = NO;
+}
+
+@end
+
 @interface UIButton ()
 
 @property (nonatomic, strong) NSMutableDictionary<NSString *, NSNumber *> *animates;
@@ -246,6 +307,28 @@
         [self.layer addAnimation:animation forKey:@"KEYAnimation"];
         self.layer.borderColor = borderColor.CGColor;
     }
+}
+
+/**
+ BAButton：创建圆角半径阴影，带半径、阴影颜色
+ 
+ @param cornerRadius 半径
+ @param shadowColor 阴影颜色
+ @param offset 偏移量
+ @param opacity 透明度
+ @param shadowRadius 模糊程度
+ @param state 状态
+ */
+- (void)ba_buttonSetRoundShadowWithCornerRadius:(CGFloat)cornerRadius
+                                    shadowColor:(UIColor *)shadowColor
+                                         offset:(CGSize)offset
+                                        opacity:(CGFloat)opacity
+                                   shadowRadius:(CGFloat)shadowRadius
+                                       forState:(UIControlState)state
+{
+    [self ba_viewSetRoundShadowWithCornerRadius:0 shadowColor:nil offset:CGSizeZero opacity:0 shadowRadius:0];
+
+    [self ba_viewSetRoundShadowWithCornerRadius:cornerRadius shadowColor:shadowColor offset:offset opacity:opacity shadowRadius:shadowRadius];
 }
 
 #pragma mark - getters and setters

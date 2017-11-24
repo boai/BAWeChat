@@ -170,7 +170,7 @@ const void *ba_methodListKey = "ba_methodListKey";
         
         NSString *methodName_OC = NSStringFromSelector(methodName);
         
-        IMP imp = method_getImplementation(method);
+//        IMP imp = method_getImplementation(method);
         const char *name_s =sel_getName(method_getName(method));
         int arguments = method_getNumberOfArguments(method);
         const char* encoding =method_getTypeEncoding(method);

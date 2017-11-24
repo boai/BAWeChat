@@ -11,6 +11,8 @@
 * 3、可以自动布局，自适应高度，实时监测输入文字的最大高度
 * 4、可以实时监测输入文字的最大个数，可以限制最大输入文字字数
 * 5、用分类整理，无需改动源码即可实现各种自定义功能
+* 6、【方法新增】：默认 self.text 文字时的属性 ba_text：TextView 默认 text，注意：一定要用 ba_text 设置，用系统的 self.text 设置无效，此外，如果有默认 text，一定要在 ba_placeholder 赋值之前赋值 ba_text，要不然会出现文字颜色错乱！<br>
+* 7、【方法新增】：新增 UITextView 代理 shouldChangeTextInRange 改成 block （ba_textView_ShouldChangeTextInRangeBlock）返回，使用更加方便！  <br>
 
 ## 2、图片示例
 ![BATextView](https://github.com/BAHome/BATextView/blob/master/Images/BATextView.gif)
@@ -32,123 +34,13 @@
 ## 4、BATextView 的类结构及 demo 示例
 ![BATextView](https://github.com/BAHome/BATextView/blob/master/Images/BATextView.png)
 
-### BATextView.h
-```
-#ifndef BATextView_h
-#define BATextView_h
-
-#import "UITextView+BAKit.h"
-
-#define BAKit_Objc_setObj(key, value) objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-
-#define BAKit_Objc_setObjCOPY(key, value) objc_setAssociatedObject(self, key, value, OBJC_ASSOCIATION_COPY)
-
-#define BAKit_Objc_getObj objc_getAssociatedObject(self, _cmd)
-
-#define BAKit_Objc_exchangeMethodAToB(methodA,methodB) method_exchangeImplementations(class_getInstanceMethod([self class], methodA),class_getInstanceMethod([self class], methodB));
-
-#pragma mark - NotiCenter
-#define BAKit_NotiCenter [NSNotificationCenter defaultCenter]
-
-/*!
- *  获取屏幕宽度和高度
- */
-#define BAKit_SCREEN_WIDTH ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
-
-#define BAKit_SCREEN_HEIGHT ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
-
-#pragma mark - weak / strong
-#define BAKit_WeakSelf        @BAKit_Weakify(self);
-#define BAKit_StrongSelf      @BAKit_Strongify(self);
-
-/*！
- * 强弱引用转换，用于解决代码块（block）与强引用self之间的循环引用问题
- * 调用方式: `@BAKit_Weakify`实现弱引用转换，`@BAKit_Strongify`实现强引用转换
- *
- * 示例：
- * @BAKit_Weakify
- * [obj block:^{
- * @strongify_self
- * self.property = something;
- * }];
- */
-#ifndef BAKit_Weakify
-#if DEBUG
-#if __has_feature(objc_arc)
-#define BAKit_Weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
-#else
-#define BAKit_Weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
-#endif
-#else
-#if __has_feature(objc_arc)
-#define BAKit_Weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
-#else
-#define BAKit_Weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
-#endif
-#endif
-#endif
-
-/*！
- * 强弱引用转换，用于解决代码块（block）与强引用对象之间的循环引用问题
- * 调用方式: `@BAKit_Weakify(object)`实现弱引用转换，`@BAKit_Strongify(object)`实现强引用转换
- *
- * 示例：
- * @BAKit_Weakify(object)
- * [obj block:^{
- * @BAKit_Strongify(object)
- * strong_object = something;
- * }];
- */
-#ifndef BAKit_Strongify
-#if DEBUG
-#if __has_feature(objc_arc)
-#define BAKit_Strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
-#else
-#define BAKit_Strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
-#endif
-#else
-#if __has_feature(objc_arc)
-#define BAKit_Strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
-#else
-#define BAKit_Strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
-#endif
-#endif
-#endif
-
-/*!
- *********************************************************************************
- ************************************ 更新说明 ************************************
- *********************************************************************************
- 
- 欢迎使用 BAHome 系列开源代码 ！
- 如有更多需求，请前往：https://github.com/BAHome
- 
- 项目源码地址：
- OC 版 ：https://github.com/BAHome/BATextView
- 
- 最新更新时间：2017-06-01 【倒叙】
- 最新Version：【Version：1.0.1】
- 更新内容：
- 1.0.1.1、优化注释
- 
- 最新更新时间：2017-05-27 【倒叙】
- 最新Version：【Version：1.0.0】
- 更新内容：
- 1.0.0.1、可以自定义 placeholder的(字体、颜色)、文字(字体、颜色)
- 1.0.0.2、可以自定义 输入文字的(字体、颜色)、文字(字体、颜色)
- 1.0.0.3、可以自动布局，自适应高度，实时监测输入文字的最大高度
- 1.0.0.4、可以实时监测输入文字的最大个数，可以限制最大输入文字字数
- 1.0.0.5、用分类整理，无需改动源码即可实现各种自定义功能
-
-
-*/
-
-#endif /* BATextView_h */
-```
-
 ### UITextView+BAKit.h
 ```
 #import <UIKit/UIKit.h>
+
+/*! 过期属性或方法名提醒 */
+#define BAKit_TextView_Deprecated(instead) __deprecated_msg(instead)
+
 
 /**
  实时监测 TextView 输入文字，并返回当前文字最大高度，以便做自适应高度
@@ -158,16 +50,31 @@
 typedef void (^BAKit_TextView_HeightDidChangedBlock)(CGFloat current_textViewHeight);
 
 /**
- 实时监测 TextView 输入文字，并返回当前文字字符个数
+ 实时监测 TextView 输入文字，并返回当前文字字符
 
- @param current_wordNumber 当前文字的字符个数
+ @param current_text 当前文字的字符
  */
-typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber);
-
-@interface UITextView (BAKit)
+typedef void (^BAKit_TextView_WordDidChangedBlock)(NSString *current_text);
 
 /**
- placeholder：文字
+ 实时监测 TextView 输入文字，来自系统代理：shouldChangeTextInRange
+
+ @param textView textView description
+ @param range range description
+ @param replacementText replacementText description
+ */
+typedef void (^BAKit_TextView_ShouldChangeTextInRangeBlock)(UITextView *textView, NSRange range, NSString *replacementText);
+
+
+@interface UITextView (BAKit)<UITextViewDelegate>
+
+/**
+ TextView 默认 text，注意：一定要用 ba_text 设置，用系统的 self.text 设置无效，此外，如果有默认 text，一定要在 ba_placeholder 赋值之前赋值 ba_text，要不然会出现文字颜色错乱！
+ */
+@property(nonatomic, strong) NSString *ba_text;
+
+/**
+ placeholder：placeholder文字
  */
 @property(nonatomic, strong) NSString *ba_placeholder;
 
@@ -202,7 +109,7 @@ typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber)
 @property (nonatomic, assign) CGFloat ba_minHeight;
 
 /**
- 实时监测 TextView 输入文字，并返回当前文字最大高度，以便做自适应高度
+ 实时监测 TextView 输入文字，并返回当前文字，以便做自适应高度
  */
 @property(nonatomic, copy) BAKit_TextView_HeightDidChangedBlock ba_textView_HeightDidChangedBlock;
 
@@ -212,10 +119,22 @@ typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber)
 @property (nonatomic, assign) NSInteger ba_maxWordLimitNumber;
 
 /**
- 实时监测 TextView 输入文字，并返回当前文字字符个数
+ 实时监测 TextView 输入文字，并返回当前文字
  */
-@property(nonatomic, copy) BAKit_TextView_WordDidChangedBlock ba_textView_WordDidChangedBlock;
+@property(nonatomic, copy) BAKit_TextView_WordDidChangedBlock ba_textView_WordDidChangedBlock; BAKit_TextView_Deprecated("该方法已过期,请使用最新方法：typedef void (^BAKit_TextView_WordDidChangedBlock)(NSString *current_text)");
 
+/**
+ 实时监测 TextView 输入文字，来自系统代理：shouldChangeTextInRange
+ */
+@property(nonatomic, copy) BAKit_TextView_ShouldChangeTextInRangeBlock ba_textView_ShouldChangeTextInRangeBlock;
+
+#pragma mark - public method
+/**
+ 设置代理监测，如果需要监测自动高度，请务必添加这个代理，具体使用请看 demo！
+
+ @param delegate UITextViewDelegate
+ */
+- (void)ba_textViewWithDelegate:(id <UITextViewDelegate>)delegate;
 
 /**
  是否为空
@@ -244,12 +163,14 @@ typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber)
 - (void)ba_textView_wordLimitWithMaxWordLimitNumber:(NSInteger)limitNumber
                                               block:(BAKit_TextView_WordDidChangedBlock)block;
 
+#pragma mark - 各版本过期方法名
+#pragma mark version 1.0.2 过期方法名
+
 @end
 ```
 
 ### demo 示例
 ```
-// 示例1：
 - (UITextView *)textView1
 {
     if (!_textView1)
@@ -264,26 +185,31 @@ typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber)
          文字颜色，注意：一定要用 ba_textColor 设置，用系统的 self.textColor 设置无效
          */
         _textView1.ba_textColor = [UIColor purpleColor];
-        
         _textView1.backgroundColor = BAKit_Color_Gray_11;
+        
+        /**
+         TextView 默认 text，注意：一定要用 ba_text 设置，用系统的 self.text 设置无效，此外，如果有默认 text，一定要在 ba_placeholder 赋值之前赋值 ba_text，要不然会出现文字颜色错乱！
+         */
+        _textView1.ba_text = @"HelloWord！";
+
         // 自定义 placeholder
-        _textView1.ba_placeholder = @"这里是 placeholder ！";
+        _textView1.ba_placeholder = @"test";
+//        _textView1.ba_placeholder = @"这里是 placeholder ！";
         // 自定义 placeholder 颜色
         _textView1.ba_placeholderColor = [UIColor greenColor];
         // 自定义 placeholder 字体
         _textView1.ba_placeholderFont = [UIFont systemFontOfSize:16];
-        
+
         [self.view addSubview:_textView1];
     }
     return _textView1;
 }
-    
-// 示例2：
+
 - (UITextView *)textView
 {
     if (!_textView)
     {
-        _textView = [UITextView new];
+        _textView = [[UITextView alloc] init];
         _textView.userInteractionEnabled = YES;
         /**
          文字字体，注意：一定要用 ba_textFont 设置，用系统的 self.font 设置无效
@@ -301,6 +227,9 @@ typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber)
         _textView.ba_placeholderColor = [UIColor orangeColor];
         // 自定义 placeholder 字体
         _textView.ba_placeholderFont = [UIFont systemFontOfSize:25];
+        
+        // 设置代理
+        [_textView ba_textViewWithDelegate:_textView];
         
         /**
          快速设定自动布局
@@ -322,10 +251,10 @@ typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber)
          @param limitNumber 最大字数限制
          @param block BAKit_TextView_WordDidChangedBlock
          */
-        [_textView ba_textView_wordLimitWithMaxWordLimitNumber:60 block:^(NSInteger current_wordNumber) {
+        [_textView ba_textView_wordLimitWithMaxWordLimitNumber:30 block:^(NSString *current_text) {
             BAKit_StrongSelf
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.label3.text = [NSString stringWithFormat:@"%ld/%ld", (long)current_wordNumber, (long)self.textView.ba_maxWordLimitNumber];
+                self.label3.text = [NSString stringWithFormat:@"%ld/%ld", (long)current_text.length, (long)self.textView.ba_maxWordLimitNumber];
                 [self.view setNeedsLayout];
             });
         }];
@@ -334,12 +263,27 @@ typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber)
     return _textView;
 }
 
-其他示例可下载demo查看源码！
+其他示例可下载 demo 查看源码！
 ```
 
 ## 5、更新记录：【倒叙】
  欢迎使用 [【BAHome】](https://github.com/BAHome) 系列开源代码 ！
  如有更多需求，请前往：[【https://github.com/BAHome】](https://github.com/BAHome) 
+ 
+ 
+ 最新更新时间：2017-11-15 【倒叙】<br>
+ 最新Version：【Version：1.0.3】<br>
+ 更新内容：<br>
+ 1.0.3.1、优化输入表情的时候，最大字数限制出现的特殊情况<br>
+ 1.0.3.2、优化输入文字后收回键盘后再次输入之前的内容消失的问题<br>
+ 1.0.3.3、【方法新增】：默认 self.text 文字时的属性 ba_text：TextView 默认 text，注意：一定要用 ba_text 设置，用系统的 self.text 设置无效，此外，如果有默认 text，一定要在 ba_placeholder 赋值之前赋值 ba_text，要不然会出现文字颜色错乱！感谢群里[@北京-张浩](https://github.com/907064772 )大神的优化！<br>
+ 1.0.3.4、【方法新增】：新增 UITextView 代理 shouldChangeTextInRange 改成 block （ba_textView_ShouldChangeTextInRangeBlock）返回，使用更加方便！  <br>
+ 1.0.3.5、【方法替换】：原有 typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_length)，替换成 typedef void (^BAKit_TextView_WordDidChangedBlock)(NSString *current_text) <br>
+
+ 最新更新时间：2017-09-19 【倒叙】<br>
+ 最新Version：【Version：1.0.2】<br>
+ 更新内容：<br>
+ 1.0.2.1、优化 - (BOOL)ba_textView_isEmpty; 方法，修复 输入文字和 placeholder 文字一样时判断无效的 bug(感谢群里 [@成都-刘军  11:52:23](https://github.com/liujunliuhong ) 同学提出的 bug！) <br>
  
  最新更新时间：2017-06-01 【倒叙】<br>
  最新Version：【Version：1.0.1】<br>
@@ -355,19 +299,52 @@ typedef void (^BAKit_TextView_WordDidChangedBlock)(NSInteger current_wordNumber)
  1.0.0.4、可以实时监测输入文字的最大个数，可以限制最大输入文字字数<br>
  1.0.0.5、用分类整理，无需改动源码即可实现各种自定义功能<br>
 
-## 6、bug 反馈 和 联系方式
+## 6、bug 反馈
 > 1、开发中遇到 bug，希望小伙伴儿们能够及时反馈与我们 BAHome 团队，我们必定会认真对待每一个问题！ <br>
 
-> 2、联系方式 <br> 
-QQ群：479663605  【注意：此群为 2 元 付费群，介意的小伙伴儿勿扰！】<br> 
-博爱QQ：137361770 <br> 
-博爱微博：[![](https://img.shields.io/badge/微博-博爱1616-red.svg)](http://weibo.com/538298123) <br> 
+> 2、以后提需求和 bug 的同学，记得把 git 或者博客链接给我们，我直接超链到你们那里！希望大家积极参与测试！<br> 
 
-## 7、开发环境 和 支持版本
-> 开发使用 Xcode Version 8.3.2 (8E2002) ，理论上支持所有 iOS 版本，如有版本适配问题，请及时反馈！多谢合作！
+## 7、BAHome 团队成员
+> 1、QQ 群 
+479663605 <br> 
+【注意：此群为 2 元 付费群，介意的小伙伴儿勿扰！】<br> 
 
-## 8、感谢
-> 感谢 BAHome 团队成员倾力合作，后期会推出一系列 常用 UI 控件的封装，大家有需求得也可以在 issue 提出，如果合理，我们会尽快推出新版本！<br>
+> 孙博岩 <br> 
+QQ：137361770 <br> 
+git：[https://github.com/boai](https://github.com/boai) <br>
+简书：[http://www.jianshu.com/u/95c9800fdf47](http://www.jianshu.com/u/95c9800fdf47) <br>
+微博：[![](https://img.shields.io/badge/微博-博爱1616-red.svg)](http://weibo.com/538298123) <br>
 
-> BAHome 的发展离不开小伙伴儿的信任与推广，再次感谢各位小伙伴儿的支持！
+> 马景丽 <br> 
+QQ：1253540493 <br> 
+git：[https://github.com/MaJingli](https://github.com/MaJingli) <br>
+
+> 陆晓峰 <br> 
+QQ：442171865 <br> 
+git：[https://github.com/zeR0Lu](https://github.com/zeR0Lu) <br>
+
+> 陈集 <br> 
+QQ：3161182978 <br> 
+git：[https://github.com/chenjipdc](https://github.com/chenjipdc) <br>
+简书：[http://www.jianshu.com/u/90ae559fc21d](http://www.jianshu.com/u/90ae559fc21d)
+
+> 任子丰 <br> 
+QQ：459643690 <br> 
+git：[https://github.com/renzifeng](https://github.com/renzifeng) <br>
+
+> 吴丰收 <br> 
+QQ：498121294 <br> 
+
+> 石少庸 <br> 
+QQ：363605775 <br> 
+git：[https://github.com/CrazyCoderShi](https://github.com/CrazyCoderShi) <br>
+简书：[http://www.jianshu.com/u/0726f4d689a3](http://www.jianshu.com/u/0726f4d689a3)
+
+## 8、开发环境 和 支持版本
+> 开发使用 最新版本 Xcode，理论上支持 iOS 9 及以上版本，如有版本适配问题，请及时反馈！多谢合作！
+
+## 9、感谢
+> 感谢 [【BAHome】](https://github.com/BAHome) 团队成员倾力合作，后期会推出一系列 常用 UI 控件的封装，大家有需求得也可以在 issue 提出，如果合理，我们会尽快推出新版本！<br>
+
+>  [【BAHome】](https://github.com/BAHome)  的发展离不开小伙伴儿的信任与推广，再次感谢各位小伙伴儿的支持！
 

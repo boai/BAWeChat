@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIKitExtensions/QMUISlider.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUISlider.h

@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIImagePreviewViewController.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIImagePreviewViewController.h

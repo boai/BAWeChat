@@ -77,15 +77,20 @@
  项目源码地址：
  OC 版 ：https://github.com/BAHome/BAGridView
  
- 最新更新时间：2017-06-23 【倒叙】
- 最新Version：【Version：1.0.5】
- 更新内容：
- 1.0.5.1、优化部分宏定义
+ 最新更新时间：2017-07-07 【倒叙】<br>
+ 最新Version：【Version：1.0.6】<br>
+ 更新内容：<br>
+ 1.0.6.1、新增网络图片、placdholderImage功能，感谢群里 [@武汉-马阿飞](http://www.jianshu.com/u/7f8b1720f857) 同学提出的 需求！）<br>
  
- 最新更新时间：2017-06-23 【倒叙】
- 最新Version：【Version：1.0.4】
- 更新内容：
- 1.0.4.1、优化部分宏定义
+ 最新更新时间：2017-06-23 【倒叙】<br>
+ 最新Version：【Version：1.0.5】<br>
+ 更新内容：<br>
+ 1.0.5.1、优化部分宏定义<br>
+ 
+ 最新更新时间：2017-06-23 【倒叙】<br>
+ 最新Version：【Version：1.0.4】<br>
+ 更新内容：<br>
+ 1.0.4.1、优化部分宏定义<br>
  
  最新更新时间：2017-06-23 【倒叙】<br>
  最新Version：【Version：1.0.3】<br>

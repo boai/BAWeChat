@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UICore/QMUIConfiguration.h
+../../../QMUIKit/QMUIKit/QMUICore/QMUIConfiguration.h

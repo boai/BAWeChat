@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUITips.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUITips.h

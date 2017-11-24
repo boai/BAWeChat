@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIMainFrame/QMUICommonViewController.h
+../../../QMUIKit/QMUIKit/QMUIMainFrame/QMUICommonViewController.h

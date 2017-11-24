@@ -13,6 +13,9 @@
 * 5、一行代码搞定 输入的内容是否为空
 * 6、一行代码搞定 选中所有文字、选中指定范围的文字
 * 7、一行代码搞定 输入历史记录
+* 8、新增 一次性移除掉 NSUserDefaults 中保存的所有的数据 封装
+* 9、新增 小数点后几位数判断，可以设置小数点后 N位数，还可以判断首位数是否可以为 0<br>
+
 
 ## 2、图片示例
 ![BATextField](https://github.com/BAHome/BATextField/blob/master/Images/BATextField.gif)
@@ -53,8 +56,18 @@
  欢迎使用 BAHome 系列开源代码 ！
  如有更多需求，请前往：https://github.com/BAHome
  
- 项目源码地址：
- OC 版 ：https://github.com/BAHome/BAWKWebView
+  项目源码地址：
+ OC 版 ：https://github.com/BAHome/BATextField
+ 
+ 最新更新时间：2017-09-15 【倒叙】<br>
+ 最新Version：【Version：1.0.4】<br>
+ 更新内容：<br>
+ 1.0.4.1、新增 小数点后几位数判断，可以设置小数点后 N位数，还可以判断首位数是否可以为 0<br>
+ 
+ 最新更新时间：2017-08-21 【倒叙】<br>
+ 最新Version：【Version：1.0.3】<br>
+ 更新内容：<br>
+ 1.0.3.1、新增 一次性移除掉 NSUserDefaults 中保存的所有的数据 封装<br>
  
  最新更新时间：2017-06-24 【倒叙】
  最新Version：【Version：1.0.2】
@@ -87,51 +100,76 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface UITextField (BAKit)
+@interface UITextField (BAKit)<UITextViewDelegate>
 
 /**
- placeholder：文字颜色，默认：黑色
+ UITextField：placeholder：文字颜色，默认：黑色
  */
 @property(nonatomic, strong) UIColor *ba_placeholderColor;
 
 /**
- placeholder：文字字体
+ UITextField：placeholder：文字字体
  */
 @property(nonatomic, strong) UIFont *ba_placeholderFont;
 
 /**
- 限制最大输入长度
+ UITextField：限制最大输入长度
  */
-@property (assign, nonatomic)  NSInteger ba_maxLength;
+@property(nonatomic, assign) NSInteger ba_maxLength;
+
+/**
+ UITextField：小数点后的最大位数，默认：无，
+ 注意：如果需要使用此方法，键盘默认为 UIKeyboardTypeDecimalPad，请务必遵循两步：
+ // 先设置 _textField2 的代理
+ [_textField2 ba_textField_setDelegate:_textField2];
+ // 再设置小数点后的位数，如果不使用 ba_maxDecimalPointNumber ，请务必删除 上面的代理，以免出现其他异常
+ _textField2.ba_maxDecimalPointNumber = 2;
+ */
+@property(nonatomic, assign) NSInteger ba_maxDecimalPointNumber;
+
+/**
+ UITextField：是否包含小数点，默认：NO
+ */
+@property(nonatomic, assign) BOOL ba_isHaveDecimalPoint;
+
+/**
+ UITextField：首位数是否可以为 0，默认：NO
+ */
+@property(nonatomic, assign) BOOL ba_isFirstNumberZero;
 
 
 /**
- 判断 UITextField 输入的内容是否为空
+ UITextField：首先设置代理
+
+ @param delegate delegate description
+ */
+- (void)ba_textField_setDelegate:(id<UITextViewDelegate>)delegate;
+
+/**
+ UITextField：判断 UITextField 输入的内容是否为空
  
  @return YES，NO
  */
 - (BOOL)ba_textField_isEmpty;
 
 /**
- 选中所有文字
+ UITextField：选中所有文字
  */
 - (void)ba_textField_selectAllText;
 
 /**
- 当前选中的字符串范围
+ UITextField：当前选中的字符串范围
 
  @return NSRange
  */
 - (NSRange)ba_textField_selectedRange;
 
 /**
- 选中指定范围的文字
+ UITextField：选中指定范围的文字
 
  @param range NSRange 范围
  */
 - (void)ba_textField_setSelectedRange:(NSRange)range;
-
-@end
 ```
 
 ## UITextField+BAHistory.h
@@ -186,17 +224,17 @@
 
 ### demo 示例
 ```
-// 示例1：
+// 示例1：自定义 placeholder 字体和颜色，限制最大位数为 6 位！
 - (UITextField *)textField
 {
     if (!_textField)
     {
         _textField = [UITextField new];
         _textField.placeholder = @"这里是 placeholder！限制最大位数：6！";
-        _textField.backgroundColor = BAKit_Color_Gray_11;
+        _textField.backgroundColor = BAKit_Color_Gray_11_pod;
         
         // placeholder：文字颜色
-        _textField.ba_placeholderColor = BAKit_Color_Green;
+        _textField.ba_placeholderColor = BAKit_Color_Green_pod;
         // placeholder：文字字体
         _textField.ba_placeholderFont = [UIFont systemFontOfSize:11];
         // 限制最大输入长度
@@ -207,7 +245,7 @@
     return _textField;
 }
     
-// 示例2：加载普通 URL
+// 示例2：点击 return 后，可以保存输入历史，限制最大位数为 6 位！
 - (UITextField *)textField1
 {
     if (!_textField1)
@@ -270,12 +308,51 @@
     return NO;
 }
 
+// 示例3：限制输入小数点后 N 位数，首字母是否可以为 0
+- (UITextField *)textField2
+{
+    if (!_textField2)
+    {
+        _textField2 = [UITextField new];
+        _textField2.placeholder = @"限制输入小数点后 2 位！";
+        _textField2.backgroundColor = BAKit_Color_Gray_11_pod;
+        _textField2.keyboardType = UIKeyboardTypeDecimalPad;
+        
+        // placeholder：文字颜色，默认：黑色
+//        _textField2.ba_placeholderColor = BAKit_Color_Orange_pod;
+        // placeholder：文字字体
+//        _textField2.ba_placeholderFont = [UIFont boldSystemFontOfSize:13];
+        // 限制最大输入长度
+//        _textField2.ba_maxLength = 11;
+
+        // 先设置 _textField2 的代理
+        [_textField2 ba_textField_setDelegate:_textField2];
+        // 再设置小数点后的位数，如果不使用 ba_maxDecimalPointNumber ，请务必删除 上面的代理，以免出现其他异常
+        _textField2.ba_maxDecimalPointNumber = 2;
+        // 设置首位数是否可以为 0，默认：NO
+        _textField2.ba_isFirstNumberZero = YES;
+        
+        [self.view addSubview:_textField2];
+    }
+    return _textField2;
+}
+
 其他示例可下载 demo 查看源码！
 ```
 
 ## 5、更新记录：【倒叙】
  欢迎使用 [【BAHome】](https://github.com/BAHome) 系列开源代码 ！
  如有更多需求，请前往：[【https://github.com/BAHome】](https://github.com/BAHome) 
+ 
+ 最新更新时间：2017-09-15 【倒叙】<br>
+ 最新Version：【Version：1.0.4】<br>
+ 更新内容：<br>
+ 1.0.4.1、新增 小数点后几位数判断，可以设置小数点后 N位数，还可以判断首位数是否可以为 0<br>
+ 
+ 最新更新时间：2017-08-21 【倒叙】<br>
+ 最新Version：【Version：1.0.3】<br>
+ 更新内容：<br>
+ 1.0.3.1、新增 一次性移除掉 NSUserDefaults 中保存的所有的数据 封装<br>
  
  最新更新时间：2017-06-24 【倒叙】
  最新Version：【Version：1.0.2】
@@ -298,21 +375,52 @@
  1.0.0.6、一行代码搞定 选中所有文字、选中指定范围的文字<br>
  1.0.0.7、一行代码搞定 输入历史记录<br>
  
-## 6、bug 反馈 和 联系方式
+## 6、bug 反馈
 > 1、开发中遇到 bug，希望小伙伴儿们能够及时反馈与我们 BAHome 团队，我们必定会认真对待每一个问题！ <br>
 
 > 2、以后提需求和 bug 的同学，记得把 git 或者博客链接给我们，我直接超链到你们那里！希望大家积极参与测试！<br> 
 
-> 3、联系方式 <br> 
-QQ群：479663605  【注意：此群为 2 元 付费群，介意的小伙伴儿勿扰！】<br> 
-博爱QQ：137361770 <br> 
-博爱微博：[![](https://img.shields.io/badge/微博-博爱1616-red.svg)](http://weibo.com/538298123) <br> 
+## 7、BAHome 团队成员
+> 1、QQ 群 
+479663605 <br> 
+【注意：此群为 2 元 付费群，介意的小伙伴儿勿扰！】<br> 
 
-## 7、开发环境 和 支持版本
-> 开发使用 Xcode Version 8.3.2 (8E2002) ，理论上支持所有 iOS 版本，如有版本适配问题，请及时反馈！多谢合作！
+> 孙博岩 <br> 
+QQ：137361770 <br> 
+git：[https://github.com/boai](https://github.com/boai) <br>
+简书：[http://www.jianshu.com/u/95c9800fdf47](http://www.jianshu.com/u/95c9800fdf47) <br>
+微博：[![](https://img.shields.io/badge/微博-博爱1616-red.svg)](http://weibo.com/538298123) <br>
 
-## 8、感谢
-> 感谢 BAHome 团队成员倾力合作，后期会推出一系列 常用 UI 控件的封装，大家有需求得也可以在 issue 提出，如果合理，我们会尽快推出新版本！<br>
+> 马景丽 <br> 
+QQ：1253540493 <br> 
+git：[https://github.com/MaJingli](https://github.com/MaJingli) <br>
 
-> BAHome 的发展离不开小伙伴儿的信任与推广，再次感谢各位小伙伴儿的支持！
+> 陆晓峰 <br> 
+QQ：442171865 <br> 
+git：[https://github.com/zeR0Lu](https://github.com/zeR0Lu) <br>
+
+> 陈集 <br> 
+QQ：3161182978 <br> 
+git：[https://github.com/chenjipdc](https://github.com/chenjipdc) <br>
+简书：[http://www.jianshu.com/u/90ae559fc21d](http://www.jianshu.com/u/90ae559fc21d)
+
+> 任子丰 <br> 
+QQ：459643690 <br> 
+git：[https://github.com/renzifeng](https://github.com/renzifeng) <br>
+
+> 吴丰收 <br> 
+QQ：498121294 <br> 
+
+> 石少庸 <br> 
+QQ：363605775 <br> 
+git：[https://github.com/CrazyCoderShi](https://github.com/CrazyCoderShi) <br>
+简书：[http://www.jianshu.com/u/0726f4d689a3](http://www.jianshu.com/u/0726f4d689a3)
+
+## 8、开发环境 和 支持版本
+> 开发使用 最新版本 Xcode，理论上支持 iOS 8 及以上版本，如有版本适配问题，请及时反馈！多谢合作！
+
+## 9、感谢
+> 感谢 [BAHome](https://github.com/BAHome) 团队成员倾力合作，后期会推出一系列 常用 UI 控件的封装，大家有需求得也可以在 issue 提出，如果合理，我们会尽快推出新版本！<br>
+
+>  [BAHome](https://github.com/BAHome)  的发展离不开小伙伴儿的信任与推广，再次感谢各位小伙伴儿的支持！
 

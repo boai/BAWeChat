@@ -62,8 +62,25 @@
 
 @interface BAGridItemModel : NSObject
 
+
+/**
+ 可为本地图片名、网络图片 URL
+ */
 @property(nonatomic, copy) NSString *imageName;
+
+/**
+ placdholder 图片名
+ */
+@property(nonatomic, copy) NSString *placdholderImageName;
+
+/**
+ 标题
+ */
 @property(nonatomic, copy) NSString *titleString;
+
+/**
+ 副标题
+ */
 @property(nonatomic, copy) NSString *desc;
 
 @end

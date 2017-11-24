@@ -1,1 +1,1 @@
-../../../BANetManager/BANetManager/UIImage+CompressImage.h
+../../../BANetManager/BANetManager/BANetManager/UIImage+CompressImage.h

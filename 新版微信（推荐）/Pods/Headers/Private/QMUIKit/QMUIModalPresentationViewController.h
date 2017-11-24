@@ -1,1 +1,1 @@
-../../../QMUIKit/QMUIKit/UIComponents/QMUIModalPresentationViewController.h
+../../../QMUIKit/QMUIKit/QMUIComponents/QMUIModalPresentationViewController.h
