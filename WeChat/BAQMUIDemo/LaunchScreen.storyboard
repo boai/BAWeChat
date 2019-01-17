@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController storyboardIdentifier="LaunchScreen" id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_background" translatesAutoresizingMaskIntoConstraints="NO" id="ciz-Ao-3YW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2017 boaiHome All Rights Reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHn-yP-g1c">
+                                <rect key="frame" x="78.666666666666686" y="739" width="218" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BAWeChat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bi-1N-NZX">
+                                <rect key="frame" x="87.666666666666686" y="382" width="200" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3bi-1N-NZX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0oo-85-6ai"/>
+                            <constraint firstItem="jD9-wP-s8s" firstAttribute="bottom" secondItem="rHn-yP-g1c" secondAttribute="bottom" constant="24" id="6E3-ik-49E"/>
+                            <constraint firstItem="jD9-wP-s8s" firstAttribute="trailing" secondItem="ciz-Ao-3YW" secondAttribute="trailing" id="8iL-vn-2RI"/>
+                            <constraint firstItem="rHn-yP-g1c" firstAttribute="centerX" secondItem="jD9-wP-s8s" secondAttribute="centerX" id="HnA-xn-LX6"/>
+                            <constraint firstItem="ciz-Ao-3YW" firstAttribute="leading" secondItem="jD9-wP-s8s" secondAttribute="leading" id="JpO-zp-aUw"/>
+                            <constraint firstAttribute="bottom" secondItem="ciz-Ao-3YW" secondAttribute="bottom" id="RCh-x6-1ux"/>
+                            <constraint firstItem="ciz-Ao-3YW" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Y02-qK-s36"/>
+                            <constraint firstItem="3bi-1N-NZX" firstAttribute="centerX" secondItem="jD9-wP-s8s" secondAttribute="centerX" id="yjx-Eh-gGv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jD9-wP-s8s"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.6305418719212"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launch_background" width="375" height="667"/>
+    </resources>
+</document>
