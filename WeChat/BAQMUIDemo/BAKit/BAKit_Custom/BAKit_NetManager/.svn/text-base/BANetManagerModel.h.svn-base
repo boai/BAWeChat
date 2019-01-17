@@ -1,0 +1,23 @@
+//
+//  BANetManagerModel.h
+//  yunlianWIFI
+//
+//  Created by boai on 2017/4/11.
+//  Copyright © 2017年 yunlianhui. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface BANetManagerModel : NSObject
+
+@property(nonatomic, copy) NSString *platform;
+@property(nonatomic, copy) NSString *osVersion;
+@property(nonatomic, copy) NSString *clientVersion;
+@property(nonatomic, copy) NSString *protocolVersion;
+@property(nonatomic, copy) NSString *sourceId;
+@property(nonatomic, copy) NSString *model;
+@property(nonatomic, copy) NSString *sid;
+@property(nonatomic, copy) NSString *imsi;
+@property(nonatomic, copy) NSString *udid;
+
+@end

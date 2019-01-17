@@ -1,0 +1,199 @@
+{
+"type": "MultiPolygon",
+"coordinates": [
+
+]
+}
+
+// 头像
+http://img.52touxiang.net/uploads/allimg/161209/2030554L0-14.jpg
+http://www.qqtouxiang.com/d/file/qinglv/20170211/2b94349c05e18e0d664d4def395bd428.jpg
+
+http://q.qlogo.cn/qqapp/1105285308/2D05134F80401D12A763CDF3287331B6/100
+
+
+// 图片
+@"http://imgsrc.baidu.com/forum/w%3D580/sign=4aecdc7096dda144da096cba82b6d009/af51f3deb48f8c54d2d5bd4c3b292df5e0fe7f4a.jpg",
+@"http://yun.hainei.org/forum/201511/29/211741jst1c9dypdpquz82.jpg",
+@"http://pic.962.net/up/2012-7/2012070515200911897.jpg",
+@"http://imgsrc.baidu.com/forum/w%3D580/sign=c42ab2bfe850352ab16125006342fb1a/9a504fc2d56285351b046f2991ef76c6a6ef63d6.jpg",
+@"http://imgsrc.baidu.com/forum/pic/item/29381f30e924b8999865a79e6e061d950a7bf63f.jpg",
+@"http://imgsrc.baidu.com/forum/pic/item/6ee43801213fb80e9ec17e2036d12f2eb83894c6.jpg",
+@"http://www.kkeju.com/data/attachment/image/20130720/9c96e4bb50d6d058a82316e5605c9162.jpg",
+@"http://imgsrc.baidu.com/forum/w%3D580/sign=0877b1ad71cf3bc7e800cde4e101babd/7b899e510fb30f242dd9a1a3c995d143ac4b03ca.jpg",
+@"http://imgsrc.baidu.com/forum/pic/item/e61190ef76c6a7ef64f37f8afdfaaf51f2de6641.jpg",
+@"http://img3.fengniao.com/forum/attachpics/697/198/27879556_600.jpg",
+@"http://imgsrc.baidu.com/forum/pic/item/9f2f070828381f30cb964001a9014c086f06f08f.jpg",
+@"http://wx4.sinaimg.cn/mw690/722ed599ly1fconzatfwtj206406474e.jpg",
+@"http://wx3.sinaimg.cn/mw690/722ed599ly1fconzh115oj206406474d.jpg",
+
+http://pic.58pic.com/58pic/15/14/01/23E58PIC2dw_1024.jpg
+http://pic2.ooopic.com/11/84/38/09bOOOPICa0_1024.jpg
+http://cdn.duitang.com/uploads/blog/201408/22/20140822202718_hneZH.jpeg
+http://img2.3lian.com/2014/f2/159/40.jpg
+http://img4.duitang.com/uploads/item/201312/21/20131221161708_z2mKE.jpeg
+http://img3.fengniao.com/forum/attachpics/840/60/33571903_1024.jpg
+http://image92.360doc.com/DownloadImg/2015/12/3122/63804170_1.jpg
+http://img2.3lian.com/2014/f4/102/d/91.jpg
+http://img5.duitang.com/uploads/item/201504/19/20150419H0914_rf5xj.thumb.700_0.jpeg
+http://images.sx.dagongnet.com/2013/1010/20131010103819706.jpg
+
+http://pic.58pic.com/58pic/15/12/54/94758PICNwY_1024.jpg
+
+
+
+// progressive jpeg
+@"https://s-media-cache-ak0.pinimg.com/1200x/2e/0c/c5/2e0cc5d86e7b7cd42af225c29f21c37f.jpg",
+
+// animated gif: http://cinemagraphs.com/
+@"http://i.imgur.com/uoBwCLj.gif",
+@"http://i.imgur.com/8KHKhxI.gif",
+@"http://i.imgur.com/WXJaqof.gif",
+
+// animated gif: https://dribbble.com/markpear
+@"https://d13yacurqjgara.cloudfront.net/users/345826/screenshots/1780193/dots18.gif",
+@"https://d13yacurqjgara.cloudfront.net/users/345826/screenshots/1809343/dots17.1.gif",
+@"https://d13yacurqjgara.cloudfront.net/users/345826/screenshots/1845612/dots22.gif",
+@"https://d13yacurqjgara.cloudfront.net/users/345826/screenshots/1820014/big-hero-6.gif",
+@"https://d13yacurqjgara.cloudfront.net/users/345826/screenshots/1819006/dots11.0.gif",
+@"https://d13yacurqjgara.cloudfront.net/users/345826/screenshots/1799885/dots21.gif",
+
+// animaged gif: https://dribbble.com/jonadinges
+@"https://d13yacurqjgara.cloudfront.net/users/288987/screenshots/2025999/batman-beyond-the-rain.gif",
+@"https://d13yacurqjgara.cloudfront.net/users/288987/screenshots/1855350/r_nin.gif",
+@"https://d13yacurqjgara.cloudfront.net/users/288987/screenshots/1963497/way-back-home.gif",
+@"https://d13yacurqjgara.cloudfront.net/users/288987/screenshots/1913272/depressed-slurp-cycle.gif",
+
+// jpg: https://dribbble.com/snootyfox
+@"https://d13yacurqjgara.cloudfront.net/users/26059/screenshots/2047158/beerhenge.jpg",
+@"https://d13yacurqjgara.cloudfront.net/users/26059/screenshots/2016158/avalanche.jpg",
+@"https://d13yacurqjgara.cloudfront.net/users/26059/screenshots/1839353/pilsner.jpg",
+@"https://d13yacurqjgara.cloudfront.net/users/26059/screenshots/1833469/porter.jpg",
+@"https://d13yacurqjgara.cloudfront.net/users/26059/screenshots/1521183/farmers.jpg",
+@"https://d13yacurqjgara.cloudfront.net/users/26059/screenshots/1391053/tents.jpg",
+@"https://d13yacurqjgara.cloudfront.net/users/26059/screenshots/1399501/imperial_beer.jpg",
+@"https://d13yacurqjgara.cloudfront.net/users/26059/screenshots/1488711/fishin.jpg",
+@"https://d13yacurqjgara.cloudfront.net/users/26059/screenshots/1466318/getaway.jpg",
+
+// animated webp and apng: http://littlesvr.ca/apng/gif_apng_webp.html
+@"http://littlesvr.ca/apng/images/BladeRunner.png",
+@"http://littlesvr.ca/apng/images/Contact.webp",
+
+
+// Mp4
+@"http://baobab.wdjcdn.com/1456117847747a_x264.mp4",
+@"http://baobab.wdjcdn.com/14525705791193.mp4",
+@"http://baobab.wdjcdn.com/1456459181808howtoloseweight_x264.mp4",
+@"http://baobab.wdjcdn.com/1455968234865481297704.mp4",
+@"http://baobab.wdjcdn.com/1455782903700jy.mp4",
+@"http://baobab.wdjcdn.com/14564977406580.mp4"
+@"http://baobab.wdjcdn.com/1456665467509qingshu.mp4",
+@"http://wvideo.spriteapp.cn/video/2016/0328/56f8ec01d9bfe_wpd.mp4",
+@"http://baobab.wdjcdn.com/1456316686552The.mp4",
+
+
+
+
+
+//    NSArray *iconImageNamesArray = @[
+//                                     @"http://ww2.sinaimg.cn/thumbnail/642beb18gw1ep3629gfm0g206o050b2a.gif",
+//                                     @"http://imgsrc.baidu.com/forum/w%3D580/sign=4aecdc7096dda144da096cba82b6d009/af51f3deb48f8c54d2d5bd4c3b292df5e0fe7f4a.jpg",
+//                                     @"http://yun.hainei.org/forum/201511/29/211741jst1c9dypdpquz82.jpg",
+//                                     @"http://pic.962.net/up/2012-7/2012070515200911897.jpg",
+//                                     @"http://imgsrc.baidu.com/forum/w%3D580/sign=c42ab2bfe850352ab16125006342fb1a/9a504fc2d56285351b046f2991ef76c6a6ef63d6.jpg",
+//                                     @"http://imgsrc.baidu.com/forum/pic/item/29381f30e924b8999865a79e6e061d950a7bf63f.jpg",
+//                                     @"http://imgsrc.baidu.com/forum/pic/item/6ee43801213fb80e9ec17e2036d12f2eb83894c6.jpg",
+//                                     @"http://www.kkeju.com/data/attachment/image/20130720/9c96e4bb50d6d058a82316e5605c9162.jpg",
+//                                     @"http://imgsrc.baidu.com/forum/w%3D580/sign=0877b1ad71cf3bc7e800cde4e101babd/7b899e510fb30f242dd9a1a3c995d143ac4b03ca.jpg",
+//                                     @"http://imgsrc.baidu.com/forum/pic/item/e61190ef76c6a7ef64f37f8afdfaaf51f2de6641.jpg",
+//                                     @"http://img3.fengniao.com/forum/attachpics/697/198/27879556_600.jpg",
+//                                     @"http://imgsrc.baidu.com/forum/pic/item/9f2f070828381f30cb964001a9014c086f06f08f.jpg",
+//                                     @"http://wx4.sinaimg.cn/mw690/722ed599ly1fconzatfwtj206406474e.jpg",
+//                                     @"http://wx3.sinaimg.cn/mw690/722ed599ly1fconzh115oj206406474d.jpg"
+//                                     ];
+//
+//    NSArray *namesArray = @[@"博爱",
+//                            @"小明",
+//                            @"陆晓峰",
+//                            @"石少庸是小明的老师",
+//                            @"石少庸"];
+//
+//    NSArray *textArray = @[@"耳机只要一取出，就可与你的各种设备配合使用。将它们戴入耳中，瞬间便完成连接。对它们讲话时，你的声音格外清晰。全新 AirPods，令简约与技术的融合更胜以往，带来妙处连连。",
+//                           @"简单轻点一下即可完成设置，然后 AirPods 便自动开启并始终保持连接1。(http://boaihome.com)使用也同样轻轻松松，一戴入耳中它们即可感知，一取出就会暂停播放。(https://github.com/boai)无论是聆听你的 iPhone、Apple Watch、iPad，还是 Mac 上的内容，使用 AirPods 的体验都同样精彩。",
+//                           @"与你喜爱的私人助理交谈轻而易举。",
+//                           @"AirPods 的所有创举均得益于 Apple(http://boaihome.com) 特别设计的 W1 芯片。它带来十分高效的无线性能，从而提供更佳的连接和更好的音质。【晓峰电话：18566664494】W1 芯片对电池续航时间的管理十分出色，一次充电即可让你尽情聆听 5 小时3。如此高性能，集成在如此小巧的设备中，闻所未闻。",
+//                           @"AirPods 一次充电可聆听 5 小时3，表现出众。再加上充电盒能存储多次额外充电的电量，满足超过 24 小时的续航， AirPods 更能与你时刻相伴4。(https://www.baidu.com)需要快速充电？只需放入充电盒中 15 分钟即可获得最长可达 3 小时的聆听时间5。【博爱电话：[tel:10010]】要查看电池电量，只需将 AirPods 靠近你的 iPhone，或者问问 Siri 你的 AirPods 还剩多少电量。",
+//                           @"Multi-Touch Bar 取代了以往键盘最上方的功能键，为你带来更多能、更实用的功能2。它会根据你当前的操作自动显示不同的样子，呈现给你相关的工具，比如系统控制键里的音量和亮度、互动操作中的调整和内容浏览工具、智能输入功能中的表情符号和文本输入预测等等，这些都是你早就运用自如的。此外，Touch ID 功能也首次登陆 Mac，让你可以在转瞬之间完成登录等各种操作。",
+//                           @"新一代 MacBook Pro 的推出，将笔记本电脑的性能与便携性提升到一个新的高度。无论你的目标有多远大，它强劲的图形处理器、高性能的中央处理器、先进的存储设备，以及众多强大配置，都能助你加速实现创意构想。",
+//                           @"各行各业， 都是专业利器。",
+//                           @"MacBook Pro 配备的是更胜以往的 Mac 笔记本电脑显示屏。它采用比以往亮度更高的 LED 背光组件，并且提升了对比度，因此呈现出来的黑色更加深邃，白色更加明亮。更大的像素孔径和可变的刷新率，使它比上一代机型能效更高。而且，全新 MacBook Pro 是首款拥有广色域的 Mac 笔记本电脑，可以使绿色和红色的显示效果更加鲜艳生动，让画面的细节鲜明毕现，栩栩如生。对于图形设计、调色和影像编辑来说，这一点至关重要。"
+//                           ];
+//    NSArray *timeArray = @[@"2017-01-06 16:08:01",
+//                           @"2017-01-11 19:25:01",
+//                           @"2017-01-12 16:30:01",
+//                           @"2017-01-10 18:09:01",
+//                           @"2017-01-12 11:18:01"];
+//
+//    NSArray *sourceArray = @[@"iPhone 7 黑",
+//                             @"iPhone 7 亮黑",
+//                             @"iPhone 7 Plus 亮黑",
+//                             @"锤子 M1L 白金",
+//                             @"锤子 T3 珊瑚蓝"];
+//
+//    NSArray *picImageNamesArray = @[
+//                                    @"http://pic.58pic.com/58pic/15/14/01/23E58PIC2dw_1024.jpg",
+//                                    @"http://pic2.ooopic.com/11/84/38/09bOOOPICa0_1024.jpg",
+//                                    @"http://cdn.duitang.com/uploads/blog/201408/22/20140822202718_hneZH.jpeg",
+//                                    @"http://img2.3lian.com/2014/f2/159/40.jpg",
+//                                    @"http://img4.duitang.com/uploads/item/201312/21/20131221161708_z2mKE.jpeg",
+//                                    @"http://img3.fengniao.com/forum/attachpics/840/60/33571903_1024.jpg",
+//                                    @"http://baobab.wdjcdn.com/1455782903700jy.mp4",
+//                                    @"http://baobab.wdjcdn.com/14564977406580.mp4",
+//                                    @"http://baobab.wdjcdn.com/1456665467509qingshu.mp4",
+//                                    @"http://wvideo.spriteapp.cn/video/2016/0328/56f8ec01d9bfe_wpd.mp4",
+//                                    @"http://baobab.wdjcdn.com/1456316686552The.mp4",
+//                                    @"http://image92.360doc.com/DownloadImg/2015/12/3122/63804170_1.jpg",
+//                                    @"http://img2.3lian.com/2014/f4/102/d/91.jpg",
+//                                    @"http://img5.duitang.com/uploads/item/201504/19/20150419H0914_rf5xj.thumb.700_0.jpeg",
+//                                    @"http://images.sx.dagongnet.com/2013/1010/20131010103819706.jpg",
+//                                    @"http://pic.58pic.com/58pic/15/12/54/94758PICNwY_1024.jpg",
+//                                    @"http://wx4.sinaimg.cn/mw690/722ed599ly1fconzatfwtj206406474e.jpg",
+//                                    @"http://wx3.sinaimg.cn/mw690/722ed599ly1fconzh115oj206406474d.jpg"
+//                                    ];
+//
+//    for (NSInteger i = 0; i < count; i++)
+//    {
+//        BAUser *user = [[BAUser alloc] init];
+//        user.name = namesArray[BAKit_RandomNumber(namesArray.count-1)];
+//        user.profile_image_url = iconImageNamesArray[BAKit_RandomNumber(iconImageNamesArray.count-1)];
+//
+//        BATimeLineModel *model = [[BATimeLineModel alloc] init];
+//        model.user = user;
+//        model.content = textArray[BAKit_RandomNumber(textArray.count-1)];
+//        model.created_time = timeArray[BAKit_RandomNumber(timeArray.count-1)];
+//        model.source = sourceArray[BAKit_RandomNumber(sourceArray.count-1)];
+//
+//        NSInteger random = BAKit_RandomNumber(9);
+//        NSMutableArray *temp = [NSMutableArray array];
+//        for (NSInteger i = 0; i < random; i++)
+//        {
+//            [temp addObject:picImageNamesArray[i]];
+//        }
+//        if (temp.count > 0)
+//        {
+//            model.pic_urls = [temp copy];
+//        }
+//
+//        [self.dataArray addObject:model];
+//    }
+//
+//    NSMutableArray *statusF = [NSMutableArray array];
+//    for (BATimeLineModel *model in self.dataArray)
+//    {
+//        BATimeLineViewModel *viewModel = [[BATimeLineViewModel alloc] init];
+//        viewModel.model = model;
+//        [statusF addObject:viewModel];
+//    }
+//    [self.viewModelArray addObjectsFromArray:statusF];
+
+

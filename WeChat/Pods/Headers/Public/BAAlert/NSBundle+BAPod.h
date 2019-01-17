@@ -1,0 +1,1 @@
+../../../BAAlert/BAAlert/Classes/BAAlert/NSBundle+BAPod.h
