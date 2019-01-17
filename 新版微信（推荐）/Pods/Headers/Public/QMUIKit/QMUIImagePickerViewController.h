@@ -1,1 +1,0 @@
-../../../QMUIKit/QMUIKit/QMUIComponents/ImagePickerLibrary/QMUIImagePickerViewController.h
